@@ -1,22 +1,5 @@
-package ProvidedCode;
+package LastLight;
 
-
-/**
- ******************************************************************************
- *                    HOMEWORK 2, cs201
- ******************************************************************************
- *                    Amortized Dictionary
- ******************************************************************************
- *
- * A diagnostic class for your Dictionary implementation.
- *
- * Make sure you perform much more rigorous testing!!!
- * This class alone is *NOT* sufficient.
- *
- * For the Java literate, this class uses Java Exceptions and Reflections to
- * emulate the functionality of JUnit testing.
- *
- *****************************************************************************/
 
 
 public class TestingDriver
