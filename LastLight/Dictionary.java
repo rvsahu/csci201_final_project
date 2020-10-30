@@ -1,15 +1,33 @@
-package LastLight;
-
+package ProvidedCode;
 
 import java.util.Arrays;
 import java.util.Queue;
 
 /**
+ ******************************************************************************
+ *                    HOMAnyTypeWORK-2, cs201
+ ******************************************************************************
+ *                    Amortized Dictionary
+ ******************************************************************************
  *
  * Implementation of an Amortized Array-Based Dictionary data structure.
  *
- * This data structure supports duplicates and does not support storage of
+ * This data structure supports duplicates and does *NOT* support storage of
  * null references.
+ *
+ * Notes:
+ * 		-It is *highly* recommended that you begin by reading over all the methods,
+ *       all the comments, and all the code that has already been written for you.
+ *
+ * 		-the specifications provided are to help you understand what the methods
+ *       are supposed to accomplish.
+ * 		-they are *NOT* descriptions for how you should implement the methods.
+ * 		-See the lab documentation & lecture notes for implementation details.
+ *
+ * 		-Some of the helper methods specify a runtime cost; make sure your
+ *       implementation meets that requirement.
+ * 		-(Also, obviously, if the lecture notes and/or the lab documentation specifies
+ *       a runtime cost for a method, you need to pay attention to that).
  *
  *
  *****************************************************************************/
@@ -19,7 +37,7 @@ import java.util.Queue;
 public class Dictionary<AnyType extends Comparable<AnyType>>  implements DictionaryInterface<AnyType>
 {
 	/*
-	 * Keeps track of the number of elements in the dictionary.
+	1 * Keeps track of the number of elements in the dictionary.
 	 * Take a look at the implementation of size()
 	 */
 	private int size;
@@ -49,6 +67,9 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 		{
 			return;
 		}
+		/*
+		 * Your code goes here...
+		 */
 		//1. add a new array with power 0 and insert e to it
 		Comparable<AnyType>[] arr = new Comparable[1];
 		arr[0] = e;
@@ -141,6 +162,14 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 		mergeDown();
 	}
 
+		/*
+		 * Your code goes here...
+		 */
+		/*size--;
+
+		throw new RuntimeException("You need to implement this method!");
+	}
+
 	/**
 	 * Returns true iff the dictionary contains an element equal to e.
 	 */
@@ -177,6 +206,11 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 		{
 			return true;
 		}
+		/*
+		 * Your code goes here...
+		 */
+
+		//throw new RuntimeException("You need to implement this method!");
 	}
 
 	/**
@@ -201,6 +235,7 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 			current = current.next;
 		}
 		return counter;
+		//throw new RuntimeException("You need to implement this method!");
 	}
 
 	/**
@@ -231,7 +266,9 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 		{
 			return;
 		}
-
+		/*
+		 * Your code goes here...
+		 */
 		
 		//1. this is empty, other is not empty
 		//then just point to other and return?
@@ -395,6 +432,9 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static int frequency(Comparable[] a, Comparable item)
 	{
+		/*
+		 * Your code goes here...
+		 */
 		int count = 0;
 		int x = binarySearch(a, item);
 		
@@ -437,6 +477,18 @@ public class Dictionary<AnyType extends Comparable<AnyType>>  implements Diction
 	 * O(a.length + b.length)
 	 */
 	
+	//@SuppressWarnings({ "unchecked", "rawtypes" })
+	//public static Comparable[] merge(Comparable[] a, Comparable[] b)
+	//{
+		/*
+		 * Your code goes here...
+		 */
+		//Comparable[] merged = new Comparable[a.length + b.length];
+		//System.arraycopy(a, 0, merged, 0, a.length);
+		//System.arraycopy(b, 0, merged, a.length, b.length);
+		//mergeHelper(merged, merged.length);
+		//return merged;
+	//}
 public static Comparable[] merge(Comparable[] a, Comparable[] b)	
 {
 	
@@ -484,6 +536,28 @@ public static Comparable[] merge(Comparable[] a, Comparable[] b)
 }
 
 
+/*    static void mergeHelper(Comparable[] merged, int n) 
+    { 
+        // return if the list has size 1 or smaller--nothing to sort
+        if (n <= 1) 
+            return; 
+       
+        // recursive call on the smaller list
+        mergeHelper(merged, n-1); 
+       
+        // Insert last element at its correct position 
+        // in sorted array. 
+        Comparable last = merged[n-1]; 
+        int j = n-2; 
+    
+        
+        while (j >= 0 && merged[j].compareTo(last) > 0) 
+        { 
+            merged[j+1] = merged[j]; 
+            j = j - 1; 
+        } 
+        merged[j+1] = last; 
+    } */
 	/**
 	 * Returns base^exponent.  This is useful for implementing splitUp(a,k)
 	 */
@@ -531,6 +605,7 @@ public static Comparable[] merge(Comparable[] a, Comparable[] b)
 		}
 		
 		return q;
+		//throw new RuntimeException("You need to implement this method!");
 	}
 
 	/**
@@ -540,6 +615,11 @@ public static Comparable[] merge(Comparable[] a, Comparable[] b)
 	 * 			-knows k, its "power"
 	 * 			-has myArray, a sorted array of 2^k elements
 	 * 			-knows myNext, the next Node in the linked list of Nodes
+	 *
+	 * You do *NOT* need to change this class.
+	 * It is, however, very important that you understand how it works.
+	 * You may add additional methods, although you have been provided with sufficient
+	 * functionality needed to implement the dictionary.
 	 */
 	@SuppressWarnings("unchecked")
 	private static class Node

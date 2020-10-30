@@ -1,4 +1,4 @@
-package LastLight;
+package ProvidedCode;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,6 +10,7 @@ public class Main {
 	static Scanner scanner;
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		scanner = new Scanner(System.in);
 		Gson gson = new Gson();
 		String filename = new String();
