@@ -17,12 +17,26 @@ public abstract class RoomObject {
 	//logic variables
 	private String name;
 	
+	public RoomObject() {
+	}
+	
+	public RoomObject(String name) {
+		this.name = name;
+	}
+	
 	/**
 	 * Returns whether the RoomObject holds an item or otherwise.
 	 * 
 	 * @return     True if it holds items, false if it doesn't, regardless of if capable.
 	 */
 	public abstract boolean hasItems();
+	
+	/**
+	 * Returns whether the RoomObject contains information or otherwise.
+	 * 
+	 * @return     True if it has info, false if it doesn't, regardless of if capable.
+	 */
+	public abstract boolean hasInfo();
 	
 	/**
 	 * Graphical method, sets the x and y positions of the object image on the screen

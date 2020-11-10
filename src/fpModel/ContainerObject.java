@@ -14,6 +14,16 @@ public abstract class ContainerObject extends RoomObject {
 		this.items = items;
 	}
 	
+	public ContainerObject(String name) {
+		super(name);
+		items = new ArrayList<Item>();
+	}
+	
+	public ContainerObject(String name, List<Item> items) {
+		super(name);
+		this.items = items;
+	}
+	
 	@Override
 	public boolean hasItems() {
 		return items.isEmpty();
