@@ -1,9 +1,7 @@
 package fpModel;
 
-public class Couch extends RoomObject{
+public class Cat extends RoomObject{
 
-	boolean standable = false;
-	
 	@Override
 	public boolean hasItems() {
 		// TODO Auto-generated method stub
@@ -16,8 +14,4 @@ public class Couch extends RoomObject{
 		return false;
 	}
 
-
-	public void standable() {
-		standable = true;
-	}
 }
