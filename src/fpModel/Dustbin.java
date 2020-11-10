@@ -19,4 +19,10 @@ public class Dustbin extends ContainerObject {
 	public Dustbin(String name, List<Item> items) {
 		super(name, items);
 	}
+
+	@Override
+	public Item removeItem(int itemIndex) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
