@@ -39,11 +39,13 @@ public abstract class ContainerObject extends RoomObject {
 	}
 	
 	public void removeItem(Item item) {
-		
+		if (items.contains(item)) {
+			
+		}
 	}
 	
-	
-	
-	public abstract Item takeItem(int itemIndex);
+	public Item removeItem(int itemIndex) {
+		return items.remove(itemIndex);
+	}
 	
 }
