@@ -1,21 +1,38 @@
 package fpModel;
 
 public abstract class InfoObject extends RoomObject {
-
+	String info;
+	
 	public InfoObject() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public InfoObject(String name) {
+		super(name);
+	}
+	
+	public InfoObject(String name, String info) {
+		super(name);
+		this.info = info;
 	}
 
 	@Override
 	public boolean hasItems() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean hasInfo() {
-		// TODO Auto-generated method stub
-		return false;
+		return !(info == null || info.equals(""));
 	}
-
+	
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	
+	public String getInfo() {
+		String temp = new String(info);
+		info = null;
+		return temp;
+	}
 }

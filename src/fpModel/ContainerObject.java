@@ -29,12 +29,20 @@ public abstract class ContainerObject extends RoomObject {
 		return items.isEmpty();
 	}
 	
+	@Override
+	public boolean hasInfo() {
+		return false;
+	}
+	
 	public List<Item> getItems() {
 		return items;
 	}
 	
 	public void removeItem(Item item) {
+		
 	}
+	
+	
 	
 	public abstract Item takeItem(int itemIndex);
 	
