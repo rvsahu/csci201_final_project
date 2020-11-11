@@ -84,6 +84,12 @@ public class Setup {
 	}
 	
 	private static Room setupStudy3() { //PATROCK
+		Room ret = new Room("Study3");
+		ret.addToFront(new Dustbin());
+		Couch c = new Couch();
+		c.
+		ret.addToBack(new Couch());
+		ret.addToLeft(new CoinObject());
 		return null;
 	}
 	

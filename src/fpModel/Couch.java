@@ -2,7 +2,7 @@ package fpModel;
 
 public class Couch extends RoomObject{
 
-	boolean standable = false;
+	private boolean standable = false;
 	
 	@Override
 	public boolean hasItems() {
@@ -19,5 +19,13 @@ public class Couch extends RoomObject{
 
 	public void standable() {
 		standable = true;
+	}
+	
+	public void notStandable() {
+		standable = false;
+	}
+	
+	public boolean IsStandable() {
+		return standable;
 	}
 }
