@@ -2,21 +2,21 @@ package fpModel;
 
 import java.util.List;
 
-public class CoinObject extends ContainerObject{
+public class ChocolateObject extends ContainerObject{
 
-	public CoinObject() {
+	public ChocolateObject() {
 		//nothing
 	}
 
-	public CoinObject(List<Item> items) {
+	public ChocolateObject(List<Item> items) {
 		super(items);
 	}
 
-	public CoinObject(String name) {
+	public ChocolateObject(String name) {
 		super(name);
 	}
 
-	public CoinObject(String name, List<Item> items) {
+	public ChocolateObject(String name, List<Item> items) {
 		super(name, items);
 	}
 	
@@ -25,5 +25,4 @@ public class CoinObject extends ContainerObject{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }
