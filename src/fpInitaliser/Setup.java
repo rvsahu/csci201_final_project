@@ -1,6 +1,7 @@
 package fpInitaliser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fpModel.*;
 
@@ -148,10 +149,13 @@ public class Setup {
 		MainA.addToRight(table);
 		
 		//back
-		Table table1 = new Table();
-		Table table2 = new Table();
-		MainA.addToBack(table1);
-		MainA.addToBack(table2);
+		Notebook notebook = new Notebook();
+		MainA.addToBack(notebook);
+		List<Item> list;
+		list.add(notebook);
+		Table table1 = new Table(notebook);
+		MainA.addToBack(table1);;
+		
 		
 		//left
 		//add a doorway
@@ -200,6 +204,7 @@ public class Setup {
 		MainB.addToRight(drawing);
 		
 		
+		
 		//B
 		//facing Main A
 		
@@ -214,32 +219,69 @@ public class Setup {
 		
 		//F
 		//add a door
-		//office coral
-		
+		Computer computer1 = new Computer();
+		MainC.addToFront(computer1);
+		Computer computer2 = new Computer();
+		MainC.addToFront(computer2);
+		Table table = new Table();
+		MainC.addToFront(table);
+		//file cabs
+		FileCabs filecab = new FileCabs();
+		MainC.addToFront(filecab);
+		OfficeSupplies os = new OfficeSupplies();
+		MainC.addToFront(os);
 		
 		//R
+		//view of main b
+		Table table1 = new Table();
+		MainC.addToFront(table1);
+		Couch couch = new Couch();
+		MainC.addToFront(couch);
+		VendingMachine vendingmachine = new VendingMachine();
+		MainC.addToFront(vendingmachine);
 		
 		//B
 		
+		Plant plant = new Plant();
+	    MainC.addToBack(plant);
+		Table table2 = new Table();
+		MainC.addToBack(table2);
+		Table table3 = new Table();
+		MainC.addToBack(table3);
+		Chair chair = new Chair();
+		MainC.addToBack(chair);
+		Chair chair1 = new Chair();
+		MainC.addToBack(chair1);
 		
 		//L
 		Dustbin dustbin = new Dustbin();
 		MainC.addToLeft(dustbin);
-		//add an exit
-		
-		return null;
+		return MainC;
 	}
 	private static Room setupMainD() {  //ERICA
 		Room MainD = new Room("MainD");
 		
 		//F
+		//view of main C
 		
 		//R
-		
+		//view of main A
+		Table table1 = new Table();
+		MainD.addToFront(table1);
+		Couch couch = new Couch();
+		MainD.addToFront(couch);
+
 		//B
+		//exit sign
+		
+		
 		
 		//L
-		return null;
+		//add a door
+		Drawing drawing = new Drawing();
+		MainD.addToLeft(drawing);
+		
+		return MainD;
 	}
 	
 	private static Room setupStudy1() { //PATRICK
