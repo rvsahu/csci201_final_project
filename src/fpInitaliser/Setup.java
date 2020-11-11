@@ -35,7 +35,18 @@ public class Setup {
 		 * Study Room Connections
 		 * Annex-1, Annex-2, Annex-3, Annex-4
 		 */
-		
+		Doorway annex_study1 = new Doorway();
+		annex.addExitRight(annex_study1);
+		study1.addExitLeft(annex_study1);
+		Doorway annex_study2 = new Doorway();
+		annex.addExitRight(annex_study2);
+		study2.addExitLeft(annex_study2);
+		Doorway annex_study3 = new Doorway();
+		annex.addExitBack(annex_study3);
+		study3.addExitFront(annex_study3);
+		Doorway annex_study4 = new Doorway();
+		annex.addExitBack(annex_study4);
+		study4.addExitFront(annex_study4);
 		
 		
 		Doorway annex_mainA = new Doorway();
@@ -64,6 +75,11 @@ public class Setup {
 		Doorway mainD_hallway1 = new Doorway();
 		mainD.addExitBack(mainD_hallway1);
 		hallway1.addExitFront(mainD_hallway1);
+		
+		Doorway mainD_lab1 = new Doorway();
+		mainD.addExitLeft(mainD_lab1);
+		lab1.addExitRight(mainD_lab1);
+		
 		//Hallway 1
 		
 		Doorway hallway1_hallway2 = new Doorway();
@@ -272,7 +288,7 @@ public class Setup {
 		Room ret = new Room("Study1");
 		ret.addToRight(new Computer());
 		ret.addToLeft(new Dustbin());
-		return null;
+		return ret;
 	}
 	
 	private static Room setupStudy2() { //PATRICK
@@ -280,7 +296,7 @@ public class Setup {
 		ret.addToRight(new Computer());
 		ret.addToLeft(new CoinObject());
 		ret.addToLeft(new CoinObject());
-		return null;
+		return ret;
 	}
 	
 	private static Room setupStudy3() { //PATROCK
@@ -289,11 +305,18 @@ public class Setup {
 		Couch c = new Couch();
 		ret.addToBack(new Couch());
 		ret.addToLeft(new CoinObject());
-		return null;
+		return ret;
 	}
 	
 	private static Room setupStudy4() { //PATRICK
-		return null;
+		Room ret = new Room("Study4");
+		ret.addToFront(new Dustbin());
+		ret.addToRight(new Couch());
+		ret.addToBack(new Computer());
+		ret.addToBack(new Couch());
+		ret.addToBack(new Couch());
+		ret.addToLeft(new Couch());
+		return ret;
 	}
 	
 	private static Room setupCove() { //RAHUL
@@ -305,7 +328,10 @@ public class Setup {
 	}
 	
 	private static Room setupHallway1() { //PATRICK
-		return null;
+		Room ret = new Room("Hallway1");
+		ret.addToFront(new Phone());
+		ret.addToBack(new Keypad());
+		return ret;
 	}
 	
 	private static Room setupHallway2() { //RAHUL
@@ -317,6 +343,8 @@ public class Setup {
 	}
 	
 	private static Room setupWomensRoom() { //PATRICK
-		return null;
+		Room ret = new Room("WomensRoom");
+		ret.addToRight(new Computer());
+		return ret;
 	}
 }
