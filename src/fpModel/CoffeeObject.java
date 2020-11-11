@@ -1,27 +1,15 @@
 package fpModel;
 
-import java.util.List;
-
-public class CoffeeObject extends ContainerObject{
+public class CoffeeObject extends WrapperObject {
 	public CoffeeObject() {
-		//nothing
-	}
-
-	public CoffeeObject(List<Item> items) {
-		super(items);
-	}
-
-	public CoffeeObject(String name) {
-		super(name);
-	}
-
-	public CoffeeObject(String name, List<Item> items) {
-		super(name, items);
+		super("coffee_obj", new Item("coffee"));
 	}
 	
-	@Override
-	public Item removeItem(int itemIndex) {
-		// TODO Auto-generated method stub
-		return null;
+	public CoffeeObject(String name) {
+		super(name, new Item("coffee"));
+	}
+	
+	public CoffeeObject(String name, String itemName) {
+		super(name, new Item(itemName));
 	}
 }
