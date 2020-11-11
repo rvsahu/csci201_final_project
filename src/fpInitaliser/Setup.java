@@ -162,6 +162,7 @@ public class Setup {
 		MainB.addToFront(couch2);
 		Couch couch3 = new Couch();
 		MainB.addToFront(couch3);
+
 		
 		Chair chair1 = new Chair();
 		MainB.addToFront(chair1);
@@ -172,10 +173,14 @@ public class Setup {
 		
 		Scanner scanner = new Scanner();
 		MainB.addToFront(scanner);
+
 		
+		//Chair chair1 = new chair();
+		//MainB.addToFront(chair1);
 		//R
 		Drawing drawing = new Drawing();
 		MainB.addToRight(drawing);
+		
 		
 		//B
 		//facing Main A

@@ -14,5 +14,11 @@ public class Chair extends RoomObject {
 		return false;
 	}
 
+	@Override
+	public boolean wrapsItem() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 }
