@@ -21,6 +21,26 @@ public class Setup {
 	}
 	
 	private static Room setupMainA() { //ERICA
+		
+		Room MainA = new Room("mainA");
+		//front
+		//row of computers
+		Computer comp1 = new Computer();
+		Computer comp2 = new Computer();
+		Computer comp3 = new Computer();
+		Computer comp4 = new Computer();
+		Computer comp5 = new Computer();
+		Computer comp6 = new Computer();
+		Computer comp7 = new Computer();
+		
+		//Whiteboard whiteboard = new Whiteboard();
+		//Chair chair1 = new chair();
+		//right
+		
+		//back
+		
+		//left
+		
 		return null;
 	}
 	
