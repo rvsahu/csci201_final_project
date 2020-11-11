@@ -25,7 +25,14 @@ public abstract class RoomObject {
 	}
 	
 	/**
-	 * Returns whether the RoomObject holds an item or otherwise.
+	 * Returns whether the RoomObject wraps an item or otherwise.
+	 * 
+	 * @return     True if it wraps an item, false if it doesn't, regardless of if capable.
+	 */
+	public abstract boolean wrapsItem();
+	
+	/**
+	 * Returns whether the RoomObject holds items or otherwise.
 	 * 
 	 * @return     True if it holds items, false if it doesn't, regardless of if capable.
 	 */

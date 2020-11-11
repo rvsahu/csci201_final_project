@@ -24,13 +24,15 @@ public abstract class ContainerObject extends RoomObject {
 		this.items = items;
 	}
 	
-	@Override
-	public boolean hasItems() {
+	@Override public boolean hasItems() {
 		return items.isEmpty();
 	}
 	
-	@Override
-	public boolean hasInfo() {
+	@Override public boolean hasInfo() {
+		return false;
+	}
+	
+	@Override public boolean wrapsItem() {
 		return false;
 	}
 	
@@ -40,7 +42,7 @@ public abstract class ContainerObject extends RoomObject {
 	
 	public void removeItem(Item item) {
 		if (items.contains(item)) {
-			
+			items.remove(items.indexOf(item));
 		}
 	}
 	

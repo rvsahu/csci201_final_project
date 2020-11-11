@@ -2,28 +2,16 @@ package fpModel;
 
 import java.util.List;
 
-public class CoinObject extends ContainerObject{
-
+public class CoinObject extends WrapperObject {
 	public CoinObject() {
-		//nothing
-	}
-
-	public CoinObject(List<Item> items) {
-		super(items);
-	}
-
-	public CoinObject(String name) {
-		super(name);
-	}
-
-	public CoinObject(String name, List<Item> items) {
-		super(name, items);
+		super("coin_obj", new Item("coin"));
 	}
 	
-	@Override
-	public Item removeItem(int itemIndex) {
-		// TODO Auto-generated method stub
-		return null;
+	public CoinObject(String name) {
+		super(name, new Item("coin"));
 	}
-
+	
+	public CoinObject(String name, String itemName) {
+		super(name, new Item(itemName));
+	}
 }

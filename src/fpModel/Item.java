@@ -1,6 +1,6 @@
 package fpModel;
 
-public abstract class Item {
+public class Item {
 	/**
 	 * Item name, used for quick equality comparisons
 	 */

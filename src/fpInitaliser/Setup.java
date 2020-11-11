@@ -20,11 +20,55 @@ public class Setup {
 		Room hallway2 = setupHallway2();
 		Room mensRoom = setupMensRoom();
 		Room womensRoom = setupWomensRoom();
-		//Doorways
+		
+		//ALL CONNECTIONS
+		
+		//Annex
+		
 		Doorway annex_cove = new Doorway();
 		annex.addExitRight(annex_cove);
 		cove.addExitLeft(annex_cove);
 		
+		/*
+		 * Study Room Connections
+		 * Annex-1, Annex-2, Annex-3, Annex-4
+		 */
+		
+		
+		
+		Doorway annex_mainA = new Doorway();
+		annex.addExitLeft(annex_mainA);
+		mainA.addExitRight(annex_mainA);
+		
+		//Main
+		
+		/*
+		 * main room internal connections
+		 * A-D, A-B, B-C, C-D
+		 */
+		Doorway mainA_mainD = new Doorway();
+		mainA.addExitLeft(mainA_mainD);
+		mainD.addExitRight(mainA_mainD);
+		Doorway mainA_mainB = new Doorway();
+		mainA.addExitFront(mainA_mainB);
+		mainB.addExitBack(mainA_mainB);
+		Doorway mainB_mainC = new Doorway();
+		mainB.addExitLeft(mainB_mainC);
+		mainC.addExitRight(mainB_mainC);
+		Doorway mainC_mainD = new Doorway();
+		mainC.addExitBack(mainC_mainD);
+		mainD.addExitFront(mainC_mainD);
+		
+		Doorway mainD_hallway1 = new Doorway();
+		mainD.addExitBack(mainD_hallway1);
+		hallway1.addExitFront(mainD_hallway1);
+		//Hallway 1
+		
+		Doorway hallway1_hallway2 = new Doorway();
+		hallway1.addExitRight(hallway1_hallway2);
+		hallway2.addExitLeft(hallway1_hallway2);
+		
+		//Hallway 2
 		
 		Doorway hallway2_mens = new Doorway();
 		hallway2.addExitBack(hallway2_mens);
@@ -33,6 +77,7 @@ public class Setup {
 		Doorway hallway2_womens = new Doorway();
 		hallway2.addExitBack(hallway2_womens);
 		womensRoom.addExitFront(hallway2_womens);
+		
 	}
 	
 	private static Room setupAnnex() { //RAHUL

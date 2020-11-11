@@ -16,14 +16,16 @@ public abstract class InfoObject extends RoomObject {
 		this.info = info;
 	}
 
-	@Override
-	public boolean hasItems() {
+	@Override public boolean hasItems() {
 		return false;
 	}
 
-	@Override
-	public boolean hasInfo() {
+	@Override public boolean hasInfo() {
 		return !(info == null || info.equals(""));
+	}
+	
+	@Override public boolean wrapsItem() {
+		return false;
 	}
 	
 	public void setInfo(String info) {

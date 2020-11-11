@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane; 
 import javafx.stage.Stage;
 
-public class HelloWorld extends Application { 
+public class HelloWorld extends Application {
    @Override 
    public void start(Stage stage) {    
       //Creating an array of Buttons 

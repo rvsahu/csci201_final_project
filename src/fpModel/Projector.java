@@ -58,6 +58,13 @@ public class Projector extends RoomObject {
 	@Override public boolean hasItems() {
 		return false;
 	}
+	
+	/**
+	 * Returns whether the projector has items or not, always false.
+	 */
+	@Override public boolean wrapsItem() {
+		return false;
+	}
 
 	/**
 	 * Returns whether the projector has information or not, always false.
