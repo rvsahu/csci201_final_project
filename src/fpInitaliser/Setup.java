@@ -68,10 +68,18 @@ public class Setup {
 	}
 	
 	private static Room setupStudy1() { //PATRICK
+		//lightswitch
+		Room ret = new Room("Study1");
+		ret.addToRight(new Computer());
+		ret.addToLeft(new Dustbin());
 		return null;
 	}
 	
 	private static Room setupStudy2() { //PATRICK
+		Room ret = new Room("Study2");
+		ret.addToRight(new Computer());
+		ret.addToLeft(new CoinObject());
+		ret.addToLeft(new CoinObject());
 		return null;
 	}
 	
