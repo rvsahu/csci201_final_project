@@ -1,6 +1,4 @@
 *.jpg
 *.png
 *.gif
-./src/fpGUI/*.class
-./src/fpModel/*.class
-./src/fpInitialiser/*.class
+./bin/*
