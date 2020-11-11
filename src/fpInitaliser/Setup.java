@@ -33,7 +33,18 @@ public class Setup {
 		 * Study Room Connections
 		 * Annex-1, Annex-2, Annex-3, Annex-4
 		 */
-		
+		Doorway annex_study1 = new Doorway();
+		annex.addExitRight(annex_study1);
+		study1.addExitLeft(annex_study1);
+		Doorway annex_study2 = new Doorway();
+		annex.addExitRight(annex_study2);
+		study2.addExitLeft(annex_study2);
+		Doorway annex_study3 = new Doorway();
+		annex.addExitBack(annex_study3);
+		study3.addExitFront(annex_study3);
+		Doorway annex_study4 = new Doorway();
+		annex.addExitBack(annex_study4);
+		study4.addExitFront(annex_study4);
 		
 		
 		Doorway annex_mainA = new Doorway();
@@ -62,6 +73,11 @@ public class Setup {
 		Doorway mainD_hallway1 = new Doorway();
 		mainD.addExitBack(mainD_hallway1);
 		hallway1.addExitFront(mainD_hallway1);
+		
+		Doorway mainD_lab1 = new Doorway();
+		mainD.addExitLeft(mainD_lab1);
+		lab1.addExitRight(mainD_lab1);
+		
 		//Hallway 1
 		
 		Doorway hallway1_hallway2 = new Doorway();
