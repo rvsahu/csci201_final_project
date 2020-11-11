@@ -6,7 +6,19 @@ public class Setup {
 	
 	public static void setupAll() { //RAHUL
 		Room annex = setupAnnex();
+		Room mainA = setupMainA();
+		Room mainB = setupMainB();
+		Room mainC = setupMainC();
+		Room mainD = setupMainD();
+		Room study1 = setupStudy1();
+		Room study2 = setupStudy2();
+		Room study3 = setupStudy3();
+		Room study4 = setupStudy4();
 		Room cove = setupCove();
+		Room lab1 = setupLab1();
+		Room hallway = setupHallway();
+		Room mensRoom = setupMensRoom();
+		Room womensRoom = setupWomensRoom();
 		//...
 		Doorway ting = new Doorway();
 		annex.addExitRight(ting);
