@@ -1,5 +1,7 @@
 package fpInitaliser;
 
+import java.util.ArrayList;
+
 import fpModel.*;
 
 public class Setup {
@@ -259,9 +261,11 @@ public class Setup {
 	private static Room setupStudy3() { //PATROCK
 		Room ret = new Room("Study3");
 		ret.addToFront(new Dustbin());
-		Couch c = new Couch();
 		ret.addToBack(new Couch());
-		ret.addToLeft(new CoinObject());
+		ArrayList<Item> items = new ArrayList<Item>();
+		items.add(new Item("Coin"));
+		items.add(new Item("Coin"));
+		ret.addToLeft(new Wallet(items));
 		return ret;
 	}
 	
