@@ -16,13 +16,16 @@ public class Setup {
 		Room study4 = setupStudy4();
 		Room cove = setupCove();
 		Room lab1 = setupLab1();
-		Room hallway = setupHallway();
+		Room hallway1 = setupHallway1();
+		Room hallway2 = setupHallway2();
 		Room mensRoom = setupMensRoom();
 		Room womensRoom = setupWomensRoom();
-		//...
-		Doorway ting = new Doorway();
-		annex.addExitRight(ting);
-		cove.addExitLeft(ting);
+		//Doorways
+		Doorway annex_cove = new Doorway();
+		annex.addExitRight(annex_cove);
+		cove.addExitLeft(annex_cove);
+		
+		Doorway test = new Doorway();
 	}
 	
 	private static Room setupAnnex() { //RAHUL
@@ -93,10 +96,18 @@ public class Setup {
 	}
 	
 	private static Room setupStudy1() { //PATRICK
+		//lightswitch
+		Room ret = new Room("Study1");
+		ret.addToRight(new Computer());
+		ret.addToLeft(new Dustbin());
 		return null;
 	}
 	
 	private static Room setupStudy2() { //PATRICK
+		Room ret = new Room("Study2");
+		ret.addToRight(new Computer());
+		ret.addToLeft(new CoinObject());
+		ret.addToLeft(new CoinObject());
 		return null;
 	}
 	
@@ -116,7 +127,11 @@ public class Setup {
 		return null;
 	}
 	
-	private static Room setupHallway() { //PATRICK
+	private static Room setupHallway1() { //PATRICK
+		return null;
+	}
+	
+	private static Room setupHallway2() { //RAHUL
 		return null;
 	}
 	
