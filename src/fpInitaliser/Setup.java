@@ -37,7 +37,7 @@ public class Setup {
 	
 	private static Room setupMainA() { //ERICA
 		
-		Room MainA = new Room("mainA");
+		Room MainA = new Room("MainA");
 		//front -- add more computers, chairs, couches, outlets, and dustbins as necessary
 		//row of computers
 		Computer comp1 = new Computer();
@@ -55,7 +55,8 @@ public class Setup {
 		Computer comp7 = new Computer();
 		MainA.addToFront(comp7);
 		
-		//Whiteboard whiteboard = new Whiteboard();
+		Whiteboard whiteboard = new Whiteboard();
+		MainA.addToFront(whiteboard);
 		//Chair chair1 = new chair();
 		//MainA.addtoFront(chair1);
 		Couch couch1 = new Couch();
@@ -69,29 +70,72 @@ public class Setup {
 		
 		
 		//right
-		
 		//Door door = new Door();
 		//MainA.addToRight(door);
-		
 		Couch couch2 = new Couch();
 		MainA.addToRight(couch2);
-		//Table table = new Table();
-		//MainA.addToRight(table);
+		Table table = new Table();
+		MainA.addToRight(table);
 		
 		//back
+		Table table1 = new Table();
+		Table table2 = new Table();
+		MainA.addToBack(table1);
+		MainA.addToBack(table2);
 		
 		//left
-		
-		return null;
+		//add a doorway
+		return MainA;
 	}
 	
 	private static Room setupMainB() { //ERICA
+		
+		Room MainB = new Room("MainB");
+		//F
+		Whiteboard whiteboard = new Whiteboard();
+		MainB.addToFront(whiteboard);
+		
+		Table table1 = new Table();
+		MainB.addToFront(table1);
+		Computer computer1 = new Computer();
+		MainB.addToFront(computer1);
+		Computer computer2 = new Computer();
+		MainB.addToFront(computer2);
+		Computer computer3 = new Computer();
+		MainB.addToFront(computer3);
+		
+		//R
+		
+		//B
+		
+		//L
+		
+		
 		return null;
 	}
 	private static Room setupMainC() {  //ERICA
+		Room MainC = new Room("MainC");
+		
+		//F
+		
+		//R
+		
+		//B
+		
+		//L
+		
 		return null;
 	}
 	private static Room setupMainD() {  //ERICA
+		Room MainD = new Room("MainD");
+		
+		//F
+		
+		//R
+		
+		//B
+		
+		//L
 		return null;
 	}
 	
