@@ -24,6 +24,8 @@ public class Setup {
 		Doorway annex_cove = new Doorway();
 		annex.addExitRight(annex_cove);
 		cove.addExitLeft(annex_cove);
+		
+		Doorway test = new Doorway();
 	}
 	
 	private static Room setupAnnex() { //RAHUL
