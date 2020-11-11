@@ -110,8 +110,17 @@ public class Setup {
 		MainB.addToFront(computer2);
 		Computer computer3 = new Computer();
 		MainB.addToFront(computer3);
+		Couch couch1 = new Couch();
+		MainB.addToFront(couch1);
+		Couch couch2 = new Couch();
+		MainB.addToFront(couch2);
+		Couch couch3 = new Couch();
+		MainB.addToFront(couch3);
 		
+		//Chair chair1 = new chair();
+		//MainB.addToFront(chair1);
 		//R
+		
 		
 		//B
 		
@@ -166,7 +175,6 @@ public class Setup {
 		Room ret = new Room("Study3");
 		ret.addToFront(new Dustbin());
 		Couch c = new Couch();
-		c.
 		ret.addToBack(new Couch());
 		ret.addToLeft(new CoinObject());
 		return null;
