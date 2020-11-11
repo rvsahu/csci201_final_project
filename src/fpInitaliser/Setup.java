@@ -26,6 +26,7 @@ public class Setup {
 		cove.addExitLeft(annex_cove);
 		
 		Doorway test = new Doorway();
+		Doorway test2 = new Doorway();
 	}
 	
 	private static Room setupAnnex() { //RAHUL
