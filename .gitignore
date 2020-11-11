@@ -1,6 +1,6 @@
 *.jpg
 *.png
 *.gif
-./src/fpGUI/*.class
-./src/fpModel/*.class
-./src/fpInitialiser/*.class
+./bin/fpGUI/*.class
+./bin/fpModel/*.class
+./bin/fpInitialiser/*.class
