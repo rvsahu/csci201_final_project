@@ -125,14 +125,14 @@ public class Setup {
 		
 		Whiteboard whiteboard = new Whiteboard();
 		MainA.addToFront(whiteboard);
-		//Chair chair1 = new chair();
-		//MainA.addtoFront(chair1);
+		Chair chair1 = new Chair();
+		MainA.addToFront(chair1);
 		Couch couch1 = new Couch();
 		MainA.addToFront(couch1);
-		//Plant plant = new Plant();
-		//MainA.addToFront(plant);
-		//Outlet outlet = new Outlet();
-		//MainA.addToFront(outlet);
+		Plant plant = new Plant();
+	    MainA.addToFront(plant);
+		Outlet outlet = new Outlet();
+		MainA.addToFront(outlet);
 		Dustbin dustbin = new Dustbin();
 		MainA.addToFront(dustbin);
 		
@@ -159,6 +159,7 @@ public class Setup {
 	private static Room setupMainB() { //ERICA
 		
 		Room MainB = new Room("MainB");
+		
 		//F
 		Whiteboard whiteboard = new Whiteboard();
 		MainB.addToFront(whiteboard);
@@ -177,16 +178,32 @@ public class Setup {
 		MainB.addToFront(couch2);
 		Couch couch3 = new Couch();
 		MainB.addToFront(couch3);
+
+		
+		Chair chair1 = new Chair();
+		MainB.addToFront(chair1);
+		Chair chair2 = new Chair();
+		MainB.addToFront(chair2);
+		Chair chair3 = new Chair();
+		MainB.addToFront(chair3);
+		
+		Scanner scanner = new Scanner();
+		MainB.addToFront(scanner);
+
 		
 		//Chair chair1 = new chair();
 		//MainB.addToFront(chair1);
 		//R
+		Drawing drawing = new Drawing();
+		MainB.addToRight(drawing);
 		
 		
 		//B
+		//facing Main A
+		
 		
 		//L
-		
+		//Facing Main C
 		
 		return null;
 	}
@@ -194,12 +211,19 @@ public class Setup {
 		Room MainC = new Room("MainC");
 		
 		//F
+		//add a door
+		//office coral
+		
 		
 		//R
 		
 		//B
 		
+		
 		//L
+		Dustbin dustbin = new Dustbin();
+		MainC.addToLeft(dustbin);
+		//add an exit
 		
 		return null;
 	}
