@@ -27,6 +27,7 @@ public abstract class WrapperObject extends RoomObject {
 	public Item removeItem() {
 		Item temp = wrapped;
 		wrapped = null;
+		super.hide();
 		return wrapped;
 	}
 	
