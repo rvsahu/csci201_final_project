@@ -1,7 +1,5 @@
 package fpModel;
 
-import java.util.List;
-
 public abstract class RoomObject {
 	//graphic variables
 	private String spritePath; //e.g. "./couch3.png"
