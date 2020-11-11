@@ -6,8 +6,18 @@ import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class Perspective {
+	/*
+	 *  Graphic Fields 
+	 */
+	
+	/**
+	 * Filepath to the background image for this perspective
+	 */
+	private String backgroundPath;
+	
 	
 	/*
 	 *  Model Fields 
@@ -98,14 +108,23 @@ public class Perspective {
 	 * 
 	 * @return a Scene for the given Perspective to be displayed
 	 */
-	public Scene generateScene() {
+	public Scene generateScene(Stage stage) {
 		/*
 		for (RoomObject rObj : contents) {
 			//TO BE IMPLEMENTED
 		}
 		*/
+		
 		return null;
 	}
 	
+	/**
+	 * Setup method, adds the file path for the background image
+	 * 
+	 * @param backgroundPath  The file path to the image of the background for this perspective
+	 */
+	public void setBackground(String backgroundPath) {
+		this.backgroundPath = backgroundPath;
+	}
 	
 }

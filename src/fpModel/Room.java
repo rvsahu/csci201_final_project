@@ -3,6 +3,7 @@ package fpModel;
 import java.util.List;
 
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class Room {
 	private transient int currentPerspective;
@@ -217,7 +218,7 @@ public class Room {
 		return false;
 	}
 	
-	public Scene generateScene() {
-		return perspectives[currentPerspective].generateScene();
+	public Scene generateScene(Stage stage) {
+		return perspectives[currentPerspective].generateScene(stage);
 	}
 }
