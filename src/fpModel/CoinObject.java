@@ -3,27 +3,32 @@ package fpModel;
 import java.util.List;
 
 public class CoinObject extends ContainerObject{
+	private CoinItem coin;
 
 	public CoinObject() {
-		//nothing
+		super("coin_obj");
+		coin = new CoinItem("coin");
 	}
-
-	public CoinObject(List<Item> items) {
-		super(items);
-	}
-
+	
 	public CoinObject(String name) {
 		super(name);
+		coin = new CoinItem("coin");
 	}
-
+	
 	public CoinObject(String name, List<Item> items) {
 		super(name, items);
 	}
 	
 	@Override
-	public Item removeItem(int itemIndex) {
-		// TODO Auto-generated method stub
-		return null;
+	public Item removeItem() {
+		CoinItem temp = coin;
+		coin = null;
+		return temp;
+	}
+	
+	@Override
+	public boolean hasItems() {
+		return !(coin == null);
 	}
 
 }

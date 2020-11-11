@@ -6,7 +6,7 @@ public class Whiteboard extends RoomObject{
 		// TODO Auto-generated method stub
 		return true;
 	}
-	@Override
+	@Override 
 	public boolean hasInfo() {
 		// TODO Auto-generated method stub
 		return true;

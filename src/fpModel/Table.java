@@ -5,7 +5,7 @@ public class Table extends RoomObject{
 	public boolean hasItems() {
 		// TODO Auto-generated method stub
 		return true;
-	}
+	} 
 	@Override
 	public boolean hasInfo() {
 		// TODO Auto-generated method stub

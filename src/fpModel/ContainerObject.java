@@ -44,6 +44,11 @@ public abstract class ContainerObject extends RoomObject {
 		}
 	}
 	
+	public Item removeItem() {
+		//returns null, but may be overridden by child classes
+		return null;
+	}
+	
 	public Item removeItem(int itemIndex) {
 		return items.remove(itemIndex);
 	}
