@@ -25,8 +25,14 @@ public class Setup {
 		annex.addExitRight(annex_cove);
 		cove.addExitLeft(annex_cove);
 		
-		Doorway test = new Doorway();
-		Doorway test2 = new Doorway();
+		
+		Doorway hallway2_mens = new Doorway();
+		hallway2.addExitBack(hallway2_mens);
+		mensRoom.addExitFront(hallway2_mens);
+		
+		Doorway hallway2_womens = new Doorway();
+		hallway2.addExitBack(hallway2_womens);
+		womensRoom.addExitFront(hallway2_womens);
 	}
 	
 	private static Room setupAnnex() { //RAHUL
