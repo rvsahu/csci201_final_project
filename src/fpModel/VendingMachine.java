@@ -1,9 +1,21 @@
 package fpModel;
 
-public class VendingMachine extends RoomObject{
+import java.util.*;
+
+public class VendingMachine extends ContainerObject{
+	
+	public VendingMachine()
+	{
+		List<Item> item = new ArrayList();
+		item.add(new ChocolateItem());
+		item.add(new CoffeeItem());
+		item.add(new Key("lab 1 key"));
+		
+		
+	}
 	
 	@Override public boolean hasItems() {
-		return false;
+		return true;
 	}
 
 	@Override public boolean hasInfo() {
@@ -11,6 +23,6 @@ public class VendingMachine extends RoomObject{
 	}
 	
 	@Override public boolean wrapsItem() {
-		return false;
+		return true;
 	}
 }

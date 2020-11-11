@@ -1,17 +1,30 @@
 package fpModel;
 
-public class Table extends RoomObject{
+import java.util.List;
+
+public class Table extends ContainerObject{
 	
-	@Override public boolean wrapsItem() {
-		return false;
+	public Table() {
+		//nothing
 	}
-	
-	@Override public boolean hasItems() {
-		return false;
+
+	public Table(List<Item> items) {
+		super(items);
 	}
+
+	public Table(String name) {
+		super(name);
+	}
+
+	public Table(String name, List<Item> items) {
+		super(name, items);
+	}
+
 	
-	@Override public boolean hasInfo() {
-		return false;
+	@Override
+	public Item removeItem(int itemIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

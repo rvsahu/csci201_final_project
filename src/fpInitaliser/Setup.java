@@ -148,12 +148,13 @@ public class Setup {
 		MainA.addToRight(table);
 		
 		//back
-		Notebook notebook = new Notebook();
+		Notebook notebook = new Notebook("I am so over this programming assignment. I’m getting a bit hungry!"
+				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
+				+ " Hope I can pass this class!");
 		MainA.addToBack(notebook);
-		List<Item> list;
-		list.add(notebook);
-		Table table1 = new Table(notebook);
-		MainA.addToBack(table1);;
+		String string = "Lab 1 key";
+		KeyObject lab1key = new KeyObject(string);
+		MainA.addToBack(lab1key);	
 		
 		
 		//left
@@ -236,8 +237,6 @@ public class Setup {
 		MainC.addToFront(table1);
 		Couch couch = new Couch();
 		MainC.addToFront(couch);
-		VendingMachine vendingmachine = new VendingMachine();
-		MainC.addToFront(vendingmachine);
 		
 		//B
 		

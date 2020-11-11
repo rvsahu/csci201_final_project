@@ -1,7 +1,7 @@
 package fpModel;
 
 public abstract class WrapperObject extends RoomObject {
-	private Item wrapped;
+	protected Item wrapped;
 	
 	public WrapperObject(String name) {
 		super(name);
