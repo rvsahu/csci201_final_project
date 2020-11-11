@@ -35,19 +35,45 @@ public class Setup {
 	private static Room setupMainA() { //ERICA
 		
 		Room MainA = new Room("mainA");
-		//front
+		//front -- add more computers, chairs, couches, outlets, and dustbins as necessary
 		//row of computers
 		Computer comp1 = new Computer();
+		MainA.addToFront(comp1);
 		Computer comp2 = new Computer();
+		MainA.addToFront(comp2);
 		Computer comp3 = new Computer();
+		MainA.addToFront(comp3);
 		Computer comp4 = new Computer();
+		MainA.addToFront(comp4);
 		Computer comp5 = new Computer();
+		MainA.addToFront(comp5);
 		Computer comp6 = new Computer();
+		MainA.addToFront(comp6);
 		Computer comp7 = new Computer();
+		MainA.addToFront(comp7);
 		
 		//Whiteboard whiteboard = new Whiteboard();
 		//Chair chair1 = new chair();
+		//MainA.addtoFront(chair1);
+		Couch couch1 = new Couch();
+		MainA.addToFront(couch1);
+		//Plant plant = new Plant();
+		//MainA.addToFront(plant);
+		//Outlet outlet = new Outlet();
+		//MainA.addToFront(outlet);
+		Dustbin dustbin = new Dustbin();
+		MainA.addToFront(dustbin);
+		
+		
 		//right
+		
+		//Door door = new Door();
+		//MainA.addToRight(door);
+		
+		Couch couch2 = new Couch();
+		MainA.addToRight(couch2);
+		//Table table = new Table();
+		//MainA.addToRight(table);
 		
 		//back
 		
