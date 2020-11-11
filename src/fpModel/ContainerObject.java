@@ -40,7 +40,7 @@ public abstract class ContainerObject extends RoomObject {
 	
 	public void removeItem(Item item) {
 		if (items.contains(item)) {
-			
+			items.remove(items.indexOf(item));
 		}
 	}
 	
