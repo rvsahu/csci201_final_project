@@ -24,6 +24,10 @@ public class Player {
 		return inven.removeItem(item);
 	}
 	
+	public Inventory getInventory() {
+		return inven;
+	}
+	
 	public void addToLogbook(String info) {
 		logbook.addInfo(info);
 	}

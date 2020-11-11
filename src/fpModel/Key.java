@@ -10,6 +10,7 @@ public class Key extends Item {
 	}
 	
 	public boolean buyable(Player p) {
-		return true;
+		if(p.getInventory().CheckNumberOfItem("coin") >= 4) return true;
+		return false;
 	}
 }
