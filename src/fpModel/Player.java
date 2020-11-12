@@ -4,6 +4,7 @@ public class Player {
 	private Room currentRoom;
 	private Inventory inven;
 	private Logbook logbook;
+	private int currlevel = 1;
 	
 	private transient Perspective currentView;
 	private String cvName;
@@ -28,6 +29,10 @@ public class Player {
 		return inven;
 	}
 	
+	public int getLevel()
+	{
+		return currlevel;
+	}
 	public void addToLogbook(String info) {
 		logbook.addInfo(info);
 	}

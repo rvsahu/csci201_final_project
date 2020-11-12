@@ -3,6 +3,7 @@ package fpModel;
 import java.util.*;
 
 public class VendingMachine extends ContainerObject{
+
 	
 	public VendingMachine()
 	{
@@ -10,8 +11,6 @@ public class VendingMachine extends ContainerObject{
 		item.add(new ChocolateItem());
 		item.add(new CoffeeItem());
 		item.add(new Key("lab 1 key"));
-		
-		
 	}
 	
 	@Override public boolean hasItems() {
@@ -23,6 +22,10 @@ public class VendingMachine extends ContainerObject{
 	}
 	
 	@Override public boolean wrapsItem() {
-		return true;
+		return false;
+	}
+	public boolean foodbuyable(Player p) {
+		if(p.getLevel() >= 3) return true;
+		return false;
 	}
 }

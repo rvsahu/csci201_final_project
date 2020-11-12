@@ -109,9 +109,8 @@ public class Setup {
 	private static Room setupMainA() { //ERICA
 		
 		Room MainA = new Room("MainA");
-		//front -- add more computers, chairs, couches, outlets, and dustbins as necessary
 		//row of computers
-		Computer comp1 = new Computer();
+		/*Computer comp1 = new Computer();
 		MainA.addToFront(comp1);
 		Computer comp2 = new Computer();
 		MainA.addToFront(comp2);
@@ -124,9 +123,10 @@ public class Setup {
 		Computer comp6 = new Computer();
 		MainA.addToFront(comp6);
 		Computer comp7 = new Computer();
-		MainA.addToFront(comp7);
+		MainA.addToFront(comp7);*/
 		
-		Whiteboard whiteboard = new Whiteboard();
+		
+		/*Whiteboard whiteboard = new Whiteboard();
 		MainA.addToFront(whiteboard);
 		Chair chair1 = new Chair();
 		MainA.addToFront(chair1);
@@ -137,7 +137,7 @@ public class Setup {
 		Outlet outlet = new Outlet();
 		MainA.addToFront(outlet);
 		Dustbin dustbin = new Dustbin();
-		MainA.addToFront(dustbin);
+		MainA.addToFront(dustbin);*/
 		
 		
 		//right
@@ -277,6 +277,9 @@ public class Setup {
 		
 		//L
 		//add a door
+		VendingMachine vm = new VendingMachine();
+		MainD.addToLeft(vm);
+		
 		Drawing drawing = new Drawing();
 		MainD.addToLeft(drawing);
 		
@@ -326,6 +329,23 @@ public class Setup {
 	}
 	
 	private static Room setupLab1() { //ERICA
+		Room Lab1 = new Room("Lab1");
+		
+		//F
+		//R
+		Drawing drawing = new Drawing();
+		Lab1.addToRight(drawing);
+		//B
+		//L
+		CP cp = new CP();
+		Lab1.addToLeft(cp);
+		Computer comp = new Computer();
+		Lab1.addToLeft(comp);
+		
+		
+		
+		
+		
 		return null;
 	}
 	
@@ -341,6 +361,10 @@ public class Setup {
 	}
 	
 	private static Room setupMensRoom() { //ERICA
+		Room ret = new Room("MensRoom");
+		ret.addToLeft(new Drawing());
+		ret.addToBack(new Computer());
+		
 		return null;
 	}
 	
