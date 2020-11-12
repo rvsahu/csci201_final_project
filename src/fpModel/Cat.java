@@ -1,7 +1,7 @@
 package fpModel;
 
 public class Cat extends RoomObject{
-
+//test update plz show up
 	@Override public boolean hasItems() {
 		return false;
 	}
