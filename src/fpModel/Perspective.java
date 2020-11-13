@@ -2,12 +2,15 @@ package fpModel;
 
 //java imports
 import java.util.List;
+
+
 import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 //package imports
 import fpGame.GameInfo;
@@ -152,16 +155,36 @@ public class Perspective {
 	 * 
 	 * @return a Scene for the given Perspective to be displayed
 	 */
-	public Scene generateScene(Stage stage) {
+	public void generateScene(Stage stage) {
 		Pane pane = new Pane();
-		/*
-		for (RoomObject rObj : contents) {
-			//TO BE IMPLEMENTED
-		}
-		*/
-		stage.setScene(new Scene(pane, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
 		
-		return null;
+		for (RoomObject rObj : contents) {
+			if (direction == Perspective.Direction.FRONT) {
+				ImageView iv = rObj.showFront();
+				if (iv != null) {
+					pane.getChildren().add(iv);
+				}
+			} else if (direction == Perspective.Direction.RIGHT) {
+				ImageView iv = rObj.showRight();
+				if (iv != null) {
+					pane.getChildren().add(iv);
+				}
+			} else if (direction == Perspective.Direction.BACK) {
+				ImageView iv = rObj.showBack();
+				if (iv != null) {
+					pane.getChildren().add(iv);
+				}
+			} else {
+				//direction == Perspective.Direction.LEFT
+				ImageView iv = rObj.showLeft();
+				if (iv != null) {
+					pane.getChildren().add(iv);
+				}
+			}
+		}
+		
+		stage.setScene(new Scene(pane, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
+		stage.show();
 	}
 	
 	/**

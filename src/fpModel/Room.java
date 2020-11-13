@@ -231,8 +231,8 @@ public class Room {
 	 * Graphics methods 
 	 */
 	
-	public Scene generateScene(Stage stage) {
-		return perspectives[currentPerspective].generateScene(stage);
+	public void generateScene(Stage stage) {
+		perspectives[currentPerspective].generateScene(stage);
 	}
 	
 	/**

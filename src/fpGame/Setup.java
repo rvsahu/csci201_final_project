@@ -431,6 +431,9 @@ public class Setup {
 		EventHandler<MouseEvent> testbinBehaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				testbin.hide();
+				//what a doorway implementation might look like
+				//CurrentRoom.getExit().getAdjacentRoom()
+				//Room.generateScene(GameInfo.stage);
 			}
 		};
 		

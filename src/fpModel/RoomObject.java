@@ -174,7 +174,9 @@ public abstract class RoomObject {
 	 * Hides the object from view and interaction even when in the right perspective
 	 */
 	public void hide() {
-		node.setVisible(false);
+		if (node != null) {
+			node.setVisible(false);
+		}
 		this.display = false;
 	}
 	
@@ -242,6 +244,7 @@ public abstract class RoomObject {
 	public ImageView showFront() {
 		if (display && frontSprite != null) {
 			node = new ImageView(frontSprite);
+			node.setOnMouseClicked(behaviour);
 			return node;
 		} else {
 			return null;
@@ -258,6 +261,7 @@ public abstract class RoomObject {
 	public ImageView showRight() {
 		if (display && rightSprite != null) {
 			node = new ImageView(rightSprite);
+			node.setOnMouseClicked(behaviour);
 			return node;
 		} else {
 			return null;
@@ -274,6 +278,7 @@ public abstract class RoomObject {
 	public ImageView showBack() {
 		if (display && backSprite != null) {
 			node = new ImageView(backSprite);
+			node.setOnMouseClicked(behaviour);
 			return node;
 		} else {
 			return null;
@@ -290,6 +295,7 @@ public abstract class RoomObject {
 	public ImageView showLeft() {
 		if (display && leftSprite != null) {
 			node = new ImageView(leftSprite);
+			node.setOnMouseClicked(behaviour);
 			return node;
 		} else {
 			return null;
