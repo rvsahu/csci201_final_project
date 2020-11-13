@@ -24,8 +24,8 @@ public class MainMenu {
 		Text txt1 = new Text();
         txt.setText("Hello, " + name+"!");
         txt1.setText("Welcome Back!");
-        txt.setTranslateY(GameInfo.WINDOW_Y/5);
-        txt1.setTranslateY(GameInfo.WINDOW_Y/4);
+        txt.setTranslateY((GameInfo.WINDOW_Y* GameInfo.scalingFactor)/5);
+        txt1.setTranslateY((GameInfo.WINDOW_Y* GameInfo.scalingFactor)/4);
         
         StackPane.setAlignment(txt, Pos.TOP_CENTER);
         StackPane.setAlignment(txt1, Pos.TOP_CENTER);
@@ -56,7 +56,7 @@ public class MainMenu {
         btn2.setTranslateY(50);
 
         
-        stage.setScene(new Scene(root, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
+        stage.setScene(new Scene(root, GameInfo.WINDOW_X* GameInfo.scalingFactor, GameInfo.WINDOW_Y* GameInfo.scalingFactor));
     	stage.setTitle("Main Menu!");
     	stage.show();
 	}
