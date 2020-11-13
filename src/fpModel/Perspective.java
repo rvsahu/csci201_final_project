@@ -2,14 +2,14 @@ package fpModel;
 
 //java imports
 import java.util.List;
-
-
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 //package imports
@@ -158,7 +158,38 @@ public class Perspective {
 	public void generateScene(Stage stage) {
 		Pane pane = new Pane();
 		
-		//imageview background = new ImageView(new Image(new FileInputStream(
+		Image backIMG = null;
+		if (lightsOff == true && lightsOutBackgroundPath != null) {
+			try {
+				if (GameInfo.needsScaling) {
+					backIMG = new Image(new FileInputStream(lightsOutBackgroundPath), GameInfo.WINDOW_X * GameInfo.scalingFactor,
+							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					backIMG = new Image(new FileInputStream(lightsOutBackgroundPath));
+				}
+			} catch (Exception e) {
+				System.err.println("Error loading unlit background image for " + name);
+			}
+		} else {
+			try {
+				if (GameInfo.needsScaling) {
+					backIMG = new Image(new FileInputStream(backgroundPath), GameInfo.WINDOW_X * GameInfo.scalingFactor,
+							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					backIMG = new Image(new FileInputStream(backgroundPath));
+				}
+			} catch (Exception e) {
+				System.err.println("Error loading background image for " + name);
+			}
+		}
+		
+		if (backIMG != null) {
+			ImageView background = new ImageView(backIMG);
+			background.toBack();
+			pane.getChildren().add(background);
+		} else {
+			System.err.println("Error displaying background image for " + name);
+		}
 		
 		for (RoomObject rObj : contents) {
 			if (direction == Perspective.Direction.FRONT) {

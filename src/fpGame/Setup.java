@@ -47,8 +47,8 @@ public class Setup {
 	 * annex.addToFront(c);
 	 * 
 	 */
-		
-	public static void setupAll() { //RAHUL
+	
+	public static void setupAll() { /* would return GameMap */
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
 		Room mainB = setupMainB();
@@ -138,6 +138,12 @@ public class Setup {
 		hallway2.addExitBack(hallway2_womens);
 		womensRoom.addExitFront(hallway2_womens);
 		
+		/*
+		GameMap map = new GameMap();
+		map.annex = annex;
+		map.
+		
+		 */
 	}
 	
 	private static Room setupAnnex() { //RAHUL
