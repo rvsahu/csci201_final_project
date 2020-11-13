@@ -210,7 +210,7 @@ public class Setup {
 		Whiteboard whiteboard = new Whiteboard();
 		MainB.addToFront(whiteboard);
 		
-		Table table1 = new Table();
+		/*Table table1 = new Table();
 		MainB.addToFront(table1);
 		Computer computer1 = new Computer();
 		MainB.addToFront(computer1);
@@ -234,9 +234,7 @@ public class Setup {
 		MainB.addToFront(chair3);
 		
 		Scanner scanner = new Scanner();
-		MainB.addToFront(scanner);
-
-		
+		MainB.addToFront(scanner);*/
 		//Chair chair1 = new chair();
 		//MainB.addToFront(chair1);
 		//R
