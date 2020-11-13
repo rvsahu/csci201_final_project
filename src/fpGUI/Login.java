@@ -18,6 +18,12 @@ import javafx.scene.image.ImageView;
 
 public class Login {
 	public static void show(Stage stage) {
+		
+		/*
+		 * DIMENSIONS 1920x1080
+		 */
+		
+		
 		String username = ""; //stuff
 		
 		

@@ -12,6 +12,12 @@ import javafx.stage.Stage;
 
 public class MainMenu {
 	public static void show(Stage stage, String name) {
+		
+		/*
+		 * DIMENSIONS 1920x1080
+		 */
+		
+		
 		StackPane root = new StackPane();
 		Text txt = new Text();
 		Text txt1 = new Text();

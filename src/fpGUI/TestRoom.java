@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -22,10 +23,10 @@ public class TestRoom {
 	public static void show(Stage stage) {
 		Room room = Setup.testRoom();
 		
-		GridPane root = new GridPane();
+		Pane root = new Pane();
 		
-		stage.setScene(new Scene(root, 1000, 1000));
-    	stage.setTitle("Login!");
+		stage.setScene(new Scene(root, 1920, 1080));
+    	stage.setTitle("Test Room!");
     	stage.show();
 	}
 }
