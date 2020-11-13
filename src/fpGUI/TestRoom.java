@@ -19,7 +19,7 @@ import fpInitialiser.Setup;
 import fpModel.*;
 
 public class TestRoom {
-	public static void TestRoom(Stage stage) {
+	public static void show(Stage stage) {
 		Room room = Setup.testRoom();
 	}
 }
