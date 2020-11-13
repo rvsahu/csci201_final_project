@@ -107,8 +107,7 @@ public class Setup {
 	}
 	
 	private static Room setupMainA() { //ERICA
-		
-		Room MainA = new Room("MainA");
+		Room MainA = new Room("mainA");
 		//row of computers
 		/*Computer comp1 = new Computer();
 		MainA.addToFront(comp1);
@@ -149,12 +148,11 @@ public class Setup {
 		MainA.addToRight(table);
 		
 		//back
-		Notebook notebook = new Notebook("I am so over this programming assignment. I’m getting a bit hungry!"
+		Notebook notebook = new Notebook("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
 		MainA.addToBack(notebook);
-		String string = "Lab 1 key";
-		KeyObject lab1key = new KeyObject(string);
+		KeyObject lab1key = new KeyObject("study_1_key_obj", "study_1_key");
 		MainA.addToBack(lab1key);	
 		
 		
@@ -165,7 +163,7 @@ public class Setup {
 	
 	private static Room setupMainB() { //ERICA
 		
-		Room MainB = new Room("MainB");
+		Room MainB = new Room("mainB");
 		
 		//F
 		Whiteboard whiteboard = new Whiteboard();
@@ -216,7 +214,7 @@ public class Setup {
 		return null;
 	}
 	private static Room setupMainC() {  //ERICA
-		Room MainC = new Room("MainC");
+		Room MainC = new Room("mainC");
 		
 		//F
 		//add a door
@@ -258,7 +256,7 @@ public class Setup {
 		return MainC;
 	}
 	private static Room setupMainD() {  //ERICA
-		Room MainD = new Room("MainD");
+		Room MainD = new Room("mainD");
 		
 		//F
 		//view of main C
@@ -288,14 +286,14 @@ public class Setup {
 	
 	private static Room setupStudy1() { //PATRICK
 		//lightswitch
-		Room ret = new Room("Study1");
+		Room ret = new Room("study1");
 		ret.addToRight(new Computer());
 		ret.addToLeft(new Dustbin());
 		return ret;
 	}
 	
 	private static Room setupStudy2() { //PATRICK
-		Room ret = new Room("Study2");
+		Room ret = new Room("study2");
 		ret.addToRight(new Computer());
 		ret.addToLeft(new CoinObject());
 		ret.addToLeft(new CoinObject());
@@ -303,18 +301,18 @@ public class Setup {
 	}
 	
 	private static Room setupStudy3() { //PATROCK
-		Room ret = new Room("Study3");
+		Room ret = new Room("study3");
 		ret.addToFront(new Dustbin());
 		ret.addToBack(new Couch());
 		ArrayList<Item> items = new ArrayList<Item>();
-		items.add(new Item("Coin"));
-		items.add(new Item("Coin"));
+		items.add(new Item("coin"));
+		items.add(new Item("coin"));
 		ret.addToLeft(new Wallet(items));
 		return ret;
 	}
 	
 	private static Room setupStudy4() { //PATRICK
-		Room ret = new Room("Study4");
+		Room ret = new Room("study4");
 		ret.addToFront(new Dustbin());
 		ret.addToRight(new Couch());
 		ret.addToBack(new Computer());
@@ -329,7 +327,7 @@ public class Setup {
 	}
 	
 	private static Room setupLab1() { //ERICA
-		Room Lab1 = new Room("Lab1");
+		Room Lab1 = new Room("lab1");
 		
 		//F
 		//R
@@ -350,18 +348,19 @@ public class Setup {
 	}
 	
 	private static Room setupHallway1() { //PATRICK
-		Room ret = new Room("Hallway1");
+		Room ret = new Room("hallway1");
 		ret.addToFront(new Phone());
 		ret.addToBack(new Keypad());
 		return ret;
 	}
 	
 	private static Room setupHallway2() { //RAHUL
-		return null;
+		Room room = new Room("hallway2");
+		return room;
 	}
 	
 	private static Room setupMensRoom() { //ERICA
-		Room ret = new Room("MensRoom");
+		Room ret = new Room("mensRoom");
 		ret.addToLeft(new Drawing());
 		ret.addToBack(new Computer());
 		
@@ -369,7 +368,7 @@ public class Setup {
 	}
 	
 	private static Room setupWomensRoom() { //PATRICK
-		Room ret = new Room("WomensRoom");
+		Room ret = new Room("womensRoom");
 		ret.addToRight(new Computer());
 		return ret;
 	}

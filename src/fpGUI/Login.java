@@ -10,13 +10,15 @@ import javafx.stage.Stage;
 
 public class Login {
 	public static void show(Stage stage) {
+		String username; //stuff
+		
         Button btn1 = new Button();
         btn1.setText("Login");
         btn1.setOnAction(new EventHandler<ActionEvent>() {
  
             @Override
             public void handle(ActionEvent event) {
-            	MainMenu.show(stage);
+            	MainMenu.show(stage, username);
                 System.out.println("Logged In!");
             }
         });
