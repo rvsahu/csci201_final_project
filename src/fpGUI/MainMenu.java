@@ -1,5 +1,6 @@
 package fpGUI;
 
+import fpGame.GameInfo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -23,8 +24,8 @@ public class MainMenu {
 		Text txt1 = new Text();
         txt.setText("Hello, " + name+"!");
         txt1.setText("Welcome Back!");
-        txt.setTranslateY(75);
-        txt1.setTranslateY(95);
+        txt.setTranslateY(GameInfo.WINDOW_Y/5);
+        txt1.setTranslateY(GameInfo.WINDOW_Y/4);
         
         StackPane.setAlignment(txt, Pos.TOP_CENTER);
         StackPane.setAlignment(txt1, Pos.TOP_CENTER);
@@ -55,7 +56,7 @@ public class MainMenu {
         btn2.setTranslateY(50);
 
         
-        stage.setScene(new Scene(root, 400, 400));
+        stage.setScene(new Scene(root, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
     	stage.setTitle("Main Menu!");
     	stage.show();
 	}
