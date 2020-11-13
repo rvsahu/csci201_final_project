@@ -19,6 +19,8 @@ public class Perspective {
 	private String backgroundPath;
 	
 	
+	//private transient Behaviour b;
+	
 	/*
 	 *  Model Fields 
 	 */

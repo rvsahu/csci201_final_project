@@ -1,4 +1,4 @@
-package fpInitaliser;
+package fpInitialiser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -371,5 +371,15 @@ public class Setup {
 		Room ret = new Room("womensRoom");
 		ret.addToRight(new Computer());
 		return ret;
+	}
+	
+	public static Room testRoom() {
+		Room testRoom = new Room("test_room");
+		Key testkey = new Key("test_key");
+		List<Item> itemList = new ArrayList<Item>();
+		itemList.add(testkey);
+		Dustbin testbin = new Dustbin(itemList);
+		testRoom.addToFront(testbin);
+		return testRoom;
 	}
 }

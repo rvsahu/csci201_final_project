@@ -4,10 +4,19 @@ public class Player {
 	private Room currentRoom;
 	private Inventory inven;
 	private Logbook logbook;
-	private int currlevel = 1;
+	private int currentLevel;
 	
 	private transient Perspective currentView;
 	private String cvName;
+	
+	public Player(Room startingRoom, int startingLevel) {
+		currentRoom = startingRoom;
+		currentLevel = startingLevel;
+		currentView = currentRoom.getCurrent();
+		cvName = currentView.name();
+		inven = new Inventory();
+		logbook = new Logbook();
+	}
 	
 	public void turnLeft() {
 		currentView = currentRoom.changePerspectiveLeft();
@@ -29,11 +38,11 @@ public class Player {
 		return inven;
 	}
 	
-	public int getLevel()
-	{
-		return currlevel;
-	}
 	public void addToLogbook(String info) {
 		logbook.addInfo(info);
+	}
+	
+	public int getLevel() {
+		return currentLevel;
 	}
 }

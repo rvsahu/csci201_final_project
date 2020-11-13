@@ -24,7 +24,7 @@ public class VendingMachine extends ContainerObject{
 	@Override public boolean wrapsItem() {
 		return false;
 	}
-	public boolean foodbuyable(Player p) {
+	public boolean foodBuyable(Player p) {
 		if(p.getLevel() >= 3) return true;
 		return false;
 	}

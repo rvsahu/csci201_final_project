@@ -15,6 +15,7 @@ public class HelloWorld extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-    	Login.show(primaryStage);
+    	//Login.show(primaryStage);
+    	TestRoom.show(primaryStage);
     }
 }
