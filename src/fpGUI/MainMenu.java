@@ -30,7 +30,6 @@ public class MainMenu {
             @Override
             public void handle(ActionEvent event) {
             	MainMenu.show(stage, "This would be Resume Game");
-                System.out.println("Logged In!");
             }
         });
         
@@ -41,7 +40,6 @@ public class MainMenu {
             @Override
             public void handle(ActionEvent event) {
             	MainMenu.show(stage, "this would be new game");
-                System.out.println("Logged In!");
             }
         });
         
