@@ -57,8 +57,8 @@ public class LoginScreen {
         root.add(btn3, 0, 3);
         
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-	                               GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 1024 * GameInfo.scalingFactor, 
+					               963 * GameInfo.scalingFactor, true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
@@ -71,8 +71,8 @@ public class LoginScreen {
 		}
 		
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-	                               GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), 800 * GameInfo.scalingFactor, 
+	                               923 * GameInfo.scalingFactor, true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
