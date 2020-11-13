@@ -34,10 +34,6 @@ public abstract class ContainerObject extends RoomObject {
 		this.items = items;
 	}
 	
-	public ContainerObject(String name, int xPos, int yPos) {
-		
-	}
-	
 	@Override public boolean hasItems() {
 		return items.isEmpty();
 	}

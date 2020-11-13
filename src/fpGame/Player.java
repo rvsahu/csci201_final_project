@@ -1,4 +1,6 @@
-package fpModel;
+package fpGame;
+
+import fpModel.*;
 
 public class Player {
 	private Room currentRoom;

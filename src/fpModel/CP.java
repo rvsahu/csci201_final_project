@@ -1,5 +1,7 @@
 package fpModel;
 
+import fpGame.*;
+
 public class CP extends InfoObject{
 	
 	private boolean awake = false;

@@ -57,6 +57,19 @@ public class Login {
         root.add(btn3, 0, 3);
         
 		try {
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"));
+			ImageView testview = new ImageView(test);
+			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+				@Override public void handle(MouseEvent mouseEvent) {
+					System.out.println("you just got bonked!");
+				}
+			});
+			root.add(testview, 0, 4);
+		} catch (IOException ie) {
+			System.err.println("riperino1");
+		}
+		
+		try {
 			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"));
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -66,7 +79,7 @@ public class Login {
 			});
 			root.add(testview, 0, 4);
 		} catch (IOException ie) {
-			System.err.println("riperino");
+			System.err.println("riperino2");
 		}
 		
         stage.setScene(new Scene(root, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));

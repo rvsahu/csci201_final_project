@@ -2,6 +2,8 @@ package fpModel;
 
 import java.util.*;
 
+import fpGame.*;
+
 public class VendingMachine extends ContainerObject{
 
 	
