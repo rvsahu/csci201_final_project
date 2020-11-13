@@ -1,7 +1,6 @@
 package fpModel;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -15,24 +14,53 @@ public abstract class RoomObject {
 	 */
 	
 	/**
-	 * The file path to the sprite/image of the object
+	 * The file path to the sprite/image of the object as viewable in the front perspective, or null if not
+	 * viewable or 'interactable' from that perspective
 	 */
-	private String spritePath; 
+	private String frontSpritePath;
 	
 	/**
-	 * The x position of the RoomObject
+	 * The file path to the sprite/image of the object as viewable in the right perspective, or null if not
+	 * viewable or 'interactable' from that perspective
 	 */
-	private int xPos;
+	private String rightSpritePath; 
 	
 	/**
-	 * The y position of the RoomObject
+	 * The file path to the sprite/image of the object as viewable in the back perspective, or null if not
+	 * viewable or 'interactable' from that perspective
 	 */
-	private int yPos;
+	private String backSpritePath; 
 	
+	/**
+	 * The file path to the sprite/image of the object as viewable in the left perspective, or null if not
+	 * viewable or 'interactable' from that perspective
+	 */
+	private String leftSpritePath; 
+		
 	/**
 	 * The behaviour of the RoomObject when clicked
 	 */
 	private EventHandler<MouseEvent> behaviour;
+	
+	/**
+	 * The sprite of the RoomObject as viewed from the front.
+	 */
+	private transient Image frontSprite;
+	
+	/**
+	 * The sprite of the RoomObject as viewed from the right.
+	 */
+	private transient Image rightSprite;
+	
+	/**
+	 * The sprite of the RoomObject as viewed from the back.
+	 */
+	private transient Image backSprite;
+	
+	/**
+	 * The sprite of the RoomObject as viewed from the left.
+	 */
+	private transient Image leftSprite;
 	
 	/**
 	 * The graphical representation of the RoomObject
@@ -58,40 +86,12 @@ public abstract class RoomObject {
 	 */
 	
 	public RoomObject() {
-		xPos = 0;
-		yPos = 0;
 		display = true;
 	}
 	
 	public RoomObject(String name) {
 		this.name = name;
-		xPos = 0;
-		yPos = 0;
 		display = true;
-	}
-	
-	public RoomObject(int xPos, int yPos) {
-		this.xPos = xPos;
-		this.yPos = yPos;
-		display = true;
-	}
-	
-	public RoomObject(String name, String spritePath) {
-		this.name = name;
-		this.spritePath = spritePath;
-		xPos = 0;
-		yPos = 0;
-		display = true;
-		initialiseImage();
-	}
-	
-	public RoomObject(String name, String spritePath, int xPos, int yPos) {
-		this.name = name;
-		this.spritePath = spritePath;
-		this.xPos = xPos;
-		this.yPos = yPos;
-		display = true;
-		initialiseImage();
 	}
 	
 	/*
@@ -124,59 +124,43 @@ public abstract class RoomObject {
 	 */
 	
 	/**
-	 * Graphical method, sets the x and y positions of the object image on the screen
-	 */
-	public void setPosition(int xPos, int yPos) {
-		this.xPos = xPos;
-		this.yPos = yPos;
-	}
-	
-	/**
-	 * Sets the x position of the object, and the node if it exists.
-	 * @param xPos  The new x position of the object and potentially node
-	 */
-	public void setXPosition(int xPos) {
-		if (node != null) {
-			node.setLayoutY(xPos + 0.0);
-		}
-		this.xPos = xPos;
-	}
-	
-	/**
-	 * Sets the y position of the object, and the node if it exists.
-	 * @param yPos  The new y position of the object and potentially node
-	 */
-	public void setYPosition(int yPos) {
-		if (node != null) {
-			node.setLayoutY(yPos + 0.0);
-		}
-		this.yPos = yPos;
-	}
-	
-	/**
-	 * Returns the x position of the node
-	 * @return     The x position of the node
-	 */
-	public int getXPosition() {
-		return xPos;
-	}
-	
-	/**
-	 * Returns the y position of the node
-	 * @return     The y position of the node
-	 */
-	public int getYPosition() {
-		return yPos;
-	}
-	
-	/**
-	 * Sets spritePath to given String. Doesn't change image in node if already initialised, must call initialiseImage
+	 * Sets frontSpritePath to given String. Doesn't change image in node if already initialised, must call loadImages
 	 * afterwards for that.
 	 * 
-	 * @param spritePath  The String containing the file path of the sprite/image file
+	 * @param frontSpritePath  The String containing the file path of the sprite/image file  
 	 */
-	public void setSpritePath(String spritePath) {
-		this.spritePath = spritePath;
+	public void setFrontSpritePath(String frontSpritePath) {
+		this.frontSpritePath = frontSpritePath;
+	}
+	
+	/**
+	 * Sets rightSpritePath to given String. Doesn't change image in node if already initialised, must call loadImages
+	 * afterwards for that.
+	 * 
+	 * @param rightSpritePath  The String containing the file path of the sprite/image file  
+	 */
+	public void setRightSpritePath(String rightSpritePath) {
+		this.rightSpritePath = rightSpritePath;
+	}
+	
+	/**
+	 * Sets backSpritePath to given String. Doesn't change image in node if already initialised, must call loadImages
+	 * afterwards for that.
+	 * 
+	 * @param backSpritePath  The String containing the file path of the sprite/image file  
+	 */
+	public void setBackSpritePath(String backSpritePath) {
+		this.backSpritePath = backSpritePath;
+	}
+	
+	/**
+	 * Sets leftSpritePath to given String. Doesn't change image in node if already initialised, must call loadImages
+	 * afterwards for that.
+	 * 
+	 * @param leftSpritePath  The String containing the file path of the sprite/image file  
+	 */
+	public void setLeftSpritePath(String leftSpritePath) {
+		this.leftSpritePath = leftSpritePath;
 	}
 	
 	/**
@@ -208,36 +192,107 @@ public abstract class RoomObject {
 		this.behaviour = behaviour;
 	}
 	
-	/** 
-	 * Initialises the graphical representation of the RoomObject (an ImageView).
+	/**
+	 * Attempts to load the sprites for each perspective if given a file path for that perspective. 
+	 * If no file path given for a particular angle, then it doesn't try to load.
+	 * Should be done as soon as the method is called
 	 */
-	public void initialiseImage() {
-		if (spritePath != null) {
+	public void loadSprites() {
+		if (frontSpritePath != null) {
 			try {
-				//initialise the ImageView iv
- 				Image image = new Image(new FileInputStream(spritePath));
-				ImageView iv = new ImageView(image);
-				//set the right behaviour on the ImageView
-				iv.setOnMouseClicked(behaviour);
-				//set the position of the ImageView
-				iv.setLayoutX(xPos);
-				iv.setLayoutY(yPos);
-				//initially set as invisible
-				iv.setVisible(false);
-				//assign iv to node
-				node = iv;
+				frontSprite = new Image(new FileInputStream(frontSpritePath));
 			} catch (Exception e) {
-				System.err.println("Error loading graphics for: " + name);
+				frontSprite = null;
+				System.err.println("Error loading front sprite for " + name);
+			}
+		}
+		if (rightSpritePath != null) {
+			try {
+				rightSprite = new Image(new FileInputStream(rightSpritePath));
+			} catch (Exception e) {
+				rightSprite = null;
+				System.err.println("Error loading right sprite for " + name);
+			}
+		}
+		if (backSpritePath != null) {
+			try {
+				backSprite = new Image(new FileInputStream(backSpritePath));
+			} catch (Exception e) {
+				backSprite = null;
+				System.err.println("Error loading back sprite for " + name);
+			}
+		}
+		if (leftSpritePath != null) {
+			try {
+				leftSprite = new Image(new FileInputStream(leftSpritePath));
+			} catch (Exception e) {
+				leftSprite = null;
+				System.err.println("Error loading left sprite for " + name);
 			}
 		}
 	}
 	
+	/**
+	 * Returns an ImageView of the RoomObject as it would be seen from the front, or null
+	 * if it can't be seen/interacted with from that angle, or if display is set to false.
+	 * Assigns field behaviour to the ImageView.
+	 * 
+	 * @return    An ImageView if the object can be seen and interacted with from the front, and display is true. null otherwise.
+	 */
+	public ImageView showFront() {
+		if (display && frontSprite != null) {
+			node = new ImageView(frontSprite);
+			return node;
+		} else {
+			return null;
+		}
+	}
 	
 	/**
-	 * Game time method. Returns the graphical representation of the Object.
+	 * Returns an ImageView of the RoomObject as it would be seen from the right, or null
+	 * if it can't be seen/interacted with from that angle, or if display is set to false.
+	 * Assigns field behaviour to the ImageView.
+	 * 
+	 * @return    An ImageView if the object can be seen and interacted with from the right, and display is true. null otherwise.
 	 */
-	public ImageView render() {
-		node.setVisible(true);
-		return node;
+	public ImageView showRight() {
+		if (display && rightSprite != null) {
+			node = new ImageView(rightSprite);
+			return node;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * Returns an ImageView of the RoomObject as it would be seen from the back, or null
+	 * if it can't be seen/interacted with from that angle, or if display is set to false.
+	 * Assigns field behaviour to the ImageView.
+	 * 
+	 * @return    An ImageView if the object can be seen and interacted with from the back, and display is true. null otherwise.
+	 */
+	public ImageView showBack() {
+		if (display && backSprite != null) {
+			node = new ImageView(backSprite);
+			return node;
+		} else {
+			return null;
+		}
+	}
+	
+	/**
+	 * Returns an ImageView of the RoomObject as it would be seen from the left, or null
+	 * if it can't be seen/interacted with from that angle, or if display is set to false.
+	 * Assigns field behaviour to the ImageView.
+	 * 
+	 * @return    An ImageView if the object can be seen and interacted with from the left, and display is true. null otherwise.
+	 */
+	public ImageView showLeft() {
+		if (display && leftSprite != null) {
+			node = new ImageView(leftSprite);
+			return node;
+		} else {
+			return null;
+		}
 	}
 }

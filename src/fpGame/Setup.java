@@ -1,15 +1,53 @@
-package fpInitialiser;
+package fpGame;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import fpModel.*;
 
 public class Setup {
-	
+	/*
+	 * ROOM OBJECT CREATION PROCEDURE:
+	 * Example: Computer in annex viewable from right, front
+	 * 
+	 * 0. (if using container/info) Create items/info
+	 * 
+	 * 1. Instantiate (and pass in items/info if applicable)
+	 * 
+	 * Computer c = new Computer();
+	 * 
+	 * 2. Add sprite paths
+	 * 
+	 * c.setRightViewSprite(rightFilePath);
+	 * c.setFrontViewSprite(frontFilePath);
+	 * 
+	 * 3. Load sprites
+	 * 
+	 * c.loadImages();
+	 * 
+	 * 4. Write behaviour
+	 * 
+	 *  EventHandler<MouseEvent> exampleBehaviour = new EventHandler<MouseEvent>() {
+	 *		@Override public void handle(MouseEvent event) {
+	 *			//do stuff
+	 *		}
+	 *  };
+	 * 
+	 * 5. Submit behaviour to RoomObject
+	 * 
+	 * c.setBehaviour(exampleBehaviour);
+	 * 
+	 * 6. Add to Room perspectives, possibly multiple or all
+	 * 
+	 * annex.addToRight(c);
+	 * annex.addToFront(c);
+	 * 
+	 */
+		
 	public static void setupAll() { //RAHUL
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
@@ -376,6 +414,10 @@ public class Setup {
 		return ret;
 	}
 	
+	/*
+	 * Testing Stuff
+	 */
+	
 	public static Room testRoom() {
 		Room testRoom = new Room("test_room");
 		
@@ -383,12 +425,16 @@ public class Setup {
 		Key testkey = new Key("test_key");
 		List<Item> itemList = new ArrayList<Item>();
 		itemList.add(testkey);
+		
 		Dustbin testbin = new Dustbin(itemList);
+		
 		EventHandler<MouseEvent> testbinBehaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				testbin.hide();
 			}
 		};
+		
+		testbin.setBehaviour(testbinBehaviour);
 		
 		testRoom.addToFront(testbin); //dustbin w/ key added to front
 		

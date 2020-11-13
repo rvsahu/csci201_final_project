@@ -6,9 +6,20 @@ import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+//package imports
+import fpGame.GameInfo;
+
 public class Perspective {
+	/**
+	 * An enumeration of all the possible directions a perspective can be viewing
+	 */
+	public static enum Direction {
+		FRONT, BACK, RIGHT, LEFT;
+	}
+	
 	/*
 	 *  Graphic Fields 
 	 */
@@ -17,6 +28,12 @@ public class Perspective {
 	 * Filepath to the background image for this perspective
 	 */
 	private String backgroundPath;
+	
+	/**
+	 * Filepath to the background image with the lights out for this perspective
+	 * (Not every perspective has or needs this)
+	 */
+	private String lightsOutBackgroundPath;
 	
 	
 	//private transient Behaviour b;
@@ -33,7 +50,7 @@ public class Perspective {
 	/**
 	 *  The room the perspective is in. For example, if the perspective is annex-left, the room is annex.
 	 */
-	private Room containingRoom;
+	private transient Room containingRoom;
 	
 	/**
 	 *  A list of RoomObjects representing the contents of the room viewable from this perspective
@@ -45,16 +62,31 @@ public class Perspective {
 	 */
 	private List<Doorway> exits;
 	
+	/**
+	 * The direction the perspective is facing.
+	 */
+	private Direction direction;
+	
+	/**
+	 * Whether the lights are off for the current perspective or not.
+	 */
+	private boolean lightsOff;
+	
 	/*
-	 * Model Methods
+	 * Constructor(s)
 	 */
 	
-	public Perspective(Room containingRoom, String name) {
+	public Perspective(Room containingRoom, String name, Direction direction) {
 		this.containingRoom = containingRoom;
 		this.name = name;
+		this.direction = direction;
 		contents = new ArrayList<RoomObject>();
 		exits = new ArrayList<Doorway>();
 	}
+	
+	/*
+	 * Model methods
+	 */
 	
 	/**
 	 * A setup method, adds a RoomObject to the perspective
@@ -86,13 +118,23 @@ public class Perspective {
 		}
 	}
 	
-	/*
-	 * Game-time methods
+	/**
+	 * Returns the room containing this perspective
+	 * 
+	 * @return     The room containing this perspective
 	 */
-	
 	public Room containingRoom() {
 		return containingRoom;
 	}
+	
+	/**
+	 * Sets/updates the Room containing this Perspective. Should only be used during deserialisation.
+	 * @param containingRoom
+	 */
+	public void setContainingRoom(Room containingRoom) {
+		this.containingRoom = containingRoom;
+	}
+	
 	
 	public boolean equals(Perspective other) {
 		return name.equals(other.name());
@@ -111,11 +153,13 @@ public class Perspective {
 	 * @return a Scene for the given Perspective to be displayed
 	 */
 	public Scene generateScene(Stage stage) {
+		Pane pane = new Pane();
 		/*
 		for (RoomObject rObj : contents) {
 			//TO BE IMPLEMENTED
 		}
 		*/
+		stage.setScene(new Scene(pane, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
 		
 		return null;
 	}
@@ -129,4 +173,22 @@ public class Perspective {
 		this.backgroundPath = backgroundPath;
 	}
 	
+	/**
+	 * Setup method, adds the file path for the background image with the lights out
+	 * 
+	 * @param lightsOutBackgroundPath  The file path to the image of the unlit background for this perspective
+	 */
+	public void setUnlitBackground(String lightsOutBackgroundPath) {
+		this.lightsOutBackgroundPath = lightsOutBackgroundPath;
+	}
+	
+	/**
+	 * Setup method, primarily for deserialisation. Reloads the sprites for every RoomObject viewable
+	 * from this perspective.
+	 */
+	public void loadAllImages() {
+		for (RoomObject rObj : contents) {
+			rObj.loadSprites();
+		}
+	}
 }

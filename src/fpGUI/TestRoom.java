@@ -3,6 +3,7 @@ package fpGUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import fpGame.Setup;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -15,8 +16,6 @@ import javafx.stage.Stage;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import fpInitialiser.Setup;
 import fpModel.*;
 
 public class TestRoom {

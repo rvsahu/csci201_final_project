@@ -13,7 +13,7 @@ public class Room {
 	private Perspective[] perspectives = new Perspective[4];
 	
 	/*
-	 * Setup methods
+	 * Constructor(s)
 	 */
 	
 	/**
@@ -22,12 +22,16 @@ public class Room {
 	 * @param name  The name of the room
 	 */
 	public Room(String name) {
-		perspectives[0] = new Perspective(this, name + "_front");
-		perspectives[1] = new Perspective(this, name + "_right");
-		perspectives[2] = new Perspective(this, name + "_back");
-		perspectives[3] = new Perspective(this, name + "_left");
+		perspectives[0] = new Perspective(this, name + "_front", Perspective.Direction.FRONT);
+		perspectives[1] = new Perspective(this, name + "_right", Perspective.Direction.RIGHT);
+		perspectives[2] = new Perspective(this, name + "_back", Perspective.Direction.BACK);
+		perspectives[3] = new Perspective(this, name + "_left", Perspective.Direction.LEFT);
 		currentPerspective = 0;
 	}
+	
+	/*
+	 * Model methods 
+	 */
 	
 	/**
 	 * Adds an individual object to the currently selected perspective
@@ -174,10 +178,6 @@ public class Room {
 		perspectives[3].addExit(exit);
 	}
 	
-	/*
-	 * Game-time methods
-	 */
-	
 	public Perspective changePerspectiveLeft() {
 		currentPerspective = ((currentPerspective - 1) % 4);
 		return getCurrent();
@@ -218,7 +218,92 @@ public class Room {
 		return false;
 	}
 	
+	/**
+	 * Setup/deserialisation method. Gives each perspective a reference to this Room as their containing room.
+	 */
+	public void addContainingRooms() {
+		for (int i = 0; i < 4; i += 1) {
+			perspectives[i].setContainingRoom(this);
+		}
+	}
+	
+	/*
+	 * Graphics methods 
+	 */
+	
 	public Scene generateScene(Stage stage) {
 		return perspectives[currentPerspective].generateScene(stage);
+	}
+	
+	/**
+	 * Sets the background file path of the front perspective to the given string.
+	 * 
+	 * @param backgroundPath  The path to the background image of the front perspective.
+	 */
+	public void setBackgroundFront(String backgroundPath) {
+		perspectives[0].setBackground(backgroundPath);
+	}
+	
+	/**
+	 * Sets the unlit background file path of the front perspective to the given string.
+	 * 
+	 * @param unlitBackgroundPath  The path to the unlit background image of the front perspective.
+	 */
+	public void setUnlitBackgroundFront(String unlitBackgroundPath) {
+		perspectives[0].setUnlitBackground(unlitBackgroundPath);
+	}
+	
+	/**
+	 * Sets the background file path of the right perspective to the given string.
+	 * 
+	 * @param backgroundPath  The path to the background image of the right perspective.
+	 */
+	public void setBackgroundRight(String backgroundPath) {
+		perspectives[1].setBackground(backgroundPath);
+	}
+	
+	/**
+	 * Sets the unlit background file path of the right perspective to the given string.
+	 * 
+	 * @param unlitBackgroundPath  The path to the unlit background image of the right perspective.
+	 */
+	public void setUnlitBackgroundRight(String unlitBackgroundPath) {
+		perspectives[1].setUnlitBackground(unlitBackgroundPath);
+	}
+	
+	/**
+	 * Sets the background file path of the back perspective to the given string.
+	 * 
+	 * @param backgroundPath  The path to the background image of the back perspective.
+	 */
+	public void setBackgroundBack(String backgroundPath) {
+		perspectives[2].setBackground(backgroundPath);
+	}
+	
+	/**
+	 * Sets the unlit background file path of the back perspective to the given string.
+	 * 
+	 * @param unlitBackgroundPath  The path to the unlit background image of the back perspective.
+	 */
+	public void setUnlitBackgroundBack(String unlitBackgroundPath) {
+		perspectives[2].setUnlitBackground(unlitBackgroundPath);
+	}
+	
+	/**
+	 * Sets the background file path of the left perspective to the given string.
+	 * 
+	 * @param backgroundPath  The path to the background image of the left perspective.
+	 */
+	public void setBackgroundLeft(String backgroundPath) {
+		perspectives[3].setBackground(backgroundPath);
+	}
+	
+	/**
+	 * Sets the unlit background file path of the left perspective to the given string.
+	 * 
+	 * @param unlitBackgroundPath  The path to the unlit background image of the left perspective.
+	 */
+	public void setUnlitBackgroundLeft(String unlitBackgroundPath) {
+		perspectives[3].setUnlitBackground(unlitBackgroundPath);
 	}
 }

@@ -3,6 +3,7 @@ package fpGUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import fpGame.GameInfo;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -68,7 +69,7 @@ public class Login {
 			System.err.println("riperino");
 		}
 		
-        stage.setScene(new Scene(root, 1000, 1000));
+        stage.setScene(new Scene(root, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
     	stage.setTitle("Login!");
     	stage.show();
 	}

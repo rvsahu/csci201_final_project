@@ -1,11 +1,7 @@
 package fpModel;
 
 public abstract class WrapperObject extends RoomObject {
-	protected Item wrapped;
-	
-	public WrapperObject(String name) {
-		super(name);
-	}
+	private Item wrapped;
 	
 	public WrapperObject(String name, Item wrapped) {
 		super(name);
@@ -24,6 +20,11 @@ public abstract class WrapperObject extends RoomObject {
 		return false;
 	}
 	
+	/**
+	 * Returns the wrapped item and hides the WrapperObject. 
+	 * 
+	 * @return     A reference to the formerly wrapped Item.
+	 */
 	public Item removeItem() {
 		Item temp = wrapped;
 		wrapped = null;
@@ -31,6 +32,11 @@ public abstract class WrapperObject extends RoomObject {
 		return wrapped;
 	}
 	
+	/**
+	 * Returns a reference to the wrapped Item without removing it and hiding the WrapperObject.
+	 * 
+	 * @return     A reference to the wrapped Item.
+	 */
 	public Item peekItem() {
 		return wrapped;
 	}
