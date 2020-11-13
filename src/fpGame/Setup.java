@@ -142,7 +142,7 @@ public class Setup {
 	
 	private static Room setupAnnex() { //RAHUL
 		Room annex = new Room("annex");
-		annex.addToFront(new Podium());
+		
 		//keep adding stuff
 		return annex;
 	}

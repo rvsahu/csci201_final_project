@@ -17,8 +17,8 @@ public class GUIRunner extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+    	GameInfo.setScalingFactor();
     	GameInfo.setStage(primaryStage);
-    	Login.show(primaryStage);
-    	//TestRoom.show(primaryStage);
+    	LoginScreen.show(primaryStage);
     }
 }

@@ -17,7 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
-public class Login {
+public class LoginScreen {
 	public static void show(Stage stage) {
 		
 		/*
@@ -57,7 +57,8 @@ public class Login {
         root.add(btn3, 0, 3);
         
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"));
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+	                               GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
@@ -70,7 +71,8 @@ public class Login {
 		}
 		
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"));
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+	                               GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
@@ -82,7 +84,7 @@ public class Login {
 			System.err.println("riperino2");
 		}
 		
-        stage.setScene(new Scene(root, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
+        stage.setScene(new Scene(root, GameInfo.WINDOW_X * GameInfo.scalingFactor, GameInfo.WINDOW_Y * GameInfo.scalingFactor));
     	stage.setTitle("Login!");
     	stage.show();
 	}

@@ -179,13 +179,14 @@ public class Perspective {
 			} else {
 				//direction == Perspective.Direction.LEFT
 				ImageView iv = rObj.showLeft();
+				//iv.scale(scalingFactor)
 				if (iv != null) {
 					pane.getChildren().add(iv);
 				}
 			}
 		}
 		
-		stage.setScene(new Scene(pane, GameInfo.WINDOW_X, GameInfo.WINDOW_Y));
+		stage.setScene(new Scene(pane, GameInfo.WINDOW_X * GameInfo.scalingFactor, GameInfo.WINDOW_Y * GameInfo.scalingFactor));
 		stage.show();
 	}
 	

@@ -2,6 +2,7 @@ package fpModel;
 
 import java.io.FileInputStream;
 
+import fpGame.GameInfo;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
@@ -202,7 +203,12 @@ public abstract class RoomObject {
 	public void loadSprites() {
 		if (frontSpritePath != null) {
 			try {
-				frontSprite = new Image(new FileInputStream(frontSpritePath));
+				if (GameInfo.needsScaling == true) {
+					frontSprite = new Image(new FileInputStream(frontSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					frontSprite = new Image(new FileInputStream(frontSpritePath));
+				}
 			} catch (Exception e) {
 				frontSprite = null;
 				System.err.println("Error loading front sprite for " + name);
@@ -210,7 +216,12 @@ public abstract class RoomObject {
 		}
 		if (rightSpritePath != null) {
 			try {
-				rightSprite = new Image(new FileInputStream(rightSpritePath));
+				if (GameInfo.needsScaling == true) {
+					rightSprite = new Image(new FileInputStream(rightSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					rightSprite = new Image(new FileInputStream(rightSpritePath));
+				}
 			} catch (Exception e) {
 				rightSprite = null;
 				System.err.println("Error loading right sprite for " + name);
@@ -218,7 +229,12 @@ public abstract class RoomObject {
 		}
 		if (backSpritePath != null) {
 			try {
-				backSprite = new Image(new FileInputStream(backSpritePath));
+				if (GameInfo.needsScaling == true) {
+					backSprite = new Image(new FileInputStream(backSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					backSprite = new Image(new FileInputStream(backSpritePath));
+				}
 			} catch (Exception e) {
 				backSprite = null;
 				System.err.println("Error loading back sprite for " + name);
@@ -226,7 +242,12 @@ public abstract class RoomObject {
 		}
 		if (leftSpritePath != null) {
 			try {
-				leftSprite = new Image(new FileInputStream(leftSpritePath));
+				if (GameInfo.needsScaling == true) {
+					leftSprite = new Image(new FileInputStream(leftSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
+							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				} else {
+					leftSprite = new Image(new FileInputStream(leftSpritePath));
+				}
 			} catch (Exception e) {
 				leftSprite = null;
 				System.err.println("Error loading left sprite for " + name);
