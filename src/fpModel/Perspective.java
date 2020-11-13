@@ -158,6 +158,8 @@ public class Perspective {
 	public void generateScene(Stage stage) {
 		Pane pane = new Pane();
 		
+		//imageview background = new ImageView(new Image(new FileInputStream(
+		
 		for (RoomObject rObj : contents) {
 			if (direction == Perspective.Direction.FRONT) {
 				ImageView iv = rObj.showFront();
@@ -213,5 +215,12 @@ public class Perspective {
 		for (RoomObject rObj : contents) {
 			rObj.loadSprites();
 		}
+	}
+	
+	/**
+	 * Turns lights on if off and off if on.
+	 */
+	public void flipLights() {
+		lightsOff = !(lightsOff);
 	}
 }

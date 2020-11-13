@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
- 
+
+import fpGame.GameInfo;
+
 public class GUIRunner extends Application {
     public static void main(String[] args) {
         launch(args);
@@ -15,6 +17,7 @@ public class GUIRunner extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+    	GameInfo.setStage(primaryStage);
     	Login.show(primaryStage);
     	//TestRoom.show(primaryStage);
     }
