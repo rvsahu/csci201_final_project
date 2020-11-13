@@ -6,9 +6,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MainMenu {
-	public static void show(Stage stage) {
+	public static void show(Stage stage, String name) {
 		Text txt = new Text();
-        txt.setText("Logged In!");
+        txt.setText("Hello, " + name+"!\nWelcome Back!");
         
         
         GridPane root = new GridPane();
