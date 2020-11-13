@@ -21,5 +21,11 @@ import fpModel.*;
 public class TestRoom {
 	public static void show(Stage stage) {
 		Room room = Setup.testRoom();
+		
+		GridPane root = new GridPane();
+		
+		stage.setScene(new Scene(root, 1000, 1000));
+    	stage.setTitle("Login!");
+    	stage.show();
 	}
 }

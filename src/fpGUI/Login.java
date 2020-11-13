@@ -24,14 +24,15 @@ public class Login {
        
 		Button btn1 = new Button();
         btn1.setText("Login");
-        btn1.setOnAction(new EventHandler<ActionEvent>() {
- 
-            @Override
-            public void handle(ActionEvent event) {
-            	MainMenu.show(stage, username);
-                System.out.println("Logged In!");
-            }
-        });
+        
+        EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
+        	@Override public void handle(ActionEvent event) {
+        		MainMenu.show(stage, username);
+        		System.out.println("Logged In!");
+        	}
+        };
+        
+        btn1.setOnAction(b1);
         
         Button btn2 = new Button();
         btn2.setText("Register");

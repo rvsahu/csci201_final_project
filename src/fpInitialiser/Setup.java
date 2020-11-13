@@ -3,6 +3,9 @@ package fpInitialiser;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+
 import fpModel.*;
 
 public class Setup {
@@ -375,11 +378,20 @@ public class Setup {
 	
 	public static Room testRoom() {
 		Room testRoom = new Room("test_room");
+		
+		//dustbin with key
 		Key testkey = new Key("test_key");
 		List<Item> itemList = new ArrayList<Item>();
 		itemList.add(testkey);
 		Dustbin testbin = new Dustbin(itemList);
-		testRoom.addToFront(testbin);
+		EventHandler<MouseEvent> testbinBehaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				testbin.hide();
+			}
+		};
+		
+		testRoom.addToFront(testbin); //dustbin w/ key added to front
+		
 		return testRoom;
 	}
 }
