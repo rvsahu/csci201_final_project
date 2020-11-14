@@ -1,7 +1,6 @@
 package fpModel;
 
 public class DoorObject extends RoomObject {
-<<<<<<< HEAD
 	
 	public Doorway doorway;
 	
@@ -11,7 +10,6 @@ public class DoorObject extends RoomObject {
 		this.doorway = doorway;
 		
 	}
-=======
 
 	public DoorObject() {
 		// TODO Auto-generated constructor stub
@@ -22,7 +20,6 @@ public class DoorObject extends RoomObject {
 		// TODO Auto-generated constructor stub
 	}
 
->>>>>>> 2bd3f6fe5f390506dfca93013a3441ea7673c31b
 	@Override
 	public boolean wrapsItem() {
 		// TODO Auto-generated method stub
