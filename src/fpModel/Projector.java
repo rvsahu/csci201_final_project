@@ -6,17 +6,7 @@ public class Projector extends RoomObject {
 	 * Graphic variable, String filepath to the image of what the projector projects.
 	 */
 	private String projectionPath;
-	
-	/**
-	 * The x position of the projection image (from the top left)
-	 */
-	private int projectionX;
-	
-	/**
-	 * The y position of the projection image (from the top left)
-	 */
-	private int projectionY;
-	
+
 	/**
 	 * Boolean representing whether the projector is on/projecting an image or not.
 	 */
@@ -26,6 +16,7 @@ public class Projector extends RoomObject {
 	 * Default constructor to a projector
 	 */
 	public Projector() {
+		super();
 		projecting = false;
 	}
 
@@ -85,14 +76,6 @@ public class Projector extends RoomObject {
 	 */
 	public void stopProjecting() {
 		projecting = false;
-	}
-	
-	/**
-	 * Graphical method, set x and y of projection 
-	 */
-	public void setProjectionPos(int projectionX, int projectionY) {
-		this.projectionX = projectionX;
-		this.projectionY = projectionY;
 	}
 }
 

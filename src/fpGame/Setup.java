@@ -170,31 +170,9 @@ public class Setup {
 	private static Room setupAnnex() { //RAHUL
 		Room annex = new Room("annex");
 		
-		Computer c2 = new Computer();
+		Computer c1 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
-		c2.setFrontSpritePath(Annexfolder + "front/mon1.png");
-		c2.loadSprites();
-		EventHandler<MouseEvent> computer2 = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event)
-			{
-				//c2.showPhoto();
-				//"The animal says: ";
-			}
-		};
-		
-		c2.setBehaviour(computer2);
-		annex.addToFront(c2);
-		//c2.setLayerBack();
-		
-		Computer c10 = new Computer();
-		c2.setFrontSpritePath(Annexfolder + "front/mon2.png");
-		c2.loadSprites();
-		EventHandler<MouseEvent> computer10 = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event)
-			{
-				//print out a cat png
-			}
-		};
+		c1.setFrontSpritePath(Annexfolder + "front/mon1.png");
 		
 		//keep adding stuff
 		return annex;
