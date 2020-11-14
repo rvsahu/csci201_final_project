@@ -73,6 +73,44 @@ public abstract class RoomObject {
 	 */
 	private boolean display;
 	
+	
+	/**
+	 * The 'layer' of the object from the front perspective, can range from 
+	 * 0 to arbitrarily high, determines whether the RoomObject image representation
+	 * is placed in front of or behind other RoomObjects in the perspective.
+	 * 
+	 * Is negative 1 if not meant to be rendered in the front perspective.
+	 */
+	private int layerFront;
+	
+	/**
+	 * The 'layer' of the object from the right perspective, can range from 
+	 * 0 to arbitrarily high, determines whether the RoomObject image representation
+	 * is placed in front of or behind other RoomObjects in the perspective.
+	 * 
+	 * Is negative 1 if not meant to be rendered in the right perspective.
+	 */
+	private int layerRight;
+	
+	/**
+	 * The 'layer' of the object from the back perspective, can range from 
+	 * 0 to arbitrarily high, determines whether the RoomObject image representation
+	 * is placed in front of or behind other RoomObjects in the perspective.
+	 * 
+	 * Is negative 1 if not meant to be rendered in the back perspective.
+	 */
+	private int layerBack;
+	
+	/**
+	 * The 'layer' of the object from the left perspective, can range from 
+	 * 0 to arbitrarily high, determines whether the RoomObject image representation
+	 * is placed in front of or behind other RoomObjects in the perspective.
+	 * 
+	 * Is negative 1 if not meant to be rendered in the left perspective.
+	 */
+	private int layerLeft;
+	
+	
 	/*
 	 * Logic variables 
 	 */
@@ -88,11 +126,19 @@ public abstract class RoomObject {
 	
 	public RoomObject() {
 		display = true;
+		layerFront = -1;
+		layerRight = -1;
+		layerBack = -1;
+		layerLeft = -1;
 	}
 	
 	public RoomObject(String name) {
 		this.name = name;
 		display = true;
+		layerFront = -1;
+		layerRight = -1;
+		layerBack = -1;
+		layerLeft = -1;
 	}
 	
 	/*
@@ -162,6 +208,87 @@ public abstract class RoomObject {
 	 */
 	public void setLeftSpritePath(String leftSpritePath) {
 		this.leftSpritePath = leftSpritePath;
+	}
+	
+	/**
+	 * Sets the layerFront value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the front perspective. 
+	 * 
+	 * @param layerFront  The new layerFront value.
+	 */
+	public void setLayerFront(int layerFront) {
+		this.layerFront = layerFront;
+	}
+	
+	/**
+	 * Sets the layerRight value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the right perspective. 
+	 * 
+	 * @param layerRight  The new layerRight value.
+	 */
+	public void setLayerRight(int layerRight) {
+		this.layerRight = layerRight;
+	}
+	
+	/**
+	 * Sets the layerBack value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the back perspective. 
+	 * 
+	 * @param layerBack  The new layerBack value.
+	 */
+	public void setLayerBack(int layerBack) {
+		this.layerBack = layerBack;
+	}
+	
+	/**
+	 * Sets the layerLeft value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the left perspective. 
+	 * 
+	 * @param layerLeft  The new layerLeft value.
+	 */
+	public void setLayerLeft(int layerLeft) {
+		this.layerLeft = layerLeft;
+	}
+	
+	
+	/** 
+	 * Gets the layerFront value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the front perspective. 
+	 * 
+	 * @return     The value of layerFront
+	 */
+	public int getLayerFront() {
+		return layerFront;
+	}
+	
+	/** 
+	 * Gets the layerRight value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the right perspective. 
+	 * 
+	 * @return     The value of layerRight
+	 */
+	public int getLayerRight() {
+		return layerRight;
+	}
+	
+	/** 
+	 * Gets the layerBack value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the back perspective. 
+	 * 
+	 * @return     The value of layerBack
+	 */
+	public int getLayerBack() {
+		return layerBack;
+	}
+	
+	/** 
+	 * Gets the layerLeft value for the RoomObject, which determines in what position (on top or behind) it is rendered
+	 * relative to other RoomObjects in the left perspective. 
+	 * 
+	 * @return     The value of layerLeft
+	 */
+	public int getLayerLeft() {
+		return layerLeft;
 	}
 	
 	/**

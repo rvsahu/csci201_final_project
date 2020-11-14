@@ -30,10 +30,6 @@ public class Doorway {
 	 */
 	private Doorlock doorlock;
 	
-	//graphic variables
-	private int xPos;
-	private int yPos;
-	
 	/*
 	 * Setup methods
 	 */
@@ -156,21 +152,5 @@ public class Doorway {
 		else if (viewB.equals(movedFrom))
 			return viewA;
 		throw new Exception();
-	}
-	
-	//graphic methods
-	/* stuff goes here */
-	
-	public void setPos(int xPos, int yPos) {
-		this.xPos = xPos;
-		this.yPos = yPos;
-	}
-	
-	public void setXPos(int xPos) {
-		this.xPos = xPos;
-	}
-	
-	public void setYPos(int yPos) {
-		this.yPos = yPos;
 	}
 }
