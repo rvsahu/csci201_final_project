@@ -172,7 +172,7 @@ public class Setup {
 		
 		Computer c1 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
-		c1.setFrontViewSprite(Annexfolder + "front/mon1.png");
+		c1.setFrontSpritePath(Annexfolder + "front/mon1.png");
 		
 		//keep adding stuff
 		return annex;
