@@ -46,9 +46,13 @@ public class Setup {
 	 * annex.addToRight(c);
 	 * annex.addToFront(c);
 	 * 
+	 * 7. Set layer values on the object for specific perspectives.
+	 * c.setLayerRight(2);
+	 * c.setLayerFront(3);
+	 * 
 	 */
-		
-	public static void setupAll() { //RAHUL
+	
+	public static Map setupAll() { /* would return GameMap */
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
 		Room mainB = setupMainB();
@@ -138,6 +142,29 @@ public class Setup {
 		hallway2.addExitBack(hallway2_womens);
 		womensRoom.addExitFront(hallway2_womens);
 		
+		/*
+		 * Create a map of the game, initialise all its fields to the Rooms we just set up.
+		 */
+		
+		Map map = new Map();
+		
+		map.annex = annex;
+		map.mainA = mainA;
+		map.mainB = mainB;
+		map.mainC = mainC;
+		map.mainD = mainD;
+		map.study1 = study1;
+		map.study2 = study2;
+		map.study3 = study3;
+		map.study4 = study4;
+		map.cove = cove;
+		map.lab1 = lab1;
+		map.hallway1 = hallway1;
+		map.hallway2 = hallway2;
+		map.mensRoom = mensRoom;
+		map.womensRoom = womensRoom;
+		
+		return map;
 	}
 	
 	private static Room setupAnnex() { //RAHUL

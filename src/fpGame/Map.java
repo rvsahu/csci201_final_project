@@ -1,8 +1,9 @@
-package fpModel;
+package fpGame;
+
+import fpModel.*;
 
 public class Map {
-	public Map()
-	{
+	public Map() {
 		
 	}
 	

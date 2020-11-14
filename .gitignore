@@ -1,1 +1,3 @@
-./bin/*
+./bin/fpGUI/*.class
+./bin/fpModel/*.class
+./bin/fpGame/*.class
