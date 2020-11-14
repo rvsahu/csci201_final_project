@@ -309,7 +309,75 @@ public class Room {
 	}
 	*/
 	
+	/**
+	 * Sets the layer backgrounds of the front perspective.
+	 * 
+	 * @param layerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setLayerBackgroundsFront(String[] layerPaths) {
+		perspectives[0].setLayerPaths(layerPaths);
+	}
+	
+	/**
+	 * Sets the layer backgrounds of the right perspective.
+	 * 
+	 * @param layerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setLayerBackgroundsRight(String[] layerPaths) {
+		perspectives[1].setLayerPaths(layerPaths);
+	}
+	
+	/**
+	 * Sets the layer backgrounds of the back perspective.
+	 * 
+	 * @param layerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setLayerBackgroundsBack(String[] layerPaths) {
+		perspectives[2].setLayerPaths(layerPaths);
+	}
+	
+	/**
+	 * Sets the layer backgrounds of the left perspective.
+	 * 
+	 * @param layerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
 	public void setLayerBackgroundsLeft(String[] layerPaths) {
-		
+		perspectives[3].setLayerPaths(layerPaths);
+	}
+	
+	/**
+	 * Sets the unlit layer backgrounds of the front perspective.
+	 * 
+	 * @param unlitLayerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setUnlitLayerBackgroundsFront(String[] unlitLayerPaths) {
+		perspectives[0].setUnlitLayerPaths(unlitLayerPaths);
+	}
+	
+	/**
+	 * Sets the unlit layer backgrounds of the right perspective.
+	 * 
+	 * @param unlitLayerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setUnlitLayerBackgroundsRight(String[] unlitLayerPaths) {
+		perspectives[1].setUnlitLayerPaths(unlitLayerPaths);
+	}
+	
+	/**
+	 * Sets the layer backgrounds of the back perspective.
+	 * 
+	 * @param unliLlayerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setUnlitLayerBackgroundsBack(String[] unlitLayerPaths) {
+		perspectives[2].setUnlitLayerPaths(unlitLayerPaths);
+	}
+	
+	/**
+	 * Sets the layer backgrounds of the left perspective.
+	 * 
+	 * @param unlitLayerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 */
+	public void setUnlitLayerBackgroundsLeft(String[] unlitLayerPaths) {
+		perspectives[3].setUnlitLayerPaths(unlitLayerPaths);
 	}
 }

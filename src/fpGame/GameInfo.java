@@ -52,4 +52,6 @@ public class GameInfo {
 			setScalingFactor(Math.min(sF1, sF2));
 		}
 	}
+	
+	
 }

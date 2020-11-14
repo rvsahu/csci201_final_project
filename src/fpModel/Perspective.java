@@ -238,7 +238,6 @@ public class Perspective {
 			}
 		}
 		*/
-		
 		stage.setScene(new Scene(pane, GameInfo.WINDOW_X * GameInfo.scalingFactor, GameInfo.WINDOW_Y * GameInfo.scalingFactor));
 		stage.show();
 	}
@@ -360,5 +359,23 @@ public class Perspective {
 	 */
 	public void setMaxLayers(int maxLayers) {
 		this.maxLayers = maxLayers;
+	}
+	
+	/**
+	 * Sets the file paths of the background images of each layer.
+	 * 
+	 * @param layerPaths  The layer file paths as an array of Strings from back to front.
+	 */
+	public void setLayerPaths(String[] layerPaths) {
+		this.layerPaths = layerPaths;
+	}
+	
+	/**
+	 * Sets the file paths of the unlit background images of each layer.
+	 * 
+	 * @param layerPaths  The layer file paths as an array of Strings from back to front.
+	 */
+	public void setUnlitLayerPaths(String[] unlitLayerPaths) {
+		this.unlitLayerPaths = unlitLayerPaths;
 	}
 }
