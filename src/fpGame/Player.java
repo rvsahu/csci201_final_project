@@ -47,4 +47,12 @@ public class Player {
 	public int getLevel() {
 		return currentLevel;
 	}
+	
+	public Room currentRoom() {
+		return currentRoom;
+	}
+	
+	public Perspective currentView() {
+		return currentView;
+	}
 }

@@ -4,17 +4,30 @@ import javafx.stage.Stage;
 import javafx.stage.Screen;
 import javafx.geometry.Rectangle2D;
 
-public class GameInfo {
+public class GameUtil {
 	public static final int WINDOW_X = 1920;
 	public static final int WINDOW_Y = 1080;
 	//something to consider: 1920x1080 is quite a large resolution. maybe a scale factor needed?
 	public static double scalingFactor;
 	public static boolean needsScaling;
 	
-	public static Stage stage;
+	private static Player player;
+	private static Stage stage;
 	
 	public static void setStage(Stage s) {
 		stage = s;
+	}
+	
+	public static Stage stage() {
+		return stage;
+	}
+	
+	public static void setPlayer(Player p) {
+		player = p;
+	}
+	
+	public static Player player() {
+		return player;
 	}
 	
 	public static void setScalingFactor(double sF) {
@@ -52,6 +65,4 @@ public class GameInfo {
 			setScalingFactor(Math.min(sF1, sF2));
 		}
 	}
-	
-	
 }

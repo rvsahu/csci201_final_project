@@ -13,7 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 //package imports
-import fpGame.GameInfo;
+import fpGame.GameUtil;
 
 public class Perspective {
 	/**
@@ -238,7 +238,12 @@ public class Perspective {
 			}
 		}
 		*/
-		stage.setScene(new Scene(pane, GameInfo.WINDOW_X * GameInfo.scalingFactor, GameInfo.WINDOW_Y * GameInfo.scalingFactor));
+		
+		if (GameUtil.needsScaling) {
+			stage.setScene(new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
+		} else {
+			stage.setScene(new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y));
+		}
 		stage.show();
 	}
 	
@@ -247,9 +252,9 @@ public class Perspective {
 		Image backIMG = null;
 		if (lightsOff == true && unlitLayerPaths[layer] != null) {
 			try {
-				if (GameInfo.needsScaling) {
-					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameInfo.WINDOW_X * GameInfo.scalingFactor,
-							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling) {
+					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
+							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]));
 				}
@@ -258,9 +263,9 @@ public class Perspective {
 			}
 		} else {
 			try {
-				if (GameInfo.needsScaling) {
-					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameInfo.WINDOW_X * GameInfo.scalingFactor,
-							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling) {
+					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
+							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					backIMG = new Image(new FileInputStream(layerPaths[layer]));
 				}

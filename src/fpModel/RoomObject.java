@@ -2,7 +2,7 @@ package fpModel;
 
 import java.io.FileInputStream;
 
-import fpGame.GameInfo;
+import fpGame.GameUtil;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
@@ -330,9 +330,9 @@ public abstract class RoomObject {
 	public void loadSprites() {
 		if (frontSpritePath != null) {
 			try {
-				if (GameInfo.needsScaling == true) {
-					frontSprite = new Image(new FileInputStream(frontSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling == true) {
+					frontSprite = new Image(new FileInputStream(frontSpritePath), GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							                GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					frontSprite = new Image(new FileInputStream(frontSpritePath));
 				}
@@ -343,9 +343,9 @@ public abstract class RoomObject {
 		}
 		if (rightSpritePath != null) {
 			try {
-				if (GameInfo.needsScaling == true) {
-					rightSprite = new Image(new FileInputStream(rightSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling == true) {
+					rightSprite = new Image(new FileInputStream(rightSpritePath), GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							                GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					rightSprite = new Image(new FileInputStream(rightSpritePath));
 				}
@@ -356,9 +356,9 @@ public abstract class RoomObject {
 		}
 		if (backSpritePath != null) {
 			try {
-				if (GameInfo.needsScaling == true) {
-					backSprite = new Image(new FileInputStream(backSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling == true) {
+					backSprite = new Image(new FileInputStream(backSpritePath), GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							                GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					backSprite = new Image(new FileInputStream(backSpritePath));
 				}
@@ -369,9 +369,9 @@ public abstract class RoomObject {
 		}
 		if (leftSpritePath != null) {
 			try {
-				if (GameInfo.needsScaling == true) {
-					leftSprite = new Image(new FileInputStream(leftSpritePath), GameInfo.WINDOW_X * GameInfo.scalingFactor, 
-							                GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
+				if (GameUtil.needsScaling == true) {
+					leftSprite = new Image(new FileInputStream(leftSpritePath), GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							                GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
 					leftSprite = new Image(new FileInputStream(leftSpritePath));
 				}
