@@ -198,7 +198,7 @@ public class Setup {
 				text.setTextAlignment(TextAlignment.CENTER);
 				pane.getChildren().add(text);
 				
-				EventHandler<MouseEvent> exitCondition = new EventHandler<MouseEvent>() {
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
 					@Override public void handle(MouseEvent event) {
 						//return to gameplay
 						Room cR = GameUtil.player().currentRoom();
@@ -208,6 +208,8 @@ public class Setup {
 					}
 				};
 				
+				pane.setOnMouseClicked(exitBehaviour);
+				
 				//do stuff, fill in pane
 				Scene scene;
 				if (GameUtil.needsScaling) {
@@ -216,7 +218,8 @@ public class Setup {
 				} else {
 					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
 				}
-				//scene.setBac
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
 			}
 		};
 		
