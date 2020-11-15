@@ -206,6 +206,8 @@ public class Room {
 	 * @param exit  The Doorway to be added.
 	 */
 	public void addExitFront(Doorway exit) {
+		if (perspectives[0] == null)
+			return;
 		perspectives[0].addExit(exit);
 	}	
 	
@@ -215,6 +217,8 @@ public class Room {
 	 * @param exit  The Doorway to be added.
 	 */
 	public void addExitRight(Doorway exit) {
+		if (perspectives[1] == null)
+			return;
 		perspectives[1].addExit(exit);
 	}
 	
@@ -224,6 +228,8 @@ public class Room {
 	 * @param exit  The Doorway to be added.
 	 */
 	public void addExitBack(Doorway exit) {
+		if (perspectives[2] == null)
+			return;
 		perspectives[2].addExit(exit);
 	}
 	
@@ -233,17 +239,27 @@ public class Room {
 	 * @param exit  The Doorway to be added.
 	 */
 	public void addExitLeft(Doorway exit) {
+		if (perspectives[3] == null)
+			return;
 		perspectives[3].addExit(exit);
 	}
 	
-	public Perspective changePerspectiveLeft() {
-		currentPerspective = ((currentPerspective - 1) % 4);
-		return getCurrent();
+	public void changePerspectiveLeft() {
+		while (true) {
+			currentPerspective = ((currentPerspective - 1) % 4);
+			if (perspectives[currentPerspective] != null) {
+				break;
+			}
+		}
 	}
 	
-	public Perspective changePerspectiveRight() {
-		currentPerspective = ((currentPerspective + 1) % 4);
-		return getCurrent();
+	public void changePerspectiveRight() {
+		while (true) {
+			currentPerspective = ((currentPerspective + 1) % 4);
+			if (perspectives[currentPerspective] != null) {
+				break;
+			}
+		}
 	}
 	
 	public Perspective getCurrent() {

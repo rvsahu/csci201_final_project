@@ -21,11 +21,13 @@ public class Player {
 	}
 	
 	public void turnLeft() {
-		currentView = currentRoom.changePerspectiveLeft();
+		currentRoom.changePerspectiveLeft();
+		currentView = currentRoom.getCurrent();
 	}
 	
 	public void turnRight() {
-		currentView = currentRoom.changePerspectiveRight();
+		currentRoom.changePerspectiveRight();
+		currentView = currentRoom.getCurrent();
 	}
 	
 	public boolean addToInventory(Item item) {
