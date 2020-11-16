@@ -1,12 +1,19 @@
 package fpGame;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 //java imports
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.event.ActionEvent;
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -178,16 +185,15 @@ public class Setup {
 	private static Room setupAnnex() { //RAHUL
 		Room annex = new Room("annex");
 		
-		Computer c1 = new Computer();
+		Computer c2 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
-		c1.setFrontSpritePath(Annexfolder + "front/mon1.png");
+		c2.setFrontSpritePath(Annexfolder + "front/mon2.png");
 		
-		EventHandler<MouseEvent> c1Behaviour = new EventHandler<MouseEvent>() {
+		EventHandler<MouseEvent> c2Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				Pane pane = new Pane();
 				
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
-				
 				//create text object
 				Text text = new Text();
 				text.setText("The animal says: ");
@@ -209,7 +215,6 @@ public class Setup {
 				};
 				
 				pane.setOnMouseClicked(exitBehaviour);
-				
 				//do stuff, fill in pane
 				Scene scene;
 				if (GameUtil.needsScaling) {
@@ -223,6 +228,119 @@ public class Setup {
 			}
 		};
 		
+		//computer 5 loads up an image of a cat 
+		Computer c5 = new Computer();
+		c5.setFrontSpritePath(Annexfolder + "front/mon5.png");
+		EventHandler<MouseEvent> c5Behaviour = new EventHandler<MouseEvent>() 
+		{
+			@Override public void handle(MouseEvent event) 
+			{
+				
+				Pane pane = new Pane();
+				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
+				//create text object
+				try 
+				{
+					Image catim = new Image(new FileInputStream(Annexfolder + "front/cat.png"), 
+							1024 * GameUtil.scalingFactor, 964*GameUtil.scalingFactor, true,true);
+					ImageView imageview = new ImageView(catim);		
+				}
+				catch (IOException ie)
+				{
+					System.err.println("cat image was not found--riperino");
+				};
+				
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
+				{
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						cR.generateScene(GameUtil.stage());
+					}
+				};
+				
+				pane.setOnMouseClicked(exitBehaviour);
+				//do stuff, fill in pane
+				Scene scene;
+				if (GameUtil.needsScaling) 
+				{
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor, Color.BLACK);
+				} 
+				
+				else 
+				{
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
+				}
+				
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		
+		
+		//computer 8 -- write down the correct word then type enter
+		Computer c8 = new Computer();
+		c8.setFrontSpritePath(Annexfolder + "front/mon8.png");
+		EventHandler<MouseEvent> c8Behaviour = new EventHandler<MouseEvent>() 
+		{
+			@Override public void handle(MouseEvent event) 
+			{
+				
+				Pane pane = new Pane();
+				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
+				//create text object
+				
+				TextField text = new TextField("Assemble the clues together to unlock the computer: ");
+				pane.getChildren().add(text);
+				
+				Text output = new Text();
+				Button button = new Button("Submit");
+				pane.getChildren().add(button);
+				
+				button.setOnAction(e-> {
+					if (text.toString() == "Meow" || text.toString() =="meow")
+					{
+						output.setText("correct");
+					}
+					else
+					{
+						output.setText("wrong");
+					}
+				});
+
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
+				{
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						cR.generateScene(GameUtil.stage());
+					}
+				};
+				
+		        //exit when we click again
+				pane.setOnMouseClicked(exitBehaviour);
+				
+				Scene scene;
+				if (GameUtil.needsScaling) 
+				{
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor, Color.BLACK);
+				} 
+				
+				else 
+				{
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
+				}
+				
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
 		//keep adding stuff
 		return annex;
 	}
