@@ -3,7 +3,12 @@ package fpModel;
 public class DoorObject extends RoomObject {
 	
 	public Doorway doorway;
-	
+	/*
+	public Room exit;
+	public int exitPerspective;
+	boolean locked;
+	String key;
+	*/
 	DoorObject(Doorway doorway, Room myroom)
 	{
 		super("doorway");

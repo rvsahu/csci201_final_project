@@ -28,7 +28,12 @@ public class Doorway {
 	/**
 	 * Optional field, a Doorlock for when the door needs a specific key.
 	 */
-	private Doorlock doorlock;
+	//private Doorlock doorlock;
+	
+	/**
+	 * Optional field, a Key for if the way is locked.
+	 */
+	String mKey;
 	
 	/*
 	 * Setup methods
@@ -62,9 +67,9 @@ public class Doorway {
 	 * Default constructor for Doorway with a lock, initialises the lock. Should be used during game setup
 	 * The doorway has its ends set when its added to Pespectives.
 	 */
-	public Doorway(Doorlock doorlock) {
-		this.doorlock = doorlock;
-	}
+	//public Doorway(Doorlock doorlock) {
+	//	this.doorlock = doorlock;
+	//}
 	
 	/**
 	 * Given a perspective, adds it and the room it is in as one of the ends. 
@@ -87,37 +92,32 @@ public class Doorway {
 	 */
 	
 	/**
-	 * Locks the door if there is no Doorlock. Does nothing if there is.
+	 * Locks the door.
 	 */
 	public void lock() {
-		if (doorlock == null) {
-			isLocked = true;
-		}
+		isLocked = true;
 	}
 	
 	/**
-	 * Unlocks the door if there is no Doorlock. Does nothing if there is.
+	 * Unlocks the door if it is locked. Does nothing if it is already open.
 	 */
 	public void unlock() {
-		if (doorlock == null) {
-			isLocked = false;
-		}
+		isLocked = false;
 	}
 	
 	/**
-	 * Unlocks the door if there is a Doorlock and the right key is used. Does nothing otherwise.
+	 * Locks the door with the provided key. Does nothing otherwise.
 	 */
 	public void lock(Key key) {
-		if (doorlock != null && doorlock.tryKey(key)) {
-			isLocked = true;
-		}
+		mKey = key.name();
+		isLocked = true;
 	}
 	
 	/**
-	 * Unlocks the door if there a Doorlock and the right key is used. Does nothing otherwise.
+	 * Unlocks the door if the right key is used. Does nothing otherwise.
 	 */
 	public void unlock(Key key) {
-		if (doorlock != null && doorlock.tryKey(key)) {
+		if (mKey == key.name()) {
 			isLocked = false;
 		}
 	}
