@@ -190,6 +190,8 @@ public class Setup {
 	}
 	
 	private static Room setupAnnex() { //RAHUL
+		
+		System.out.print("hewwo");
 		Room annex = new Room("annex");
 		String frontPaths[] = {"./graphics/game_graphics/rooms/annex/front/layer0/annex_front_0.png",
 				"./graphics/game_graphics/rooms/annex/front/layer1/annex_front_1.png",
