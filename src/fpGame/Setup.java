@@ -586,7 +586,8 @@ public class Setup {
 	}
 	
 	private static Room setupCove() { //RAHUL
-		return null;
+		Room cove = new Room("Cove");
+		return cove;
 	}
 	
 	private static Room setupLab1() { //ERICA
