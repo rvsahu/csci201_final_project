@@ -18,7 +18,7 @@ public class GUIRunner extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-    	
+    	//Erica is silly
     	GameUtil.setScalingFactor();
     	GameUtil.setStage(primaryStage);
     	LoginScreen.show(primaryStage);
