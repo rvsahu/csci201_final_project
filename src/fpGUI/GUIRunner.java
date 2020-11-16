@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import fpGame.GameUtil;
+import fpGame.Player;
 
 public class GUIRunner extends Application {
     public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class GUIRunner extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+    	
     	GameUtil.setScalingFactor();
     	GameUtil.setStage(primaryStage);
     	LoginScreen.show(primaryStage);

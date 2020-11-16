@@ -13,6 +13,7 @@ public class GameUtil {
 	
 	private static Player player;
 	private static Stage stage;
+	private static Map map;
 	
 	public static void setStage(Stage s) {
 		stage = s;
@@ -28,6 +29,14 @@ public class GameUtil {
 	
 	public static Player player() {
 		return player;
+	}
+	
+	public static void setMap(Map m) {
+		map = m;
+	}
+	
+	public static Map map() {
+		return map;
 	}
 	
 	public static void setScalingFactor(double sF) {
