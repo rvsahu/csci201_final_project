@@ -3,10 +3,14 @@ package fpGame;
 import fpModel.*;
 
 public class Map {
+	
 	public Map() {
 		
 	}
 	
+	/*
+	 * All rooms
+	 */
 	public Room annex;
 	public Room mainA;
 	public Room mainB;

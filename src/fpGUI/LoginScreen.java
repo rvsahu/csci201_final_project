@@ -3,7 +3,6 @@ package fpGUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import fpGame.GameUtil;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -12,13 +11,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import fpGame.GameUtil;
+import fpIO.AutoSaver;
+
 
 public class LoginScreen {
-	public static void show(Stage stage) {
+	public static void show(Stage stage, AutoSaver autoSaver) {
+		//TODO finish this
 		
 		/*
 		 * DIMENSIONS 1920x1080
@@ -57,8 +59,8 @@ public class LoginScreen {
         root.add(btn3, 0, 3);
         
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 1024 * GameUtil.scalingFactor, 
-					               963 * GameUtil.scalingFactor, true, true);
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 
+					               1024 * GameUtil.scalingFactor(), 963 * GameUtil.scalingFactor(), true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
@@ -71,8 +73,8 @@ public class LoginScreen {
 		}
 		
 		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), 800 * GameUtil.scalingFactor, 
-	                               923 * GameUtil.scalingFactor, true, true);
+			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), 
+					               800 * GameUtil.scalingFactor(), 923 * GameUtil.scalingFactor(), true, true);
 			ImageView testview = new ImageView(test);
 			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent mouseEvent) {
@@ -84,7 +86,8 @@ public class LoginScreen {
 			System.err.println("riperino2");
 		}
 		
-        stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
+        stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+        		       GameUtil.WINDOW_Y * GameUtil.scalingFactor()));
     	stage.setTitle("Login!");
     	stage.show();
 	}

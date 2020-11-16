@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 
 import fpGame.GameUtil;
 import fpGame.Player;
-import fpGame.Setup;
 import fpGame.Map;
+import fpGame.Setup;
 
 public class MainMenu {
 	public static void show(Stage stage, String name) {
@@ -28,8 +28,8 @@ public class MainMenu {
 		Text txt1 = new Text();
         txt.setText("Hello, " + name+"!");
         txt1.setText("Welcome Back!");
-        txt.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor)/5);
-        txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor)/4);
+        txt.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/5);
+        txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/4);
         
         StackPane.setAlignment(txt, Pos.TOP_CENTER);
         StackPane.setAlignment(txt1, Pos.TOP_CENTER);
@@ -52,7 +52,7 @@ public class MainMenu {
             public void handle(ActionEvent event) {
             	Player player = new Player();
             	GameUtil.setPlayer(player);
-            	Map map = Setup.setupAll();
+            	Setup.setupAll();
             	//MainMenu.show(stage, "this would be new game");
             }
         });
@@ -63,7 +63,8 @@ public class MainMenu {
         btn2.setTranslateY(50);
 
         
-        stage.setScene(new Scene(root, GameUtil.WINDOW_X* GameUtil.scalingFactor, GameUtil.WINDOW_Y* GameUtil.scalingFactor));
+        stage.setScene(new Scene(root, GameUtil.WINDOW_X* GameUtil.scalingFactor(), 
+        		                 GameUtil.WINDOW_Y* GameUtil.scalingFactor()));
     	stage.setTitle("Main Menu!");
     	stage.show();
 	}

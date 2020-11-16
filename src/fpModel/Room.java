@@ -1,8 +1,11 @@
 package fpModel;
 
+//java imports
 import java.util.List;
 
+//javafx imports
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Room {
@@ -323,8 +326,8 @@ public class Room {
 	 * Graphics methods 
 	 */
 	
-	public void generateScene(Stage stage) {
-		perspectives[currentPerspective].generateScene(stage);
+	public Pane generateScene(Stage stage) {
+		return perspectives[currentPerspective].generateScene(stage);
 	}
 	
 	/*

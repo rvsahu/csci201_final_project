@@ -171,13 +171,14 @@ public class Perspective {
 	 * 
 	 * @return a Scene for the given Perspective to be displayed
 	 */
-	public void generateScene(Stage stage) {
+	public Pane generateScene(Stage stage) {
 		Pane pane = new Pane();
 		
 		for (int i = 0; i < maxLayers; i += 1) {
 			displayLayer(i, pane);
 		}
 		
+		return pane;
 		/*
 		Image backIMG = null;
 		if (lightsOff == true && lightsOutBackgroundPath != null) {
@@ -238,13 +239,6 @@ public class Perspective {
 			}
 		}
 		*/
-		
-		if (GameUtil.needsScaling) {
-			stage.setScene(new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
-		} else {
-			stage.setScene(new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y));
-		}
-		stage.show();
 	}
 	
 	private void displayLayer(int layer, Pane pane) {
@@ -252,9 +246,9 @@ public class Perspective {
 		Image backIMG = null;
 		if (lightsOff == true && unlitLayerPaths[layer] != null) {
 			try {
-				if (GameUtil.needsScaling) {
-					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
-							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
+				if (GameUtil.needsScaling()) {
+					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
+							            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
 				} else {
 					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]));
 				}
@@ -264,9 +258,9 @@ public class Perspective {
 			}
 		} else {
 			try {
-				if (GameUtil.needsScaling) { 
-					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
-							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
+				if (GameUtil.needsScaling()) { 
+					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
+							            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
 				} else {
 					backIMG = new Image(new FileInputStream(layerPaths[layer]));
 				}

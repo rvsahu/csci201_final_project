@@ -44,7 +44,7 @@ public class Setup {
 	 * 
 	 * c.loadSprites();
 	 * 
-	 * 4. Write behaviour
+	 * 4. Write behaviour in Behaviours.java static method
 	 * 
 	 *  EventHandler<MouseEvent> exampleBehaviour = new EventHandler<MouseEvent>() {
 	 *		@Override public void handle(MouseEvent event) {
@@ -54,7 +54,7 @@ public class Setup {
 	 * 
 	 * 5. Submit behaviour to RoomObject
 	 * 
-	 * c.setBehaviour(exampleBehaviour);
+	 * c.setBehaviour(Behaviours.annexComputer5Behaviour());
 	 * 
 	 * 6. Add to Room perspectives, possibly multiple or all
 	 * 
@@ -66,6 +66,22 @@ public class Setup {
 	 * c.setLayerFront(3);
 	 * 
 	 */
+	
+	/* EXAMPLE OF DOOR FORMAT
+	DoorObject doorOut = new DoorObject();
+	doorOut.setFrontSpritePath("www.google.com/search/toasterinbathtub");
+	EventHandler<MouseEvent> doorOutBehaviour = new EventHandler<MouseEvent>() {
+		@Override public void handle(MouseEvent event) {
+			if (doorOut.isLocked()) {
+				// do nothing
+			} else {
+				GameUtil.player().setCurrentRoom(GameUtil.map().cove);
+				GameUtil.player().setCurrentPerspective(2); //facing back
+				GameUtil.map().cove.generateScene(GameUtil.stage());
+			}
+		}
+	};
+	*/
 	
 	public static Map setupAll() { /* would return GameMap */
 		Room annex = setupAnnex();
@@ -83,79 +99,6 @@ public class Setup {
 		Room hallway2 = setupHallway2();
 		Room mensRoom = setupMensRoom();
 		Room womensRoom = setupWomensRoom();
-		
-		//ALL CONNECTIONS
-		
-		//Annex
-		
-		Doorway annex_cove = new Doorway();
-		annex.addExitRight(annex_cove);
-		cove.addExitLeft(annex_cove);
-		
-		/*
-		 * Study Room Connections
-		 * Annex-1, Annex-2, Annex-3, Annex-4
-		 */
-		Doorway annex_study1 = new Doorway();
-		annex.addExitRight(annex_study1);
-		study1.addExitLeft(annex_study1);
-		Doorway annex_study2 = new Doorway();
-		annex.addExitRight(annex_study2);
-		study2.addExitLeft(annex_study2);
-		Doorway annex_study3 = new Doorway();
-		annex.addExitBack(annex_study3);
-		study3.addExitFront(annex_study3);
-		Doorway annex_study4 = new Doorway();
-		annex.addExitBack(annex_study4);
-		study4.addExitFront(annex_study4);
-		
-		
-		Doorway annex_mainA = new Doorway();
-		annex.addExitLeft(annex_mainA);
-		mainA.addExitRight(annex_mainA);
-		
-		//Main
-		
-		/*
-		 * main room internal connections
-		 * A-D, A-B, B-C, C-D
-		 */
-		Doorway mainA_mainD = new Doorway();
-		mainA.addExitLeft(mainA_mainD);
-		mainD.addExitRight(mainA_mainD);
-		Doorway mainA_mainB = new Doorway();
-		mainA.addExitFront(mainA_mainB);
-		mainB.addExitBack(mainA_mainB);
-		Doorway mainB_mainC = new Doorway();
-		mainB.addExitLeft(mainB_mainC);
-		mainC.addExitRight(mainB_mainC);
-		Doorway mainC_mainD = new Doorway();
-		mainC.addExitBack(mainC_mainD);
-		mainD.addExitFront(mainC_mainD);
-		
-		Doorway mainD_hallway1 = new Doorway();
-		mainD.addExitBack(mainD_hallway1);
-		hallway1.addExitFront(mainD_hallway1);
-		
-		Doorway mainD_lab1 = new Doorway();
-		mainD.addExitLeft(mainD_lab1);
-		lab1.addExitRight(mainD_lab1);
-		
-		//Hallway 1
-		
-		Doorway hallway1_hallway2 = new Doorway();
-		hallway1.addExitRight(hallway1_hallway2);
-		hallway2.addExitLeft(hallway1_hallway2);
-		
-		//Hallway 2
-		
-		Doorway hallway2_mens = new Doorway();
-		hallway2.addExitBack(hallway2_mens);
-		mensRoom.addExitFront(hallway2_mens);
-		
-		Doorway hallway2_womens = new Doorway();
-		hallway2.addExitBack(hallway2_womens);
-		womensRoom.addExitFront(hallway2_womens);
 		
 		/*
 		 * Create a map of the game, initialise all its fields to the Rooms we just set up.
@@ -184,7 +127,7 @@ public class Setup {
 		//start the game facing forwards in the annex
 		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 		GameUtil.player().setCurrentPerspective(0); 
-		GameUtil.map().annex.generateScene(GameUtil.stage());
+		GameUtil.displayPlayerView(); //use this as a template for all other room displays
 		
 		return map;
 	}
@@ -215,67 +158,13 @@ public class Setup {
 		//add remaining sprite paths
 		c2.loadSprites();
 		
-		EventHandler<MouseEvent> c2Behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-				Pane pane = new Pane();
-				
-				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
-				//create text object
-				Text text = new Text();
-				text.setText("The animal says: ");
-				text.setX((GameUtil.WINDOW_X * GameUtil.scalingFactor) / 2);
-				text.setY((GameUtil.WINDOW_Y * GameUtil.scalingFactor) / 2);
-				text.setFill(Color.WHITE);
-				text.setFont(new Font(30));
-				text.setTextAlignment(TextAlignment.CENTER);
-				pane.getChildren().add(text);
-				
-				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
-					@Override public void handle(MouseEvent event) {
-						//return to gameplay
-						Room cR = GameUtil.player().currentRoom();
-						Perspective cP = GameUtil.player().currentView();
-						cR.setPerspective(cP);
-						cR.generateScene(GameUtil.stage());
-					}
-				};
-				
-				pane.setOnMouseClicked(exitBehaviour);
-				pane.setStyle("-fx-background-color: #000000;");
-				//do stuff, fill in pane
-				Scene scene;
-				if (GameUtil.needsScaling) {
-					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
-							          GameUtil.WINDOW_Y * GameUtil.scalingFactor);
-					//scene.setFill(Color.BLACK);
-				} else {
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
-					//scene.setFill(Color.BLACK);
-				}
-				GameUtil.stage().setScene(scene);
-				GameUtil.stage().show();
-			}
-		};
+		EventHandler<MouseEvent> c2Behaviour = Behaviours.annexComputer2Behaviour();
 		
 		c2.setBehaviour(c2Behaviour);
 		annex.addToFront(c2);
 		c2.setLayerFront(1);
 		
-		/* EXAMPLE OF DOOR FORMAT
-		DoorObject doorOut = new DoorObject();
-		doorOut.setFrontSpritePath("www.google.com/search/toasterinbathtub");
-		EventHandler<MouseEvent> doorOutBehaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-				if (doorOut.isLocked()) {
-					// do nothing
-				} else {
-					GameUtil.player().setCurrentRoom(GameUtil.map().cove);
-					GameUtil.player().setCurrentPerspective(2); //facing back
-					GameUtil.map().cove.generateScene(GameUtil.stage());
-				}
-			}
-		};
-		*/
+		
 		
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer();
@@ -290,7 +179,7 @@ public class Setup {
 				try 
 				{
 					Image catim = new Image(new FileInputStream(annexFolder + "front/layer2/cat.png"), 
-							1024 * GameUtil.scalingFactor, 964*GameUtil.scalingFactor, true,true);
+							1024 * GameUtil.scalingFactor(), 964*GameUtil.scalingFactor(), true,true);
 					ImageView imageview = new ImageView(catim);		
 				}
 				catch (IOException ie)
@@ -312,10 +201,10 @@ public class Setup {
 				pane.setOnMouseClicked(exitBehaviour);
 				//do stuff, fill in pane
 				Scene scene;
-				if (GameUtil.needsScaling) 
+				if (GameUtil.needsScaling()) 
 				{
-					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor, Color.BLACK);
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
 				} 
 				
 				else 
@@ -374,10 +263,10 @@ public class Setup {
 				pane.setOnMouseClicked(exitBehaviour);
 				
 				Scene scene;
-				if (GameUtil.needsScaling) 
+				if (GameUtil.needsScaling()) 
 				{
-					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor, Color.BLACK);
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
 				} 
 				
 				else 
@@ -686,3 +575,80 @@ public class Setup {
 		return testRoom;
 	}
 }
+
+
+/* old connections code:
+
+//ALL CONNECTIONS
+
+		//Annex
+		
+		Doorway annex_cove = new Doorway();
+		annex.addExitRight(annex_cove);
+		cove.addExitLeft(annex_cove);
+		
+		 *
+		 * Study Room Connections
+		 * Annex-1, Annex-2, Annex-3, Annex-4
+		 *
+		Doorway annex_study1 = new Doorway();
+		annex.addExitRight(annex_study1);
+		study1.addExitLeft(annex_study1);
+		Doorway annex_study2 = new Doorway();
+		annex.addExitRight(annex_study2);
+		study2.addExitLeft(annex_study2);
+		Doorway annex_study3 = new Doorway();
+		annex.addExitBack(annex_study3);
+		study3.addExitFront(annex_study3);
+		Doorway annex_study4 = new Doorway();
+		annex.addExitBack(annex_study4);
+		study4.addExitFront(annex_study4);
+		
+		
+		Doorway annex_mainA = new Doorway();
+		annex.addExitLeft(annex_mainA);
+		mainA.addExitRight(annex_mainA);
+		
+		//Main
+		
+		 *
+		 * main room internal connections
+		 * A-D, A-B, B-C, C-D
+		 *
+		Doorway mainA_mainD = new Doorway();
+		mainA.addExitLeft(mainA_mainD);
+		mainD.addExitRight(mainA_mainD);
+		Doorway mainA_mainB = new Doorway();
+		mainA.addExitFront(mainA_mainB);
+		mainB.addExitBack(mainA_mainB);
+		Doorway mainB_mainC = new Doorway();
+		mainB.addExitLeft(mainB_mainC);
+		mainC.addExitRight(mainB_mainC);
+		Doorway mainC_mainD = new Doorway();
+		mainC.addExitBack(mainC_mainD);
+		mainD.addExitFront(mainC_mainD);
+		
+		Doorway mainD_hallway1 = new Doorway();
+		mainD.addExitBack(mainD_hallway1);
+		hallway1.addExitFront(mainD_hallway1);
+		
+		Doorway mainD_lab1 = new Doorway();
+		mainD.addExitLeft(mainD_lab1);
+		lab1.addExitRight(mainD_lab1);
+		
+		//Hallway 1
+		
+		Doorway hallway1_hallway2 = new Doorway();
+		hallway1.addExitRight(hallway1_hallway2);
+		hallway2.addExitLeft(hallway1_hallway2);
+		
+		//Hallway 2
+		
+		Doorway hallway2_mens = new Doorway();
+		hallway2.addExitBack(hallway2_mens);
+		mensRoom.addExitFront(hallway2_mens);
+		
+		Doorway hallway2_womens = new Doorway();
+		hallway2.addExitBack(hallway2_womens);
+		womensRoom.addExitFront(hallway2_womens);
+*/
