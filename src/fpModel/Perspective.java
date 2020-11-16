@@ -291,9 +291,11 @@ public class Perspective {
 			if (direction == Perspective.Direction.FRONT) {
 				System.out.println("rObj layer: " + rObj.getLayerFront());
 				if (rObj.getLayerFront() != layer) {
+					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showFront();
+				System.out.println("showFront() called");
 				if (iv != null) {
 					System.out.println("non-null");
 					pane.getChildren().add(iv);
@@ -301,9 +303,11 @@ public class Perspective {
 			} else if (direction == Perspective.Direction.RIGHT) {
 				System.out.println("rObj layer: " + rObj.getLayerRight());
 				if (rObj.getLayerRight() != layer) {
+					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showRight();
+				System.out.println("showRight() called");
 				if (iv != null) {
 					System.out.println("non-null");
 					pane.getChildren().add(iv);
@@ -311,9 +315,11 @@ public class Perspective {
 			} else if (direction == Perspective.Direction.BACK) {
 				System.out.println("rObj layer: " + rObj.getLayerBack());
 				if (rObj.getLayerBack() != layer) {
+					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showBack();
+				System.out.println("showBack() called");
 				if (iv != null) {
 					System.out.println("non-null");
 					pane.getChildren().add(iv);
@@ -321,10 +327,12 @@ public class Perspective {
 			} else {
 				//direction == Perspective.Direction.LEFT
 				if (rObj.getLayerLeft() != layer) {
+					System.out.println("wrong layer!");
 					continue;
 				}
 				System.out.println("rObj layer: " + rObj.getLayerBack());
 				ImageView iv = rObj.showLeft();
+				System.out.println("showRight() called");
 				//iv.scale(scalingFactor)
 				if (iv != null) {
 					System.out.println("non-null");
