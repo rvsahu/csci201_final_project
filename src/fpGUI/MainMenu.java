@@ -53,7 +53,7 @@ public class MainMenu {
             	Player player = new Player();
             	GameUtil.setPlayer(player);
             	Map map = Setup.setupAll();
-            	MainMenu.show(stage, "this would be new game");
+            	//MainMenu.show(stage, "this would be new game");
             }
         });
         

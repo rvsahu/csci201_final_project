@@ -179,6 +179,8 @@ public class Setup {
 		map.mensRoom = mensRoom;
 		map.womensRoom = womensRoom;
 		
+		GameUtil.setMap(map);
+		
 		//start the game facing forwards in the annex
 		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 		GameUtil.player().setCurrentPerspective(0); 
@@ -189,12 +191,21 @@ public class Setup {
 	
 	private static Room setupAnnex() { //RAHUL
 		Room annex = new Room("annex");
-		String paths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
+		String frontPaths[] = {"./graphics/game_graphics/rooms/annex/front/layer0/annex_front_0.png",
+				"./graphics/game_graphics/rooms/annex/front/layer1/annex_front_1.png",
+				"./graphics/game_graphics/rooms/annex/front/layer1/annex_front_2.png"};
+		/*
+		String rightPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
 				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
-		annex.setLayerBackgroundsFront(paths);
-		annex.setLayerBackgroundsRight(paths);
-		annex.setLayerBackgroundsBack(paths);
-		annex.setLayerBackgroundsLeft(paths);
+		String backPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
+				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
+		String leftPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
+				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
+		*/
+		annex.setLayerBackgroundsFront(frontPaths);
+		//annex.setLayerBackgroundsRight(rightPaths);
+		//annex.setLayerBackgroundsBack(backPaths);
+		//annex.setLayerBackgroundsLeft(leftPaths);
 		
 		Computer c2 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
@@ -474,7 +485,7 @@ public class Setup {
 		//L
 		//Facing Main C
 		
-		return null;
+		return MainB;
 	}
 	private static Room setupMainC() {  //ERICA
 		Room MainC = new Room("mainC");
@@ -602,13 +613,10 @@ public class Setup {
 		CP cp = new CP();
 		Lab1.addToLeft(cp);
 		Computer comp = new Computer();
-		Lab1.addToLeft(comp);
+		Lab1.addToLeft(comp);	
 		
 		
-		
-		
-		
-		return null;
+		return Lab1;
 	}
 	
 	private static Room setupHallway1() { //PATRICK
@@ -628,7 +636,7 @@ public class Setup {
 		ret.addToLeft(new Drawing());
 		ret.addToBack(new Computer());
 		
-		return null;
+		return ret;
 	}
 	
 	private static Room setupWomensRoom() { //PATRICK
