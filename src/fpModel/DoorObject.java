@@ -2,18 +2,11 @@ package fpModel;
 
 public class DoorObject extends RoomObject {
 	
-	public Doorway doorway;
-	/*
-	public Room exit;
-	public int exitPerspective;
-	*/
 	boolean isLocked;
 	String mKey;
 	
-	DoorObject(Doorway doorway, Room myroom)
+	DoorObject(Doorway doorway)
 	{
-		super("doorway");
-		this.doorway = doorway;
 		isLocked = false;
 		mKey = "";
 	}
