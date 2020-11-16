@@ -42,7 +42,7 @@ public class Setup {
 	 * 
 	 * 3. Load sprites
 	 * 
-	 * c.loadImages();
+	 * c.loadSprites();
 	 * 
 	 * 4. Write behaviour
 	 * 
@@ -212,6 +212,8 @@ public class Setup {
 		Computer c2 = new Computer("Annex Monitor 1");
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
 		c2.setFrontSpritePath(compFrontSpritePath);
+		//add remaining sprite paths
+		c2.loadSprites();
 		
 		EventHandler<MouseEvent> c2Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
