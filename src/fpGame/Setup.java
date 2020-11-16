@@ -209,7 +209,7 @@ public class Setup {
 		//annex.setLayerBackgroundsBack(backPaths);
 		//annex.setLayerBackgroundsLeft(leftPaths);
 		
-		Computer c2 = new Computer("Annex Monitor 1");
+		Computer c2 = new Computer();
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
@@ -245,9 +245,11 @@ public class Setup {
 				Scene scene;
 				if (GameUtil.needsScaling) {
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
-							          GameUtil.WINDOW_Y * GameUtil.scalingFactor, Color.BLACK);
+							          GameUtil.WINDOW_Y * GameUtil.scalingFactor);
+					scene.setFill(Color.BLACK);
 				} else {
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					scene.setFill(Color.BLACK);
 				}
 				GameUtil.stage().setScene(scene);
 				GameUtil.stage().show();
