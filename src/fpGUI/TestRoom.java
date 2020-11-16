@@ -21,10 +21,7 @@ import fpModel.*;
 public class TestRoom {
 	public static void show(Stage stage) {
 		Room room = Setup.testRoom();
-		
-		Pane root = new Pane();
-		
-		stage.setScene(new Scene(root, 1920, 1080));
+		room.generateScene(stage);
     	stage.setTitle("Test Room!");
     	stage.show();
 	}

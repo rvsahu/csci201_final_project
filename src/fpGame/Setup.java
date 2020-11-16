@@ -189,6 +189,12 @@ public class Setup {
 	
 	private static Room setupAnnex() { //RAHUL
 		Room annex = new Room("annex");
+		String paths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
+				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
+		annex.setLayerBackgroundsFront(paths);
+		annex.setLayerBackgroundsRight(paths);
+		annex.setLayerBackgroundsBack(paths);
+		annex.setLayerBackgroundsLeft(paths);
 		
 		Computer c2 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
