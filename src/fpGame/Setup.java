@@ -241,15 +241,16 @@ public class Setup {
 				};
 				
 				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
 				//do stuff, fill in pane
 				Scene scene;
 				if (GameUtil.needsScaling) {
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, 
 							          GameUtil.WINDOW_Y * GameUtil.scalingFactor);
-					scene.setFill(Color.BLACK);
+					//scene.setFill(Color.BLACK);
 				} else {
 					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
-					scene.setFill(Color.BLACK);
+					//scene.setFill(Color.BLACK);
 				}
 				GameUtil.stage().setScene(scene);
 				GameUtil.stage().show();
