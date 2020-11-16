@@ -192,7 +192,7 @@ public class Setup {
 		
 		Computer c2 = new Computer();
 		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
-		c2.setFrontSpritePath(Annexfolder + "front/mon2.png");
+		c2.setFrontSpritePath(Annexfolder + "front/Layer 1/mon2.png");
 		
 		EventHandler<MouseEvent> c2Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
