@@ -172,9 +172,11 @@ public class Perspective {
 	 * @return a Scene for the given Perspective to be displayed
 	 */
 	public void generateScene(Stage stage) {
+		System.out.println("enter generate scene"); //debug
 		Pane pane = new Pane();
 		
 		for (int i = 0; i < maxLayers; i += 1) {
+			System.out.println("enter for loop"); //debug
 			displayLayer(i, pane);
 		}
 		
@@ -240,8 +242,10 @@ public class Perspective {
 		*/
 		
 		if (GameUtil.needsScaling) {
+			System.out.println("setting scene with scaling");
 			stage.setScene(new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
 		} else {
+			System.out.println("setting scene without scaling");
 			stage.setScene(new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y));
 		}
 		stage.show();
@@ -251,6 +255,8 @@ public class Perspective {
 		//display background of the layer first
 		Image backIMG = null;
 		if (lightsOff == true && unlitLayerPaths[layer] != null) {
+			System.out.println("lights off");
+			System.out.println(unlitLayerPaths[layer]);
 			try {
 				if (GameUtil.needsScaling) {
 					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
@@ -262,11 +268,15 @@ public class Perspective {
 				System.err.println("Error loading unlit layer (" + layer + ") background image for " + name);
 			}
 		} else {
+			System.out.println("lights on");
+			System.out.println(layerPaths[layer]);
 			try {
-				if (GameUtil.needsScaling) {
+				if (GameUtil.needsScaling) { 
+					System.out.println("test scale"); //debug
 					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
 							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
+					System.out.println("test no scale"); //debug
 					backIMG = new Image(new FileInputStream(layerPaths[layer]));
 				}
 			} catch (Exception e) {
@@ -275,6 +285,7 @@ public class Perspective {
 		}
 		
 		if (backIMG != null) {
+			System.out.println("creating ImageView for layer " + layer + " background"); //debug
 			ImageView layerBackground = new ImageView(backIMG);
 			pane.getChildren().add(layerBackground);
 		} else {
@@ -373,6 +384,7 @@ public class Perspective {
 	 */
 	public void setLayerPaths(String[] layerPaths) {
 		this.layerPaths = layerPaths;
+		setMaxLayers(layerPaths.length);
 	}
 	
 	/**
