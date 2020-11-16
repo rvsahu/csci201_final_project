@@ -6,10 +6,14 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import fpGame.GameUtil;
+import fpGame.Player;
+import fpGame.Setup;
+import fpGame.Map;
 
 public class MainMenu {
 	public static void show(Stage stage, String name) {
@@ -46,6 +50,9 @@ public class MainMenu {
         	 
             @Override
             public void handle(ActionEvent event) {
+            	Player player = new Player();
+            	GameUtil.setPlayer(player);
+            	Map map = Setup.setupAll();
             	MainMenu.show(stage, "this would be new game");
             }
         });

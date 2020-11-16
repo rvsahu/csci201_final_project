@@ -179,6 +179,11 @@ public class Setup {
 		map.mensRoom = mensRoom;
 		map.womensRoom = womensRoom;
 		
+		//start the game facing forwards in the annex
+		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
+		GameUtil.player().setCurrentPerspective(0); 
+		GameUtil.map().annex.generateScene(GameUtil.stage());
+		
 		return map;
 	}
 	
@@ -228,11 +233,26 @@ public class Setup {
 			}
 		};
 		
+		/* EXAMPLE OF DOOR FORMAT
+		DoorObject doorOut = new DoorObject();
+		doorOut.setFrontSpritePath("www.google.com/search/toasterinbathtub");
+		EventHandler<MouseEvent> doorOutBehaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if (doorOut.isLocked()) {
+					// do nothing
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().cove);
+					GameUtil.player().setCurrentPerspective(2); //facing back
+					GameUtil.map().cove.generateScene(GameUtil.stage());
+				}
+			}
+		};
+		*/
+		
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer();
 		c5.setFrontSpritePath(Annexfolder + "front/mon5.png");
-		EventHandler<MouseEvent> c5Behaviour = new EventHandler<MouseEvent>() 
-		{
+		EventHandler<MouseEvent> c5Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) 
 			{
 				
