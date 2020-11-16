@@ -4,7 +4,7 @@ public abstract class InfoObject extends RoomObject {
 	String info;
 	
 	public InfoObject() {
-		
+		super();
 	}
 	
 	public InfoObject(String name) {

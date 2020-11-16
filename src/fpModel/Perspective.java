@@ -172,11 +172,9 @@ public class Perspective {
 	 * @return a Scene for the given Perspective to be displayed
 	 */
 	public void generateScene(Stage stage) {
-		System.out.println("enter generate scene"); //debug
 		Pane pane = new Pane();
 		
 		for (int i = 0; i < maxLayers; i += 1) {
-			System.out.println("enter for loop"); //debug
 			displayLayer(i, pane);
 		}
 		
@@ -242,10 +240,8 @@ public class Perspective {
 		*/
 		
 		if (GameUtil.needsScaling) {
-			System.out.println("setting scene with scaling");
 			stage.setScene(new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
 		} else {
-			System.out.println("setting scene without scaling");
 			stage.setScene(new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y));
 		}
 		stage.show();
@@ -255,8 +251,6 @@ public class Perspective {
 		//display background of the layer first
 		Image backIMG = null;
 		if (lightsOff == true && unlitLayerPaths[layer] != null) {
-			System.out.println("lights off");
-			System.out.println(unlitLayerPaths[layer]);
 			try {
 				if (GameUtil.needsScaling) {
 					backIMG = new Image(new FileInputStream(unlitLayerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
@@ -266,21 +260,19 @@ public class Perspective {
 				}
 			} catch (Exception e) {
 				System.err.println("Error loading unlit layer (" + layer + ") background image for " + name);
+				e.printStackTrace();
 			}
 		} else {
-			System.out.println("lights on");
-			System.out.println(layerPaths[layer]);
 			try {
 				if (GameUtil.needsScaling) { 
-					System.out.println("test scale"); //debug
 					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor,
 							            GameUtil.WINDOW_Y * GameUtil.scalingFactor, true, true);
 				} else {
-					System.out.println("test no scale"); //debug
 					backIMG = new Image(new FileInputStream(layerPaths[layer]));
 				}
 			} catch (Exception e) {
 				System.err.println("Error loading layer (" + layer + ") background image for " + name);
+				e.printStackTrace();
 			}
 		}
 		
@@ -292,29 +284,38 @@ public class Perspective {
 			System.err.println("Error displaying background image for " + name);
 		}
 		//display interactables on top of layer background
+		System.out.println("entering contents loop");
+		System.out.println("current layer: " + layer);
 		for (RoomObject rObj : contents) {
+			System.out.println("looking at: " + rObj.name());
 			if (direction == Perspective.Direction.FRONT) {
+				System.out.println("rObj layer: " + rObj.getLayerFront());
 				if (rObj.getLayerFront() != layer) {
 					continue;
 				}
 				ImageView iv = rObj.showFront();
 				if (iv != null) {
+					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else if (direction == Perspective.Direction.RIGHT) {
+				System.out.println("rObj layer: " + rObj.getLayerRight());
 				if (rObj.getLayerRight() != layer) {
 					continue;
 				}
 				ImageView iv = rObj.showRight();
 				if (iv != null) {
+					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else if (direction == Perspective.Direction.BACK) {
+				System.out.println("rObj layer: " + rObj.getLayerBack());
 				if (rObj.getLayerBack() != layer) {
 					continue;
 				}
 				ImageView iv = rObj.showBack();
 				if (iv != null) {
+					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else {
@@ -322,9 +323,11 @@ public class Perspective {
 				if (rObj.getLayerLeft() != layer) {
 					continue;
 				}
+				System.out.println("rObj layer: " + rObj.getLayerBack());
 				ImageView iv = rObj.showLeft();
 				//iv.scale(scalingFactor)
 				if (iv != null) {
+					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			}

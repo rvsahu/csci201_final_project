@@ -190,10 +190,12 @@ public class Setup {
 	}
 	
 	private static Room setupAnnex() { //RAHUL
+		String annexFolder = "./graphics/game_graphics/rooms/annex/";
+		
 		Room annex = new Room("annex");
-		String frontPaths[] = {"./graphics/game_graphics/rooms/annex/front/layer0/annex_front_0.png",
-				"./graphics/game_graphics/rooms/annex/front/layer1/annex_front_1.png",
-				"./graphics/game_graphics/rooms/annex/front/layer1/annex_front_2.png"};
+		
+		String frontPaths[] = {annexFolder + "front/layer0/annex_front_0.png", annexFolder + "front/layer1/annex_front_1.png",
+				annexFolder + "front/layer2/annex_front_2.png"};
 		/*
 		String rightPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
 				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
@@ -207,9 +209,9 @@ public class Setup {
 		//annex.setLayerBackgroundsBack(backPaths);
 		//annex.setLayerBackgroundsLeft(leftPaths);
 		
-		Computer c2 = new Computer();
-		String Annexfolder = "./graphics/game_graphics/rooms/annex/roomObjects/";
-		c2.setFrontSpritePath(Annexfolder + "front/Layer 1/mon2.png");
+		Computer c2 = new Computer("Annex Monitor 1");
+		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
+		c2.setFrontSpritePath(compFrontSpritePath);
 		
 		EventHandler<MouseEvent> c2Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
@@ -250,6 +252,10 @@ public class Setup {
 			}
 		};
 		
+		c2.setBehaviour(c2Behaviour);
+		annex.addToFront(c2);
+		c2.setLayerFront(1);
+		
 		/* EXAMPLE OF DOOR FORMAT
 		DoorObject doorOut = new DoorObject();
 		doorOut.setFrontSpritePath("www.google.com/search/toasterinbathtub");
@@ -268,7 +274,7 @@ public class Setup {
 		
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer();
-		c5.setFrontSpritePath(Annexfolder + "front/mon5.png");
+		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		EventHandler<MouseEvent> c5Behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) 
 			{
@@ -278,7 +284,7 @@ public class Setup {
 				//create text object
 				try 
 				{
-					Image catim = new Image(new FileInputStream(Annexfolder + "front/cat.png"), 
+					Image catim = new Image(new FileInputStream(annexFolder + "front/layer2/cat.png"), 
 							1024 * GameUtil.scalingFactor, 964*GameUtil.scalingFactor, true,true);
 					ImageView imageview = new ImageView(catim);		
 				}
@@ -320,7 +326,7 @@ public class Setup {
 		
 		//computer 8 -- write down the correct word then type enter
 		Computer c8 = new Computer();
-		c8.setFrontSpritePath(Annexfolder + "front/mon8.png");
+		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		EventHandler<MouseEvent> c8Behaviour = new EventHandler<MouseEvent>() 
 		{
 			@Override public void handle(MouseEvent event) 

@@ -166,6 +166,15 @@ public abstract class RoomObject {
 	 */
 	public abstract boolean hasInfo();
 	
+	/**
+	 * Returns the name of the RoomObject.
+	 * 
+	 * @return     The name of the RoomObject.
+	 */
+	public String name() {
+		return name;
+	}
+	
 	/*
 	 * Graphical methods
 	 */

@@ -1,10 +1,11 @@
 package fpModel;
 
 public class Computer extends InfoObject{
+	public Computer() {
+		super();
+	}
 	
-	int screennum = 0;
-	
-
-	
-	
+	public Computer(String name) {
+		super(name);
+	}
 }
