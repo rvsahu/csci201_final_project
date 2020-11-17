@@ -387,47 +387,10 @@ public class Setup {
 		mainD.addToLeft(d1);
 		d1.setLayerLeft(0);
 		
-		
-		
-		//F
-		//view of main D
-		DoorObject d1 = new DoorObject();
-		mainD.addToFront(d1);
-
-		
-		//R
-		//view of main A
-		DoorObject d2 = new DoorObject();
-		mainD.addToRight(d2);
-		Keypad kp1 = new Keypad();
-		mainD.addToRight(kp1);
-		Dustbin db1 = new Dustbin();
-		mainD.addToRight(db1);
-		Dustbin db2 = new Dustbin();
-		mainD.addToRight(db2);
-		//Lightswitch ls1 = new Lightswitch();
-		//mainD.addToRight(ls1);
-		VendingMachine vm1 = new VendingMachine();
-		mainD.addToRight(vm1);
-
-		//B
-		//exit sign
-		DoorObject d3 = new DoorObject();////////
-		mainD.addToRight(d3);
-		Keypad kp2 = new Keypad();//////////
-		mainD.addToRight(kp2);
-		Dustbin db3 = new Dustbin();
-		mainD.addToRight(db3);
-		//Lightswitch ls2 = new Lightswitch();
-		//mainD.addToRight(ls2);
-		//Lightswitch ls3 = new Lightswitch();
-		//mainD.addToRight(ls3);
-		VendingMachine vm2 = new VendingMachine();////////
-		mainD.addToRight(vm2);
-		
-		
-		//L
-		//add a door
+		//HallwayDoor
+		DoorObject d2 = new DoorObject("MainD to Hallway");
+		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
+		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
 
 		
 		return mainD;
