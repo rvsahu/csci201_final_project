@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -146,8 +147,8 @@ public class Perspective {
 	 * @param stage  The stage/window the game is running in.
 	 * @return a Scene for the given Perspective to be displayed
 	 */
-	public Pane generateScene(Stage stage) {
-		Pane pane = new Pane();
+	public BorderPane generatePane(Stage stage) {
+		BorderPane pane = new BorderPane();
 		
 		for (int i = 0; i < maxLayers; i += 1) {
 			displayLayer(i, pane);

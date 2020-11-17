@@ -4,6 +4,7 @@ package fpModel;
 import java.util.List;
 
 //javafx imports
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -306,8 +307,8 @@ public class Room {
 	 * Graphics methods 
 	 */
 	
-	public Pane generateScene(Stage stage) {
-		return perspectives[currentPerspective].generateScene(stage);
+	public BorderPane generatePane(Stage stage) {
+		return perspectives[currentPerspective].generatePane(stage);
 	}
 	
 	/**

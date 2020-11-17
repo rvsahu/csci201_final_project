@@ -124,6 +124,10 @@ public class Setup {
 		
 		GameUtil.setMap(map);
 		
+		//initialise GameUtil.message()
+		GameUtil.message().setFill(Color.WHITE);
+		GameUtil.message().setFont(new Font(30));
+		
 		//start the game facing forwards in the annex
 		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 		GameUtil.player().setCurrentPerspective(0); 
@@ -140,7 +144,7 @@ public class Setup {
 		String frontPaths[] = {annexFolder + "front/layer0/annex_front_0.png", annexFolder + "front/layer1/annex_front_1.png",
 				annexFolder + "front/layer2/annex_front_2.png"};
 		
-		String rightPaths[] = {annexFolder +  "right/layer0/Annex_right_0.png"};
+		String rightPaths[] = {annexFolder +  "right/layer0/annex_right_0.png", annexFolder +  "right/layer1/annex_right_1.png"};
 		
 		String backPaths[] = {annexFolder +  "back/layer0/Annex_back_0.png"};
 		
@@ -189,10 +193,13 @@ public class Setup {
 		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";
 		Projector proj = new Projector("projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
+		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
 		proj.loadSprites();
 		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
 		annex.addToFront(proj);
+		annex.addToLeft(proj);
 		proj.setLayerFront(0);
+		proj.setLayerLeft(0);
 		
 		/*Table  table = new Table();
 		table.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");

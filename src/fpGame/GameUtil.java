@@ -3,9 +3,11 @@ package fpGame;
 import javafx.stage.Stage;
 import javafx.stage.Screen;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -47,6 +49,36 @@ public class GameUtil {
 	 * Whether the player is a logged in user or otherwise.
 	 */
 	private static boolean loggedIn = false;
+	
+	/**
+	 * A reference to a Text object, useful for telling the player something
+	 */
+	private static Text message = new Text();
+	
+	/**
+	 * Returns the Text object containing the game's message to the player
+	 * 
+	 * @return     A Text object with the game's message to the player
+	 */
+	public static Text message() {
+		return message;
+	}
+	
+	/**
+	 * Updates message with a given String, which will be displayed in displayPlayerView()
+	 * 
+	 * @param messageStr     The new message to the user.
+	 */
+	public static void setMessage(String messageStr) {
+		message.setText(messageStr);
+	}
+	
+	/**
+	 * Updates message to be blank.
+	 */
+	public static void clearMessage() {
+		message.setText("");
+	}
 	
 	/**
 	 *  Sets whether the player has logged in or not to true.
@@ -203,10 +235,12 @@ public class GameUtil {
 	 * and updates the window once all of that is done.
 	 */
 	public static void displayPlayerView() {
+		//clear message to user
+		clearMessage();
 		//get a pane with room rendered
-		Pane pane = player.currentRoom().generateScene(stage);
+		BorderPane pane = player.currentRoom().generatePane(stage);
 		//TODO add UI elements (inven, save, change perspective arrows, etc)
-		
+		pane.setTop(message);
 		//create scene and scale the window if need be
 		Scene scene;
 		if (needsScaling) {
