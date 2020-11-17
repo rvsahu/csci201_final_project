@@ -1,9 +1,14 @@
 package fpGame;
+import java.io.FileInputStream;
+import java.io.IOException;
 
-
+import fpModel.DoorObject;
+import fpModel.Perspective;
+import fpModel.Projector;
+import fpModel.ProjectorScreen;
+import fpModel.Room;
 //javafx imports
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -11,21 +16,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import fpModel.Computer;
-import fpModel.Perspective;
-import fpModel.Projector;
-import fpModel.ProjectorScreen;
-import fpModel.Room;
 
 /**
  * Container class for every EventHandler for every RoomObject 
@@ -148,7 +143,7 @@ public class AnnexBehaviours {
 				
 				button.setOnAction(e-> {
 					if (text.getText().compareTo("Meow") == 0 || text.getText().compareTo("meow") == 0) {
-						output.setText("correct");
+						output.setText("the passcode to the door is 5147");
 					} else {
 						System.out.println("The output is set to: " + output);
 						output.setText("wrong");
@@ -212,8 +207,69 @@ public class AnnexBehaviours {
 				GameUtil.displayPlayerView(); 
 			}
 		};
-		
-		
 		return behaviour;
 	}
+	
+	
+	public static EventHandler<MouseEvent> DoorBehaviour() {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
+		{
+			@Override public void handle(MouseEvent event) 
+			{
+				BorderPane pane = new BorderPane();
+				
+				TextField text = new TextField("Enter the passcode to escape this room: ");
+				pane.setCenter(text);
+				
+				Text output = new Text();
+				output.setFill(Color.WHITE);
+				Button button = new Button("Submit");
+				pane.setBottom(button);
+				
+				button.setOnAction(e-> 
+				{
+					if (text.getText().compareTo("5417") == 0) 
+					{
+						output.setText("Correct--Door unlocked");
+					} 
+					else 
+					{
+						output.setText("wrong");
+					}
+					pane.setTop(output);
+				});
+
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
+				{
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+		        //exit when we click again
+				pane.setOnMouseClicked(exitBehaviour);
+				
+				pane.setStyle("-fx-background-color: #000000;");
+				
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+				}
+				
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		
+		return behaviour;
+	}	
 }
+	
+
