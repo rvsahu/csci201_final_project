@@ -98,13 +98,14 @@ public class Behaviours {
 				};
 				
 				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
 				//do stuff, fill in pane
 				Scene scene;
 				if (GameUtil.needsScaling()) {
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor());
 				} else {
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
 				}
 				
 				GameUtil.stage().setScene(scene);
@@ -150,12 +151,14 @@ public class Behaviours {
 		        //exit when we click again
 				pane.setOnMouseClicked(exitBehaviour);
 				
+				pane.setStyle("-fx-background-color: #000000;");
+				
 				Scene scene;
 				if (GameUtil.needsScaling()) {
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor());
 				} else {
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
 				}
 				
 				GameUtil.stage().setScene(scene);
