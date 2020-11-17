@@ -53,6 +53,15 @@ public class GameUtil {
 	}
 	
 	/**
+	 * Returns whether the user is logged in or not.
+	 * 
+	 * @return     True if the user is logged in, false otherwise.
+	 */
+	public static boolean isLoggedIn() {
+		return loggedIn;
+	}
+	
+	/**
 	 * Sets the state of the game to running.
 	 */
 	public static void startGame() {

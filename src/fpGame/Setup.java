@@ -156,11 +156,8 @@ public class Setup {
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
-		c2.loadSprites();
-		
-		EventHandler<MouseEvent> c2Behaviour = Behaviours.annexComputer2Behaviour();
-		
-		c2.setBehaviour(c2Behaviour);
+		c2.loadSprites();		
+		c2.setBehaviour(Behaviours.annexComputer2Behaviour());
 		annex.addToFront(c2);
 		c2.setLayerFront(1);
 		
@@ -169,115 +166,14 @@ public class Setup {
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer();
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
-		EventHandler<MouseEvent> c5Behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) 
-			{
-				
-				Pane pane = new Pane();
-				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
-				//create text object
-				try 
-				{
-					Image catim = new Image(new FileInputStream(annexFolder + "front/layer2/cat.png"), 
-							1024 * GameUtil.scalingFactor(), 964*GameUtil.scalingFactor(), true,true);
-					ImageView imageview = new ImageView(catim);		
-				}
-				catch (IOException ie)
-				{
-					System.err.println("cat image was not found--riperino");
-				};
-				
-				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
-				{
-					@Override public void handle(MouseEvent event) {
-						//return to gameplay
-						Room cR = GameUtil.player().currentRoom();
-						Perspective cP = GameUtil.player().currentView();
-						cR.setPerspective(cP);
-						cR.generateScene(GameUtil.stage());
-					}
-				};
-				
-				pane.setOnMouseClicked(exitBehaviour);
-				//do stuff, fill in pane
-				Scene scene;
-				if (GameUtil.needsScaling()) 
-				{
-					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
-				} 
-				
-				else 
-				{
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
-				}
-				
-				GameUtil.stage().setScene(scene);
-				GameUtil.stage().show();
-			}
-		};
+		c5.setBehaviour(Behaviours.annexComputer5Behaviour());
 		
 		
 		//computer 8 -- write down the correct word then type enter
 		Computer c8 = new Computer();
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
-		EventHandler<MouseEvent> c8Behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				
-				Pane pane = new Pane();
-				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
-				//create text object
-				
-				TextField text = new TextField("Assemble the clues together to unlock the computer: ");
-				pane.getChildren().add(text);
-				
-				Text output = new Text();
-				Button button = new Button("Submit");
-				pane.getChildren().add(button);
-				
-				button.setOnAction(e-> {
-					if (text.toString() == "Meow" || text.toString() =="meow")
-					{
-						output.setText("correct");
-					}
-					else
-					{
-						output.setText("wrong");
-					}
-				});
-
-				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
-				{
-					@Override public void handle(MouseEvent event) {
-						//return to gameplay
-						Room cR = GameUtil.player().currentRoom();
-						Perspective cP = GameUtil.player().currentView();
-						cR.setPerspective(cP);
-						cR.generateScene(GameUtil.stage());
-					}
-				};
-				
-		        //exit when we click again
-				pane.setOnMouseClicked(exitBehaviour);
-				
-				Scene scene;
-				if (GameUtil.needsScaling()) 
-				{
-					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-							GameUtil.WINDOW_Y * GameUtil.scalingFactor(), Color.BLACK);
-				} 
-				
-				else 
-				{
-					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y, Color.BLACK);
-				}
-				
-				GameUtil.stage().setScene(scene);
-				GameUtil.stage().show();
-			}
-		};
+		c8.setBehaviour(Behaviours.annexComputer8Behaviour());
+		
 		//keep adding stuff
 		return annex;
 	}
