@@ -21,7 +21,9 @@ import javafx.scene.text.TextAlignment;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import fpModel.Computer;
 import fpModel.Perspective;
+import fpModel.Projector;
 import fpModel.Room;
 
 /**
@@ -127,8 +129,10 @@ public class Behaviours {
 	}
 		
 	public static EventHandler<MouseEvent> annexComputer8Behaviour() {
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  {
-			@Override public void handle(MouseEvent event) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
+		{
+			@Override public void handle(MouseEvent event) 
+			{
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
 				BorderPane pane = new BorderPane();
@@ -151,7 +155,8 @@ public class Behaviours {
 					pane.setTop(output);
 				});
 
-				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
+				{
 					@Override public void handle(MouseEvent event) {
 						//return to gameplay
 						Room cR = GameUtil.player().currentRoom();
@@ -178,6 +183,21 @@ public class Behaviours {
 				GameUtil.stage().show();
 			}
 		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> projectorBehaviour(Projector p)
+	{
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
+		{
+			@Override public void handle(MouseEvent event) 
+			{		
+				p.startProjecting();
+				GameUtil.displayPlayerView(); 
+			}
+		};
+		
 		
 		return behaviour;
 	}

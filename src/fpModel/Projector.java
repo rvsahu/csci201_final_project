@@ -77,5 +77,9 @@ public class Projector extends RoomObject {
 	public void stopProjecting() {
 		projecting = false;
 	}
+	
+	public Boolean isProjecting() {
+		return projecting;
+	}
 }
 
