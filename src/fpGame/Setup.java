@@ -331,43 +331,7 @@ public class Setup {
 	private static Room setupMainC() {  //ERICA
 		Room MainC = new Room("mainC");
 		
-		//F
-		//add a door
-		Computer computer1 = new Computer();
-		MainC.addToFront(computer1);
-		Computer computer2 = new Computer();
-		MainC.addToFront(computer2);
-		Table table = new Table();
-		MainC.addToFront(table);
-		//file cabs
-		FileCabs filecab = new FileCabs();
-		MainC.addToFront(filecab);
-		OfficeSupplies os = new OfficeSupplies();
-		MainC.addToFront(os);
 		
-		//R
-		//view of main b
-		Table table1 = new Table();
-		MainC.addToFront(table1);
-		Couch couch = new Couch();
-		MainC.addToFront(couch);
-		
-		//B
-		
-		Plant plant = new Plant();
-	    MainC.addToBack(plant);
-		Table table2 = new Table();
-		MainC.addToBack(table2);
-		Table table3 = new Table();
-		MainC.addToBack(table3);
-		Chair chair = new Chair();
-		MainC.addToBack(chair);
-		Chair chair1 = new Chair();
-		MainC.addToBack(chair1);
-		
-		//L
-		Dustbin dustbin = new Dustbin();
-		MainC.addToLeft(dustbin);
 		
 		
 		return MainC;
