@@ -156,7 +156,7 @@ public class Setup {
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
 		c2.loadSprites();		
-		c2.setBehaviour(Behaviours.annexComputer2Behaviour());
+		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour());
 		annex.addToFront(c2);
 		c2.setLayerFront(1);
 		
@@ -166,7 +166,7 @@ public class Setup {
 		Computer c5 = new Computer();
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c5.loadSprites();
-		c5.setBehaviour(Behaviours.annexComputer5Behaviour());
+		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour());
 		annex.addToFront(c5);
 		c5.setLayerFront(2);
 		
@@ -174,7 +174,7 @@ public class Setup {
 		Computer c7 = new Computer();
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
-		c7.setBehaviour(Behaviours.annexComputer8Behaviour());
+		c7.setBehaviour(AnnexBehaviours.annexComputer8Behaviour());
 		annex.addToFront(c7);
 		c7.setLayerFront(2);
 		
@@ -190,7 +190,7 @@ public class Setup {
 		Projector proj = new Projector("projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
 		proj.loadSprites();
-		proj.setBehaviour(Behaviours.projectorBehaviour(proj));
+		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
 		annex.addToFront(proj);
 		proj.setLayerFront(0);
 		

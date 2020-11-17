@@ -30,7 +30,7 @@ import fpModel.Room;
 /**
  * Container class for every EventHandler for every RoomObject 
  */
-public class Behaviours {
+public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> annexComputer2Behaviour() {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
