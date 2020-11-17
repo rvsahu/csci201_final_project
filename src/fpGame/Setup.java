@@ -409,6 +409,9 @@ public class Setup {
 		//AnnexDoor
 		DoorObject d3 = new DoorObject("MainD to Annex");
 		d3.setRightSpritePath(mainDFolder + "right/layer0/AnnexDoor.png");
+		d3.loadSprites();
+		mainD.addToRight(d3);
+		d3.setLayerBack(0);
 		
 		
 		Dustbin db1 = new Dustbin("Dustbin1");
