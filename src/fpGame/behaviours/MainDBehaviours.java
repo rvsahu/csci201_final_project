@@ -58,5 +58,14 @@ public class MainDBehaviours {
 		return null;
 	}
 
+	
+	public static EventHandler<MouseEvent> hallwayBehaviour() {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				
+			}
+		};
+		return behaviour;
+	}
 }
 	
