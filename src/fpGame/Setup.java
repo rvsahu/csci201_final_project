@@ -182,18 +182,53 @@ public class Setup {
 		Computer c8 = new Computer();
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c8.loadSprites();
-		c8.setBehaviour(Behaviours.annexComputer8Behaviour());
 		annex.addToFront(c8);
 		c8.setLayerFront(2);
 		
 		//projector
 		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";
+<<<<<<< Updated upstream
 		Projector proj = new Projector("projector");
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");
+=======
+		Projector proj = new Projector("projector", path);
+		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
+>>>>>>> Stashed changes
 		proj.loadSprites();
 		proj.setBehaviour(Behaviours.projectorBehaviour(proj));
 		annex.addToFront(proj);
-		proj.setLayerFront(1);
+		proj.setLayerFront(0);
+		
+		if (proj.isProjecting())
+		{
+			System.out.println("should be printing");
+		}
+		else
+		{
+			System.out.println("nope");
+		}
+		
+		//projector screen
+		System.out.println("is the projector projecting????/ " + proj.isProjecting().toString());
+		if (proj.isProjecting())
+		{
+			ProjectorScreen ps = new ProjectorScreen("Projector Screen");
+			ps.setFrontSpritePath(annexFolder + "front/layer2/doggo.png");
+			ps.loadSprites();
+			annex.addToFront(ps);
+			proj.setLayerFront(2);
+		}
+		
+		
+		
+		/*Table  table = new Table();
+		table.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");
+		table.loadSprites();
+		table.setBehaviour(Behaviours.projectorBehaviour(proj));
+		annex.addToFront(proj);
+		proj.setLayerFront(0);*/
+		
+		
 		
 		//keep adding stuff
 		return annex;

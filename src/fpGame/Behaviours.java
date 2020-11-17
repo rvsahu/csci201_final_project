@@ -192,8 +192,10 @@ public class Behaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
 			@Override public void handle(MouseEvent event) 
-			{		
+			{
+				System.out.println("entered projectorbehavior");
 				p.startProjecting();
+				System.out.println("Now regenerating to print the dog photo");
 				GameUtil.displayPlayerView(); 
 			}
 		};
