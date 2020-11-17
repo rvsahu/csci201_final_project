@@ -223,10 +223,9 @@ public class Setup {
 	}
 	
 	private static Room setupMainA() { //ERICA
-		Room MainA = new Room("mainA");
-		
-		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
 		Room mainA = new Room("mainA");
+
+		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
 		
 		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
 		
@@ -246,22 +245,22 @@ public class Setup {
 		//Door door = new Door();
 		//MainA.addToRight(door);
 		Couch couch2 = new Couch();
-		MainA.addToRight(couch2);
+		mainA.addToRight(couch2);
 		Table table = new Table();
-		MainA.addToRight(table);
+		mainA.addToRight(table);
 		
 		//back
 		Notebook notebook = new Notebook("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
-		MainA.addToBack(notebook);
+		mainA.addToBack(notebook);
 		KeyObject lab1key = new KeyObject("study_1_key_obj", "study_1_key");
-		MainA.addToBack(lab1key);	
+		mainA.addToBack(lab1key);	
 		
 		
 		//left
 		//add a doorway
-		return MainA;
+		return mainA;
 	}
 	
 	private static Room setupMainB() { //ERICA
