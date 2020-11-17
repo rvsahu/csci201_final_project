@@ -1,5 +1,14 @@
 package fpIO;
 
+//java imports
+import java.util.List;
+import java.util.ArrayList;
+
+//javafx imports
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+
+//intraproject imports
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.GameUtil;
@@ -28,5 +37,9 @@ public class Loader {
 		
 		GameUtil.setPlayer(player);
 		GameUtil.setMap(map);
+	}
+	
+	private static List<EventHandler<MouseEvent> > thing() {
+		return null;
 	}
 }

@@ -41,7 +41,7 @@ public abstract class RoomObject {
 	/**
 	 * The behaviour of the RoomObject when clicked
 	 */
-	private EventHandler<MouseEvent> behaviour;
+	private transient EventHandler<MouseEvent> behaviour;
 	
 	/**
 	 * The sprite of the RoomObject as viewed from the front.

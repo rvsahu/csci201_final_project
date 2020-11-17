@@ -90,6 +90,12 @@ public class Perspective {
 	 * Constructor(s)
 	 */
 	
+	/**
+	 * 
+	 * @param containingRoom  The room containing the perspective
+	 * @param name  The name of the perspective
+	 * @param direction  The direction the perspective is facing
+	 */
 	public Perspective(Room containingRoom, String name, Direction direction) {
 		this.containingRoom = containingRoom;
 		this.name = name;
@@ -231,26 +237,6 @@ public class Perspective {
 			}
 		}
 	}
-	
-	/*
-	 **
-	 * Setup method, adds the file path for the background image
-	 * 
-	 * @param backgroundPath  The file path to the image of the background for this perspective
-	 *
-	public void setBackground(String backgroundPath) {
-		this.backgroundPath = backgroundPath;
-	}
-	
-	 **
-	 * Setup method, adds the file path for the background image with the lights out
-	 * 
-	 * @param lightsOutBackgroundPath  The file path to the image of the unlit background for this perspective
-	 *
-	public void setUnlitBackground(String lightsOutBackgroundPath) {
-		this.lightsOutBackgroundPath = lightsOutBackgroundPath;
-	}
-	*/
 	
 	/**
 	 * Setup method, primarily for deserialisation. Reloads the sprites for every RoomObject viewable

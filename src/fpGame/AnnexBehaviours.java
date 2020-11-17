@@ -23,7 +23,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 /**
- * Container class for every EventHandler for every RoomObject 
+ * Container class for every EventHandler for every RoomObject in Annex
  */
 public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> annexComputer2Behaviour() {
