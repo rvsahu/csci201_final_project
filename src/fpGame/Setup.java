@@ -399,7 +399,7 @@ public class Setup {
 		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
 		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
 		d2.loadSprites();
-		d2.setBehaviour(MainDBehaviours.hallwayBehaviour());
+		d2.setBehaviour(MainDBehaviours.HallwayBehaviour());
 		mainD.addToBack(d2);
 		mainD.addToLeft(d2);
 		d2.setLayerBack(0);
