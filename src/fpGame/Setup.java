@@ -190,7 +190,7 @@ public class Setup {
 		Projector proj = new Projector("projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
 		proj.loadSprites();
-		proj.setBehaviour(Behaviours.projectorBehaviour(proj));
+		proj.setBehaviour(Behaviours.projectorBehaviour(proj, annex));
 		annex.addToFront(proj);
 		proj.setLayerFront(0);
 		
