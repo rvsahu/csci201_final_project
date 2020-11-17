@@ -144,7 +144,7 @@ public class Setup {
 		
 		String backPaths[] = {annexFolder +  "back/layer0/Annex_back_0.png"};
 		
-		String leftPaths[] = {annexFolder +  "left/layer0/0.png", annexFolder + "front/layer1/Annex_left_layer1.png"};
+		String leftPaths[] = {annexFolder +  "left/layer0/annex_left_0.png", annexFolder + "left/layer1/annex_left_1.png"};
 
 		annex.setLayerBackgroundsFront(frontPaths);
 		annex.setLayerBackgroundsRight(rightPaths);
@@ -193,28 +193,6 @@ public class Setup {
 		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
 		annex.addToFront(proj);
 		proj.setLayerFront(0);
-		
-		if (proj.isProjecting())
-		{
-			System.out.println("should be printing");
-		}
-		else
-		{
-			System.out.println("nope");
-		}
-		
-		//projector screen
-		System.out.println("is the projector projecting????/ " + proj.isProjecting().toString());
-		if (proj.isProjecting())
-		{
-			ProjectorScreen ps = new ProjectorScreen("Projector Screen");
-			ps.setFrontSpritePath(annexFolder + "front/layer2/doggo.png");
-			ps.loadSprites();
-			annex.addToFront(ps);
-			proj.setLayerFront(2);
-		}
-		
-		
 		
 		/*Table  table = new Table();
 		table.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");
