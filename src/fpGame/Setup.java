@@ -379,7 +379,7 @@ public class Setup {
 		//Vending Machine
 		VendingMachine vm1 = new VendingMachine("MainD Vending Machine");
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
-		vm1.setBackSpritePath(mainDFolder + "back/layer0/vend.png");
+		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
 		vm1.setBehaviour(MainDBehaviours.VendingMachineBehavior());
 		mainD.addToBack(vm1);
@@ -418,7 +418,7 @@ public class Setup {
 		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
 		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
 		db1.loadSprites();
-		//db1.
+		db1.setBehaviour(MainDBehaviours.DustbinBehavior());
 		mainD.addToBack(db1);
 		mainD.addToRight(db1);
 		mainD.addToLeft(db1);
@@ -428,7 +428,9 @@ public class Setup {
 
 		Dustbin db2 = new Dustbin("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
-		
+		db2.setBehaviour(MainDBehaviours.DustbinBehavior());
+		mainD.addToRight(db2);
+		db2.setLayerRight(0);
 		
 		return mainD;
 	}
