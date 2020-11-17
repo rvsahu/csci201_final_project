@@ -73,7 +73,7 @@ public class Setup {
 	};
 	*/
 	
-	public static Map setupAll() { /* would return GameMap */
+	public static void setupAll() { /* would return GameMap */
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
 		Room mainB = setupMainB();
@@ -122,8 +122,6 @@ public class Setup {
 		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 		GameUtil.player().setCurrentPerspective(0); 
 		GameUtil.displayPlayerView(); //use this as a template for all other room displays
-		
-		return map;
 	}
 	
 	private static Room setupAnnex() { //RAHUL
