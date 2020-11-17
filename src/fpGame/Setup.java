@@ -379,9 +379,9 @@ public class Setup {
 		//Vending Machine
 		VendingMachine vm1 = new VendingMachine("MainD Vending Machine");
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
-		vm1.setBackSpritePath(mainDFolder + "back/layer0/vend.png");
+		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
-		vm1.setBehaviour(MainDBehaviours.vendingMachineBehaviour());
+		vm1.setBehaviour(MainDBehaviours.VendingMachineBehavior());
 		mainD.addToBack(vm1);
 		vm1.setLayerFront(0);
 		
@@ -399,7 +399,7 @@ public class Setup {
 		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
 		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
 		d2.loadSprites();
-		d2.setBehaviour(MainDBehaviours.hallwayBehaviour());
+		d2.setBehaviour(MainDBehaviours.HallwayBehaviour());
 		mainD.addToBack(d2);
 		mainD.addToLeft(d2);
 		d2.setLayerBack(0);
@@ -412,10 +412,23 @@ public class Setup {
 		mainD.addToRight(d3);
 		d3.setLayerBack(0);
 		
-		
-		Dustbin db1 = new Dustbin("Dustbin1");
-		//db1.
+		//dustbins
+		Dustbin db1 = new Dustbin("MainD Dustbin1");
+		db1.setRightSpritePath(mainDFolder + "right/layer0/dustbin.png");
+		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
+		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
+		db1.loadSprites();
+		db1.setBehaviour(behaviour);
+		mainD.addToBack(db1);
+		mainD.addToRight(db1);
+		mainD.addToLeft(db1);
+		db1.setLayerBack(0);
+		db1.setLayerRight(0);
+		db1.setLayerLeft(0);
 
+		Dustbin db2 = new Dustbin("MainD Dustbin2");
+		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
+		
 		
 		return mainD;
 	}
