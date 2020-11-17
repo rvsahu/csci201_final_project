@@ -77,11 +77,6 @@ public class Perspective {
 	private List<RoomObject> contents;
 	
 	/**
-	 *  A list of Doorways representing the exits from this room to another viewable from this perspective
-	 */
-	private List<Doorway> exits;
-	
-	/**
 	 * The direction the perspective is facing.
 	 */
 	private Direction direction;
@@ -100,7 +95,6 @@ public class Perspective {
 		this.name = name;
 		this.direction = direction;
 		contents = new ArrayList<RoomObject>();
-		exits = new ArrayList<Doorway>();
 	}
 	
 	/*
@@ -114,27 +108,6 @@ public class Perspective {
 	 */
 	public void addRoomObject(RoomObject rObj) {
 		contents.add(rObj);
-	}
-	
-	/**
-	 * A setup method, adds a Doorway (to another Room) to the perspective
-	 * 
-	 * @param exit  The Doorway to be added
-	 */
-	public void addExit(Doorway exit) {
-		exit.addEndPerspective(this);
-		exits.add(exit);
-	}
-	
-	/**
-	 * A setup/deserialisation method, resets every Doorway to make sure 
-	 * they maintain room connections. Must be called on every Perspective.
-	 * Lock state is serialised so this will not effect that.
-	 */
-	public void resetExits() {
-		for (Doorway d: exits) {
-			d.addEndPerspective(this);
-		}
 	}
 	
 	/**

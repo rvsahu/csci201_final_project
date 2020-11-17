@@ -3,12 +3,15 @@ package fpGame;
 
 //javafx imports
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -75,17 +78,24 @@ public class Behaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event)  {
 				
-				Pane pane = new Pane();
+				
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
+				
+				ImageView imageview = null;
 				try  {
 					Image catim = new Image(new FileInputStream("./graphics/game_graphics/rooms/annex/front/layer2/cat.png"), 
 							1024 * GameUtil.scalingFactor(), 964*GameUtil.scalingFactor(), true,true);
-					ImageView imageview = new ImageView(catim);		
+					imageview = new ImageView(catim);		
+					
+					
+					//pane.getChildren().add(imageview);
+					
 				}
 				catch (IOException ie) {
 					System.err.println("cat.png not found");
 				};
+				BorderPane pane = new BorderPane(imageview);
 				
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>()  {
 					@Override public void handle(MouseEvent event) {
@@ -119,23 +129,26 @@ public class Behaviours {
 	public static EventHandler<MouseEvent> annexComputer8Behaviour() {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  {
 			@Override public void handle(MouseEvent event) {
-				Pane pane = new Pane();
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
+				BorderPane pane = new BorderPane();
 				
-				TextField text = new TextField("Assemble the clues together to unlock the computer: ");
-				pane.getChildren().add(text);
+				TextField text = new TextField("Assemble the clues from the computers to unlock: ");
+				pane.setCenter(text);
 				
 				Text output = new Text();
+				output.setFill(Color.WHITE);
 				Button button = new Button("Submit");
-				pane.getChildren().add(button);
+				pane.setBottom(button);
 				
 				button.setOnAction(e-> {
-					if (text.toString() == "Meow" || text.toString() =="meow") {
+					if (text.getText().compareTo("Meow") == 0 || text.getText().compareTo("meow") == 0) {
 						output.setText("correct");
 					} else {
+						System.out.println("The output is set to: " + output);
 						output.setText("wrong");
 					}
+					pane.setTop(output);
 				});
 
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {

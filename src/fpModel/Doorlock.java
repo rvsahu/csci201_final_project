@@ -14,6 +14,7 @@ public class Doorlock {
 	/**
 	 * Tries to lock or unlock a door using a key.
 	 * 
+	 * @param key  The key being used to try on the lock.
 	 * @return     True if the given key is the correct key for the door, false otherwise.
 	 */
 	public boolean tryKey(Key key) {

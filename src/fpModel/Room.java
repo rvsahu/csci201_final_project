@@ -203,59 +203,6 @@ public class Room {
 		}
 	}
 	
-	/**
-	 * Adds a Doorway to the currently selected perspective. currentPerspective is guaranteed to exist.
-	 * 
-	 * @param exit  The Doorway to be added.
-	 */
-	public void addExitCurrent(Doorway exit) {
-		perspectives[currentPerspective].addExit(exit);
-	}
-	
-	/**
-	 * Adds a Doorway to the front perspective. Does nothing if the front perspective doesn't exist.
-	 * 
-	 * @param exit  The Doorway to be added.
-	 */
-	public void addExitFront(Doorway exit) {
-		if (perspectives[0] == null)
-			return;
-		perspectives[0].addExit(exit);
-	}	
-	
-	/**
-	 * Adds a Doorway to the right perspective. Does nothing if the right perspective doesn't exist.
-	 * 
-	 * @param exit  The Doorway to be added.
-	 */
-	public void addExitRight(Doorway exit) {
-		if (perspectives[1] == null)
-			return;
-		perspectives[1].addExit(exit);
-	}
-	
-	/**
-	 * Adds a Doorway to the back perspective. Does nothing if the back perspective doesn't exist.
-	 * 
-	 * @param exit  The Doorway to be added.
-	 */
-	public void addExitBack(Doorway exit) {
-		if (perspectives[2] == null)
-			return;
-		perspectives[2].addExit(exit);
-	}
-	
-	/**
-	 * Adds a Doorway to the left perspective. Does nothing if the left perspective doesn't exist.
-	 * 
-	 * @param exit  The Doorway to be added.
-	 */
-	public void addExitLeft(Doorway exit) {
-		if (perspectives[3] == null)
-			return;
-		perspectives[3].addExit(exit);
-	}
-	
 	public void changePerspectiveLeft() {
 		while (true) {
 			currentPerspective = ((currentPerspective - 1) % 4);
