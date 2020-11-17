@@ -344,8 +344,11 @@ public class Setup {
 		//L
 		Dustbin dustbin = new Dustbin();
 		MainC.addToLeft(dustbin);
+		
+		
 		return MainC;
 	}
+	
 	private static Room setupMainD() {  //ERICA
 		Room mainD = new Room("mainD");
 		
@@ -388,18 +391,25 @@ public class Setup {
 
 		//B
 		//exit sign
-		
+		DoorObject d3 = new DoorObject();////////
+		mainD.addToRight(d3);
+		Keypad kp2 = new Keypad();//////////
+		mainD.addToRight(kp2);
+		Dustbin db3 = new Dustbin();
+		mainD.addToRight(db3);
+		//Lightswitch ls2 = new Lightswitch();
+		//mainD.addToRight(ls2);
+		//Lightswitch ls3 = new Lightswitch();
+		//mainD.addToRight(ls3);
+		VendingMachine vm2 = new VendingMachine();////////
+		mainD.addToRight(vm2);
 		
 		
 		//L
 		//add a door
-		VendingMachine vm = new VendingMachine();
-		MainD.addToLeft(vm);
+
 		
-		Drawing drawing = new Drawing();
-		MainD.addToLeft(drawing);
-		
-		return MainD;
+		return mainD;
 	}
 	
 	private static Room setupStudy1() { //PATRICK
