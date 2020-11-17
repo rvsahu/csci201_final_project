@@ -15,6 +15,15 @@ public class VendingMachine extends ContainerObject{
 		item.add(new Key("lab 1 key"));
 	}
 	
+	public VendingMachine(String n)
+	{
+		super(n);
+		List<Item> item = new ArrayList();
+		item.add(new ChocolateItem());
+		item.add(new CoffeeItem());
+		item.add(new Key("lab 1 key"));
+	}
+	
 	@Override public boolean hasItems() {
 		return true;
 	}

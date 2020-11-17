@@ -13,6 +13,7 @@ import javafx.scene.text.Font;
 //intraproject imports
 import fpModel.*;
 import fpGame.behaviours.AnnexBehaviours;
+import fpGame.behaviours.MainDBehaviours;
 
 public class Setup {
 	/*
@@ -369,22 +370,23 @@ public class Setup {
 		mainD.setLayerBackgroundsLeft(leftPaths);
 		
 		//Vending Machine
-		VendingMachine vm1 = new VendingMachine();
+		VendingMachine vm1 = new VendingMachine("MainD Vending Machine");
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vend.png");
-		vm1.loadAllSprites();
-		EventHandler<MouseEvent> VendingMachineBehavior = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-			 			//do stuff
-				}
-		};
-		vm1.setBehaviour(VendingMachineBehavior);
-		vm1.setBehaviour(VendingMachineBehavior());
+		vm1.loadSprites();
+		vm1.setBehaviour(MainDBehaviours.vendingMachineBehaviour());
 		mainD.addToBack(vm1);
 		vm1.setLayerFront(0);
 		
 		
-		//AnnexDoor
+		//LabDoor
+		DoorObject d1 = new DoorObject("MainD to Lab");
+		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
+		d1.loadSprites();
+		d1.setBehaviour(MainDBehaviours.labDoorBehaviour());
+		mainD.addToLeft(d1);
+		d1.setLayerLeft(0);
+		
 		
 		
 		//F
