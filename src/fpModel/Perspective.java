@@ -91,6 +91,7 @@ public class Perspective {
 	 */
 	
 	/**
+	 * Constructor for a Perspective, called within Room
 	 * 
 	 * @param containingRoom  The room containing the perspective
 	 * @param name  The name of the perspective

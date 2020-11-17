@@ -1,4 +1,4 @@
-package fpModel;
+package fpGame;
 
 import java.util.List;
 import java.util.ArrayList;

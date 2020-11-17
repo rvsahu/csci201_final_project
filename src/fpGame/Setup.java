@@ -1,26 +1,15 @@
 package fpGame;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 //java imports
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.event.ActionEvent;
+import fpGame.behaviours.*;
 //javafx imports
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 import fpModel.*;
 

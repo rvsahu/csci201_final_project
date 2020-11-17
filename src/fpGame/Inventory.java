@@ -1,6 +1,9 @@
-package fpModel;
+package fpGame;
 
 import java.util.List;
+
+import fpModel.Item;
+
 import java.util.ArrayList;
 
 public class Inventory {

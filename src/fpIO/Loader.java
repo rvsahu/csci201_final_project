@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.GameUtil;
+import fpGame.behaviours.*;
 
 public class Loader {
 	public static void load() {

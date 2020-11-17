@@ -1,7 +1,8 @@
-package fpGame;
+package fpGame.behaviours;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import fpGame.GameUtil;
 import fpModel.DoorObject;
 import fpModel.Perspective;
 import fpModel.Projector;
