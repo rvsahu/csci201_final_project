@@ -201,8 +201,7 @@ public class AnnexBehaviours {
 						GameUtil.player().addToLogbook(c7.getInfo());
 					}
 				} else {
-					System.out.println("The output is set to: " + output);
-					output.setText("wrong");
+					output.setText("Wrong!");
 				}
 				pane.setTop(output);
 			}
