@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -34,6 +35,7 @@ public class LoginScreen {
 		String username = ""; //stuff
 		
 		Text error = new Text();
+		error.setFill(Color.RED);
        
 		Button btn1 = new Button();
         btn1.setText("Sign In"); 
@@ -87,14 +89,14 @@ public class LoginScreen {
         	@Override public void handle(ActionEvent event) {
         		String userName = txtf1.getText();
         		String passWord = txtf2.getText();
-        		Text error = new Text();
         		
-        		if(userName == "") {
-        			error.setText("No Username");
+        		if(userName.equals("")) {
+        			error.setText("No Username!");
         	        return;
         		}
-        		if(passWord == "") {
-        			error.setText("No Password");
+        		if(passWord.equals("")) {
+        			error.setText("No Password!");
+        			return;
         		}
         		
         		MainMenu.show(stage, userName);
@@ -105,16 +107,14 @@ public class LoginScreen {
         
         EventHandler<ActionEvent> b2 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
-        		MainMenu.show(stage, username);
-        		System.out.println("Logged In!");
+        		Register.show(stage, autoSaver);
         	}
         };
         
         
         EventHandler<ActionEvent> b3 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
-        		MainMenu.show(stage, username);
-        		System.out.println("Logged In!");
+        		MainMenu.show(stage, "Guest");
         	}
         };
         
