@@ -33,20 +33,10 @@ public class LoginScreen {
 		
 		String username = ""; //stuff
 		
-		
+		Text error = new Text();
        
 		Button btn1 = new Button();
-        btn1.setText("Sign In");
-        
-        EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
-        	@Override public void handle(ActionEvent event) {
-        		MainMenu.show(stage, username);
-        		System.out.println("Logged In!");
-        	}
-        };
-        
-        btn1.setOnAction(b1);
-        
+        btn1.setText("Sign In"); 
         Button btn2 = new Button();
         btn2.setText("New User Signup");
         Button btn3 = new Button();
@@ -93,8 +83,48 @@ public class LoginScreen {
         //txtf2.setMaxWidth(300);
         
         
+        EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
+        	@Override public void handle(ActionEvent event) {
+        		String userName = txtf1.getText();
+        		String passWord = txtf2.getText();
+        		Text error = new Text();
+        		
+        		if(userName == "") {
+        			error.setText("No Username");
+        	        return;
+        		}
+        		if(passWord == "") {
+        			error.setText("No Password");
+        		}
+        		
+        		MainMenu.show(stage, userName);
+        		System.out.println("Logged In!");
+        	}
+        };
+        
+        
+        EventHandler<ActionEvent> b2 = new EventHandler<ActionEvent>() {
+        	@Override public void handle(ActionEvent event) {
+        		MainMenu.show(stage, username);
+        		System.out.println("Logged In!");
+        	}
+        };
+        
+        
+        EventHandler<ActionEvent> b3 = new EventHandler<ActionEvent>() {
+        	@Override public void handle(ActionEvent event) {
+        		MainMenu.show(stage, username);
+        		System.out.println("Logged In!");
+        	}
+        };
+        
+        btn1.setOnAction(b1);
+        btn2.setOnAction(b2);
+        btn3.setOnAction(b3);
+        
+        
         StackPane root = new StackPane();
-        root.getChildren().addAll(btn1,btn2,btn3,txt1,txt2,txtf1,txtf2);
+        root.getChildren().addAll(btn1,btn2,btn3,txt1,txt2,txtf1,txtf2,error);
         StackPane.setAlignment(btn1, Pos.BOTTOM_CENTER);
         StackPane.setAlignment(btn2, Pos.BOTTOM_CENTER);
         StackPane.setAlignment(btn3, Pos.BOTTOM_CENTER);
@@ -102,6 +132,7 @@ public class LoginScreen {
         StackPane.setAlignment(txt2, Pos.CENTER);
         StackPane.setAlignment(txtf1, Pos.CENTER);
         StackPane.setAlignment(txtf2, Pos.CENTER);
+        StackPane.setAlignment(error, Pos.TOP_CENTER);
         /*
 		try {
 			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 
