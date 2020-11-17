@@ -11,7 +11,7 @@ import fpIO.Saver;
 public class GUIRunner extends Application {
 	private AutoSaver autoSaver;
 	
-    public static void main(String[] args) {
+    public static void GUImain(String[] args) {
         launch(args);
     }
     

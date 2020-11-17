@@ -3,7 +3,7 @@ package fpModel;
 public class Projector extends RoomObject {
 	
 	/**
-	 * Graphic variable, String filepath to the image of what the projector projects.
+	 * Graphic variable, String file path to the image of what the projector projects.
 	 */
 	private String projectionPath;
 
@@ -32,10 +32,10 @@ public class Projector extends RoomObject {
 	
 	
 	/**
-	 * Projector constructor, takes a name and filepath to an image to be displayed when projected
+	 * Projector constructor, takes a name and file path to an image to be displayed when projected
 	 * 
 	 * @param name  The name of the projector, used for equality comparisons
-	 * @param projectionPath  The filepath to the image that gets displayed
+	 * @param projectionPath  The file path to the image that gets displayed
 	 */
 	public Projector(String name, String projectionPath) {
 		super(name);

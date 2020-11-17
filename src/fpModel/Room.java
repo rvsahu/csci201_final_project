@@ -4,7 +4,6 @@ package fpModel;
 import java.util.List;
 
 //javafx imports
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 

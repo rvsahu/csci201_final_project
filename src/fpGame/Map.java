@@ -27,6 +27,10 @@ public class Map {
 	public Room mensRoom;
 	public Room womensRoom;
 	
+	/*
+	 * Methods (primarily) for deserialisation
+	 */
+	
 	/**
 	 * Given a String roomName, returns the right Room.
 	 * 
@@ -65,5 +69,46 @@ public class Map {
 		if (womensRoom.name().equals(roomName))
 			return womensRoom;
 		return null;
+	}
+	
+	/**
+	 * For each room, give its internal Perspectives a reference to the containing room.
+	 */
+	public void addContainingRooms() {
+		annex.addContainingRooms();
+		mainA.addContainingRooms();
+		mainB.addContainingRooms();
+		mainC.addContainingRooms();
+		mainD.addContainingRooms();
+		study1.addContainingRooms();
+		study2.addContainingRooms();
+		study3.addContainingRooms();
+		study4.addContainingRooms();
+		cove.addContainingRooms();
+		lab1.addContainingRooms();
+		hallway1.addContainingRooms();
+		hallway2.addContainingRooms();
+		mensRoom.addContainingRooms();
+		womensRoom.addContainingRooms();
+	}
+	
+	public void loadAllSprites() {
+		/*
+		annex.loadAllSprites();
+		mainA.loadAllSprites();
+		mainB.loadAllSprites();
+		mainC.loadAllSprites();
+		mainD.loadAllSprites();
+		study1.loadAllSprites();
+		study2.loadAllSprites();
+		study3.loadAllSprites();
+		study4.loadAllSprites();
+		cove.loadAllSprites();
+		lab1.loadAllSprites();
+		hallway1.loadAllSprites();
+		hallway2.loadAllSprites();
+		mensRoom.loadAllSprites();
+		womensRoom.loadAllSprites();
+		*/ 
 	}
 }

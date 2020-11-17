@@ -3,7 +3,6 @@ package fpIO;
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.GameUtil;
-import fpGame.Setup;
 
 public class Loader {
 	public static void load() {
@@ -19,9 +18,13 @@ public class Loader {
 		
 	}
 	
-	private static void configureGame(StatePackage state) {
-		Player player = state.getPlayerSave();
+	private static void configureGame(StatePackage state) {		
 		Map map = state.getMapSave();
+		map.addContainingRooms();
+		
+		Player player = state.getPlayerSave();
+		player.setCurrentRoom(map.getRoom(player.getCRName()));
+		player.setCurrentPerspective(player.getCVIndex());
 		
 		GameUtil.setPlayer(player);
 		GameUtil.setMap(map);
