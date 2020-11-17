@@ -391,7 +391,7 @@ public class Setup {
 		DoorObject d1 = new DoorObject("MainD to Lab");
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
 		d1.loadSprites();
-		d1.setBehaviour(MainDBehaviours.labDoorBehaviour());
+		d1.setBehaviour(MainDBehaviours.Lab1DoorBehaviour(d1));
 		mainD.addToLeft(d1);
 		d1.setLayerLeft(0);
 		
