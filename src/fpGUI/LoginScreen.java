@@ -62,10 +62,10 @@ public class LoginScreen {
         
         
         txt1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
-        txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
+        txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
         
         txt2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/10);
-        txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
+        txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
         
         btn1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/4);
         
@@ -82,14 +82,15 @@ public class LoginScreen {
         btn3.setTranslateX(100);
         
         txtf1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
-        txtf1.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
-        txtf1.setPrefWidth(100);
-        txtf1.setMaxWidth(100);
+        txtf1.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/8);
+        txtf1.setPrefWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
+        txtf1.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
         
         txtf2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/10);
-        txtf2.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
-        txtf2.setPrefWidth(100);
-        txtf2.setMaxWidth(100);
+        txtf2.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/8);
+        txtf2.setPrefWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
+        txtf2.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
+        //txtf2.setMaxWidth(300);
         
         
         StackPane root = new StackPane();
