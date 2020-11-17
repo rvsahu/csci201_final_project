@@ -24,6 +24,7 @@ import java.io.IOException;
 import fpModel.Computer;
 import fpModel.Perspective;
 import fpModel.Projector;
+import fpModel.ProjectorScreen;
 import fpModel.Room;
 
 /**
@@ -187,7 +188,7 @@ public class Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(Projector p)
+	public static EventHandler<MouseEvent> projectorBehaviour(Projector p, Room annex)
 	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
@@ -195,6 +196,18 @@ public class Behaviours {
 			{
 				System.out.println("entered projectorbehavior");
 				p.startProjecting();
+				
+				//projector screen
+				if (p.isProjecting())
+				{
+					ProjectorScreen ps = new ProjectorScreen("Projector Screen");
+					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer2/doggo.png");
+					ps.loadSprites();
+					annex.addToFront(ps);
+					ps.setLayerFront(2);
+				}
+				
+				
 				System.out.println("Now regenerating to print the dog photo");
 				GameUtil.displayPlayerView(); 
 			}
