@@ -418,7 +418,7 @@ public class Setup {
 		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
 		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
 		db1.loadSprites();
-		db1.setBehaviour(behaviour);
+		db1.setBehaviour(MainDBehaviours.DustbinBehavior());
 		mainD.addToBack(db1);
 		mainD.addToRight(db1);
 		mainD.addToLeft(db1);
@@ -428,7 +428,9 @@ public class Setup {
 
 		Dustbin db2 = new Dustbin("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
-		
+		db2.setBehaviour(MainDBehaviours.DustbinBehavior());
+		mainD.addToRight(db2);
+		db2.setLayerRight(0);
 		
 		return mainD;
 	}
