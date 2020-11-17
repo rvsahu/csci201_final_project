@@ -2,9 +2,12 @@ package fpGame;
 
 import javafx.stage.Stage;
 import javafx.stage.Screen;
+import javafx.event.EventHandler;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class GameUtil {
 	public static final int WINDOW_X = 1920;
@@ -211,6 +214,21 @@ public class GameUtil {
 		} else {
 			scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
 		}
+		//setup key response
+		EventHandler<KeyEvent> keyReleasedBehaviour = new EventHandler<KeyEvent>() {
+			@Override public void handle(KeyEvent event) {
+				if (event.getCode() == KeyCode.RIGHT) {
+					player.turnRight();
+					displayPlayerView();
+				} else if (event.getCode() == KeyCode.LEFT) {
+					player.turnLeft();
+					displayPlayerView();
+				}
+			}
+		};
+		
+		scene.setOnKeyReleased(keyReleasedBehaviour);
+		
 		//set the scene
 		stage.setScene(scene);
 		//show stage

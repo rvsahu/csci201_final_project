@@ -205,20 +205,40 @@ public class Room {
 	
 	public void changePerspectiveLeft() {
 		while (true) {
-			currentPerspective = ((currentPerspective - 1) % 4);
+			decrementCPIndex();
 			if (perspectives[currentPerspective] != null) {
 				break;
 			}
 		}
 	}
 	
+	/**
+	 * Helper for changePerspectiveLeft(), decrements currentPerspective and wraps it around.
+	 */
+	private void decrementCPIndex() {
+		currentPerspective -= 1;
+		if (currentPerspective == -1) {
+			currentPerspective = 3;
+		}	
+	}
+	
 	public void changePerspectiveRight() {
 		while (true) {
-			currentPerspective = ((currentPerspective + 1) % 4);
+			incrementCPIndex();
 			if (perspectives[currentPerspective] != null) {
 				break;
 			}
 		}
+	}
+	
+	/**
+	 * Helper for changePerspectiveRight(), increments currentPerspective and wraps it around.
+	 */
+	private void incrementCPIndex() {
+		currentPerspective += 1;
+		if (currentPerspective == 4) {
+			currentPerspective = 0;
+		}	
 	}
 	
 	public Perspective getCurrent() {
