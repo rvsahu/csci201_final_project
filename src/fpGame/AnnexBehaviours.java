@@ -284,7 +284,7 @@ public class AnnexBehaviours {
 					
 					Text txt = new Text("The Door is locked. Beside it is a small black keypad.");
 					pane.setCenter(txt);
-					/*
+					
 					EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>()  {
 						@Override public void handle(MouseEvent event) {
 							//return to gameplay
@@ -296,7 +296,7 @@ public class AnnexBehaviours {
 					};
 					
 					pane.setOnMouseClicked(exitBehaviour);
-					*/
+					
 				}else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
 					GameUtil.player().setCurrentPerspective(3);
