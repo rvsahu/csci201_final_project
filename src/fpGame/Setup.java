@@ -165,13 +165,18 @@ public class Setup {
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer();
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
+		c5.loadSprites();
 		c5.setBehaviour(Behaviours.annexComputer5Behaviour());
-		
+		annex.addToFront(c5);
+		c5.setLayerFront(2);
 		
 		//computer 8 -- write down the correct word then type enter
 		Computer c8 = new Computer();
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
+		c8.loadSprites();
 		c8.setBehaviour(Behaviours.annexComputer8Behaviour());
+		annex.addToFront(c8);
+		c8.setLayerFront(2);
 		
 		//keep adding stuff
 		return annex;

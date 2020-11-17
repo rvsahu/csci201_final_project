@@ -79,6 +79,15 @@ public class Room {
 	 */
 	
 	/**
+	 * Returns the name of the Room.
+	 * 
+	 * @return     The name of the Room.
+	 */
+	public String name() {
+		return name;
+	}
+	
+	/**
 	 * Adds a RoomObject to the currently selected perspective. currentPerspective is guaranteed to exist.
 	 * 
 	 * @param rObj  The object to be added.

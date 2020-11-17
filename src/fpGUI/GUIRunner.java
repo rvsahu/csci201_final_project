@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 import fpGame.GameUtil;
 
 import fpIO.AutoSaver;
+import fpIO.Saver;
 
 public class GUIRunner extends Application {
 	private AutoSaver autoSaver;
@@ -23,7 +24,11 @@ public class GUIRunner extends Application {
     
     @Override public void stop() {
     	//save the game if a user is logged in
+    	GameUtil.endGame();
     	autoSaver.interrupt();
+    	if (GameUtil.isLoggedIn()) {
+    		Saver.save();
+    	}
     	//call super class stop method
     	try {
     		super.stop();
