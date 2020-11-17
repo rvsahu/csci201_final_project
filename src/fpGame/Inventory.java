@@ -14,6 +14,12 @@ public class Inventory {
 		inventory = new ArrayList<Item>();
 	}
 	
+	public List<Item> getInventory()
+	{
+		return inventory;
+	}
+
+	
 	public boolean addItem(Item newItem) {
 		if (inventory.size() == capacity)
 			return false;
@@ -30,12 +36,23 @@ public class Inventory {
 		return false;
 	}
 	
-	public int CheckNumberOfItem(String item) {
+	public int CheckNumberOfItem(String item) 
+	{
 		int ret = 0;
 		for(int i = 0;i <inventory.size();i++) {
-			if(inventory.get(i).name() == item)ret ++;
+			if(inventory.get(i).name() == item)
+				ret ++;
 		}
 		return ret;
+	}
+	
+	public Item getItem(String item) {
+		for(int i = 0;i <inventory.size();i++)
+		{
+			if(inventory.get(i).name() == item)
+				return inventory.get(i);
+		}
+		return null;
 	}
 	
 	public void RemoveNumberOfItem(String item, int r) {
