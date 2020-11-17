@@ -7,6 +7,7 @@ public class Player {
 	private transient Perspective currentView;
 	
 	private String crName;
+	private int cvIndex;
 	
 	private Inventory inven;
 	private Logbook logbook;
@@ -21,7 +22,10 @@ public class Player {
 		currentRoom = startingRoom;
 		currentLevel = startingLevel;
 		currentView = currentRoom.getCurrent();
+		
 		crName = currentRoom.name();
+		cvIndex = currentRoom.getCurrentIndex();
+		
 		inven = new Inventory();
 		logbook = new Logbook();
 	}
@@ -29,13 +33,13 @@ public class Player {
 	public void turnLeft() {
 		currentRoom.changePerspectiveLeft();
 		currentView = currentRoom.getCurrent();
-		//cvName = currentView.name();
+		cvIndex = currentRoom.getCurrentIndex();
 	}
 	
 	public void turnRight() {
 		currentRoom.changePerspectiveRight();
 		currentView = currentRoom.getCurrent();
-		//cvName = currentView.name();
+		cvIndex = currentRoom.getCurrentIndex();
 	}
 	
 	public boolean addToInventory(Item item) {
@@ -68,6 +72,7 @@ public class Player {
 	
 	public void setCurrentRoom(Room newRoom) {
 		currentRoom = newRoom;
+		crName = currentRoom.name();
 	}
 	
 	/**
@@ -77,7 +82,7 @@ public class Player {
 	public void setCurrentPerspective(Perspective perspective) {
 		if (currentRoom.setPerspective(perspective)) {
 			currentView = perspective;
-			//cvName = currentView.name();
+			cvIndex = currentRoom.getCurrentIndex();
 		}
 	}
 	
@@ -88,7 +93,15 @@ public class Player {
 	public void setCurrentPerspective(int pIndex) {
 		if (currentRoom.setPerspective(pIndex)) {
 			currentView = currentRoom.getCurrent();
-			//cvName = currentView.name();
+			cvIndex = currentRoom.getCurrentIndex();
 		}
+	}
+	
+	public String getCRName() {
+		return crName;
+	}
+	
+	public int getCVIndex() {
+		return cvIndex;
 	}
 }
