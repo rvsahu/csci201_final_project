@@ -187,13 +187,8 @@ public class Setup {
 		
 		//projector
 		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";
-<<<<<<< Updated upstream
-		Projector proj = new Projector("projector");
-		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");
-=======
 		Projector proj = new Projector("projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
->>>>>>> Stashed changes
 		proj.loadSprites();
 		proj.setBehaviour(Behaviours.projectorBehaviour(proj));
 		annex.addToFront(proj);
