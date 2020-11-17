@@ -318,7 +318,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The door is locked.");
+					GameUtil.setMessage("The door to Study 1 is locked.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().study1);
 					GameUtil.player().setCurrentPerspective(1);
@@ -335,7 +335,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The door is locked.");
+					GameUtil.setMessage("The door to Study 2 is locked.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().study2);
 					GameUtil.player().setCurrentPerspective(1);

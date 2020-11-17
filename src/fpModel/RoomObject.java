@@ -405,7 +405,9 @@ public abstract class RoomObject {
 	public ImageView showFront() {
 		if (display && frontSprite != null) {
 			node = new ImageView(frontSprite);
-			node.setOnMouseClicked(behaviour);
+			if (behaviour != null) {
+				node.setOnMouseClicked(behaviour);
+			}
 			return node;
 		} else {
 			return null;
@@ -422,7 +424,9 @@ public abstract class RoomObject {
 	public ImageView showRight() {
 		if (display && rightSprite != null) {
 			node = new ImageView(rightSprite);
-			node.setOnMouseClicked(behaviour);
+			if (behaviour != null) {
+				node.setOnMouseClicked(behaviour);
+			}
 			return node;
 		} else {
 			return null;
@@ -439,7 +443,9 @@ public abstract class RoomObject {
 	public ImageView showBack() {
 		if (display && backSprite != null) {
 			node = new ImageView(backSprite);
-			node.setOnMouseClicked(behaviour);
+			if (behaviour != null) {
+				node.setOnMouseClicked(behaviour);
+			}
 			return node;
 		} else {
 			return null;
@@ -456,7 +462,9 @@ public abstract class RoomObject {
 	public ImageView showLeft() {
 		if (display && leftSprite != null) {
 			node = new ImageView(leftSprite);
-			node.setOnMouseClicked(behaviour);
+			if (behaviour != null) {
+				node.setOnMouseClicked(behaviour);
+			}
 			return node;
 		} else {
 			return null;
