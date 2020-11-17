@@ -209,6 +209,13 @@ public class Setup {
 		d1.setLayerLeft(0);
 		d1.lock();
 		
+		//Keypad
+		Keypad k = new Keypad("keypad");
+		k.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
+		k.loadSprites();
+		k.setBehaviour(AnnexBehaviours.KeypadBehaviour(d1));
+		annex.addToLeft(k);
+		k.setLayerLeft(1);
 		
 		
 		//keep adding stuff
@@ -216,19 +223,13 @@ public class Setup {
 	}
 	
 	private static Room setupMainA() { //ERICA
-		Room MainA = new Room("mainA");
-		
 		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
 		Room mainA = new Room("mainA");
 		
 		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
-		
 		String rightPaths[] = {mainAFolder +  "right/layer0/mainA_right_0.png"};
-		
 		String backPaths[] = {mainAFolder+  "back/layer0/mainA_back_0.png"};
-		
 		String leftPaths[] = {mainAFolder +  "left/layer0/mainA_left_0.png"};
-
 		mainA.setLayerBackgroundsFront(frontPaths);
 		mainA.setLayerBackgroundsRight(rightPaths);
 		mainA.setLayerBackgroundsBack(backPaths);
@@ -239,22 +240,22 @@ public class Setup {
 		//Door door = new Door();
 		//MainA.addToRight(door);
 		Couch couch2 = new Couch();
-		MainA.addToRight(couch2);
+		mainA.addToRight(couch2);
 		Table table = new Table();
-		MainA.addToRight(table);
+		mainA.addToRight(table);
 		
 		//back
 		Notebook notebook = new Notebook("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
-		MainA.addToBack(notebook);
+		mainA.addToBack(notebook);
 		KeyObject lab1key = new KeyObject("study_1_key_obj", "study_1_key");
-		MainA.addToBack(lab1key);	
+		mainA.addToBack(lab1key);	
 		
 		
 		//left
 		//add a doorway
-		return MainA;
+		return mainA;
 	}
 	
 	private static Room setupMainB() { //ERICA
@@ -381,7 +382,7 @@ public class Setup {
 		//view of main A
 		DoorObject d2 = new DoorObject();
 		mainD.addToRight(d2);
-		Keypad kp1 = new Keypad();
+		Keypad kp1 = new Keypad("keypad1");
 		mainD.addToRight(kp1);
 		Dustbin db1 = new Dustbin();
 		mainD.addToRight(db1);
@@ -396,7 +397,7 @@ public class Setup {
 		//exit sign
 		DoorObject d3 = new DoorObject();////////
 		mainD.addToRight(d3);
-		Keypad kp2 = new Keypad();//////////
+		Keypad kp2 = new Keypad("keypad2");//////////
 		mainD.addToRight(kp2);
 		Dustbin db3 = new Dustbin();
 		mainD.addToRight(db3);
@@ -479,7 +480,7 @@ public class Setup {
 	private static Room setupHallway1() { //PATRICK
 		Room ret = new Room("hallway1");
 		ret.addToFront(new Phone());
-		ret.addToBack(new Keypad());
+		ret.addToBack(new Keypad("keypad"));
 		return ret;
 	}
 	
