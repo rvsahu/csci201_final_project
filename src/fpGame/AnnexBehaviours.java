@@ -211,7 +211,7 @@ public class AnnexBehaviours {
 	}
 	
 	
-	public static EventHandler<MouseEvent> DoorBehaviour() {
+	public static EventHandler<MouseEvent> KeypadBehaviour() {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
 			@Override public void handle(MouseEvent event) 
