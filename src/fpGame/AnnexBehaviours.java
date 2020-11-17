@@ -183,18 +183,14 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(Projector p)
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				System.out.println("entered projectorbehavior");
+	public static EventHandler<MouseEvent> projectorBehaviour(Projector p) {
+		
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
 				p.startProjecting();
 				
 				//projector screen
-				if (p.isProjecting())
-				{
+				if (p.isProjecting()) {
 					ProjectorScreen ps = new ProjectorScreen("Projector Screen");
 					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer2/doggo.png");
 					ps.loadSprites();
@@ -203,7 +199,6 @@ public class AnnexBehaviours {
 				}
 				
 				
-				System.out.println("Now regenerating to print the dog photo");
 				GameUtil.displayPlayerView(); 
 			}
 		};
@@ -273,31 +268,13 @@ public class AnnexBehaviours {
 	}	
 	
 	public static EventHandler<MouseEvent> DoorMainBehaviour(DoorObject d) {
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
-		{
-			@Override public void handle(MouseEvent event) 
-			{
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
 				System.out.println("DoorEvent");
 				if(d.isLocked()) {
 					System.out.println("Locked");
-					BorderPane pane = new BorderPane();
-					
-					Text txt = new Text("The Door is locked. Beside it is a small black keypad.");
-					pane.setCenter(txt);
-					
-					EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>()  {
-						@Override public void handle(MouseEvent event) {
-							//return to gameplay
-							Room cR = GameUtil.player().currentRoom();
-							Perspective cP = GameUtil.player().currentView();
-							cR.setPerspective(cP);
-							GameUtil.displayPlayerView();
-						}
-					};
-					
-					pane.setOnMouseClicked(exitBehaviour);
-					
-				}else {
+					GameUtil.setMessage("The Door is locked. Beside it is a small black keypad.");
+				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
 					GameUtil.player().setCurrentPerspective(3);
 					GameUtil.displayPlayerView();
