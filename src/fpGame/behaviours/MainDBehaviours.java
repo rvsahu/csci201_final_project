@@ -14,10 +14,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class MainDBehaviours {
+public class MainDBehaviours 
+{
 	public static EventHandler<MouseEvent> VendingMachineBehavior = new EventHandler<MouseEvent>() {
-		@Override public void handle(MouseEvent event) {
+		@Override public void handle(MouseEvent event) 
+		{
 		 			//do stuff
+			
+			
+			
 			
 		}
 	};
@@ -52,14 +57,8 @@ public class MainDBehaviours {
 		return behaviour;
 	}
 
-
-	public static EventHandler<MouseEvent> vendingMachineBehaviour() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
-	public static EventHandler<MouseEvent> hallwayBehaviour() {
+	public static EventHandler<MouseEvent> HallwayBehaviour() {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				
@@ -67,5 +66,16 @@ public class MainDBehaviours {
 		};
 		return behaviour;
 	}
+	
+	public static EventHandler<MouseEvent> DustbinBehavior = new EventHandler<MouseEvent>() {
+		@Override public void handle(MouseEvent event) 
+		{
+		 			//do stuff
+			
+			
+			
+			
+		}
+	};
 }
 	
