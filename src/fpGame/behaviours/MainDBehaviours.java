@@ -54,10 +54,7 @@ public class MainDBehaviours
 			@Override public void handle(MouseEvent event) {
 				
 				Inventory inv = GameUtil.player().getInventory();
-				if(d.isLocked()) 
-				{
-					GameUtil.setMessage("The door is locked. Inside this lab, there is a CP waiting for your rescue");
-				}
+				
 				
 				if (GameUtil.player().getInventory().CheckNumberOfItem("Lab1 Key") > 0)
 				{
@@ -72,17 +69,25 @@ public class MainDBehaviours
 					d.unlock();
 					GameUtil.setMessage("The door unlocked!");
 				}
+				
+				if(d.isLocked()) 
+				{
+					GameUtil.setMessage("The door is locked. Inside this lab, there is a CP waiting for your rescue");
+				}
 			}
 		};
 		return behaviour;
 	}
 
 	
-	public static EventHandler<MouseEvent> HallwayBehaviour()
+	public static EventHandler<MouseEvent> HallwayBehaviour(DoorObject d)
 	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				
+				if(d.isLocked()) 
+				{
+					GameUtil.setMessage("The door is locked. On the other side is the hallway leading out.");
+				}
 			}
 		};
 		return behaviour;
@@ -94,11 +99,7 @@ public class MainDBehaviours
 		{
 			@Override public void handle(MouseEvent event) 
 			{
-		 			//do stuff
-			
-			
-			
-			
+				GameUtil.setMessage("The dustbin is empty");
 			};
 		};
 		return behaviour;
