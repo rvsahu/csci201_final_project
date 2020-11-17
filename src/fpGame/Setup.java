@@ -381,7 +381,7 @@ public class Setup {
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vend.png");
 		vm1.loadSprites();
-		vm1.setBehaviour(MainDBehaviours.vendingMachineBehaviour());
+		vm1.setBehaviour(MainDBehaviours.VendingMachineBehavior());
 		mainD.addToBack(vm1);
 		vm1.setLayerFront(0);
 		

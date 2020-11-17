@@ -16,16 +16,21 @@ import javafx.scene.text.Text;
 
 public class MainDBehaviours 
 {
-	public static EventHandler<MouseEvent> VendingMachineBehavior = new EventHandler<MouseEvent>() {
-		@Override public void handle(MouseEvent event) 
+	public static EventHandler<MouseEvent> VendingMachineBehavior() 
+	{
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
 		{
-		 			//do stuff
-			
-			
-			
-			
-		}
-	};
+			@Override public void handle(MouseEvent event) 
+			{
+			 			//do stuff
+				
+				
+				
+				
+			}
+		};
+		return behaviour;
+	}
 
 
 	public static EventHandler<MouseEvent> Lab1DoorBehaviour(DoorObject d) 
