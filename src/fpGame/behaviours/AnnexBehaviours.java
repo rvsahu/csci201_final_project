@@ -18,6 +18,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 
 //intraproject imports
 import fpGame.GameUtil;
@@ -130,35 +132,35 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 		
-	public static EventHandler<MouseEvent> annexComputer7Behaviour(Computer c8) {
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
-		{
-			@Override public void handle(MouseEvent event) 
-			{
+	public static EventHandler<MouseEvent> annexComputer7Behaviour(Computer c7) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				final BooleanProperty gotPasscode = new SimpleBooleanProperty(); //flag for if the user obtains passcode
+				gotPasscode.set(false);
+				final BooleanProperty alreadyGotPasscode = new SimpleBooleanProperty(); //flag for if user already obtained passcode
+				alreadyGotPasscode.set(!(c7.hasInfo()));
+				
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
 				BorderPane pane = new BorderPane();
 				
-				TextField text = new TextField("Assemble the clues from the computers to unlock: ");
+				Text output = new Text();
+				output.setFont(new Font(20));
+				output.setFill(Color.WHITE);
+				pane.setTop(output);
+				
+				TextField text = new TextField();
+				text.setPromptText("Assemble the computer clues and provide the answer here to open the way: ");
+				text.setOnAction(e -> {
+					handleSubmission(gotPasscode, text, output, pane);
+				});
 				pane.setCenter(text);
 				
-				Text output = new Text();
-				output.setFill(Color.WHITE);
 				Button button = new Button("Submit");
-				pane.setBottom(button);
-				
 				button.setOnAction(e-> {
-					if (text.getText().compareTo("Meow") == 0 || text.getText().compareTo("meow") == 0) {
-						output.setText("the passcode to the door is 5147");
-						if (c8.hasInfo()) {
-							GameUtil.player().addToLogbook(c8.getInfo());
-						}
-					} else {
-						System.out.println("The output is set to: " + output);
-						output.setText("wrong");
-					}
-					pane.setTop(output);
+					handleSubmission(gotPasscode, text, output, pane);
 				});
+				pane.setBottom(button);
 
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
 				{
@@ -168,6 +170,9 @@ public class AnnexBehaviours {
 						Perspective cP = GameUtil.player().currentView();
 						cR.setPerspective(cP);
 						GameUtil.displayPlayerView();
+						if (gotPasscode.getValue() && !(alreadyGotPasscode.getValue())) {
+							GameUtil.setMessage("You wrote the passcode down in your logbook.");
+						}
 					}
 				};
 				
@@ -186,6 +191,20 @@ public class AnnexBehaviours {
 				
 				GameUtil.stage().setScene(scene);
 				GameUtil.stage().show();
+			}
+			
+			public void handleSubmission(BooleanProperty gotPasscode, TextField text, Text output, BorderPane pane) {
+				if (text.getText().equals("Meow") || text.getText().equals("meow")) {
+					output.setText("The passcode to the door is 5417.");
+					gotPasscode.set(true);
+					if (c7.hasInfo()) {
+						GameUtil.player().addToLogbook(c7.getInfo());
+					}
+				} else {
+					System.out.println("The output is set to: " + output);
+					output.setText("wrong");
+				}
+				pane.setTop(output);
 			}
 		};
 		

@@ -6,6 +6,11 @@ public class Keypad extends RoomObject{
 		// TODO Auto-generated constructor stub
 		super(string);
 	}
+	
+	public Keypad()
+	{
+		super();
+	}
 
 	@Override
 	public boolean wrapsItem() {
