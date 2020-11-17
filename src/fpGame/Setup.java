@@ -413,10 +413,23 @@ public class Setup {
 		mainD.addToRight(d3);
 		d3.setLayerBack(0);
 		
-		
-		Dustbin db1 = new Dustbin("Dustbin1");
+		//dustbins
+		Dustbin db1 = new Dustbin("MainD Dustbin1");
+		db1.setRightSpritePath(mainDFolder + "right/layer0/dustbin.png");
+		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
+		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
+		db1.loadSprites();
 		//db1.
+		mainD.addToBack(db1);
+		mainD.addToRight(db1);
+		mainD.addToLeft(db1);
+		db1.setLayerBack(0);
+		db1.setLayerRight(0);
+		db1.setLayerLeft(0);
 
+		Dustbin db2 = new Dustbin("MainD Dustbin2");
+		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
+		
 		
 		return mainD;
 	}
