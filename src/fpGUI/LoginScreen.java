@@ -5,14 +5,18 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
+
 
 import fpGame.GameUtil;
 import fpIO.AutoSaver;
@@ -32,7 +36,7 @@ public class LoginScreen {
 		
        
 		Button btn1 = new Button();
-        btn1.setText("Login");
+        btn1.setText("Sign In");
         
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
@@ -44,20 +48,60 @@ public class LoginScreen {
         btn1.setOnAction(b1);
         
         Button btn2 = new Button();
-        btn2.setText("Register");
+        btn2.setText("New User Signup");
         Button btn3 = new Button();
-        btn3.setText("Seppuku");
+        btn3.setText("Guest Play");
         
-        Text txt = new Text();
-        txt.setText("login!");
+        Text txt1 = new Text();
+        txt1.setText("Username:");
+        Text txt2 = new Text();
+        txt2.setText("Password:");
+        
+        TextField txtf1 = new TextField();
+        TextField txtf2 = new TextField();
         
         
-        GridPane root = new GridPane();
-        root.add(txt, 0, 0);
-        root.add(btn1, 0, 1);
-        root.add(btn2, 0, 2);
-        root.add(btn3, 0, 3);
+        txt1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
+        txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
         
+        txt2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/10);
+        txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
+        
+        btn1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/4);
+        
+        //btn2.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
+        //btn2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
+        
+        btn2.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
+        btn2.setTranslateX(-100);
+        
+        //btn3.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
+        //btn3.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
+        
+        btn3.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
+        btn3.setTranslateX(100);
+        
+        txtf1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
+        txtf1.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
+        txtf1.setPrefWidth(100);
+        txtf1.setMaxWidth(100);
+        
+        txtf2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/10);
+        txtf2.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
+        txtf2.setPrefWidth(100);
+        txtf2.setMaxWidth(100);
+        
+        
+        StackPane root = new StackPane();
+        root.getChildren().addAll(btn1,btn2,btn3,txt1,txt2,txtf1,txtf2);
+        StackPane.setAlignment(btn1, Pos.BOTTOM_CENTER);
+        StackPane.setAlignment(btn2, Pos.BOTTOM_CENTER);
+        StackPane.setAlignment(btn3, Pos.BOTTOM_CENTER);
+        StackPane.setAlignment(txt1, Pos.CENTER);
+        StackPane.setAlignment(txt2, Pos.CENTER);
+        StackPane.setAlignment(txtf1, Pos.CENTER);
+        StackPane.setAlignment(txtf2, Pos.CENTER);
+        /*
 		try {
 			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 
 					               1024 * GameUtil.scalingFactor(), 963 * GameUtil.scalingFactor(), true, true);
@@ -85,7 +129,7 @@ public class LoginScreen {
 		} catch (IOException ie) {
 			System.err.println("riperino2");
 		}
-		
+		*/
         stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
         		       GameUtil.WINDOW_Y * GameUtil.scalingFactor()));
     	stage.setTitle("Login!");
