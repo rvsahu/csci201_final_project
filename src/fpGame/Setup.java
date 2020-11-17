@@ -139,18 +139,17 @@ public class Setup {
 		
 		String frontPaths[] = {annexFolder + "front/layer0/annex_front_0.png", annexFolder + "front/layer1/annex_front_1.png",
 				annexFolder + "front/layer2/annex_front_2.png"};
-		/*
-		String rightPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
-				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
-		String backPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
-				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
-		String leftPaths[] = {"./graphics/game_graphics/rooms/annex/front/", "./graphics/game_graphics/rooms/annex/right/",
-				"./graphics/game_graphics/rooms/annex/back/", "./graphics/game_graphics/rooms/annex/left/"};
-		*/
+		
+		String rightPaths[] = {annexFolder +  "right/layer0/Annex_right_0.png"};
+		
+		String backPaths[] = {annexFolder +  "back/layer0/Annex_back_0.png"};
+		
+		String leftPaths[] = {annexFolder +  "left/layer0/0.png", annexFolder + "front/layer1/Annex_left_layer1.png"};
+
 		annex.setLayerBackgroundsFront(frontPaths);
-		//annex.setLayerBackgroundsRight(rightPaths);
-		//annex.setLayerBackgroundsBack(backPaths);
-		//annex.setLayerBackgroundsLeft(leftPaths);
+		annex.setLayerBackgroundsRight(rightPaths);
+		annex.setLayerBackgroundsBack(backPaths);
+		annex.setLayerBackgroundsLeft(leftPaths);
 		
 		Computer c2 = new Computer();
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
