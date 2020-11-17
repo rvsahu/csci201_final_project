@@ -205,11 +205,14 @@ public class GameUtil {
 		//TODO add UI elements (inven, save, change perspective arrows, etc)
 		
 		//create scene and scale the window if need be
+		Scene scene;
 		if (needsScaling) {
-			stage.setScene(new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor));
+			scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor);
 		} else {
-			stage.setScene(new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y));
+			scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
 		}
+		//set the scene
+		stage.setScene(scene);
 		//show stage
 		stage.show();
 	}

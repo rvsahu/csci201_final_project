@@ -3,9 +3,7 @@ package fpIO;
 import fpGame.GameUtil;
 
 /**
- * AutoSaver thread, autosaves the game 
- * 
- *
+ * AutoSaver thread, auto saves the game 
  */
 public class AutoSaver extends Thread {
 	/**

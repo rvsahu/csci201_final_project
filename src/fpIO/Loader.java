@@ -15,7 +15,11 @@ public class Loader {
 		Player pN = null; //TODO remove later
 		Map mN = null; //TODO remove later
 		state = new StatePackage(pN, mN); //TODO replace later
+		configureGame(state); //Rahul will write the configureGame method, just make sure StatePackage state is gotten from server from correct user
 		
+	}
+	
+	private static void configureGame(StatePackage state) {
 		Player player = state.getPlayerSave();
 		Map map = state.getMapSave();
 		
