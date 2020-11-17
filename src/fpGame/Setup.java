@@ -137,8 +137,8 @@ public class Setup {
 	}
 	
 	private static Room setupAnnex() { //RAHUL
-		String annexFolder = "./graphics/game_graphics/rooms/annex/";
 		
+		String annexFolder = "./graphics/game_graphics/rooms/annex/";
 		Room annex = new Room("annex");
 		
 		String frontPaths[] = {annexFolder + "front/layer0/annex_front_0.png", annexFolder + "front/layer1/annex_front_1.png",
@@ -225,35 +225,22 @@ public class Setup {
 	
 	private static Room setupMainA() { //ERICA
 		Room MainA = new Room("mainA");
-		//row of computers
-		/*Computer comp1 = new Computer();
-		MainA.addToFront(comp1);
-		Computer comp2 = new Computer();
-		MainA.addToFront(comp2);
-		Computer comp3 = new Computer();
-		MainA.addToFront(comp3);
-		Computer comp4 = new Computer();
-		MainA.addToFront(comp4);
-		Computer comp5 = new Computer();
-		MainA.addToFront(comp5);
-		Computer comp6 = new Computer();
-		MainA.addToFront(comp6);
-		Computer comp7 = new Computer();
-		MainA.addToFront(comp7);*/
 		
+		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
+		Room mainA = new Room("mainA");
 		
-		/*Whiteboard whiteboard = new Whiteboard();
-		MainA.addToFront(whiteboard);
-		Chair chair1 = new Chair();
-		MainA.addToFront(chair1);
-		Couch couch1 = new Couch();
-		MainA.addToFront(couch1);
-		Plant plant = new Plant();
-	    MainA.addToFront(plant);
-		Outlet outlet = new Outlet();
-		MainA.addToFront(outlet);
-		Dustbin dustbin = new Dustbin();
-		MainA.addToFront(dustbin);*/
+		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
+		
+		String rightPaths[] = {mainAFolder +  "right/layer0/mainA_right_0.png"};
+		
+		String backPaths[] = {mainAFolder+  "back/layer0/mainA_back_0.png"};
+		
+		String leftPaths[] = {mainAFolder +  "left/layer0/mainAleft_0.png"};
+
+		mainA.setLayerBackgroundsFront(frontPaths);
+		mainA.setLayerBackgroundsRight(rightPaths);
+		mainA.setLayerBackgroundsBack(backPaths);
+		mainA.setLayerBackgroundsLeft(leftPaths);
 		
 		
 		//right
