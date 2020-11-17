@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 //javafx imports
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
@@ -155,66 +154,6 @@ public class Perspective {
 		}
 		
 		return pane;
-		/*
-		Image backIMG = null;
-		if (lightsOff == true && lightsOutBackgroundPath != null) {
-			try {
-				if (GameInfo.needsScaling) {
-					backIMG = new Image(new FileInputStream(lightsOutBackgroundPath), GameInfo.WINDOW_X * GameInfo.scalingFactor,
-							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
-				} else {
-					backIMG = new Image(new FileInputStream(lightsOutBackgroundPath));
-				}
-			} catch (Exception e) {
-				System.err.println("Error loading unlit background image for " + name);
-			}
-		} else {
-			try {
-				if (GameInfo.needsScaling) {
-					backIMG = new Image(new FileInputStream(backgroundPath), GameInfo.WINDOW_X * GameInfo.scalingFactor,
-							            GameInfo.WINDOW_Y * GameInfo.scalingFactor, true, true);
-				} else {
-					backIMG = new Image(new FileInputStream(backgroundPath));
-				}
-			} catch (Exception e) {
-				System.err.println("Error loading background image for " + name);
-			}
-		}
-		
-		if (backIMG != null) {
-			ImageView background = new ImageView(backIMG);
-			background.toBack();
-			pane.getChildren().add(background);
-		} else {
-			System.err.println("Error displaying background image for " + name);
-		}
-		
-		for (RoomObject rObj : contents) {
-			if (direction == Perspective.Direction.FRONT) {
-				ImageView iv = rObj.showFront();
-				if (iv != null) {
-					pane.getChildren().add(iv);
-				}
-			} else if (direction == Perspective.Direction.RIGHT) {
-				ImageView iv = rObj.showRight();
-				if (iv != null) {
-					pane.getChildren().add(iv);
-				}
-			} else if (direction == Perspective.Direction.BACK) {
-				ImageView iv = rObj.showBack();
-				if (iv != null) {
-					pane.getChildren().add(iv);
-				}
-			} else {
-				//direction == Perspective.Direction.LEFT
-				ImageView iv = rObj.showLeft();
-				//iv.scale(scalingFactor)
-				if (iv != null) {
-					pane.getChildren().add(iv);
-				}
-			}
-		}
-		*/
 	}
 	
 	private void displayLayer(int layer, Pane pane) {
@@ -247,65 +186,45 @@ public class Perspective {
 		}
 		
 		if (backIMG != null) {
-			System.out.println("creating ImageView for layer " + layer + " background"); //debug
 			ImageView layerBackground = new ImageView(backIMG);
 			pane.getChildren().add(layerBackground);
 		} else {
 			System.err.println("Error displaying background image for " + name);
 		}
 		//display interactables on top of layer background
-		System.out.println("entering contents loop");
-		System.out.println("current layer: " + layer);
 		for (RoomObject rObj : contents) {
-			System.out.println("looking at: " + rObj.name());
 			if (direction == Perspective.Direction.FRONT) {
-				System.out.println("rObj layer: " + rObj.getLayerFront());
 				if (rObj.getLayerFront() != layer) {
-					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showFront();
-				System.out.println("showFront() called");
 				if (iv != null) {
-					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else if (direction == Perspective.Direction.RIGHT) {
-				System.out.println("rObj layer: " + rObj.getLayerRight());
 				if (rObj.getLayerRight() != layer) {
-					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showRight();
-				System.out.println("showRight() called");
 				if (iv != null) {
-					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else if (direction == Perspective.Direction.BACK) {
-				System.out.println("rObj layer: " + rObj.getLayerBack());
 				if (rObj.getLayerBack() != layer) {
-					System.out.println("wrong layer!");
 					continue;
 				}
 				ImageView iv = rObj.showBack();
-				System.out.println("showBack() called");
 				if (iv != null) {
-					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			} else {
 				//direction == Perspective.Direction.LEFT
 				if (rObj.getLayerLeft() != layer) {
-					System.out.println("wrong layer!");
 					continue;
 				}
-				System.out.println("rObj layer: " + rObj.getLayerBack());
 				ImageView iv = rObj.showLeft();
-				System.out.println("showRight() called");
 				//iv.scale(scalingFactor)
 				if (iv != null) {
-					System.out.println("non-null");
 					pane.getChildren().add(iv);
 				}
 			}
