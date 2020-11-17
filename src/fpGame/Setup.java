@@ -216,7 +216,21 @@ public class Setup {
 		annex.addToLeft(k);
 		k.setLayerLeft(1);
 		
+		//Door to study room 1
+		DoorObject d2 = new DoorObject("Annex_To_Study1");
+		d2.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
+		d2.loadSprites();
+		d2.setBehaviour(AnnexBehaviours.DoorStudy1Behaviour(d2));
+		annex.addToRight(d2);
+		d2.setLayerRight(0);
 		
+		//Door to study room 2
+		DoorObject d3 = new DoorObject("Annex_To_Study2");
+		d3.setRightSpritePath(annexFolder + "right/layer0/rightDoor.png");
+		d3.loadSprites();
+		d3.setBehaviour(AnnexBehaviours.DoorStudy2Behaviour(d3));
+		annex.addToRight(d3);
+		d3.setLayerRight(0);
 		
 		//keep adding stuff
 		return annex;
@@ -436,11 +450,17 @@ public class Setup {
 	}
 	
 	private static Room setupStudy1() { //PATRICK
-		//lightswitch
-		Room ret = new Room("study1");
-		ret.addToRight(new Computer());
-		ret.addToLeft(new Dustbin());
-		return ret;
+		Room study1;
+		try {
+			study1 = new Room("study1", false, true, false, true);
+			
+		} catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating study1!");
+			e.printStackTrace();
+			study1 = new Room("study1");
+		}
+		return study1;
 	}
 	
 	private static Room setupStudy2() { //PATRICK
