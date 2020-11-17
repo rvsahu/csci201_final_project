@@ -224,7 +224,7 @@ public class Setup {
 		
 		String backPaths[] = {mainAFolder+  "back/layer0/mainA_back_0.png"};
 		
-		String leftPaths[] = {mainAFolder +  "left/layer0/mainAleft_0.png"};
+		String leftPaths[] = {mainAFolder +  "left/layer0/mainA_left_0.png"};
 
 		mainA.setLayerBackgroundsFront(frontPaths);
 		mainA.setLayerBackgroundsRight(rightPaths);
@@ -347,17 +347,44 @@ public class Setup {
 		return MainC;
 	}
 	private static Room setupMainD() {  //ERICA
-		Room MainD = new Room("mainD");
+		Room mainD = new Room("mainD");
+		
+		String mainDFolder = "./graphics/game_graphics/rooms/MainA/";
+		
+		String frontPaths[] = {mainDFolder  + "front/layer0/mainD_front_0.png"};
+		
+		String rightPaths[] = {mainDFolder +  "right/layer0/mainD_right_0.png"};
+		
+		String backPaths[] = {mainDFolder+  "back/layer0/mainD_back_0.png"};
+		
+		String leftPaths[] = {mainDFolder +  "left/layer0/mainD_left_0.png"};
+
+		mainD.setLayerBackgroundsFront(frontPaths);
+		mainD.setLayerBackgroundsRight(rightPaths);
+		mainD.setLayerBackgroundsBack(backPaths);
+		mainD.setLayerBackgroundsLeft(leftPaths);
+		
 		
 		//F
-		//view of main C
+		//view of main D
+		DoorObject d1 = new DoorObject();
+		mainD.addToFront(d1);
+
 		
 		//R
 		//view of main A
-		Table table1 = new Table();
-		MainD.addToFront(table1);
-		Couch couch = new Couch();
-		MainD.addToFront(couch);
+		DoorObject d2 = new DoorObject();
+		mainD.addToRight(d2);
+		Keypad kp1 = new Keypad();
+		mainD.addToRight(kp1);
+		Dustbin db1 = new Dustbin();
+		mainD.addToRight(db1);
+		Dustbin db2 = new Dustbin();
+		mainD.addToRight(db2);
+		//Lightswitch ls1 = new Lightswitch();
+		//mainD.addToRight(ls1);
+		VendingMachine vm1 = new VendingMachine();
+		mainD.addToRight(vm1);
 
 		//B
 		//exit sign
