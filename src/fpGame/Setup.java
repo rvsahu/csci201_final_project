@@ -4,14 +4,15 @@ package fpGame;
 import java.util.ArrayList;
 import java.util.List;
 
-import fpGame.behaviours.*;
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+//intraproject imports
 import fpModel.*;
+import fpGame.behaviours.AnnexBehaviours;
 
 public class Setup {
 	/*
@@ -164,19 +165,21 @@ public class Setup {
 		c5.setLayerFront(2);
 		
 		//computer 7 -- write down the correct word then type enter
-		Computer c7 = new Computer();
-		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
+		Computer c7 = new Computer("annex_computer_7", "The passcode to the annex-main door is 5147.");
+		c7.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c7.loadSprites();
-		c7.setBehaviour(AnnexBehaviours.annexComputer8Behaviour());
+		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
 		annex.addToFront(c7);
 		c7.setLayerFront(2);
 		
+		/*
 		//computer 8 -- write down the correct word then type enter
 		Computer c8 = new Computer();
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c8.loadSprites();
 		annex.addToFront(c8);
 		c8.setLayerFront(2);
+		*/
 		
 		//projector
 		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";

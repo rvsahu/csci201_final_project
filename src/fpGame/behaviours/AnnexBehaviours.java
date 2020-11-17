@@ -1,13 +1,9 @@
 package fpGame.behaviours;
+
+//java imports
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import fpGame.GameUtil;
-import fpModel.DoorObject;
-import fpModel.Perspective;
-import fpModel.Projector;
-import fpModel.ProjectorScreen;
-import fpModel.Room;
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -22,6 +18,15 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+
+//intraproject imports
+import fpGame.GameUtil;
+import fpModel.Computer;
+import fpModel.DoorObject;
+import fpModel.Perspective;
+import fpModel.Projector;
+import fpModel.ProjectorScreen;
+import fpModel.Room;
 
 /**
  * Container class for every EventHandler for every RoomObject in Annex
@@ -125,7 +130,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 		
-	public static EventHandler<MouseEvent> annexComputer8Behaviour() {
+	public static EventHandler<MouseEvent> annexComputer7Behaviour(Computer c8) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
 			@Override public void handle(MouseEvent event) 
@@ -145,6 +150,9 @@ public class AnnexBehaviours {
 				button.setOnAction(e-> {
 					if (text.getText().compareTo("Meow") == 0 || text.getText().compareTo("meow") == 0) {
 						output.setText("the passcode to the door is 5147");
+						if (c8.hasInfo()) {
+							GameUtil.player().addToLogbook(c8.getInfo());
+						}
 					} else {
 						System.out.println("The output is set to: " + output);
 						output.setText("wrong");

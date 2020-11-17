@@ -33,8 +33,12 @@ public abstract class InfoObject extends RoomObject {
 	}
 	
 	public String getInfo() {
-		String temp = new String(info);
-		info = null;
-		return temp;
+		if (hasInfo()) {
+			String temp = new String(info);
+			info = null;
+			return temp;
+		}
+		return null;
+		
 	}
 }
