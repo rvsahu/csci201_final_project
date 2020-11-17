@@ -208,6 +208,14 @@ public class Setup {
 		d1.setLayerLeft(0);
 		d1.lock();
 		
+		//Keypad
+		Keypad k = new Keypad("keypad");
+		k.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
+		k.loadSprites();
+		k.setBehaviour(AnnexBehaviours.KeypadBehaviour(d1));
+		annex.addToLeft(k);
+		k.setLayerLeft(1);
+		
 		
 		
 		//keep adding stuff
