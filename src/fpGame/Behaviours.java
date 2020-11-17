@@ -188,7 +188,7 @@ public class Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(Projector p, Room annex)
+	public static EventHandler<MouseEvent> projectorBehaviour(Projector p)
 	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
@@ -203,7 +203,7 @@ public class Behaviours {
 					ProjectorScreen ps = new ProjectorScreen("Projector Screen");
 					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer2/doggo.png");
 					ps.loadSprites();
-					annex.addToFront(ps);
+					GameUtil.map().annex.addToFront(ps);
 					ps.setLayerFront(2);
 				}
 				
