@@ -40,6 +40,7 @@ public class Room {
 	 * @param hasRight  Whether the Room has a right view or not.
 	 * @param hasBack  Whether the Room has a back view or not.
 	 * @param hasLeft  Whether the Room has a left view or not.
+	 * @throws Exception  Exception thrown when the Room doesn't have any perspective.
 	 */
 	public Room(String name, boolean hasFront, boolean hasRight, boolean hasBack, boolean hasLeft) throws Exception {
 		if (!(hasFront || hasRight || hasBack ||hasLeft)) {
@@ -143,7 +144,7 @@ public class Room {
 	/**
 	 * Adds a list of RoomObjects to the currently selected perspective. currentPerspective is guaranteed to exist.
 	 * 
-	 * @param rObj  The list of objects to be added.
+	 * @param rObjs  The list of objects to be added.
 	 */
 	public void addToCurrent(List<RoomObject> rObjs) {
 		for (RoomObject rObj : rObjs) {
@@ -154,7 +155,7 @@ public class Room {
 	/**
 	 * Adds a list of RoomObjects to the front perspective. Does nothing if the front perspective doesn't exist.
 	 * 
-	 * @param rObj  The list of objects to be added.
+	 * @param rObjs  The list of objects to be added.
 	 */
 	public void addToFront(List<RoomObject> rObjs) {
 		if (perspectives[0] == null)
@@ -167,7 +168,7 @@ public class Room {
 	/**
 	 * Adds a list of RoomObjects to the right perspective. Does nothing if the right perspective doesn't exist.
 	 * 
-	 * @param rObj  The list of objects to be added.
+	 * @param rObjs  The list of objects to be added.
 	 */
 	public void addToRight(List<RoomObject> rObjs) {
 		if (perspectives[1] == null)
@@ -180,7 +181,7 @@ public class Room {
 	/**
 	 * Adds a list of RoomObjects to the back perspective. Does nothing if the back perspective doesn't exist.
 	 * 
-	 * @param rObj  The list of objects to be added.
+	 * @param rObjs  The list of objects to be added.
 	 */
 	public void addToBack(List<RoomObject> rObjs) {
 		if (perspectives[2] == null)
@@ -193,7 +194,7 @@ public class Room {
 	/**
 	 * Adds a list of RoomObjects to the left perspective. Does nothing if the left perspective doesn't exist.
 	 * 
-	 * @param rObj  The list of objects to be added.
+	 * @param rObjs  The list of objects to be added.
 	 */
 	public void addToLeft(List<RoomObject> rObjs) {
 		if (perspectives[3] == null)
@@ -433,7 +434,7 @@ public class Room {
 	/**
 	 * Sets the layer backgrounds of the back perspective. Does nothing if the back perspective doesn't exist.
 	 * 
-	 * @param unliLlayerPaths  An array of strings containing the file paths to each layer in ascending order.
+	 * @param unlitLayerPaths  An array of strings containing the file paths to each layer in ascending order.
 	 */
 	public void setUnlitLayerBackgroundsBack(String[] unlitLayerPaths) {
 		if (perspectives[2] == null)

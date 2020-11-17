@@ -121,7 +121,8 @@ public class Perspective {
 	
 	/**
 	 * Sets/updates the Room containing this Perspective. Should only be used during deserialisation.
-	 * @param containingRoom
+	 * 
+	 * @param containingRoom  The Room containing this Perspective.
 	 */
 	public void setContainingRoom(Room containingRoom) {
 		this.containingRoom = containingRoom;
@@ -141,7 +142,9 @@ public class Perspective {
 	 */
 	
 	/**
+	 * Generates a Pane (ignore the misnomer please) for the current Perspective.
 	 * 
+	 * @param stage  The stage/window the game is running in.
 	 * @return a Scene for the given Perspective to be displayed
 	 */
 	public Pane generateScene(Stage stage) {
@@ -368,7 +371,7 @@ public class Perspective {
 	/**
 	 * Sets the file paths of the unlit background images of each layer.
 	 * 
-	 * @param layerPaths  The layer file paths as an array of Strings from back to front.
+	 * @param unlitLayerPaths  The layer file paths as an array of Strings from back to front.
 	 */
 	public void setUnlitLayerPaths(String[] unlitLayerPaths) {
 		this.unlitLayerPaths = unlitLayerPaths;
