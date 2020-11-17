@@ -278,6 +278,10 @@ public class Room {
 		return perspectives[currentPerspective];
 	}
 	
+	public int getCurrentIndex() {
+		return currentPerspective;
+	}
+	
 	public boolean equals(Room other) {
 		return this.name.equals(other.name);
 	}
