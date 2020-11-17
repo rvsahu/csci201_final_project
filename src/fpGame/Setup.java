@@ -201,6 +201,15 @@ public class Setup {
 		annex.addToFront(proj);
 		proj.setLayerFront(0);*/
 		
+		//Door
+		DoorObject d1 = new DoorObject("Annex_To_Main");
+		d1.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
+		d1.loadSprites();
+		d1.setBehaviour(AnnexBehaviours.DoorMainBehaviour(d1));
+		annex.addToLeft(d1);
+		d1.setLayerLeft(0);
+		d1.lock();
+		
 		
 		
 		//keep adding stuff

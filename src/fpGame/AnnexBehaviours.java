@@ -211,7 +211,7 @@ public class AnnexBehaviours {
 	}
 	
 	
-	public static EventHandler<MouseEvent> KeypadBehaviour() {
+	public static EventHandler<MouseEvent> KeypadBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
 		{
 			@Override public void handle(MouseEvent event) 
@@ -231,6 +231,7 @@ public class AnnexBehaviours {
 					if (text.getText().compareTo("5417") == 0) 
 					{
 						output.setText("Correct--Door unlocked");
+						d.unlock();
 					} 
 					else 
 					{
@@ -270,6 +271,45 @@ public class AnnexBehaviours {
 		
 		return behaviour;
 	}	
+	
+	public static EventHandler<MouseEvent> DoorMainBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
+		{
+			@Override public void handle(MouseEvent event) 
+			{
+				System.out.println("DoorEvent");
+				if(d.isLocked()) {
+					System.out.println("Locked");
+					BorderPane pane = new BorderPane();
+					
+					Text txt = new Text("The Door is locked. Beside it is a small black keypad.");
+					pane.setCenter(txt);
+					/*
+					EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>()  {
+						@Override public void handle(MouseEvent event) {
+							//return to gameplay
+							Room cR = GameUtil.player().currentRoom();
+							Perspective cP = GameUtil.player().currentView();
+							cR.setPerspective(cP);
+							GameUtil.displayPlayerView();
+						}
+					};
+					
+					pane.setOnMouseClicked(exitBehaviour);
+					*/
+				}else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
+					GameUtil.player().setCurrentPerspective(3);
+					GameUtil.displayPlayerView();
+				}
+				
+				
+			}
+		};
+		
+		return behaviour;
+	}	
+	
 }
 	
 

@@ -4,8 +4,10 @@ public class DoorObject extends RoomObject {
 	
 	boolean isLocked;
 	String mKey;
+	Room exitRoom;
+	Perspective exitPerspective;
 	
-	DoorObject() {
+	public DoorObject() {
 		isLocked = false;
 		mKey = "";
 	}
@@ -14,6 +16,22 @@ public class DoorObject extends RoomObject {
 		super(name);
 		isLocked = false;
 		mKey = "";
+	}
+	
+	public void SetexitRoom(Room r) {
+		exitRoom = r;
+	}
+	
+	public void SetexitPerspective(Perspective r) {
+		exitPerspective = r;
+	}
+	
+	public Room GetexitRoom() {
+		return exitRoom;
+	}
+	
+	public Perspective GetexitPerspective() {
+		return exitPerspective;
 	}
 	
 	public void lock() {
@@ -55,6 +73,8 @@ public class DoorObject extends RoomObject {
 	public boolean isLocked() {
 		return this.isLocked;
 	}
+	
+	
 
 	@Override
 	public boolean wrapsItem() {
