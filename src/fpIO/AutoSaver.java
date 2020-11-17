@@ -14,7 +14,7 @@ public class AutoSaver extends Thread {
 	/**
 	 * Constructor for an AutoSaver thread
 	 * 
-	 * @param saveDelay
+	 * @param saveDelay  Time between auto saves in seconds   
 	 */
 	public AutoSaver(long saveDelay) {
 		super();

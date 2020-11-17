@@ -5,19 +5,15 @@ public class DoorObject extends RoomObject {
 	boolean isLocked;
 	String mKey;
 	
-	DoorObject(Doorway doorway)
-	{
+	DoorObject() {
 		isLocked = false;
 		mKey = "";
 	}
 
-	public DoorObject() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public DoorObject(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
+		isLocked = false;
+		mKey = "";
 	}
 	
 	public void lock() {
@@ -32,7 +28,9 @@ public class DoorObject extends RoomObject {
 	}
 	
 	/**
-	 * Locks the door with the provided key. Does nothing otherwise.
+	 * Locks the door with the provided key.
+	 * 
+	 * @param key  The key the door is being locked with. Updates key name to match the new key.
 	 */
 	public void lock(Key key) {
 		mKey = key.name();
@@ -41,6 +39,8 @@ public class DoorObject extends RoomObject {
 	
 	/**
 	 * Unlocks the door if the right key is used. Does nothing otherwise.
+	 * 
+	 * @param key  The key being tried on the door.
 	 */
 	public void unlock(Key key) {
 		if (mKey == key.name()) {

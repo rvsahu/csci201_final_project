@@ -318,7 +318,9 @@ public abstract class RoomObject {
 	}
 	
 	/**
-	 * Returns a boolean representing whether the object is hidden or otherwise
+	 * Returns a boolean representing whether the object is hidden or otherwise.
+	 * 
+	 * @return     True if the RoomObject is hidden, false otherwise.
 	 */
 	public boolean isHidden() {
 		return !(display);
@@ -326,6 +328,8 @@ public abstract class RoomObject {
 	
 	/**
 	 * Setup method. Gives the particular RoomObject its unique on-click behaviour.
+	 * 
+	 * @param behaviour  The behaviour of the RoomObject upon being clicked.
 	 */
 	public void setBehaviour(EventHandler<MouseEvent> behaviour) {
 		this.behaviour = behaviour;
