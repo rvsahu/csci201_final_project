@@ -362,7 +362,7 @@ public class Setup {
 	private static Room setupMainD() {  //ERICA
 		Room mainD = new Room("mainD");
 		
-		String mainDFolder = "./graphics/game_graphics/rooms/MainA/";
+		String mainDFolder = "./graphics/game_graphics/rooms/MainD/";
 		
 		String frontPaths[] = {mainDFolder  + "front/layer0/mainD_front_0.png"};
 		
@@ -408,10 +408,11 @@ public class Setup {
 		
 		//AnnexDoor
 		DoorObject d3 = new DoorObject("MainD to Annex");
+		d3.setRightSpritePath(mainDFolder + "right/layer0/AnnexDoor.png");
 		
 		
 		Dustbin db1 = new Dustbin("Dustbin1");
-		db1.
+		//db1.
 
 		
 		return mainD;
