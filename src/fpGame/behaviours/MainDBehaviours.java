@@ -20,13 +20,28 @@ public class MainDBehaviours
 	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
 		{
-			@Override public void handle(MouseEvent event) 
-			{
-			 			//do stuff
+			@Override public void handle(MouseEvent event) {
 				
-				
-				
-				
+				Inventory inv = GameUtil.player().getInventory();
+				if (GameUtil.player().getInventory().CheckNumberOfItem("coin") >= 4)
+				{
+					int remover = 4;
+					for (int j = 0; j < inv.getInventory().size(); j++)
+					{
+						if (inv.getInventory().get(j).name() == "Lab1 Key")
+						{
+							remover--;
+							inv.getInventory().remove(j);
+							
+							if (remover == 0)
+							{
+								break;
+							}
+						}	
+					}
+					
+					GameUtil.setMessage("You have earned a lab1 key");
+				}
 			}
 		};
 		return behaviour;
@@ -63,7 +78,8 @@ public class MainDBehaviours
 	}
 
 	
-	public static EventHandler<MouseEvent> HallwayBehaviour() {
+	public static EventHandler<MouseEvent> HallwayBehaviour()
+	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				
@@ -72,15 +88,20 @@ public class MainDBehaviours
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> DustbinBehavior = new EventHandler<MouseEvent>() {
-		@Override public void handle(MouseEvent event) 
+	public static EventHandler<MouseEvent> DustbinBehavior() 
+	{
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
 		{
+			@Override public void handle(MouseEvent event) 
+			{
 		 			//do stuff
 			
 			
 			
 			
-		}
-	};
+			};
+		};
+		return behaviour;
+	}
 }
 	
