@@ -255,7 +255,7 @@ public class Perspective {
 	 * Setup method, primarily for deserialisation. Reloads the sprites for every RoomObject viewable
 	 * from this perspective.
 	 */
-	public void loadAllImages() {
+	public void loadAllSprites() {
 		for (RoomObject rObj : contents) {
 			rObj.loadSprites();
 		}

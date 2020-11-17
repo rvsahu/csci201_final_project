@@ -310,79 +310,16 @@ public class Room {
 		return perspectives[currentPerspective].generateScene(stage);
 	}
 	
-	/*
-	 **
-	 * Sets the background file path of the front perspective to the given string.
-	 * 
-	 * @param backgroundPath  The path to the background image of the front perspective.
-	 *
-	public void setBackgroundFront(String backgroundPath) {
-		perspectives[0].setBackground(backgroundPath);
+	/**
+	 * Deserialisation method, reloads all the sprites in every perspective
+	 */
+	public void loadAllSprites() {
+		for (int i = 0; i < 3; i += 1) {
+			if (perspectives[i] == null) 
+				continue;
+			perspectives[i].loadAllSprites();
+		}
 	}
-	
-	 **
-	 * Sets the unlit background file path of the front perspective to the given string.
-	 * 
-	 * @param unlitBackgroundPath  The path to the unlit background image of the front perspective.
-	 *
-	public void setUnlitBackgroundFront(String unlitBackgroundPath) {
-		perspectives[0].setUnlitBackground(unlitBackgroundPath);
-	}
-	
-	 **
-	 * Sets the background file path of the right perspective to the given string.
-	 * 
-	 * @param backgroundPath  The path to the background image of the right perspective.
-	 *
-	public void setBackgroundRight(String backgroundPath) {
-		perspectives[1].setBackground(backgroundPath);
-	}
-	
-	 **
-	 * Sets the unlit background file path of the right perspective to the given string.
-	 * 
-	 * @param unlitBackgroundPath  The path to the unlit background image of the right perspective.
-	 *
-	public void setUnlitBackgroundRight(String unlitBackgroundPath) {
-		perspectives[1].setUnlitBackground(unlitBackgroundPath);
-	}
-	
-	 **
-	 * Sets the background file path of the back perspective to the given string.
-	 * 
-	 * @param backgroundPath  The path to the background image of the back perspective.
-	 *
-	public void setBackgroundBack(String backgroundPath) {
-		perspectives[2].setBackground(backgroundPath);
-	}
-	
-	 **
-	 * Sets the unlit background file path of the back perspective to the given string.
-	 * 
-	 * @param unlitBackgroundPath  The path to the unlit background image of the back perspective.
-	 *
-	public void setUnlitBackgroundBack(String unlitBackgroundPath) {
-		perspectives[2].setUnlitBackground(unlitBackgroundPath);
-	}
-	
-	 **
-	 * Sets the background file path of the left perspective to the given string.
-	 * 
-	 * @param backgroundPath  The path to the background image of the left perspective.
-	 * 
-	public void setBackgroundLeft(String backgroundPath) {
-		perspectives[3].setBackground(backgroundPath);
-	}
-	
-	 **
-	 * Sets the unlit background file path of the left perspective to the given string.
-	 * 
-	 * @param unlitBackgroundPath  The path to the unlit background image of the left perspective.
-	 * 
-	public void setUnlitBackgroundLeft(String unlitBackgroundPath) {
-		perspectives[3].setUnlitBackground(unlitBackgroundPath);
-	}
-	*/
 	
 	/**
 	 * Sets the layer backgrounds of the front perspective. Does nothing if the front perspective doesn't exist.

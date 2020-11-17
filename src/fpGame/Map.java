@@ -93,7 +93,6 @@ public class Map {
 	}
 	
 	public void loadAllSprites() {
-		/*
 		annex.loadAllSprites();
 		mainA.loadAllSprites();
 		mainB.loadAllSprites();
@@ -109,6 +108,5 @@ public class Map {
 		hallway2.loadAllSprites();
 		mensRoom.loadAllSprites();
 		womensRoom.loadAllSprites();
-		*/ 
 	}
 }
