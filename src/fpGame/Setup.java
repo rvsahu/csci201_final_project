@@ -12,9 +12,7 @@ import javafx.scene.text.Font;
 
 //intraproject imports
 import fpModel.*;
-import fpGame.behaviours.AnnexBehaviours;
-import fpGame.behaviours.MainDBehaviours;
-import fpGame.behaviours.Study1Behaviours;
+import fpGame.behaviours.*;
 
 public class Setup {
 	/*
@@ -443,7 +441,7 @@ public class Setup {
 		
 		Room study1;
 		try {
-			study1 = new Room("study1", false, true, false, true);
+			study1 = new Room("Study Room 1", false, true, false, true);
 			study1.setLayerBackgroundsRight(rightLayerPaths);
 			study1.setLayerBackgroundsLeft(leftLayerPaths);
 			
@@ -488,11 +486,32 @@ public class Setup {
 	}
 	
 	private static Room setupStudy2() { //PATRICK
-		Room ret = new Room("study2");
-		ret.addToRight(new Computer());
-		ret.addToLeft(new CoinObject());
-		ret.addToLeft(new CoinObject());
-		return ret;
+		String study2folder = "./graphics/game_graphics/rooms/study2/";
+		String[] rightLayerPaths = {study2folder + "right/layer0/study2_right_0.png"};
+		String[] leftLayerPaths = {study2folder + "left/layer0/study2_left_0.png"};
+		
+		Room study2;
+		try {
+			study2 = new Room("Study Room 2", false, true, false, true);
+			study2.setLayerBackgroundsRight(rightLayerPaths);
+			study2.setLayerBackgroundsLeft(leftLayerPaths);
+			
+			DoorObject doorOut = new DoorObject("Study2_To_Annex");
+			doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
+			doorOut.loadSprites();
+			doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));
+			study2.addToLeft(doorOut);
+			doorOut.setLayerLeft(0);
+			
+			
+			//add switch
+		} catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating study2!");
+			e.printStackTrace();
+			study2 = new Room("Study Room 2");
+		}
+		return study2;
 	}
 	
 	private static Room setupStudy3() { //PATROCK
