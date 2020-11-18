@@ -6,7 +6,9 @@ import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
+import fpModel.Couch;
 import fpModel.DoorObject;
+import fpModel.Table;
 
 public class Study3Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -24,4 +26,29 @@ public class Study3Behaviours {
 		};
 		return behaviour;
 	}
+	
+	public static EventHandler<MouseEvent> couchBehaviour(Couch couch) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("It is a couch. Seeems like a good couch to fall asleep after an all nighter at SAL. You searched the couch but found nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> tableBehaviour() {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("It is an ordinary table. In the corner, you see a scribble that reads: ");
+				GameUtil.setMessage("I..... want...to go to sleep");
+			}
+		};
+			return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> plant() {
+		// TODO Auto-generated method stub
+		return null;
+	};
 }
