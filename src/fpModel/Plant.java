@@ -1,6 +1,11 @@
 package fpModel;
 
 public class Plant extends RoomObject {
+	public Plant(String string) {
+		// TODO Auto-generated constructor stub
+		super(string);
+	}
+
 	@Override
 	public boolean hasItems() {
 		// TODO Auto-generated method stub

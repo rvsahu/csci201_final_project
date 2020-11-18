@@ -6,7 +6,9 @@ import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
+import fpModel.Couch;
 import fpModel.DoorObject;
+import fpModel.Table;
 
 public class Study2Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -24,5 +26,38 @@ public class Study2Behaviours {
 		};
 		
 		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> couchBehaviour(Couch couch) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the couch but found nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+	public static EventHandler<MouseEvent> tableBehaviour(Table table) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				if (table.hasItems()) {
+					// Add as many items to inventory as possible
+					GameUtil.player().getInventory().addItems(table.getItems());
+				}
+				GameUtil.setMessage("You searched the table but found nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> LightSwitchBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> PlantBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

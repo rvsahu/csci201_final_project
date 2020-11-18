@@ -516,6 +516,7 @@ public class Setup {
 			study2.setLayerBackgroundsRight(rightLayerPaths);
 			study2.setLayerBackgroundsLeft(leftLayerPaths);
 			
+			//add door
 			DoorObject doorOut = new DoorObject("Study2_To_Annex");
 			doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
 			doorOut.loadSprites();
@@ -523,8 +524,48 @@ public class Setup {
 			study2.addToLeft(doorOut);
 			doorOut.setLayerLeft(0);
 			
+			//add couch
+			Couch s2Couch = new Couch("SR2 Couch");
+			s2Couch.setLeftSpritePath(study2folder + "left/layer0/couch.png");
+			s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
+			s2Couch.loadSprites();
+			s2Couch.setBehaviour(Study2Behaviours.couchBehaviour(s2Couch));
+			study2.addToLeft(s2Couch);
+			study2.addToRight(s2Couch);
+			s2Couch.setLayerLeft(0);
+			s2Couch.setLayerRight(0);
 			
-			//add switch
+			
+			
+			//add plant
+			Plant s2Plant = new Plant("S2 Plant");
+			s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
+			s2Plant.loadSprites();
+			s2Plant.setBehaviour(Study2Behaviours.PlantBehaviour());
+			study2.addToRight(s2Plant);
+			s2Plant.setLayerRight(0);
+					
+			
+			//add table
+			Table s2Table = new Table("SR2 Table");
+			s2Table.setLeftSpritePath(study2folder + "left/layer0/table.png");
+			s2Table.setRightSpritePath(study2folder + "right/layer0/table.png");
+			s2Table.loadSprites();
+			s2Table.setBehaviour(Study2Behaviours.tableBehaviour(s2Table));
+			study2.addToLeft(s2Table);
+			study2.addToRight(s2Table);
+			s2Table.setLayerLeft(0);
+			s2Table.setLayerRight(0);
+			
+			//switch
+			LightSwitch s2LightSwitch = new LightSwitch("SR2 Light Switch");
+			s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
+			s2LightSwitch.loadSprites();
+			s2LightSwitch.setBehaviour(Study2Behaviours.LightSwitchBehaviour());
+			study2.addToLeft(s2LightSwitch);
+			s2LightSwitch.setLayerLeft(0);
+			
+			
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study2!");
