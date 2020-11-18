@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
 //intraproject imports
 import fpGame.GameUtil;
 import fpModel.DoorObject;
+import fpModel.Beanbag;
 import fpModel.Couch;
 import fpModel.Table;
 
@@ -50,5 +51,20 @@ public class Study1Behaviours {
 		};
 		
 		return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> BeanbagBehaviour(Beanbag s1Beanbag) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the beanbag but found nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> LightSwitchBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

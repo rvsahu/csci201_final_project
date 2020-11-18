@@ -454,6 +454,16 @@ public class Setup {
 			doorOut.setLayerLeft(0);
 			
 			//add beanbag
+			Beanbag s1Beanbag = new Beanbag("SR1 Beanbag");
+			s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
+			s1Beanbag.loadSprites();
+			s1Beanbag.setBehaviour(Study1Behaviours.BeanbagBehaviour(s1Beanbag));
+			study1.addToLeft(s1Beanbag);
+			study1.addToRight(s1Beanbag);
+			s1Beanbag.setLayerLeft(0);
+			s1Beanbag.setLayerRight(0);
+			
+			
 			//add couch
 			Couch s1Couch = new Couch("SR1 Couch");
 			s1Couch.setLeftSpritePath(study1folder + "left/layer0/couch.png");
@@ -476,7 +486,16 @@ public class Setup {
 			s1Table.setLayerLeft(0);
 			s1Table.setLayerRight(0);
 			
-			//add switch
+			//add lightswitch
+			LightSwitch s1LightSwitch = new LightSwitch("SR1 Light Switch");
+			s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
+			s1LightSwitch.loadSprites();
+			s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
+			study1.addToLeft(s1LightSwitch);
+			s1LightSwitch.setLayerLeft(0);
+			
+			
+
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study1!");
