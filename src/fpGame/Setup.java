@@ -132,7 +132,8 @@ public class Setup {
 		String frontPaths[] = {annexFolder + "front/layer0/annex_front_0.png", annexFolder + "front/layer1/annex_front_1.png",
 				annexFolder + "front/layer2/annex_front_2.png"};
 		
-		String rightPaths[] = {annexFolder +  "right/layer0/annex_right_0.png", annexFolder +  "right/layer1/annex_right_1.png"};
+		String rightPaths[] = {annexFolder +  "right/layer0/annex_right_0.png", annexFolder +  "right/layer1/annex_right_1.png", 
+				annexFolder + "right/layer2/annex_right_2.png"};
 		
 		String backPaths[] = {annexFolder +  "back/layer0/Annex_back_0.png"};
 		
@@ -143,7 +144,7 @@ public class Setup {
 		annex.setLayerBackgroundsBack(backPaths);
 		annex.setLayerBackgroundsLeft(leftPaths);
 		
-		Computer c2 = new Computer();
+		Computer c2 = new Computer("Annex Computer 2");
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
@@ -155,7 +156,7 @@ public class Setup {
 		
 		
 		//computer 5 loads up an image of a cat 
-		Computer c5 = new Computer();
+		Computer c5 = new Computer("Annex Computer 5");
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c5.loadSprites();
 		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour());
@@ -163,7 +164,7 @@ public class Setup {
 		c5.setLayerFront(2);
 		
 		//computer 7 -- write down the correct word then type enter
-		Computer c7 = new Computer("annex_computer_7", "The passcode to the annex-main door is 5147.");
+		Computer c7 = new Computer("Annex Computer 8", "The passcode to the annex-main door is 5147.");
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));

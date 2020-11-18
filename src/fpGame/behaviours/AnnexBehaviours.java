@@ -157,6 +157,8 @@ public class AnnexBehaviours {
 				pane.setCenter(text);
 				
 				Button button = new Button("Submit");
+				button.setPrefSize(100, 50);
+				button.setFont(new Font(20));
 				button.setOnAction(e-> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
@@ -246,6 +248,8 @@ public class AnnexBehaviours {
 				Text output = new Text();
 				output.setFill(Color.WHITE);
 				Button button = new Button("Submit");
+				button.setPrefSize(100, 50);
+				button.setFont(new Font(20));
 				pane.setBottom(button);
 				
 				button.setOnAction(e-> 
