@@ -221,10 +221,10 @@ public class AnnexBehaviours {
 				//projector screen
 				if (p.isProjecting()) {
 					ProjectorScreen ps = new ProjectorScreen("Projector Screen");
-					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer2/doggo.png");
+					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
 					ps.loadSprites();
 					GameUtil.map().annex.addToFront(ps);
-					ps.setLayerFront(2);
+					ps.setLayerFront(0);
 				}
 				
 				
