@@ -346,6 +346,16 @@ public class Setup {
 		mainC.setLayerBackgroundsBack(backPaths);
 		mainC.setLayerBackgroundsLeft(leftPaths);
 		
+		DoorObject d1 = new DoorObject("MainC to Front Door");
+		d1.setLeftSpritePath(mainCFolder + "left/layer0/frontDoor.png");
+		d1.setFrontSpritePath(mainCFolder + "front/layer0/FrontDoor.png");
+		d1.loadSprites();
+		//d1.setBehaviour(behaviour);
+		mainC.addToLeft(d1);
+		mainC.addToFront(d1);
+		
+		
+		
 		return mainC;
 	}
 	
