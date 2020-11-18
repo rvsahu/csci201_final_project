@@ -351,6 +351,41 @@ public class AnnexBehaviours {
 		
 		return behaviour;
 	}
+
+	public static EventHandler<MouseEvent> DoorStudy3Behaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Study 3 is locked.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().study3);
+					GameUtil.player().setCurrentPerspective(2);
+					GameUtil.displayPlayerView();
+				}
+				
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> DoorStudy4Behaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Study 4 is locked.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().study4);
+					GameUtil.player().setCurrentPerspective(2);
+					GameUtil.displayPlayerView();
+				}
+				
+			}
+		};
+		
+		return behaviour;
+	}
+
 }
 	
 

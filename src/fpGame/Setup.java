@@ -232,6 +232,22 @@ public class Setup {
 		annex.addToRight(d3);
 		d3.setLayerRight(0);
 		
+		//Door to study room 3
+		DoorObject d4 = new DoorObject("Annex_To_Study3");
+		d4.setBackSpritePath(annexFolder + "back/layer0/leftDoor.png");
+		d4.loadSprites();
+		d4.setBehaviour(AnnexBehaviours.DoorStudy3Behaviour(d4));
+		annex.addToBack(d4);
+		d4.setLayerBack(0);
+		
+		DoorObject d5 = new DoorObject("Annex_To_Study4");
+		d5.setBackSpritePath(annexFolder + "back/layer0/rightDoor.png");
+		d5.loadSprites();
+		d5.setBehaviour(AnnexBehaviours.DoorStudy4Behaviour(d5));
+		annex.addToBack(d5);
+		d5.setLayerBack(0);
+		
+		
 		//keep adding stuff
 		return annex;
 	}
@@ -576,26 +592,51 @@ public class Setup {
 	}
 	
 	private static Room setupStudy3() { //PATROCK
-		Room ret = new Room("study3");
-		ret.addToFront(new Dustbin());
-		ret.addToBack(new Couch());
-		ArrayList<Item> items = new ArrayList<Item>();
-		items.add(new Item("coin"));
-		items.add(new Item("coin"));
-		ret.addToLeft(new Wallet(items));
-		return ret;
+		
+		String study3folder = "./graphics/game_graphics/rooms/study3/";
+		String[] frontLayerPaths = {study3folder + "front/layer0/study3_front_0.png"};
+		String[] backLayerPaths = {study3folder + "back/layer0/study3_back_0.png"};
+		
+		Room study3;
+		try
+		{
+			study3 = new Room("Study Room 3", true, false, true, false);
+			study3.setLayerBackgroundsFront(frontLayerPaths);
+			study3.setLayerBackgroundsBack(backLayerPaths);
+			
+		}
+		catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating study3!");
+			e.printStackTrace();
+			study3 = new Room("Study Room 3");
+		}
+		return study3;
 	}
 	
-	private static Room setupStudy4() { //PATRICK
-		Room ret = new Room("study4");
-		ret.addToFront(new Dustbin());
-		ret.addToRight(new Couch());
-		ret.addToBack(new Computer());
-		ret.addToBack(new Couch());
-		ret.addToBack(new Couch());
-		ret.addToLeft(new Couch());
-		return ret;
+	private static Room setupStudy4() { //PATROCK
+		
+		String study4folder = "./graphics/game_graphics/rooms/study4/";
+		String[] frontLayerPaths = {study4folder + "front/layer0/study4_front_0.png"};
+		String[] backLayerPaths = {study4folder + "back/layer0/study4_back_0.png"};
+		
+		Room study4;
+		try
+		{
+			study4 = new Room("Study Room 4", true, false, true, false);
+			study4.setLayerBackgroundsFront(frontLayerPaths);
+			study4.setLayerBackgroundsBack(backLayerPaths);
+			
+		}
+		catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating study4!");
+			e.printStackTrace();
+			study4 = new Room("Study Room 4");
+		}
+		return study4;
 	}
+	
 	
 	private static Room setupCove() { //RAHUL
 		Room cove = new Room("Cove");
