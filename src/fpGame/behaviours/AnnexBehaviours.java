@@ -220,8 +220,8 @@ public class AnnexBehaviours {
 				
 				//projector screen
 				if (p.isProjecting()) {
-					ProjectorScreen ps = new ProjectorScreen("Projector Screen");
-					ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
+					ProjectorScreen ps = new ProjectorScreen("Annex Projection");
+					ps.setFrontSpritePath(p.projectionPath());
 					ps.loadSprites();
 					GameUtil.map().annex.addToFront(ps);
 					ps.setLayerFront(0);

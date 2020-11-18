@@ -153,8 +153,6 @@ public class Setup {
 		annex.addToFront(c2);
 		c2.setLayerFront(1);
 		
-		
-		
 		//computer 5 loads up an image of a cat 
 		Computer c5 = new Computer("Annex Computer 5");
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
@@ -165,7 +163,7 @@ public class Setup {
 		
 		//computer 7 -- write down the correct word then type enter
 		Computer c7 = new Computer("Annex Computer 8", "The passcode to the annex-main door is 5147.");
-		c7.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
+		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
 		annex.addToFront(c7);
@@ -181,7 +179,7 @@ public class Setup {
 		*/
 		
 		//projector
-		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";
+		String path = "./graphics/game_graphics/rooms/annex/front/layer0/projMess.png";
 		Projector proj = new Projector("Annex Projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
 		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
@@ -267,11 +265,8 @@ public class Setup {
 		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
 		
 		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
-		
 		String rightPaths[] = {mainAFolder +  "right/layer0/mainA_right_0.png"};
-		
 		String backPaths[] = {mainAFolder+  "back/layer0/mainA_back_0.png"};
-		
 		String leftPaths[] = {mainAFolder +  "left/layer0/mainA_left_0.png"};
 
 		mainA.setLayerBackgroundsFront(frontPaths);
@@ -358,11 +353,8 @@ public class Setup {
 		String mainCFolder = "./graphics/game_graphics/rooms/MainC/";
 		
 		String frontPaths[] = {mainCFolder  + "front/layer0/mainC_front_0.png"};
-		
 		String rightPaths[] = {mainCFolder +  "right/layer0/mainC_right_0.png"};
-		
 		String backPaths[] = {mainCFolder+  "back/layer0/mainC_back_0.png"};
-		
 		String leftPaths[] = {mainCFolder +  "left/layer0/mainC_left_0.png"};
 		
 		mainC.setLayerBackgroundsFront(frontPaths);
@@ -377,8 +369,6 @@ public class Setup {
 		//d1.setBehaviour(behaviour);
 		mainC.addToLeft(d1);
 		mainC.addToFront(d1);
-		
-		
 		
 		return mainC;
 	}
@@ -409,7 +399,6 @@ public class Setup {
 		vm1.setBehaviour(MainDBehaviours.VendingMachineBehavior());
 		mainD.addToBack(vm1);
 		vm1.setLayerFront(0);
-		
 		
 		//LabDoor
 		DoorObject d1 = new DoorObject("MainD to Lab");
@@ -468,55 +457,6 @@ public class Setup {
 		Room study1;
 		try {
 			study1 = new Room("Study Room 1", false, true, false, true);
-			study1.setLayerBackgroundsRight(rightLayerPaths);
-			study1.setLayerBackgroundsLeft(leftLayerPaths);
-			
-			DoorObject doorOut = new DoorObject("Study1_To_Annex");
-			doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
-			doorOut.loadSprites();
-			doorOut.setBehaviour(Study1Behaviours.doorOutBehaviour(doorOut));
-			study1.addToLeft(doorOut);
-			doorOut.setLayerLeft(0);
-			
-			//add beanbag
-			Beanbag s1Beanbag = new Beanbag("SR1 Beanbag");
-			s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
-			s1Beanbag.loadSprites();
-			s1Beanbag.setBehaviour(Study1Behaviours.BeanbagBehaviour(s1Beanbag));
-			study1.addToRight(s1Beanbag);
-			s1Beanbag.setLayerRight(0);
-			
-			//add couch
-			Couch s1Couch = new Couch("SR1 Couch");
-			s1Couch.setLeftSpritePath(study1folder + "left/layer0/couch.png");
-			s1Couch.setRightSpritePath(study1folder + "right/layer0/couch.png");
-			s1Couch.loadSprites();
-			s1Couch.setBehaviour(Study1Behaviours.couchBehaviour(s1Couch));
-			study1.addToLeft(s1Couch);
-			study1.addToRight(s1Couch);
-			s1Couch.setLayerLeft(0);
-			s1Couch.setLayerRight(0);
-			
-			//add table
-			Table s1Table = new Table("SR1 Table");
-			s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
-			s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
-			s1Table.loadSprites();
-			s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
-			study1.addToLeft(s1Table);
-			study1.addToRight(s1Table);
-			s1Table.setLayerLeft(0);
-			s1Table.setLayerRight(0);
-			
-			//add lightswitch
-			LightSwitch s1LightSwitch = new LightSwitch("SR1 Light Switch");
-			s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
-			s1LightSwitch.loadSprites();
-			s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
-			study1.addToLeft(s1LightSwitch);
-			s1LightSwitch.setLayerLeft(0);
-			
-			
 
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
@@ -524,6 +464,55 @@ public class Setup {
 			e.printStackTrace();
 			study1 = new Room("study1");
 		}
+		
+		study1.setLayerBackgroundsRight(rightLayerPaths);
+		study1.setLayerBackgroundsLeft(leftLayerPaths);
+		
+		DoorObject doorOut = new DoorObject("Study1_To_Annex");
+		doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
+		doorOut.loadSprites();
+		doorOut.setBehaviour(Study1Behaviours.doorOutBehaviour(doorOut));
+		study1.addToLeft(doorOut);
+		doorOut.setLayerLeft(0);
+		
+		//add beanbag
+		Beanbag s1Beanbag = new Beanbag("SR1 Beanbag");
+		s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
+		s1Beanbag.loadSprites();
+		s1Beanbag.setBehaviour(Study1Behaviours.BeanbagBehaviour(s1Beanbag));
+		study1.addToRight(s1Beanbag);
+		s1Beanbag.setLayerRight(0);
+		
+		//add couch
+		Couch s1Couch = new Couch("SR1 Couch");
+		s1Couch.setLeftSpritePath(study1folder + "left/layer0/couch.png");
+		s1Couch.setRightSpritePath(study1folder + "right/layer0/couch.png");
+		s1Couch.loadSprites();
+		s1Couch.setBehaviour(Study1Behaviours.couchBehaviour(s1Couch));
+		study1.addToLeft(s1Couch);
+		study1.addToRight(s1Couch);
+		s1Couch.setLayerLeft(0);
+		s1Couch.setLayerRight(0);
+		
+		//add table
+		Table s1Table = new Table("SR1 Table");
+		s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
+		s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
+		s1Table.loadSprites();
+		s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
+		study1.addToLeft(s1Table);
+		study1.addToRight(s1Table);
+		s1Table.setLayerLeft(0);
+		s1Table.setLayerRight(0);
+		
+		//add lightswitch
+		LightSwitch s1LightSwitch = new LightSwitch("SR1 Light Switch");
+		s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
+		s1LightSwitch.loadSprites();
+		s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
+		study1.addToLeft(s1LightSwitch);
+		s1LightSwitch.setLayerLeft(0);
+		
 		return study1;
 	}
 	
@@ -533,67 +522,67 @@ public class Setup {
 		String[] leftLayerPaths = {study2folder + "left/layer0/study2_left_0.png"};
 		
 		Room study2;
+		
 		try {
 			study2 = new Room("Study Room 2", false, true, false, true);
-			study2.setLayerBackgroundsRight(rightLayerPaths);
-			study2.setLayerBackgroundsLeft(leftLayerPaths);
-			
-			//add door
-			DoorObject doorOut = new DoorObject("Study2_To_Annex");
-			doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
-			doorOut.loadSprites();
-			doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));
-			study2.addToLeft(doorOut);
-			doorOut.setLayerLeft(0);
-			
-			//add couch
-			Couch s2Couch = new Couch("SR2 Couch");
-			s2Couch.setLeftSpritePath(study2folder + "left/layer0/couch.png");
-			s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
-			s2Couch.loadSprites();
-			s2Couch.setBehaviour(Study2Behaviours.couchBehaviour(s2Couch));
-			study2.addToLeft(s2Couch);
-			study2.addToRight(s2Couch);
-			s2Couch.setLayerLeft(0);
-			s2Couch.setLayerRight(0);
-			
-			
-			
-			//add plant
-			Plant s2Plant = new Plant("S2 Plant");
-			s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
-			s2Plant.loadSprites();
-			s2Plant.setBehaviour(Study2Behaviours.plantBehaviour(s2Plant));
-			study2.addToRight(s2Plant);
-			s2Plant.setLayerRight(0);
-					
-			
-			//add table
-			Table s2Table = new Table("SR2 Table");
-			s2Table.setLeftSpritePath(study2folder + "left/layer0/table.png");
-			s2Table.setRightSpritePath(study2folder + "right/layer0/table.png");
-			s2Table.loadSprites();
-			s2Table.setBehaviour(Study2Behaviours.tableBehaviour(s2Table));
-			study2.addToLeft(s2Table);
-			study2.addToRight(s2Table);
-			s2Table.setLayerLeft(0);
-			s2Table.setLayerRight(0);
-			
-			//switch
-			LightSwitch s2LightSwitch = new LightSwitch("SR2 Light Switch");
-			s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
-			s2LightSwitch.loadSprites();
-			s2LightSwitch.setBehaviour(Study2Behaviours.lightSwitchBehaviour(s2LightSwitch));
-			study2.addToLeft(s2LightSwitch);
-			s2LightSwitch.setLayerLeft(0);
-			
-			
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study2!");
 			e.printStackTrace();
 			study2 = new Room("Study Room 2");
 		}
+		
+		study2.setLayerBackgroundsRight(rightLayerPaths);
+		study2.setLayerBackgroundsLeft(leftLayerPaths);
+		
+		//add door
+		DoorObject doorOut = new DoorObject("Study2_To_Annex");
+		doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
+		doorOut.loadSprites();
+		doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));
+		study2.addToLeft(doorOut);
+		doorOut.setLayerLeft(0);
+		
+		//add couch
+		Couch s2Couch = new Couch("SR2 Couch");
+		s2Couch.setLeftSpritePath(study2folder + "left/layer0/couch.png");
+		s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
+		s2Couch.loadSprites();
+		s2Couch.setBehaviour(Study2Behaviours.couchBehaviour(s2Couch));
+		study2.addToLeft(s2Couch);
+		study2.addToRight(s2Couch);
+		s2Couch.setLayerLeft(0);
+		s2Couch.setLayerRight(0);
+		
+		//add plant
+		Plant s2Plant = new Plant("S2 Plant");
+		s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
+		s2Plant.loadSprites();
+		s2Plant.setBehaviour(Study2Behaviours.plantBehaviour(s2Plant));
+		study2.addToRight(s2Plant);
+		s2Plant.setLayerRight(0);
+				
+		
+		//add table
+		Table s2Table = new Table("SR2 Table");
+		s2Table.setLeftSpritePath(study2folder + "left/layer0/table.png");
+		s2Table.setRightSpritePath(study2folder + "right/layer0/table.png");
+		s2Table.loadSprites();
+		s2Table.setBehaviour(Study2Behaviours.tableBehaviour(s2Table));
+		study2.addToLeft(s2Table);
+		study2.addToRight(s2Table);
+		s2Table.setLayerLeft(0);
+		s2Table.setLayerRight(0);
+		
+		//switch
+		LightSwitch s2LightSwitch = new LightSwitch("SR2 Light Switch");
+		s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
+		s2LightSwitch.loadSprites();
+		s2LightSwitch.setBehaviour(Study2Behaviours.lightSwitchBehaviour(s2LightSwitch));
+		study2.addToLeft(s2LightSwitch);
+		s2LightSwitch.setLayerLeft(0);
+		
+		
 		return study2;
 	}
 	
@@ -618,8 +607,7 @@ public class Setup {
 		return study3;
 	}
 	
-	private static Room setupStudy4() { //PATROCK
-		
+	private static Room setupStudy4() {
 		String study4folder = "./graphics/game_graphics/rooms/study4/";
 		String[] frontLayerPaths = {study4folder + "front/layer0/study4_front_0.png"};
 		String[] backLayerPaths = {study4folder + "back/layer0/study4_back_0.png"};
@@ -642,7 +630,18 @@ public class Setup {
 	
 	
 	private static Room setupCove() { //RAHUL
-		Room cove = new Room("Cove");
+		Room cove;
+		try {
+			cove = new Room("Cove", true, true, false, false);
+		} catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating cove!");
+			e.printStackTrace();
+			cove = new Room("Cove");
+		}
+		
+		
+		
 		return cove;
 	}
 	
@@ -688,36 +687,6 @@ public class Setup {
 		Room ret = new Room("womensRoom");
 		ret.addToRight(new Computer());
 		return ret;
-	}
-	
-	/*
-	 * Testing Stuff
-	 */
-	
-	public static Room testRoom() {
-		Room testRoom = new Room("test_room");
-		
-		//dustbin with key
-		Key testkey = new Key("test_key");
-		List<Item> itemList = new ArrayList<Item>();
-		itemList.add(testkey);
-		
-		Dustbin testbin = new Dustbin(itemList);
-		
-		EventHandler<MouseEvent> testbinBehaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-				testbin.hide();
-				//what a doorway implementation might look like
-				//CurrentRoom.getExit().getAdjacentRoom()
-				//Room.generateScene(GameInfo.stage);
-			}
-		};
-		
-		testbin.setBehaviour(testbinBehaviour);
-		
-		testRoom.addToFront(testbin); //dustbin w/ key added to front
-		
-		return testRoom;
 	}
 }
 

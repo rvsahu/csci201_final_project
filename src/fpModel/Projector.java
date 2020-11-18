@@ -78,8 +78,12 @@ public class Projector extends RoomObject {
 		projecting = false;
 	}
 	
-	public Boolean isProjecting() {
+	public boolean isProjecting() {
 		return projecting;
+	}
+	
+	public String projectionPath() {
+		return projectionPath;
 	}
 }
 
