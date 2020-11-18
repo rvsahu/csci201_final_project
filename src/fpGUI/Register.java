@@ -32,7 +32,8 @@ public class Register {
         TextField txtf1 = new TextField();
         TextField txtf2 = new TextField();
         
-        
+        //TODO add confirm password field
+                
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/3);
         txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
         
@@ -69,9 +70,15 @@ public class Register {
         			error.setText("No Password!");
         			return;
         		}
+        		//TODO add condition for if password and confirm password don't match
         		
-        		MainMenu.show(stage, userName);
-        		System.out.println("Logged In!");
+        		//TODO add condition for if username already exists in database
+        		
+        		//TODO move to MainMenu with connection to server if/when registration is successful
+        		
+        		//if registered successfully call GameUtil.login();
+        		
+        		MainMenu.show(stage, userName); //pass autoSaver here
         	}
         };
         
@@ -100,7 +107,7 @@ public class Register {
         
         stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
  		       GameUtil.WINDOW_Y * GameUtil.scalingFactor()));
-        stage.setTitle("Login!");
+        stage.setTitle("Register!");
         stage.show();
 	}
 }

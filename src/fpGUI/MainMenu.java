@@ -14,9 +14,10 @@ import fpGame.GameUtil;
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.Setup;
+import fpIO.Loader;
 
 public class MainMenu {
-	public static void show(Stage stage, String name) {
+	public static void show(Stage stage, String name) { //add autosaver parameter
 		
 		/*
 		 * DIMENSIONS 1920x1080
@@ -37,12 +38,15 @@ public class MainMenu {
         Button btn1 = new Button();
         btn1.setText("Resume Gameplay");
         btn1.setOnAction(new EventHandler<ActionEvent>() {
-        	 
-            @Override
-            public void handle(ActionEvent event) {
+            @Override public void handle(ActionEvent event) {
             	MainMenu.show(stage, "This would be Resume Game");
+            	//TODO check if a file can be loaded from user
+            	//if so call below and also start AutoSaver thread
+            	Loader.load();
+            	//if not display error message 
             }
         });
+        //TODO hide btn1 if GameUtil.isLoggedIn() is false
         
         Button btn2 = new Button();
         btn2.setText("Start New Game");
@@ -52,6 +56,7 @@ public class MainMenu {
             public void handle(ActionEvent event) {
             	Player player = new Player();
             	GameUtil.setPlayer(player);
+            	//run autosaver here if GameUtil.isLoggedIn is true
             	Setup.setupAll();
             	//MainMenu.show(stage, "this would be new game");
             }

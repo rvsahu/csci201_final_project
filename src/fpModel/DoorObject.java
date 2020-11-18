@@ -2,10 +2,8 @@ package fpModel;
 
 public class DoorObject extends RoomObject {
 	
-	boolean isLocked;
-	String mKey;
-	Room exitRoom;
-	Perspective exitPerspective;
+	private boolean isLocked;
+	private String mKey;
 	
 	public DoorObject() {
 		isLocked = false;
@@ -16,22 +14,6 @@ public class DoorObject extends RoomObject {
 		super(name);
 		isLocked = false;
 		mKey = "";
-	}
-	
-	public void SetexitRoom(Room r) {
-		exitRoom = r;
-	}
-	
-	public void SetexitPerspective(Perspective r) {
-		exitPerspective = r;
-	}
-	
-	public Room GetexitRoom() {
-		return exitRoom;
-	}
-	
-	public Perspective GetexitPerspective() {
-		return exitPerspective;
 	}
 	
 	public void lock() {
@@ -76,20 +58,17 @@ public class DoorObject extends RoomObject {
 	
 	
 
-	@Override
-	public boolean wrapsItem() {
+	@Override public boolean wrapsItem() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public boolean hasItems() {
+	@Override public boolean hasItems() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public boolean hasInfo() {
+	@Override public boolean hasInfo() {
 		// TODO Auto-generated method stub
 		return false;
 	}
