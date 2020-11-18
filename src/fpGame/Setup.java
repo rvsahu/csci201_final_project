@@ -596,14 +596,54 @@ public class Setup {
 		try {
 			study3 = new Room("Study Room 3", true, false, true, false);
 			study3.setLayerBackgroundsFront(frontLayerPaths);
-			study3.setLayerBackgroundsBack(backLayerPaths);
-			
+			study3.setLayerBackgroundsBack(backLayerPaths);		
 		}  catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study3!");
 			e.printStackTrace();
 			study3 = new Room("Study Room 3");
 		}
+		
+		//add door
+		DoorObject doorOut = new DoorObject("Stud3_To_Annex");
+		doorOut.setFrontSpritePath(study3folder + "front/layer0/door.png");
+		doorOut.loadSprites();
+		doorOut.setBehaviour(Study3Behaviours.doorOutBehaviour(doorOut));
+		study3.addToFront(doorOut);
+		doorOut.setLayerFront(0);
+		
+		//add plant --back
+		Plant plant = new Plant("SR3 Plant");
+		plant.setFrontSpritePath(study3folder + "front/layer0/plant.png");
+		plant.loadSprites();
+		plant.setBehaviour(Study3Behaviours.plant());
+		study3.addToFront(plant);
+		plant.setLayerBack(0);
+		
+		//add couch
+		Couch s3Couch = new Couch("SR3 Couch");
+		s3Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
+		s3Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
+		s3Couch.loadSprites();
+		s3Couch.setBehaviour(Study3Behaviours.couchBehaviour(s3Couch));
+		study3.addToBack(s3Couch);
+		study3.addToFront(s3Couch);
+		s3Couch.setLayerBack(0);
+		s3Couch.setLayerFront(0);
+		
+		//add table
+		Table s3Table = new Table("SR3 Table");
+		s3Table.setFrontSpritePath(study3folder + "front/layer0/table.png");
+		s3Table.setBackSpritePath(study3folder + "back/layer0/table.png");
+		s3Table.loadSprites();
+		s3Table.setBehaviour(Study3Behaviours.tableBehaviour());
+		study3.addToBack(s3Table);
+		study3.addToFront(s3Table);
+		s3Table.setLayerBack(0);
+		s3Table.setLayerFront(0);
+		
+		
+		
 		return study3;
 	}
 	
