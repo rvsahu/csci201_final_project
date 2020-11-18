@@ -1,19 +1,15 @@
 package fpGame.behaviours;
 
-
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpModel.Couch;
 import fpModel.DoorObject;
-import fpModel.Table;
 
 public class Study3Behaviours {
-	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) 
-	{
+	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {

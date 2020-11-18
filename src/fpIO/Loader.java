@@ -2,7 +2,6 @@ package fpIO;
 
 //java imports
 import java.util.List;
-import java.util.ArrayList;
 
 //javafx imports
 import javafx.event.EventHandler;

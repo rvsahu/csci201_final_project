@@ -1,7 +1,5 @@
 package fpIO;
 
-import fpGame.Player;
-import fpGame.Map;
 import fpGame.GameUtil;
 
 public class Saver {

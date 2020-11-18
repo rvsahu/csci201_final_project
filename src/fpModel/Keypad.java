@@ -1,33 +1,23 @@
 package fpModel;
 
-public class Keypad extends RoomObject{
-
-	public Keypad(String string) {
-		// TODO Auto-generated constructor stub
-		super(string);
+public class Keypad extends RoomObject {	
+	public Keypad(String name) {
+		super(name);
 	}
 	
-	public Keypad()
-	{
-		super();
+	public Keypad() {
+		super("default_keypad");
 	}
 
-	@Override
-	public boolean wrapsItem() {
-		// TODO Auto-generated method stub
+	@Override public boolean wrapsItem() {
 		return false;
 	}
 
-	@Override
-	public boolean hasItems() {
-		// TODO Auto-generated method stub
+	@Override public boolean hasItems() {
 		return false;
 	}
 
-	@Override
-	public boolean hasInfo() {
-		// TODO Auto-generated method stub
+	@Override public boolean hasInfo() {
 		return false;
 	}
-
 }

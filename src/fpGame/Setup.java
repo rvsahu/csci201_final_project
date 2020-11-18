@@ -149,7 +149,7 @@ public class Setup {
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
 		c2.loadSprites();		
-		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour());
+		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour(c2));
 		annex.addToFront(c2);
 		c2.setLayerFront(1);
 		
@@ -159,7 +159,7 @@ public class Setup {
 		Computer c5 = new Computer("Annex Computer 5");
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c5.loadSprites();
-		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour());
+		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour(c5));
 		annex.addToFront(c5);
 		c5.setLayerFront(2);
 		
@@ -182,7 +182,7 @@ public class Setup {
 		
 		//projector
 		String path = "./graphics/game_graphics/rooms/annex/front/layer2/doggo.png";
-		Projector proj = new Projector("projector", path);
+		Projector proj = new Projector("Annex Projector", path);
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
 		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
 		proj.loadSprites();
@@ -200,53 +200,54 @@ public class Setup {
 		proj.setLayerFront(0);*/
 		
 		//Door
-		DoorObject d1 = new DoorObject("Annex_To_Main");
-		d1.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
-		d1.loadSprites();
-		d1.setBehaviour(AnnexBehaviours.DoorMainBehaviour(d1));
-		annex.addToLeft(d1);
-		d1.setLayerLeft(0);
-		d1.lock();
+		DoorObject annexToMain = new DoorObject("Annex To Main");
+		annexToMain.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
+		annexToMain.loadSprites();
+		annexToMain.setBehaviour(AnnexBehaviours.DoorMainBehaviour(annexToMain));
+		annex.addToLeft(annexToMain);
+		annexToMain.setLayerLeft(0);
+		annexToMain.lock();
 		
 		//Keypad
-		Keypad k = new Keypad("keypad");
+		Keypad k = new Keypad("Annex Keypad");
 		k.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
 		k.loadSprites();
-		k.setBehaviour(AnnexBehaviours.KeypadBehaviour(d1));
+		k.setBehaviour(AnnexBehaviours.keypadBehaviour(annexToMain));
 		annex.addToLeft(k);
 		k.setLayerLeft(1);
 		
 		//Door to study room 1
-		DoorObject d2 = new DoorObject("Annex_To_Study1");
-		d2.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
-		d2.loadSprites();
-		d2.setBehaviour(AnnexBehaviours.DoorStudy1Behaviour(d2));
-		annex.addToRight(d2);
-		d2.setLayerRight(0);
+		DoorObject annexToStudy1 = new DoorObject("Annex To Study Room 1");
+		annexToStudy1.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
+		annexToStudy1.loadSprites();
+		annexToStudy1.setBehaviour(AnnexBehaviours.DoorStudy1Behaviour(annexToStudy1));
+		annex.addToRight(annexToStudy1);
+		annexToStudy1.setLayerRight(0);
 		
 		//Door to study room 2
-		DoorObject d3 = new DoorObject("Annex_To_Study2");
-		d3.setRightSpritePath(annexFolder + "right/layer0/rightDoor.png");
-		d3.loadSprites();
-		d3.setBehaviour(AnnexBehaviours.DoorStudy2Behaviour(d3));
-		annex.addToRight(d3);
-		d3.setLayerRight(0);
+		DoorObject annexToStudy2 = new DoorObject("Annex To Study Room 2");
+		annexToStudy2.setRightSpritePath(annexFolder + "right/layer0/rightDoor.png");
+		annexToStudy2.loadSprites();
+		annexToStudy2.setBehaviour(AnnexBehaviours.DoorStudy2Behaviour(annexToStudy2));
+		annex.addToRight(annexToStudy2);
+		annexToStudy2.setLayerRight(0);
 		
 		//Door to study room 3
-		DoorObject d4 = new DoorObject("Annex_To_Study3");
-		d4.setBackSpritePath(annexFolder + "back/layer0/leftDoor.png");
-		d4.loadSprites();
-		d4.setBehaviour(AnnexBehaviours.DoorStudy3Behaviour(d4));
-		annex.addToBack(d4);
-		d4.setLayerBack(0);
+		DoorObject annexToStudy3 = new DoorObject("Annex To Study Room 3");
+		annexToStudy3.setBackSpritePath(annexFolder + "back/layer0/leftDoor.png");
+		annexToStudy3.loadSprites();
+		annexToStudy3.setBehaviour(AnnexBehaviours.DoorStudy3Behaviour(annexToStudy3));
+		annex.addToBack(annexToStudy3);
+		annexToStudy3.setLayerBack(0);
 		
-		DoorObject d5 = new DoorObject("Annex_To_Study4");
-		d5.setBackSpritePath(annexFolder + "back/layer0/rightDoor.png");
-		d5.loadSprites();
-		d5.setBehaviour(AnnexBehaviours.DoorStudy4Behaviour(d5));
-		annex.addToBack(d5);
-		d5.setLayerBack(0);
+		DoorObject annexToStudy4 = new DoorObject("Annex To Study Room 4");
+		annexToStudy4.setBackSpritePath(annexFolder + "back/layer0/rightDoor.png");
+		annexToStudy4.loadSprites();
+		annexToStudy4.setBehaviour(AnnexBehaviours.DoorStudy4Behaviour(annexToStudy4));
+		annex.addToBack(annexToStudy4);
+		annexToStudy4.setLayerBack(0);
 		
+		DoorObject d6 = new DoorObject("Annd");
 		
 		//keep adding stuff
 		return annex;
@@ -474,11 +475,8 @@ public class Setup {
 			s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
 			s1Beanbag.loadSprites();
 			s1Beanbag.setBehaviour(Study1Behaviours.BeanbagBehaviour(s1Beanbag));
-			study1.addToLeft(s1Beanbag);
 			study1.addToRight(s1Beanbag);
-			s1Beanbag.setLayerLeft(0);
 			s1Beanbag.setLayerRight(0);
-			
 			
 			//add couch
 			Couch s1Couch = new Couch("SR1 Couch");
@@ -521,7 +519,7 @@ public class Setup {
 		return study1;
 	}
 	
-	private static Room setupStudy2() { //PATRICK
+	private static Room setupStudy2() {
 		String study2folder = "./graphics/game_graphics/rooms/study2/";
 		String[] rightLayerPaths = {study2folder + "right/layer0/study2_right_0.png"};
 		String[] leftLayerPaths = {study2folder + "left/layer0/study2_left_0.png"};
@@ -557,7 +555,7 @@ public class Setup {
 			Plant s2Plant = new Plant("S2 Plant");
 			s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
 			s2Plant.loadSprites();
-			s2Plant.setBehaviour(Study2Behaviours.PlantBehaviour());
+			s2Plant.setBehaviour(Study2Behaviours.plantBehaviour(s2Plant));
 			study2.addToRight(s2Plant);
 			s2Plant.setLayerRight(0);
 					
@@ -577,7 +575,7 @@ public class Setup {
 			LightSwitch s2LightSwitch = new LightSwitch("SR2 Light Switch");
 			s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
 			s2LightSwitch.loadSprites();
-			s2LightSwitch.setBehaviour(Study2Behaviours.LightSwitchBehaviour());
+			s2LightSwitch.setBehaviour(Study2Behaviours.lightSwitchBehaviour(s2LightSwitch));
 			study2.addToLeft(s2LightSwitch);
 			s2LightSwitch.setLayerLeft(0);
 			
@@ -591,21 +589,19 @@ public class Setup {
 		return study2;
 	}
 	
-	private static Room setupStudy3() { //PATROCK
+	private static Room setupStudy3() {
 		
 		String study3folder = "./graphics/game_graphics/rooms/study3/";
 		String[] frontLayerPaths = {study3folder + "front/layer0/study3_front_0.png"};
 		String[] backLayerPaths = {study3folder + "back/layer0/study3_back_0.png"};
 		
 		Room study3;
-		try
-		{
+		try {
 			study3 = new Room("Study Room 3", true, false, true, false);
 			study3.setLayerBackgroundsFront(frontLayerPaths);
 			study3.setLayerBackgroundsBack(backLayerPaths);
 			
-		}
-		catch (Exception e) {
+		}  catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study3!");
 			e.printStackTrace();
@@ -621,8 +617,7 @@ public class Setup {
 		String[] backLayerPaths = {study4folder + "back/layer0/study4_back_0.png"};
 		
 		Room study4;
-		try
-		{
+		try {
 			study4 = new Room("Study Room 4", true, false, true, false);
 			study4.setLayerBackgroundsFront(frontLayerPaths);
 			study4.setLayerBackgroundsBack(backLayerPaths);

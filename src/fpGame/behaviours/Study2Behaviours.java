@@ -9,6 +9,8 @@ import fpGame.GameUtil;
 import fpModel.Couch;
 import fpModel.DoorObject;
 import fpModel.Table;
+import fpModel.Plant;
+import fpModel.LightSwitch;
 
 public class Study2Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -51,12 +53,12 @@ public class Study2Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> LightSwitchBehaviour() {
+	public static EventHandler<MouseEvent> lightSwitchBehaviour(LightSwitch ls) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static EventHandler<MouseEvent> PlantBehaviour() {
+	public static EventHandler<MouseEvent> plantBehaviour(Plant p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

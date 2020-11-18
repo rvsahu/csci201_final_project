@@ -135,13 +135,38 @@ public class Perspective {
 		this.containingRoom = containingRoom;
 	}
 	
-	
+	/**
+	 * Compares two perspectives and determines equality based on their names.
+	 * 
+	 * @param other  The other perspective being compared to this one.
+	 * @return     True if the perspectives are equal (as defined) and false otherwise.
+	 */
 	public boolean equals(Perspective other) {
 		return name.equals(other.name());
 	}
 	
+	/**
+	 * Returns the name of the perspective.
+	 * 
+	 * @return     The name of the perspective.
+	 */
 	public String name() {
 		return this.name;
+	}
+	
+	/**
+	 * Searches for a RoomObject of a given name in this Perspective
+	 * 
+	 * @param objName
+	 * @return
+	 */
+	public RoomObject findObject(String objName) {
+		for (RoomObject r : contents) {
+			if (r.name().equals(objName)) {
+				return r;
+			}
+		}
+		return null;
 	}
 	
 	/*
