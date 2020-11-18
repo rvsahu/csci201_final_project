@@ -298,7 +298,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}	
 	
-	public static EventHandler<MouseEvent> DoorMainBehaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorMainBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				System.out.println("DoorEvent");
@@ -318,7 +318,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}	
 	
-	public static EventHandler<MouseEvent> DoorStudy1Behaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorStudy1Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -335,7 +335,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> DoorStudy2Behaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorStudy2Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -352,7 +352,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 
-	public static EventHandler<MouseEvent> DoorStudy3Behaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorStudy3Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -369,7 +369,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> DoorStudy4Behaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorStudy4Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -385,7 +385,23 @@ public class AnnexBehaviours {
 		
 		return behaviour;
 	}
-
+	
+	public static EventHandler<MouseEvent> doorCoveBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to the cove is locked. This shouldn't be possible.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().cove);
+					GameUtil.player().setCurrentPerspective(2);
+					GameUtil.displayPlayerView();
+				}
+				
+			}
+		};
+		
+		return behaviour;
+	}
 }
 	
 

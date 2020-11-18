@@ -192,35 +192,36 @@ public class Setup {
 		proj.setLayerFront(0);
 		proj.setLayerLeft(0);
 		
-		/*Table  table = new Table();
-		table.setFrontSpritePath(annexFolder + "front/layer0/projSwitch");
+		/*Table table = new Table("Annex Pink Table");
+		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
 		table.loadSprites();
-		table.setBehaviour(Behaviours.projectorBehaviour(proj));
-		annex.addToFront(proj);
-		proj.setLayerFront(0);*/
+		table.setBehaviour(Behaviours.projectorBehaviour(table));
+		annex.addToFront(table);
+		table.setLayerFront(0);*/
 		
 		//Door
 		DoorObject annexToMain = new DoorObject("Annex To Main");
 		annexToMain.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
 		annexToMain.loadSprites();
-		annexToMain.setBehaviour(AnnexBehaviours.DoorMainBehaviour(annexToMain));
+		annexToMain.setBehaviour(AnnexBehaviours.doorMainBehaviour(annexToMain));
 		annex.addToLeft(annexToMain);
 		annexToMain.setLayerLeft(0);
 		annexToMain.lock();
 		
 		//Keypad
-		Keypad k = new Keypad("Annex Keypad");
-		k.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
-		k.loadSprites();
-		k.setBehaviour(AnnexBehaviours.keypadBehaviour(annexToMain));
-		annex.addToLeft(k);
-		k.setLayerLeft(1);
+		Keypad annexToMainKeypad = new Keypad("Annex to Main Keypad");
+		annexToMainKeypad.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
+		annexToMainKeypad.loadSprites();
+		//AnnexBehaviours.keypadBehavour IS supposed to take the door and not the keypad, it isn't a mistake.
+		annexToMainKeypad.setBehaviour(AnnexBehaviours.keypadBehaviour(annexToMain));
+		annex.addToLeft(annexToMainKeypad);
+		annexToMainKeypad.setLayerLeft(1);
 		
 		//Door to study room 1
 		DoorObject annexToStudy1 = new DoorObject("Annex To Study Room 1");
 		annexToStudy1.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
 		annexToStudy1.loadSprites();
-		annexToStudy1.setBehaviour(AnnexBehaviours.DoorStudy1Behaviour(annexToStudy1));
+		annexToStudy1.setBehaviour(AnnexBehaviours.doorStudy1Behaviour(annexToStudy1));
 		annex.addToRight(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		
@@ -228,7 +229,7 @@ public class Setup {
 		DoorObject annexToStudy2 = new DoorObject("Annex To Study Room 2");
 		annexToStudy2.setRightSpritePath(annexFolder + "right/layer0/rightDoor.png");
 		annexToStudy2.loadSprites();
-		annexToStudy2.setBehaviour(AnnexBehaviours.DoorStudy2Behaviour(annexToStudy2));
+		annexToStudy2.setBehaviour(AnnexBehaviours.doorStudy2Behaviour(annexToStudy2));
 		annex.addToRight(annexToStudy2);
 		annexToStudy2.setLayerRight(0);
 		
@@ -236,18 +237,25 @@ public class Setup {
 		DoorObject annexToStudy3 = new DoorObject("Annex To Study Room 3");
 		annexToStudy3.setBackSpritePath(annexFolder + "back/layer0/leftDoor.png");
 		annexToStudy3.loadSprites();
-		annexToStudy3.setBehaviour(AnnexBehaviours.DoorStudy3Behaviour(annexToStudy3));
+		annexToStudy3.setBehaviour(AnnexBehaviours.doorStudy3Behaviour(annexToStudy3));
 		annex.addToBack(annexToStudy3);
 		annexToStudy3.setLayerBack(0);
 		
 		DoorObject annexToStudy4 = new DoorObject("Annex To Study Room 4");
 		annexToStudy4.setBackSpritePath(annexFolder + "back/layer0/rightDoor.png");
 		annexToStudy4.loadSprites();
-		annexToStudy4.setBehaviour(AnnexBehaviours.DoorStudy4Behaviour(annexToStudy4));
+		annexToStudy4.setBehaviour(AnnexBehaviours.doorStudy4Behaviour(annexToStudy4));
 		annex.addToBack(annexToStudy4);
 		annexToStudy4.setLayerBack(0);
 		
-		DoorObject d6 = new DoorObject("Annd");
+		DoorObject annexToCove = new DoorObject("Annex To Cove");
+		annexToCove.setBackSpritePath(annexFolder + "back/layer0/coveArrow.png");
+		annexToCove.setRightSpritePath(annexFolder + "right/layer0/coveArrow.png");
+		annexToCove.loadSprites();
+		annex.addToBack(annexToCove);
+		annex.addToRight(annexToCove);
+		annexToCove.setLayerBack(0);
+		annexToCove.setLayerRight(0);
 		
 		//keep adding stuff
 		return annex;
