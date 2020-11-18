@@ -4,6 +4,14 @@ public class Couch extends RoomObject{
 
 	private boolean standable = false;
 	
+	public Couch(String name) {
+		super(name);
+	}
+	
+	public Couch() {
+		super("default_couch");
+	}
+	
 	@Override public boolean hasItems() {
 		return false;
 	}

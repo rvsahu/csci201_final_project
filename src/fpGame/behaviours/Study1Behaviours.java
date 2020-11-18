@@ -7,6 +7,8 @@ import javafx.scene.input.MouseEvent;
 //intraproject imports
 import fpGame.GameUtil;
 import fpModel.DoorObject;
+import fpModel.Couch;
+import fpModel.Table;
 
 public class Study1Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -20,6 +22,30 @@ public class Study1Behaviours {
 					GameUtil.displayPlayerView();
 				}
 				
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> couchBehaviour(Couch couch) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the couch but found nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> tableBehaviour(Table table) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				if (table.hasItems()) {
+					// Add as many items to inventory as possible
+					GameUtil.player().getInventory().addItems(table.getItems());
+				}
+				GameUtil.setMessage("You searched the table but found nothing.");
 			}
 		};
 		

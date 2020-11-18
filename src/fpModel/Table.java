@@ -5,9 +5,9 @@ import java.util.List;
 public class Table extends ContainerObject{
 	
 	public Table() {
-		//nothing
+		super("default_table");
 	}
-
+	
 	public Table(List<Item> items) {
 		super(items);
 	}

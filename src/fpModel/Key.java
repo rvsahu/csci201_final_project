@@ -12,7 +12,7 @@ public class Key extends Item {
 	}
 	
 	public boolean buyable(Player p) {
-		if(p.getInventory().CheckNumberOfItem("coin") >= 4) return true;
+		if(p.getInventory().checkNumberOfItem("coin") >= 4) return true;
 		return false;
 	}
 }

@@ -10,8 +10,8 @@ public class CP extends InfoObject{
 	public String wakeup(Player p)
 	{
 		Boolean state = false;
-		if (p.getInventory().CheckNumberOfItem("coffee") >= 1
-				&& p.getInventory().CheckNumberOfItem("chocolate") >= 1)
+		if (p.getInventory().checkNumberOfItem("coffee") >= 1
+				&& p.getInventory().checkNumberOfItem("chocolate") >= 1)
 		{
 			awake = true;
 			return "The CP has woken up";

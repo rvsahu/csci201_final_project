@@ -35,7 +35,7 @@ public abstract class ContainerObject extends RoomObject {
 	}
 	
 	@Override public boolean hasItems() {
-		return items.isEmpty();
+		return (items == null || items.isEmpty());
 	}
 	
 	@Override public boolean hasInfo() {
@@ -60,4 +60,7 @@ public abstract class ContainerObject extends RoomObject {
 		return items.remove(itemIndex);
 	}
 	
+	public Item getItem(int itemIndex) {
+		return items.get(itemIndex);
+	}
 }

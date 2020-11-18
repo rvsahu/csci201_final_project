@@ -3,16 +3,8 @@ package fpGame.behaviours;
 import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.DoorObject;
-import fpModel.Perspective;
-import fpModel.Room;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 
 public class MainDBehaviours 
 {
@@ -23,15 +15,15 @@ public class MainDBehaviours
 			@Override public void handle(MouseEvent event) {
 				
 				Inventory inv = GameUtil.player().getInventory();
-				if (GameUtil.player().getInventory().CheckNumberOfItem("coin") >= 4)
+				if (GameUtil.player().getInventory().checkNumberOfItem("coin") >= 4)
 				{
 					int remover = 4;
-					for (int j = 0; j < inv.getInventory().size(); j++)
+					for (int j = 0; j < inv.size(); j++)
 					{
-						if (inv.getInventory().get(j).name() == "Lab1 Key")
+						if (inv.getItem(j).name() == "Lab1 Key")
 						{
 							remover--;
-							inv.getInventory().remove(j);
+							inv.removeItem(j);
 							
 							if (remover == 0)
 							{
@@ -56,13 +48,13 @@ public class MainDBehaviours
 				Inventory inv = GameUtil.player().getInventory();
 				
 				
-				if (GameUtil.player().getInventory().CheckNumberOfItem("Lab1 Key") > 0)
+				if (GameUtil.player().getInventory().checkNumberOfItem("Lab1 Key") > 0)
 				{
-					for (int j = 0; j < inv.getInventory().size(); j++)
+					for (int j = 0; j < inv.size(); j++)
 					{
-						if (inv.getInventory().get(j).name() == "Lab1 Key")
+						if (inv.getItem(j).name() == "Lab1 Key")
 						{
-							inv.getInventory().remove(j);
+							inv.removeItem(j);
 						}	
 					}
 					

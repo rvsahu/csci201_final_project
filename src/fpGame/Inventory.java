@@ -12,10 +12,14 @@ public class Inventory {
 	
 	public Inventory() {
 		inventory = new ArrayList<Item>();
+		capacity = Integer.MAX_VALUE;
 	}
 	
-	public List<Item> getInventory()
-	{
+	public Inventory(int capacity) {
+		this.capacity = capacity;
+	}
+	
+	public List<Item> getUnderlyingList() {
 		return inventory;
 	}
 
@@ -36,7 +40,7 @@ public class Inventory {
 		return false;
 	}
 	
-	public int CheckNumberOfItem(String item) 
+	public int checkNumberOfItem(String item) 
 	{
 		int ret = 0;
 		for(int i = 0;i <inventory.size();i++) {
@@ -55,7 +59,14 @@ public class Inventory {
 		return null;
 	}
 	
-	public void RemoveNumberOfItem(String item, int r) {
+	public Item getItem(int index) {
+		if (index >= inventory.size()) {
+			return null;
+		}
+		return inventory.get(index);
+	}
+	
+	public void removeNumberOfItem(String item, int r) {
 		int slotIndex = 0;
 		while(r > 0 && slotIndex < inventory.size()) {
 			if(inventory.get(slotIndex).name() == item) inventory.remove(slotIndex);
@@ -65,6 +76,27 @@ public class Inventory {
 	
 	public Item removeItem(int slotIndex) {
 		return inventory.remove(slotIndex);
+	}
+	
+	public int size() {
+		return inventory.size();
+	}
+	
+	public int capacity() {
+		return capacity;
+	}
+	
+	public void addItems(List<Item> items) {
+		int i1;
+		for (i1 = 0; i1 < items.size(); i1 += 1) {
+			boolean noSpace = addItem(items.get(i1));
+			if (noSpace) {
+				break;
+			}
+		}
+		for (int i2 = 0; i2 < i1; i2 += 1) {
+			items.remove(i2);
+		}
 	}
 	
 	/*

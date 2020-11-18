@@ -456,7 +456,27 @@ public class Setup {
 			
 			//add beanbag
 			//add couch
+			Couch s1Couch = new Couch("SR1 Couch");
+			s1Couch.setLeftSpritePath(study1folder + "left/layer0/couch.png");
+			s1Couch.setRightSpritePath(study1folder + "right/layer0/couch.png");
+			s1Couch.loadSprites();
+			s1Couch.setBehaviour(Study1Behaviours.couchBehaviour(s1Couch));
+			study1.addToLeft(s1Couch);
+			study1.addToRight(s1Couch);
+			s1Couch.setLayerLeft(0);
+			s1Couch.setLayerRight(0);
+			
 			//add table
+			Table s1Table = new Table("SR1 Table");
+			s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
+			s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
+			s1Table.loadSprites();
+			s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
+			study1.addToLeft(s1Table);
+			study1.addToRight(s1Table);
+			s1Table.setLayerLeft(0);
+			s1Table.setLayerRight(0);
+			
 			//add switch
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
