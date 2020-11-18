@@ -8,12 +8,12 @@ import javafx.scene.input.MouseEvent;
 import fpGame.GameUtil;
 import fpModel.DoorObject;
 
-public class Study1Behaviours {
+public class Study2Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The door is to the annex locked.");
+					GameUtil.setMessage("The door to the annex is locked.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 					GameUtil.player().setCurrentPerspective(3);
