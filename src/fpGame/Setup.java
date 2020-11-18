@@ -329,12 +329,24 @@ public class Setup {
 		return MainB;
 	}
 	private static Room setupMainC() {  //ERICA
-		Room MainC = new Room("mainC");
+		Room mainC = new Room("mainC");
 		
+		String mainCFolder = "./graphics/game_graphics/rooms/MainC/";
 		
+		String frontPaths[] = {mainCFolder  + "front/layer0/mainC_front_0.png"};
 		
+		String rightPaths[] = {mainCFolder +  "right/layer0/mainC_right_0.png"};
 		
-		return MainC;
+		String backPaths[] = {mainCFolder+  "back/layer0/mainC_back_0.png"};
+		
+		String leftPaths[] = {mainCFolder +  "left/layer0/mainC_left_0.png"};
+		
+		mainC.setLayerBackgroundsFront(frontPaths);
+		mainC.setLayerBackgroundsRight(rightPaths);
+		mainC.setLayerBackgroundsBack(backPaths);
+		mainC.setLayerBackgroundsLeft(leftPaths);
+		
+		return mainC;
 	}
 	
 	private static Room setupMainD() {  //ERICA
