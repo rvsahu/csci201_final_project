@@ -41,4 +41,12 @@ public class Item {
 	public boolean equals(Item other) {
 		return name.equals(other.name());
 	}
+	
+	public String igSpritePath() {
+		return igSpritePath;
+	}
+	
+	public String invSpritePath() {
+		return invSpritePath;
+	}
 }

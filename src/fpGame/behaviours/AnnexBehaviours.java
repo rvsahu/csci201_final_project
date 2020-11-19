@@ -23,18 +23,20 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpModel.Computer;
 import fpModel.DoorObject;
 import fpModel.Perspective;
-import fpModel.Projector;
-import fpModel.ProjectorScreen;
 import fpModel.Room;
+
+import fpModel.GenericObject;
+import fpModel.WrapperObject;
+import fpModel.InfoObject;
+import fpModel.ContainerObject;
 
 /**
  * Container class for every EventHandler for every RoomObject in Annex
  */
 public class AnnexBehaviours {
-	public static EventHandler<MouseEvent> annexComputer2Behaviour(Computer c) {
+	public static EventHandler<MouseEvent> annexComputer2Behaviour(InfoObject c) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				Pane pane = new Pane();
@@ -80,7 +82,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> annexComputer5Behaviour(Computer c) {
+	public static EventHandler<MouseEvent> annexComputer5Behaviour(InfoObject c) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event)  {
 				
@@ -132,7 +134,7 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 		
-	public static EventHandler<MouseEvent> annexComputer7Behaviour(Computer c7) {
+	public static EventHandler<MouseEvent> annexComputer7Behaviour(InfoObject c7) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				final BooleanProperty gotPasscode = new SimpleBooleanProperty(); //flag for if the user obtains passcode
@@ -212,21 +214,15 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(Projector p) {
+	public static EventHandler<MouseEvent> projectorBehaviour(GenericObject p) {
 		
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-				p.startProjecting();
-				
-				//projector screen
-				if (p.isProjecting()) {
-					ProjectorScreen ps = new ProjectorScreen("Annex Projection");
-					ps.setFrontSpritePath(p.projectionPath());
-					ps.loadSprites();
-					GameUtil.map().annex.addToFront(ps);
-					ps.setLayerFront(0);
-				}
-				
+			@Override public void handle(MouseEvent event) {				
+				GenericObject ps = new GenericObject("Annex Projection");
+				ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
+				ps.loadSprites();
+				GameUtil.map().annex.addToFront(ps);
+				ps.setLayerFront(0);
 				
 				GameUtil.displayPlayerView(); 
 			}

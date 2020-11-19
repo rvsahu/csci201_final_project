@@ -32,7 +32,7 @@ public class DoorObject extends RoomObject {
 	 * 
 	 * @param key  The key the door is being locked with. Updates key name to match the new key.
 	 */
-	public void lock(Key key) {
+	public void lock(Item key) {
 		mKey = key.name();
 		isLocked = true;
 	}
@@ -42,7 +42,7 @@ public class DoorObject extends RoomObject {
 	 * 
 	 * @param key  The key being tried on the door.
 	 */
-	public void unlock(Key key) {
+	public void unlock(Item key) {
 		if (mKey == key.name()) {
 			isLocked = false;
 		}

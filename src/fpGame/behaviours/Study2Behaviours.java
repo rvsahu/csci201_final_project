@@ -6,11 +6,13 @@ import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpModel.Couch;
 import fpModel.DoorObject;
 import fpModel.Table;
-import fpModel.Plant;
-import fpModel.LightSwitch;
+
+import fpModel.GenericObject;
+import fpModel.ContainerObject;
+import fpModel.InfoObject;
+import fpModel.WrapperObject;
 
 public class Study2Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -30,7 +32,7 @@ public class Study2Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> couchBehaviour(Couch couch) {
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("You searched the couch but found nothing.");
@@ -53,12 +55,12 @@ public class Study2Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> lightSwitchBehaviour(LightSwitch ls) {
+	public static EventHandler<MouseEvent> lightSwitchBehaviour(GenericObject ls) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public static EventHandler<MouseEvent> plantBehaviour(Plant p) {
+	public static EventHandler<MouseEvent> plantBehaviour(GenericObject p) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -3,7 +3,7 @@ package fpModel;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class ContainerObject extends RoomObject {
+public class ContainerObject extends RoomObject {
 	/*
 	 * Logical Fields
 	 */
@@ -62,5 +62,23 @@ public abstract class ContainerObject extends RoomObject {
 	
 	public Item getItem(int itemIndex) {
 		return items.get(itemIndex);
+	}
+	
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
+	
+	/**
+	 * Returns an index to an item that you are looking for. 
+	 * 
+	 * @param itemName  The name of the item you are searching for.
+	 * @return     The internal index of the first occurance of the desired item, or -1 if the item doesn't in the inventory.
+	 */
+	public int getItemIndex(String itemName) {
+		for (int i = 0; i < items.size(); i += 1) {
+			if (items.get(i).name().equals(itemName))
+				return i;
+		}
+		return -1;
 	}
 }

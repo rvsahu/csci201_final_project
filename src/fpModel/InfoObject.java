@@ -1,6 +1,12 @@
 package fpModel;
 
-public abstract class InfoObject extends RoomObject {
+/**
+ * Concrete implementation of RoomObject, represents an object with information to be added to
+ * the player's Logbook under some condition, usually handled by the behaviour EventHandler
+ * 
+ * Implementations of InfoObject pre-consolidation: Computer, CP, Notebook, Phone
+ */
+public class InfoObject extends RoomObject {
 	String info;
 	
 	public InfoObject() {

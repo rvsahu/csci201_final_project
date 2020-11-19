@@ -4,24 +4,29 @@ import java.util.*;
 
 import fpGame.*;
 
-public class VendingMachine extends ContainerObject{
-
-	
-	public VendingMachine()
-	{
+/**
+ * 
+ * NOTE: LEGACY CLASS, DO NOT USE
+ * Implement all behaviour for VendingMachine in a behaviour EventHandler 
+ *
+ */
+public abstract class VendingMachine extends ContainerObject {
+	/*
+	public VendingMachine() {
+		super("vending machine");
 		List<Item> item = new ArrayList();
-		item.add(new ChocolateItem());
-		item.add(new CoffeeItem());
-		item.add(new Key("lab 1 key"));
+		item.add(new Item("chocolate"));
+		item.add(new Item("coffee"));
+		item.add(new Item("lab 1 key"));
 	}
 	
-	public VendingMachine(String n)
-	{
-		super(n);
+	public VendingMachine(String name) {
+		super(name);
 		List<Item> item = new ArrayList();
-		item.add(new ChocolateItem());
-		item.add(new CoffeeItem());
-		item.add(new Key("lab 1 key"));
+		item.add(new Item("chocolate"));
+		item.add(new Item("coffee"));
+		item.add(new Item("lab 1 key"));
+		
 	}
 	
 	@Override public boolean hasItems() {
@@ -39,4 +44,5 @@ public class VendingMachine extends ContainerObject{
 		if(p.getLevel() >= 3) return true;
 		return false;
 	}
+	*/
 }

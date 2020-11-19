@@ -1,6 +1,10 @@
 package fpModel;
 
-public abstract class WrapperObject extends RoomObject {
+/**
+ * Concrete implementation of RoomObject, represents an object that is meant to be acquired by the user, e.g coin, key.
+ * 
+ */
+public class WrapperObject extends RoomObject {
 	private Item wrapped;
 	
 	public WrapperObject(String name, Item wrapped) {
@@ -29,7 +33,7 @@ public abstract class WrapperObject extends RoomObject {
 		Item temp = wrapped;
 		wrapped = null;
 		super.hide();
-		return wrapped;
+		return temp;
 	}
 	
 	/**

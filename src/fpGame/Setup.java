@@ -144,7 +144,7 @@ public class Setup {
 		annex.setLayerBackgroundsBack(backPaths);
 		annex.setLayerBackgroundsLeft(leftPaths);
 		
-		Computer c2 = new Computer("Annex Computer 2");
+		InfoObject c2 = new InfoObject("Annex Computer 2");
 		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
 		c2.setFrontSpritePath(compFrontSpritePath);
 		//add remaining sprite paths
@@ -154,7 +154,7 @@ public class Setup {
 		c2.setLayerFront(1);
 		
 		//computer 5 loads up an image of a cat 
-		Computer c5 = new Computer("Annex Computer 5");
+		InfoObject c5 = new InfoObject("Annex Computer 5");
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c5.loadSprites();
 		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour(c5));
@@ -162,7 +162,7 @@ public class Setup {
 		c5.setLayerFront(2);
 		
 		//computer 7 -- write down the correct word then type enter
-		Computer c7 = new Computer("Annex Computer 8", "The passcode to the annex-main door is 5147.");
+		InfoObject c7 = new InfoObject("Annex Computer 8", "The passcode to the annex-main door is 5147.");
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
@@ -179,8 +179,7 @@ public class Setup {
 		*/
 		
 		//projector
-		String path = "./graphics/game_graphics/rooms/annex/front/layer0/projMess.png";
-		Projector proj = new Projector("Annex Projector", path);
+		GenericObject proj = new GenericObject("Annex Projector");
 		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
 		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
 		proj.loadSprites();
@@ -207,7 +206,7 @@ public class Setup {
 		annexToMain.lock();
 		
 		//Keypad
-		Keypad annexToMainKeypad = new Keypad("Annex to Main Keypad");
+		GenericObject annexToMainKeypad = new GenericObject("Annex to Main Keypad");
 		annexToMainKeypad.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
 		annexToMainKeypad.loadSprites();
 		//AnnexBehaviours.keypadBehavour IS supposed to take the door and not the keypad, it isn't a mistake.
@@ -278,18 +277,19 @@ public class Setup {
 		//right
 		//Door door = new Door();
 		//MainA.addToRight(door);
-		Couch couch2 = new Couch();
+		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addToRight(couch2);
 		Table table = new Table();
 		mainA.addToRight(table);
 		
 		//back
-		Notebook notebook = new Notebook("I am so over this programming assignment. I'm getting a bit hungry!"
+		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
-		mainA.addToBack(notebook);
-		KeyObject lab1key = new KeyObject("study_1_key_obj", "study_1_key");
-		mainA.addToBack(lab1key);	
+		mainA.addToBack(notebook); //TODO finish notebook creation
+		
+		WrapperObject lab1key = new WrapperObject("Study 1 Key Object", new Item("Study 1 Key"));
+		mainA.addToBack(lab1key); //TODO finish key creation
 		
 		
 		//left
@@ -302,7 +302,7 @@ public class Setup {
 		Room MainB = new Room("mainB");
 		
 		//F
-		Whiteboard whiteboard = new Whiteboard();
+		GenericObject whiteboard = new GenericObject("Main B Whiteboard"); //TODO finish setting up whiteboard
 		MainB.addToFront(whiteboard);
 		
 		/*Table table1 = new Table();
@@ -333,9 +333,6 @@ public class Setup {
 		//Chair chair1 = new chair();
 		//MainB.addToFront(chair1);
 		//R
-		Drawing drawing = new Drawing();
-		MainB.addToRight(drawing);
-		
 		
 		
 		//B
@@ -392,11 +389,11 @@ public class Setup {
 		mainD.setLayerBackgroundsLeft(leftPaths);
 		
 		//Vending Machine
-		VendingMachine vm1 = new VendingMachine("MainD Vending Machine");
+		ContainerObject vm1 = new ContainerObject("MainD Vending Machine"); //TODO implement vending machine behaviour
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
-		vm1.setBehaviour(MainDBehaviours.VendingMachineBehavior());
+		vm1.setBehaviour(MainDBehaviours.vendingMachineBehavior(vm1));
 		mainD.addToBack(vm1);
 		vm1.setLayerFront(0);
 		
@@ -427,7 +424,7 @@ public class Setup {
 		d3.setLayerBack(0);
 		
 		//dustbins
-		Dustbin db1 = new Dustbin("MainD Dustbin1");
+		ContainerObject db1 = new ContainerObject("MainD Dustbin1");
 		db1.setRightSpritePath(mainDFolder + "right/layer0/dustbin.png");
 		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
 		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
@@ -440,7 +437,7 @@ public class Setup {
 		db1.setLayerRight(0);
 		db1.setLayerLeft(0);
 
-		Dustbin db2 = new Dustbin("MainD Dustbin2");
+		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
 		db2.setBehaviour(MainDBehaviours.DustbinBehavior());
 		mainD.addToRight(db2);
@@ -476,15 +473,15 @@ public class Setup {
 		doorOut.setLayerLeft(0);
 		
 		//add beanbag
-		Beanbag s1Beanbag = new Beanbag("SR1 Beanbag");
+		GenericObject s1Beanbag = new GenericObject("SR1 Beanbag");
 		s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
 		s1Beanbag.loadSprites();
-		s1Beanbag.setBehaviour(Study1Behaviours.BeanbagBehaviour(s1Beanbag));
+		s1Beanbag.setBehaviour(Study1Behaviours.beanbagBehaviour(s1Beanbag));
 		study1.addToRight(s1Beanbag);
 		s1Beanbag.setLayerRight(0);
 		
 		//add couch
-		Couch s1Couch = new Couch("SR1 Couch");
+		GenericObject s1Couch = new GenericObject("SR1 Couch");
 		s1Couch.setLeftSpritePath(study1folder + "left/layer0/couch.png");
 		s1Couch.setRightSpritePath(study1folder + "right/layer0/couch.png");
 		s1Couch.loadSprites();
@@ -506,7 +503,7 @@ public class Setup {
 		s1Table.setLayerRight(0);
 		
 		//add lightswitch
-		LightSwitch s1LightSwitch = new LightSwitch("SR1 Light Switch");
+		GenericObject s1LightSwitch = new GenericObject("SR1 Light Switch");
 		s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
 		s1LightSwitch.loadSprites();
 		s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
@@ -544,7 +541,7 @@ public class Setup {
 		doorOut.setLayerLeft(0);
 		
 		//add couch
-		Couch s2Couch = new Couch("SR2 Couch");
+		GenericObject s2Couch = new GenericObject("SR2 Couch");
 		s2Couch.setLeftSpritePath(study2folder + "left/layer0/couch.png");
 		s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
 		s2Couch.loadSprites();
@@ -555,7 +552,7 @@ public class Setup {
 		s2Couch.setLayerRight(0);
 		
 		//add plant
-		Plant s2Plant = new Plant("S2 Plant");
+		GenericObject s2Plant = new GenericObject("S2 Plant");
 		s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
 		s2Plant.loadSprites();
 		s2Plant.setBehaviour(Study2Behaviours.plantBehaviour(s2Plant));
@@ -575,7 +572,7 @@ public class Setup {
 		s2Table.setLayerRight(0);
 		
 		//switch
-		LightSwitch s2LightSwitch = new LightSwitch("SR2 Light Switch");
+		GenericObject s2LightSwitch = new GenericObject("SR2 Light Switch");
 		s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
 		s2LightSwitch.loadSprites();
 		s2LightSwitch.setBehaviour(Study2Behaviours.lightSwitchBehaviour(s2LightSwitch));
@@ -613,7 +610,7 @@ public class Setup {
 		doorOut.setLayerFront(0);
 		
 		//add plant --back
-		Plant plant = new Plant("SR3 Plant");
+		GenericObject plant = new GenericObject("SR3 Plant");
 		plant.setFrontSpritePath(study3folder + "front/layer0/plant.png");
 		plant.loadSprites();
 		plant.setBehaviour(Study3Behaviours.plant());
@@ -621,7 +618,7 @@ public class Setup {
 		plant.setLayerBack(0);
 		
 		//add couch
-		Couch s3Couch = new Couch("SR3 Couch");
+		GenericObject s3Couch = new GenericObject("SR3 Couch");
 		s3Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
 		s3Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
 		s3Couch.loadSprites();
@@ -690,14 +687,13 @@ public class Setup {
 		
 		//F
 		//R
-		Drawing drawing = new Drawing();
-		Lab1.addToRight(drawing);
+
 		//B
 		//L
-		CP cp = new CP();
-		Lab1.addToLeft(cp);
-		Computer comp = new Computer();
-		Lab1.addToLeft(comp);	
+		//CP cp = new CP();
+		//Lab1.addToLeft(cp);
+		InfoObject computer1 = new InfoObject("Lab 1 Computer");
+		Lab1.addToLeft(computer1); //new 
 		
 		
 		return Lab1;
@@ -705,8 +701,6 @@ public class Setup {
 	
 	private static Room setupHallway1() { //PATRICK
 		Room ret = new Room("hallway1");
-		ret.addToFront(new Phone());
-		ret.addToBack(new Keypad());
 		return ret;
 	}
 	
@@ -717,15 +711,12 @@ public class Setup {
 	
 	private static Room setupMensRoom() { //ERICA
 		Room ret = new Room("mensRoom");
-		ret.addToLeft(new Drawing());
-		ret.addToBack(new Computer());
 		
 		return ret;
 	}
 	
 	private static Room setupWomensRoom() { //PATRICK
 		Room ret = new Room("womensRoom");
-		ret.addToRight(new Computer());
 		return ret;
 	}
 }

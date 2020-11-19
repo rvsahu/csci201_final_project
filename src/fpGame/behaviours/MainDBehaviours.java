@@ -1,38 +1,43 @@
 package fpGame.behaviours;
 
+//intraproject imports
 import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.DoorObject;
+import fpModel.ContainerObject;
+import fpModel.InfoObject;
+import fpModel.WrapperObject;
+
+//javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class MainDBehaviours 
-{
-	public static EventHandler<MouseEvent> VendingMachineBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
+public class MainDBehaviours {
+	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				
 				Inventory inv = GameUtil.player().getInventory();
-				if (GameUtil.player().getInventory().checkNumberOfItem("coin") >= 4)
-				{
+				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
+					GameUtil.setMessage("You already have bought the key from the vending machine.");
+					return;
+				}
+				if (inv.checkNumberOfItem("Quarter") >= 4) {
+					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
+							          + "The machine dispenses the key. You pick it up and add it to your inventory.");
 					int remover = 4;
-					for (int j = 0; j < inv.size(); j++)
-					{
-						if (inv.getItem(j).name() == "Lab1 Key")
-						{
-							remover--;
+					for (int j = 0; j < inv.size(); j++) {
+						if (inv.getItem(j).name() == "Quarter") {
 							inv.removeItem(j);
-							
-							if (remover == 0)
-							{
+							remover -= 1;
+							if (remover == 0) {
 								break;
 							}
 						}	
 					}
-					
-					GameUtil.setMessage("You have earned a lab1 key");
+					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
+				} else {
+					GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
+					          + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).");
 				}
 			}
 		};

@@ -6,10 +6,12 @@ import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpModel.Couch;
 import fpModel.DoorObject;
 import fpModel.Table;
-
+import fpModel.GenericObject;
+import fpModel.ContainerObject;
+import fpModel.WrapperObject;
+import fpModel.InfoObject;
 public class Study3Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
@@ -27,7 +29,7 @@ public class Study3Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> couchBehaviour(Couch couch) {
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("It is a couch. Seeems like a good couch to fall asleep after an all nighter at SAL. You searched the couch but found nothing.");
