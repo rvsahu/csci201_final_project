@@ -1,7 +1,5 @@
 package fpModel;
 
-import fpGame.*;
-
 /**
  * 
  * NOTE: LEGACY CLASS, DO NOT USE

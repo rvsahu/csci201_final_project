@@ -1,11 +1,7 @@
 package fpModel;
 
-//java imports
-import java.util.List;
-
 //javafx imports
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Room {
@@ -529,6 +525,18 @@ public class Room {
 	
 	public BorderPane generatePane(Stage stage) {
 		return perspectives[currentPerspective].generatePane(stage);
+	}
+	
+	/**
+	 * Deserialisation method, reinitialises the contents list of every perspectives
+	 */
+	public void rebuildAllContentsLists() {
+		for (int i = 0; i < 3; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			perspectives[i].rebuildContentsList();
+		}
 	}
 	
 	/**
