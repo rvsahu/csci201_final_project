@@ -6,6 +6,7 @@ import java.io.IOException;
 
 //javafx imports
 import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -236,28 +237,27 @@ public class AnnexBehaviours {
 			{
 				BorderPane pane = new BorderPane();
 				
-				TextField text = new TextField("Enter the passcode to escape this room: ");
+				TextField text = new TextField("Enter the passcode to escape this room.");
 				pane.setCenter(text);
 				
 				Text output = new Text();
 				output.setFill(Color.WHITE);
+				output.setFont(new Font(20));
 				Button button = new Button("Submit");
 				button.setPrefSize(100, 50);
 				button.setFont(new Font(20));
 				pane.setBottom(button);
 				
-				button.setOnAction(e-> 
-				{
-					if (text.getText().compareTo("5417") == 0) 
-					{
-						output.setText("Correct--Door unlocked");
-						d.unlock();
-					} 
-					else 
-					{
-						output.setText("wrong");
+				button.setOnAction(new EventHandler<ActionEvent>() { 
+					@Override public void handle(ActionEvent event) {
+						if (text.getText().compareTo("5417") == 0) {
+							output.setText("Correct Passcode -- Door unlocked!");
+							d.unlock();
+						} else {
+							output.setText("Incorrect Passcode!");
+						}
+						pane.setTop(output);
 					}
-					pane.setTop(output);
 				});
 
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
@@ -295,9 +295,7 @@ public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> doorMainBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				System.out.println("DoorEvent");
 				if(d.isLocked()) {
-					System.out.println("Locked");
 					GameUtil.setMessage("The Door is locked. Beside it is a small black keypad.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
@@ -387,7 +385,7 @@ public class AnnexBehaviours {
 					GameUtil.setMessage("The door to the cove is locked. This shouldn't be possible.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().cove);
-					GameUtil.player().setCurrentPerspective(2);
+					GameUtil.player().setCurrentPerspective(1);
 					GameUtil.displayPlayerView();
 				}
 				

@@ -30,6 +30,7 @@ public class Loader {
 	private static void configureGame(StatePackage state) {		
 		Map map = state.getMapSave();
 		map.addContainingRooms();
+		map.resetAllDirections();
 		
 		Player player = state.getPlayerSave();
 		player.setCurrentRoom(map.getRoom(player.getCRName()));

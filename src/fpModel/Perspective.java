@@ -103,7 +103,12 @@ public class Perspective {
 	/**
 	 * The direction the perspective is facing.
 	 */
-	private Direction direction;
+	private transient Direction direction;
+	
+	/**
+	 * The number representation the perspective is facing
+	 */
+	private int directionInd;
 	
 	/**
 	 * Whether the lights are off for the current perspective or not.
@@ -125,6 +130,7 @@ public class Perspective {
 		this.containingRoom = containingRoom;
 		this.name = name;
 		this.direction = direction;
+		setDirectionInd();
 		//list initialisation
 		contents = new ArrayList<RoomObject>();
 		additionLog = new ArrayList<String>();
@@ -234,6 +240,50 @@ public class Perspective {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Sets the number representation of the direction.
+	 */
+	public void setDirectionInd() { 
+		if (direction == Direction.FRONT) {
+			directionInd = 0;
+			return;
+		} 
+		if (direction == Direction.RIGHT) {
+			directionInd = 1;
+			return;
+		} 
+		if (direction == Direction.BACK) {
+			directionInd = 2;
+			return;
+		} 
+		if (direction == Direction.LEFT) {
+			directionInd = 3;
+			return;
+		} 
+	}
+	
+	/**
+	 * Sets the direction based on directionInd.
+	 */
+	public void resetDirection() {
+		if (directionInd == 0) {
+			direction = Direction.FRONT;
+			return;
+		}
+		if (directionInd == 1) {
+			direction = Direction.RIGHT;
+			return;
+		}
+		if (directionInd == 2) {
+			direction = Direction.BACK;
+			return;
+		}
+		if (directionInd == 3) {
+			direction = Direction.LEFT;
+			return;
+		}
 	}
 	
 	/**

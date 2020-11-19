@@ -532,7 +532,7 @@ public class Room {
 	}
 	
 	/**
-	 * Deserialisation method, reloads all the sprites in every perspective
+	 * Deserialisation method, reloads all the sprites in every perspective.
 	 */
 	public void loadAllSprites() {
 		for (int i = 0; i < 3; i += 1) {
@@ -542,6 +542,29 @@ public class Room {
 		}
 	}
 	
+	/**
+	 * Deserialisation method, rebuilds the contents list of every perspective.
+	 */
+	public void rebuildAllContentsLists() {
+		for (int i = 0; i < 3; i += 1) {
+			if (perspectives[i] == null) 
+				continue;
+			perspectives[i].rebuildContentsList();
+		}
+	}
+	
+	
+	
+	/**
+	 * Deserialisation method, resets the direction of every perspective.
+	 */
+	public void resetAllDirections() {
+		for (int i = 0; i < 3; i += 1) {
+			if (perspectives[i] == null) 
+				continue;
+			perspectives[i].resetDirection();
+		}
+	}
 	/**
 	 * Sets the layer backgrounds of the front perspective. Does nothing if the front perspective doesn't exist.
 	 * 

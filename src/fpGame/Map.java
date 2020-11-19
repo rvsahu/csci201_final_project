@@ -92,6 +92,24 @@ public class Map {
 		womensRoom.addContainingRooms();
 	}
 	
+	public void resetAllDirections() {
+		annex.resetAllDirections();
+		mainA.resetAllDirections();
+		mainB.resetAllDirections();
+		mainC.resetAllDirections();
+		mainD.resetAllDirections();
+		study1.resetAllDirections();
+		study2.resetAllDirections();
+		study3.resetAllDirections();
+		study4.resetAllDirections();
+		cove.resetAllDirections();
+		lab1.resetAllDirections();
+		hallway1.resetAllDirections();
+		hallway2.resetAllDirections();
+		mensRoom.resetAllDirections();
+		womensRoom.resetAllDirections();
+	}
+	
 	public void loadAllSprites() {
 		annex.loadAllSprites();
 		mainA.loadAllSprites();
@@ -108,5 +126,23 @@ public class Map {
 		hallway2.loadAllSprites();
 		mensRoom.loadAllSprites();
 		womensRoom.loadAllSprites();
+	}
+	
+	public void rebuildAllContentsLists() {
+		annex.rebuildAllContentsLists();
+		mainA.rebuildAllContentsLists();
+		mainB.rebuildAllContentsLists();
+		mainC.rebuildAllContentsLists();
+		mainD.rebuildAllContentsLists();
+		study1.rebuildAllContentsLists();
+		study2.rebuildAllContentsLists();
+		study3.rebuildAllContentsLists();
+		study4.rebuildAllContentsLists();
+		cove.rebuildAllContentsLists();
+		lab1.rebuildAllContentsLists();
+		hallway1.rebuildAllContentsLists();
+		hallway2.rebuildAllContentsLists();
+		mensRoom.rebuildAllContentsLists();
+		womensRoom.rebuildAllContentsLists();
 	}
 }
