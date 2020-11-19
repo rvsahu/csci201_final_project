@@ -12,6 +12,7 @@ import fpModel.GenericObject;
 import fpModel.ContainerObject;
 import fpModel.WrapperObject;
 import fpModel.InfoObject;
+
 public class Study3Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
