@@ -109,22 +109,4 @@ public class Map {
 		mensRoom.loadAllSprites();
 		womensRoom.loadAllSprites();
 	}
-	
-	public void rebuildAllContentLists() {
-		annex.rebuildAllContentsLists();
-		mainA.rebuildAllContentsLists();
-		mainB.rebuildAllContentsLists();
-		mainC.rebuildAllContentsLists();
-		mainD.rebuildAllContentsLists();
-		study1.rebuildAllContentsLists();
-		study2.rebuildAllContentsLists();
-		study3.rebuildAllContentsLists();
-		study4.rebuildAllContentsLists();
-		cove.rebuildAllContentsLists();
-		lab1.rebuildAllContentsLists();
-		hallway1.rebuildAllContentsLists();
-		hallway2.rebuildAllContentsLists();
-		mensRoom.rebuildAllContentsLists();
-		womensRoom.rebuildAllContentsLists();
-	}
 }
