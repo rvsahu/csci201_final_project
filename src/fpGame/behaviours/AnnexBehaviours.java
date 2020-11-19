@@ -91,15 +91,14 @@ public class AnnexBehaviours {
 				
 				ImageView imageview = null;
 				try  {
-					Image catim = new Image(new FileInputStream("./graphics/game_graphics/rooms/annex/front/layer2/cat.png"), 
+					Image catim = new Image(new FileInputStream("./graphics/game_graphics/rooms/annex/cat.png"), 
 							1024 * GameUtil.scalingFactor(), 964*GameUtil.scalingFactor(), true,true);
 					imageview = new ImageView(catim);		
 					
 					
 					//pane.getChildren().add(imageview);
 					
-				}
-				catch (IOException ie) {
+				} catch (IOException ie) {
 					System.err.println("cat.png not found");
 				};
 				BorderPane pane = new BorderPane(imageview);
@@ -151,7 +150,7 @@ public class AnnexBehaviours {
 				pane.setTop(output);
 				
 				TextField text = new TextField();
-				text.setPromptText("Assemble the computer clues and provide the answer here to open the way: ");
+				text.setText("Assemble the computer clues and provide the answer here to open the way");
 				text.setOnAction(e -> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
