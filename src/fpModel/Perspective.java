@@ -125,8 +125,14 @@ public class Perspective {
 		this.containingRoom = containingRoom;
 		this.name = name;
 		this.direction = direction;
+		//list initialisation
 		contents = new ArrayList<RoomObject>();
 		additionLog = new ArrayList<String>();
+		generics = new ArrayList<GenericObject>();
+		doors = new ArrayList<DoorObject>();
+		wrappers = new ArrayList<WrapperObject>();
+		containers = new ArrayList<ContainerObject>();
+		infos = new ArrayList<InfoObject>();
 	}
 	
 	/*
@@ -194,10 +200,40 @@ public class Perspective {
 	}
 	
 	/**
-	 * A deserialisation method, takes the five specific RoomObject child containers and 
+	 * A deserialisation method, takes the five specific RoomObject child containers and additionLog and rebuilds the contents list.
 	 */
 	public void rebuildContentsList() {
-		
+		//reinitialise contents
+		contents = new ArrayList<RoomObject>();
+		//use additionLog to chronologically add things back in their original order
+		for (String objectName : additionLog) {
+			if (isInList(generics, objectName)) {
+				continue;
+			}
+			if (isInList(doors, objectName)) {
+				continue;
+			}
+			if (isInList(wrappers, objectName)) {
+				continue;
+			}
+			if (isInList(containers, objectName)) {
+				continue;
+			}
+			if (isInList(infos, objectName)) {
+				continue;
+			}
+			System.err.println("Error adding " + objectName + " back to the contents list! Couldn't be found in the the subclass lists.");
+		}
+	}
+	
+	private boolean isInList(List<? extends RoomObject> objList, String objectName) {
+		for (RoomObject rObj : objList) {
+			if (rObj.name().equals(objectName)) {
+				contents.add(rObj);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**

@@ -2,8 +2,6 @@ package fpModel;
 
 import java.util.*;
 
-import fpGame.*;
-
 /**
  * 
  * NOTE: LEGACY CLASS, DO NOT USE

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 //javafx imports
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -638,8 +636,6 @@ public class Setup {
 		study3.addContainerFront(s3Table);
 		s3Table.setLayerBack(0);
 		s3Table.setLayerFront(0);
-		
-		
 		
 		return study3;
 	}
