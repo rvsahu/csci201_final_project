@@ -746,7 +746,13 @@ public class Setup {
 			cove = new Room("Cove");
 		}
 		
+		String coveFolder = "./graphics/game_graphics/rooms/cove/";
 		
+		String[] frontPaths = {coveFolder + "front/layer0/cove_front_0"};
+		String[] rightPaths = {coveFolder + "right/layer0/cove_front_0"};
+		
+		cove.setLayerBackgroundsFront(frontPaths);
+		cove.setLayerBackgroundsRight(rightPaths);
 		
 		return cove;
 	}
