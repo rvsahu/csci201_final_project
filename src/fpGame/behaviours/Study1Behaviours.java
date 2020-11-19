@@ -42,7 +42,7 @@ public class Study1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> tableBehaviour(InfoObject s1Table) {
+	public static EventHandler<MouseEvent> tableBehaviour(ContainerObject s1Table) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if (s1Table.hasItems()) {

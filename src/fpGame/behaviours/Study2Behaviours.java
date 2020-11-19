@@ -7,8 +7,6 @@ import javafx.scene.input.MouseEvent;
 //intraproject imports
 import fpGame.GameUtil;
 import fpModel.DoorObject;
-import fpModel.Table;
-
 import fpModel.GenericObject;
 import fpModel.ContainerObject;
 import fpModel.InfoObject;
@@ -41,7 +39,7 @@ public class Study2Behaviours {
 		
 		return behaviour;
 	}
-	public static EventHandler<MouseEvent> tableBehaviour(Table table) {
+	public static EventHandler<MouseEvent> tableBehaviour(ContainerObject table) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if (table.hasItems()) {

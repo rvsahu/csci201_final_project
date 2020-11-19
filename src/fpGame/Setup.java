@@ -492,13 +492,13 @@ public class Setup {
 		s1Couch.setLayerRight(0);
 		
 		//add table
-		InfoObject s1Table = new InfoObject("SR1 Table");
+		ContainerObject s1Table = new ContainerObject("SR1 Table");
 		s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
 		s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
 		s1Table.loadSprites();
 		s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
-		study1.addInfoLeft(s1Table);
-		study1.addInfoRight(s1Table);
+		study1.addContainerLeft(s1Table);
+		study1.addContainerRight(s1Table);
 		s1Table.setLayerLeft(0);
 		s1Table.setLayerRight(0);
 		
@@ -561,13 +561,13 @@ public class Setup {
 				
 		
 		//add table
-		GenericObject s2Table = new GenericObject("SR2 Table");
+		ContainerObject s2Table = new ContainerObject("SR2 Table");
 		s2Table.setLeftSpritePath(study2folder + "left/layer0/table.png");
 		s2Table.setRightSpritePath(study2folder + "right/layer0/table.png");
 		s2Table.loadSprites();
 		s2Table.setBehaviour(Study2Behaviours.tableBehaviour(s2Table));
-		study2.addGenericLeft(s2Table);
-		study2.addGenericRight(s2Table);
+		study2.addContainerLeft(s2Table);
+		study2.addContainerRight(s2Table);
 		s2Table.setLayerLeft(0);
 		s2Table.setLayerRight(0);
 		
@@ -629,13 +629,13 @@ public class Setup {
 		s3Couch.setLayerFront(0);
 		
 		//add table
-		GenericObject s3Table = new GenericObject("SR3 Table");
+		ContainerObject s3Table = new ContainerObject("SR3 Table");
 		s3Table.setFrontSpritePath(study3folder + "front/layer0/table.png");
 		s3Table.setBackSpritePath(study3folder + "back/layer0/table.png");
 		s3Table.loadSprites();
 		s3Table.setBehaviour(Study3Behaviours.tableBehaviour());
-		study3.addGenericBack(s3Table);
-		study3.addGenericFront(s3Table);
+		study3.addContainerBack(s3Table);
+		study3.addContainerFront(s3Table);
 		s3Table.setLayerBack(0);
 		s3Table.setLayerFront(0);
 		

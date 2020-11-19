@@ -7,7 +7,6 @@ import javafx.scene.input.MouseEvent;
 //intraproject imports
 import fpGame.GameUtil;
 import fpModel.DoorObject;
-import fpModel.Table;
 import fpModel.GenericObject;
 import fpModel.ContainerObject;
 import fpModel.WrapperObject;
