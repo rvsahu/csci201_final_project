@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 //intraproject imports
 import fpGame.GameUtil;
 import fpModel.DoorObject;
+import fpModel.GenericObject;
 
 public class Study4Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -25,5 +26,30 @@ public class Study4Behaviours {
 		};
 		
 		return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> tableBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject s4Couch) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> plantBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> dustbinBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> lightSwitchBehaviour(GenericObject s4LightSwitch) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

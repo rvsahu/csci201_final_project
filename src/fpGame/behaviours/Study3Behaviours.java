@@ -49,7 +49,17 @@ public class Study3Behaviours {
 			return behaviour;
 	}
 
-	public static EventHandler<MouseEvent> plant() {
+	public static EventHandler<MouseEvent> dustbinBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> plantBehaviour() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static EventHandler<MouseEvent> lightSwitchBehaviour(GenericObject s3LightSwitch) {
 		// TODO Auto-generated method stub
 		return null;
 	};

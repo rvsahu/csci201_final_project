@@ -609,24 +609,32 @@ public class Setup {
 		study3.addDoorFront(doorOut);
 		doorOut.setLayerFront(0);
 		
-		//add plant --back
-		GenericObject plant = new GenericObject("SR3 Plant");
-		plant.setFrontSpritePath(study3folder + "front/layer0/plant.png");
-		plant.loadSprites();
-		plant.setBehaviour(Study3Behaviours.plant());
-		study3.addGenericFront(plant);
-		plant.setLayerBack(0);
+		//add plant
+		GenericObject p = new GenericObject("SR3 Plant");
+		p.setFrontSpritePath(study3folder + "front/layer0/plant.png");
+		p.loadSprites();
+		p.setBehaviour(Study3Behaviours.plantBehaviour());
+		study3.addGenericFront(p);
+		p.setLayerFront(0);
+		
+		//add dustbin--back
+		GenericObject db = new GenericObject("SR3 Dustbin");
+		db.setBackSpritePath(study3folder + "back/layer0/dustbin.png");
+		db.loadSprites();
+		db.setBehaviour(Study3Behaviours.dustbinBehaviour());
+		study3.addGenericBack(db);
+		db.setLayerBack(0);
 		
 		//add couch
-		GenericObject s3Couch = new GenericObject("SR3 Couch");
-		s3Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
-		s3Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
-		s3Couch.loadSprites();
-		s3Couch.setBehaviour(Study3Behaviours.couchBehaviour(s3Couch));
-		study3.addGenericBack(s3Couch);
-		study3.addGenericFront(s3Couch);
-		s3Couch.setLayerBack(0);
-		s3Couch.setLayerFront(0);
+		GenericObject s4Couch = new GenericObject("SR3 Couch");
+		s4Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
+		s4Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
+		s4Couch.loadSprites();
+		s4Couch.setBehaviour(Study3Behaviours.couchBehaviour(s4Couch));
+		study3.addGenericBack(s4Couch);
+		study3.addGenericFront(s4Couch);
+		s4Couch.setLayerBack(0);
+		s4Couch.setLayerFront(0);
 		
 		//add table
 		ContainerObject s3Table = new ContainerObject("SR3 Table");
@@ -638,6 +646,14 @@ public class Setup {
 		study3.addContainerFront(s3Table);
 		s3Table.setLayerBack(0);
 		s3Table.setLayerFront(0);
+		
+		//switch
+		GenericObject s3LightSwitch = new GenericObject("SR3 Light Switch");
+		s3LightSwitch.setFrontSpritePath(study3folder + "front/layer0/switch.png");
+		s3LightSwitch.loadSprites();
+		s3LightSwitch.setBehaviour(Study3Behaviours.lightSwitchBehaviour(s3LightSwitch));
+		study3.addGenericFront(s3LightSwitch);
+		s3LightSwitch.setLayerFront(0);
 		
 		return study3;
 	}
@@ -660,6 +676,61 @@ public class Setup {
 			e.printStackTrace();
 			study4 = new Room("Study Room 4");
 		}
+		//add door
+		DoorObject doorOut = new DoorObject("Stud4_To_Annex");
+		doorOut.setFrontSpritePath(study4folder + "front/layer0/door.png");
+		doorOut.loadSprites();
+		doorOut.setBehaviour(Study4Behaviours.doorOutBehaviour(doorOut));
+		study4.addDoorFront(doorOut);
+		doorOut.setLayerFront(0);
+		
+		
+		//add dustbin-
+		GenericObject db = new GenericObject("SR4 Dustbin");
+		db.setFrontSpritePath(study4folder + "Front/layer0/dustbin.png");
+		db.loadSprites();
+		db.setBehaviour(Study4Behaviours.dustbinBehaviour());
+		study4.addGenericFront(db);
+		db.setLayerFront(0);
+		
+		//add couch
+		GenericObject s4Couch = new GenericObject("SR4 Couch");
+		s4Couch.setBackSpritePath(study4folder + "back/layer0/couch.png");
+		s4Couch.setFrontSpritePath(study4folder + "front/layer0/couch.png");
+		s4Couch.loadSprites();
+		s4Couch.setBehaviour(Study4Behaviours.couchBehaviour(s4Couch));
+		study4.addGenericBack(s4Couch);
+		study4.addGenericFront(s4Couch);
+		s4Couch.setLayerBack(0);
+		s4Couch.setLayerFront(0);
+		
+		//add table
+		ContainerObject s4Table = new ContainerObject("SR4 Table");
+		s4Table.setFrontSpritePath(study4folder + "front/layer0/table.png");
+		s4Table.setBackSpritePath(study4folder + "back/layer0/table.png");
+		s4Table.loadSprites();
+		s4Table.setBehaviour(Study4Behaviours.tableBehaviour());
+		study4.addContainerBack(s4Table);
+		study4.addContainerFront(s4Table);
+		s4Table.setLayerBack(0);
+		s4Table.setLayerFront(0);
+		
+		//add plant
+		GenericObject p = new GenericObject("SR4 Plant");
+		p.setBackSpritePath(study4folder + "back/layer0/plant.png");
+		p.loadSprites();
+		p.setBehaviour(Study4Behaviours.plantBehaviour());
+		study4.addGenericBack(p);
+		p.setLayerBack(0);
+		
+		//switch
+		GenericObject s4LightSwitch = new GenericObject("SR4 Light Switch");
+		s4LightSwitch.setFrontSpritePath(study4folder + "front/layer0/switch.png");
+		s4LightSwitch.loadSprites();
+		s4LightSwitch.setBehaviour(Study4Behaviours.lightSwitchBehaviour(s4LightSwitch));
+		study4.addGenericFront(s4LightSwitch);
+		s4LightSwitch.setLayerFront(0);
+		
 		return study4;
 	}
 	
