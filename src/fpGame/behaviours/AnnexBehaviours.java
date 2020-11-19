@@ -40,7 +40,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				Pane pane = new Pane();
-				
+				addPCBackground(pane);
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
 				Text text = new Text();
@@ -85,24 +85,21 @@ public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> annexComputer5Behaviour(InfoObject c) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event)  {
+				BorderPane pane = new BorderPane();
+				addPCBackground(pane);
 				
-				
-				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
-				//create text object
-				
-				ImageView imageview = null;
+				ImageView catView = null;
 				try  {
 					Image catim = new Image(new FileInputStream("./graphics/game_graphics/rooms/annex/cat.png"), 
 							1024 * GameUtil.scalingFactor(), 964*GameUtil.scalingFactor(), true,true);
-					imageview = new ImageView(catim);		
-					
-					
-					//pane.getChildren().add(imageview);
+					catView = new ImageView(catim);		
 					
 				} catch (IOException ie) {
-					System.err.println("cat.png not found");
+					System.err.println("cat.png could not be added!");
 				};
-				BorderPane pane = new BorderPane(imageview);
+				
+				
+				pane.setCenter(catView);
 				
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>()  {
 					@Override public void handle(MouseEvent event) {
@@ -144,6 +141,8 @@ public class AnnexBehaviours {
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
 				BorderPane pane = new BorderPane();
+				addPCBackground(pane);
+				
 				
 				Text output = new Text();
 				output.setFont(new Font(20));
@@ -393,6 +392,23 @@ public class AnnexBehaviours {
 		};
 		
 		return behaviour;
+	}
+	
+	private static void addPCBackground(Pane pane) {
+		ImageView background = null;
+		try {
+			background = new ImageView(new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_background.jpg")));
+			pane.getChildren().add(background);
+		} catch (Exception e) {
+			System.err.println("Error loading PC border!");
+		}
+		ImageView border = null;
+		try {
+			border = new ImageView(new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_border.png")));
+			pane.getChildren().add(border);
+		} catch (Exception e) {
+			System.err.println("Error loading PC border!");
+		}
 	}
 }
 	

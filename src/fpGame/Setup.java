@@ -249,6 +249,7 @@ public class Setup {
 		annexToCove.setBackSpritePath(annexFolder + "back/layer0/coveArrow.png");
 		annexToCove.setRightSpritePath(annexFolder + "right/layer0/coveArrow.png");
 		annexToCove.loadSprites();
+		annexToCove.setBehaviour(AnnexBehaviours.doorCoveBehaviour(annexToCove));
 		annex.addDoorBack(annexToCove);
 		annex.addDoorRight(annexToCove);
 		annexToCove.setLayerBack(0);

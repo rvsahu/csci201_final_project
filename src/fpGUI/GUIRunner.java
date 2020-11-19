@@ -25,8 +25,8 @@ public class GUIRunner extends Application {
     @Override public void stop() {
     	//save the game if a user is logged in
     	GameUtil.endGame();
-    	autoSaver.interrupt();
     	if (GameUtil.isLoggedIn()) {
+    		autoSaver.interrupt();
     		Saver.save();
     	}
     	//call super class stop method
