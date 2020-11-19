@@ -220,7 +220,7 @@ public class AnnexBehaviours {
 				GenericObject ps = new GenericObject("Annex Projection");
 				ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
 				ps.loadSprites();
-				GameUtil.map().annex.addToFront(ps);
+				GameUtil.map().annex.addGenericFront(ps);
 				ps.setLayerFront(0);
 				
 				GameUtil.displayPlayerView(); 

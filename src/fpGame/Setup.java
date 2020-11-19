@@ -150,7 +150,7 @@ public class Setup {
 		//add remaining sprite paths
 		c2.loadSprites();		
 		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour(c2));
-		annex.addToFront(c2);
+		annex.addInfoFront(c2);
 		c2.setLayerFront(1);
 		
 		//computer 5 loads up an image of a cat 
@@ -158,7 +158,7 @@ public class Setup {
 		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c5.loadSprites();
 		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour(c5));
-		annex.addToFront(c5);
+		annex.addInfoFront(c5);
 		c5.setLayerFront(2);
 		
 		//computer 7 -- write down the correct word then type enter
@@ -166,7 +166,7 @@ public class Setup {
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
-		annex.addToFront(c7);
+		annex.addInfoFront(c7);
 		c7.setLayerFront(2);
 		
 		/*
@@ -184,8 +184,8 @@ public class Setup {
 		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
 		proj.loadSprites();
 		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
-		annex.addToFront(proj);
-		annex.addToLeft(proj);
+		annex.addGenericFront(proj);
+		annex.addGenericLeft(proj);
 		proj.setLayerFront(0);
 		proj.setLayerLeft(0);
 		
@@ -201,7 +201,7 @@ public class Setup {
 		annexToMain.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
 		annexToMain.loadSprites();
 		annexToMain.setBehaviour(AnnexBehaviours.doorMainBehaviour(annexToMain));
-		annex.addToLeft(annexToMain);
+		annex.addDoorLeft(annexToMain);
 		annexToMain.setLayerLeft(0);
 		annexToMain.lock();
 		
@@ -211,7 +211,7 @@ public class Setup {
 		annexToMainKeypad.loadSprites();
 		//AnnexBehaviours.keypadBehavour IS supposed to take the door and not the keypad, it isn't a mistake.
 		annexToMainKeypad.setBehaviour(AnnexBehaviours.keypadBehaviour(annexToMain));
-		annex.addToLeft(annexToMainKeypad);
+		annex.addGenericLeft(annexToMainKeypad);
 		annexToMainKeypad.setLayerLeft(1);
 		
 		//Door to study room 1
@@ -219,7 +219,7 @@ public class Setup {
 		annexToStudy1.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
 		annexToStudy1.loadSprites();
 		annexToStudy1.setBehaviour(AnnexBehaviours.doorStudy1Behaviour(annexToStudy1));
-		annex.addToRight(annexToStudy1);
+		annex.addDoorRight(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		
 		//Door to study room 2
@@ -227,7 +227,7 @@ public class Setup {
 		annexToStudy2.setRightSpritePath(annexFolder + "right/layer0/rightDoor.png");
 		annexToStudy2.loadSprites();
 		annexToStudy2.setBehaviour(AnnexBehaviours.doorStudy2Behaviour(annexToStudy2));
-		annex.addToRight(annexToStudy2);
+		annex.addDoorRight(annexToStudy2);
 		annexToStudy2.setLayerRight(0);
 		
 		//Door to study room 3
@@ -235,22 +235,22 @@ public class Setup {
 		annexToStudy3.setBackSpritePath(annexFolder + "back/layer0/leftDoor.png");
 		annexToStudy3.loadSprites();
 		annexToStudy3.setBehaviour(AnnexBehaviours.doorStudy3Behaviour(annexToStudy3));
-		annex.addToBack(annexToStudy3);
+		annex.addDoorBack(annexToStudy3);
 		annexToStudy3.setLayerBack(0);
 		
 		DoorObject annexToStudy4 = new DoorObject("Annex To Study Room 4");
 		annexToStudy4.setBackSpritePath(annexFolder + "back/layer0/rightDoor.png");
 		annexToStudy4.loadSprites();
 		annexToStudy4.setBehaviour(AnnexBehaviours.doorStudy4Behaviour(annexToStudy4));
-		annex.addToBack(annexToStudy4);
+		annex.addDoorBack(annexToStudy4);
 		annexToStudy4.setLayerBack(0);
 		
 		DoorObject annexToCove = new DoorObject("Annex To Cove");
 		annexToCove.setBackSpritePath(annexFolder + "back/layer0/coveArrow.png");
 		annexToCove.setRightSpritePath(annexFolder + "right/layer0/coveArrow.png");
 		annexToCove.loadSprites();
-		annex.addToBack(annexToCove);
-		annex.addToRight(annexToCove);
+		annex.addDoorBack(annexToCove);
+		annex.addDoorRight(annexToCove);
 		annexToCove.setLayerBack(0);
 		annexToCove.setLayerRight(0);
 		
@@ -278,18 +278,18 @@ public class Setup {
 		//Door door = new Door();
 		//MainA.addToRight(door);
 		GenericObject couch2 = new GenericObject("Main A Couch");
-		mainA.addToRight(couch2);
-		Table table = new Table();
-		mainA.addToRight(table);
+		mainA.addGenericRight(couch2);
+		GenericObject table = new GenericObject(table);
+		mainA.addGenericRight(table);
 		
 		//back
 		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
-		mainA.addToBack(notebook); //TODO finish notebook creation
+		mainA.addInfoBack(notebook); //TODO finish notebook creation
 		
 		WrapperObject lab1key = new WrapperObject("Study 1 Key Object", new Item("Study 1 Key"));
-		mainA.addToBack(lab1key); //TODO finish key creation
+		mainA.addWrapperBack(lab1key); //TODO finish key creation
 		
 		
 		//left
@@ -303,7 +303,7 @@ public class Setup {
 		
 		//F
 		GenericObject whiteboard = new GenericObject("Main B Whiteboard"); //TODO finish setting up whiteboard
-		MainB.addToFront(whiteboard);
+		MainB.addGenericFront(whiteboard);
 		
 		/*Table table1 = new Table();
 		MainB.addToFront(table1);
@@ -364,8 +364,8 @@ public class Setup {
 		d1.setFrontSpritePath(mainCFolder + "front/layer0/FrontDoor.png");
 		d1.loadSprites();
 		//d1.setBehaviour(behaviour);
-		mainC.addToLeft(d1);
-		mainC.addToFront(d1);
+		mainC.addDoorLeft(d1);
+		mainC.addDoorFront(d1);
 		
 		return mainC;
 	}
@@ -394,7 +394,7 @@ public class Setup {
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
 		vm1.setBehaviour(MainDBehaviours.vendingMachineBehavior(vm1));
-		mainD.addToBack(vm1);
+		mainD.addContainerBack(vm1);
 		vm1.setLayerFront(0);
 		
 		//LabDoor
@@ -402,7 +402,7 @@ public class Setup {
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
 		d1.loadSprites();
 		d1.setBehaviour(MainDBehaviours.Lab1DoorBehaviour(d1));
-		mainD.addToLeft(d1);
+		mainD.addDoorLeft(d1);
 		d1.setLayerLeft(0);
 		
 		//HallwayDoor
@@ -411,8 +411,8 @@ public class Setup {
 		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
 		d2.loadSprites();
 		d2.setBehaviour(MainDBehaviours.HallwayBehaviour(d2));
-		mainD.addToBack(d2);
-		mainD.addToLeft(d2);
+		mainD.addDoorBack(d2);
+		mainD.addDoorLeft(d2);
 		d2.setLayerBack(0);
 		d2.setLayerLeft(0);
 		
@@ -420,7 +420,7 @@ public class Setup {
 		DoorObject d3 = new DoorObject("MainD to Annex");
 		d3.setRightSpritePath(mainDFolder + "right/layer0/AnnexDoor.png");
 		d3.loadSprites();
-		mainD.addToRight(d3);
+		mainD.addDoorRight(d3);
 		d3.setLayerBack(0);
 		
 		//dustbins
@@ -430,9 +430,9 @@ public class Setup {
 		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
 		db1.loadSprites();
 		db1.setBehaviour(MainDBehaviours.DustbinBehavior());
-		mainD.addToBack(db1);
-		mainD.addToRight(db1);
-		mainD.addToLeft(db1);
+		mainD.addContainerBack(db1);
+		mainD.addContainerRight(db1);
+		mainD.addContainerLeft(db1);
 		db1.setLayerBack(0);
 		db1.setLayerRight(0);
 		db1.setLayerLeft(0);
@@ -440,7 +440,7 @@ public class Setup {
 		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
 		db2.setBehaviour(MainDBehaviours.DustbinBehavior());
-		mainD.addToRight(db2);
+		mainD.addContainerRight(db2);
 		db2.setLayerRight(0);
 		
 		return mainD;
@@ -469,7 +469,7 @@ public class Setup {
 		doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study1Behaviours.doorOutBehaviour(doorOut));
-		study1.addToLeft(doorOut);
+		study1.addDoorLeft(doorOut);
 		doorOut.setLayerLeft(0);
 		
 		//add beanbag
@@ -477,7 +477,7 @@ public class Setup {
 		s1Beanbag.setRightSpritePath(study1folder + "right/layer0/beanbag.png");
 		s1Beanbag.loadSprites();
 		s1Beanbag.setBehaviour(Study1Behaviours.beanbagBehaviour(s1Beanbag));
-		study1.addToRight(s1Beanbag);
+		study1.addGenericRight(s1Beanbag);
 		s1Beanbag.setLayerRight(0);
 		
 		//add couch
@@ -486,19 +486,19 @@ public class Setup {
 		s1Couch.setRightSpritePath(study1folder + "right/layer0/couch.png");
 		s1Couch.loadSprites();
 		s1Couch.setBehaviour(Study1Behaviours.couchBehaviour(s1Couch));
-		study1.addToLeft(s1Couch);
-		study1.addToRight(s1Couch);
+		study1.addGenericLeft(s1Couch);
+		study1.addGenericRight(s1Couch);
 		s1Couch.setLayerLeft(0);
 		s1Couch.setLayerRight(0);
 		
 		//add table
-		Table s1Table = new Table("SR1 Table");
+		GenericObject s1Table = new GenericObject("SR1 Table");
 		s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
 		s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
 		s1Table.loadSprites();
 		s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
-		study1.addToLeft(s1Table);
-		study1.addToRight(s1Table);
+		study1.addGenericLeft(s1Table);
+		study1.addGenericRight(s1Table);
 		s1Table.setLayerLeft(0);
 		s1Table.setLayerRight(0);
 		
@@ -507,7 +507,7 @@ public class Setup {
 		s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
 		s1LightSwitch.loadSprites();
 		s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
-		study1.addToLeft(s1LightSwitch);
+		study1.addGenericLeft(s1LightSwitch);
 		s1LightSwitch.setLayerLeft(0);
 		
 		return study1;
@@ -537,7 +537,7 @@ public class Setup {
 		doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));
-		study2.addToLeft(doorOut);
+		study2.addDoorLeft(doorOut);
 		doorOut.setLayerLeft(0);
 		
 		//add couch
@@ -546,8 +546,8 @@ public class Setup {
 		s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
 		s2Couch.loadSprites();
 		s2Couch.setBehaviour(Study2Behaviours.couchBehaviour(s2Couch));
-		study2.addToLeft(s2Couch);
-		study2.addToRight(s2Couch);
+		study2.addGenericLeft(s2Couch);
+		study2.addGenericRight(s2Couch);
 		s2Couch.setLayerLeft(0);
 		s2Couch.setLayerRight(0);
 		
@@ -556,18 +556,18 @@ public class Setup {
 		s2Plant.setRightSpritePath(study2folder + "right/layer0/plant.png");
 		s2Plant.loadSprites();
 		s2Plant.setBehaviour(Study2Behaviours.plantBehaviour(s2Plant));
-		study2.addToRight(s2Plant);
+		study2.addGenericRight(s2Plant);
 		s2Plant.setLayerRight(0);
 				
 		
 		//add table
-		Table s2Table = new Table("SR2 Table");
+		GenericObject s2Table = new GenericObject("SR2 Table");
 		s2Table.setLeftSpritePath(study2folder + "left/layer0/table.png");
 		s2Table.setRightSpritePath(study2folder + "right/layer0/table.png");
 		s2Table.loadSprites();
 		s2Table.setBehaviour(Study2Behaviours.tableBehaviour(s2Table));
-		study2.addToLeft(s2Table);
-		study2.addToRight(s2Table);
+		study2.addGenericLeft(s2Table);
+		study2.addGenericRight(s2Table);
 		s2Table.setLayerLeft(0);
 		s2Table.setLayerRight(0);
 		
@@ -576,7 +576,7 @@ public class Setup {
 		s2LightSwitch.setLeftSpritePath(study2folder + "left/layer0/switch.png");
 		s2LightSwitch.loadSprites();
 		s2LightSwitch.setBehaviour(Study2Behaviours.lightSwitchBehaviour(s2LightSwitch));
-		study2.addToLeft(s2LightSwitch);
+		study2.addGenericLeft(s2LightSwitch);
 		s2LightSwitch.setLayerLeft(0);
 		
 		
@@ -606,7 +606,7 @@ public class Setup {
 		doorOut.setFrontSpritePath(study3folder + "front/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study3Behaviours.doorOutBehaviour(doorOut));
-		study3.addToFront(doorOut);
+		study3.addDoorFront(doorOut);
 		doorOut.setLayerFront(0);
 		
 		//add plant --back
@@ -614,7 +614,7 @@ public class Setup {
 		plant.setFrontSpritePath(study3folder + "front/layer0/plant.png");
 		plant.loadSprites();
 		plant.setBehaviour(Study3Behaviours.plant());
-		study3.addToFront(plant);
+		study3.addGenericFront(plant);
 		plant.setLayerBack(0);
 		
 		//add couch
@@ -623,19 +623,19 @@ public class Setup {
 		s3Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
 		s3Couch.loadSprites();
 		s3Couch.setBehaviour(Study3Behaviours.couchBehaviour(s3Couch));
-		study3.addToBack(s3Couch);
-		study3.addToFront(s3Couch);
+		study3.addGenericBack(s3Couch);
+		study3.addGenericFront(s3Couch);
 		s3Couch.setLayerBack(0);
 		s3Couch.setLayerFront(0);
 		
 		//add table
-		Table s3Table = new Table("SR3 Table");
+		GenericObject s3Table = new GenericObject("SR3 Table");
 		s3Table.setFrontSpritePath(study3folder + "front/layer0/table.png");
 		s3Table.setBackSpritePath(study3folder + "back/layer0/table.png");
 		s3Table.loadSprites();
 		s3Table.setBehaviour(Study3Behaviours.tableBehaviour());
-		study3.addToBack(s3Table);
-		study3.addToFront(s3Table);
+		study3.addGenericBack(s3Table);
+		study3.addGenericFront(s3Table);
 		s3Table.setLayerBack(0);
 		s3Table.setLayerFront(0);
 		
@@ -693,7 +693,7 @@ public class Setup {
 		//CP cp = new CP();
 		//Lab1.addToLeft(cp);
 		InfoObject computer1 = new InfoObject("Lab 1 Computer");
-		Lab1.addToLeft(computer1); //new 
+		Lab1.addInfoLeft(computer1); //new 
 		
 		
 		return Lab1;

@@ -42,12 +42,12 @@ public class Study1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> tableBehaviour(Table table) {
+	public static EventHandler<MouseEvent> tableBehaviour(GenericObject s1Table) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
-				if (table.hasItems()) {
+				if (s1Table.hasItems()) {
 					// Add as many items to inventory as possible
-					GameUtil.player().getInventory().addItems(table.getItems());
+					GameUtil.player().getInventory().addItems(s1Table.getItems());
 				}
 				GameUtil.setMessage("You searched the table but found nothing.");
 			}
