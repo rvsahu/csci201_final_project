@@ -75,74 +75,314 @@ public class Map {
 	 * For each room, give its internal Perspectives a reference to the containing room.
 	 */
 	public void addContainingRooms() {
-		annex.addContainingRooms();
-		mainA.addContainingRooms();
-		mainB.addContainingRooms();
-		mainC.addContainingRooms();
-		mainD.addContainingRooms();
-		study1.addContainingRooms();
-		study2.addContainingRooms();
-		study3.addContainingRooms();
-		study4.addContainingRooms();
-		cove.addContainingRooms();
-		lab1.addContainingRooms();
-		hallway1.addContainingRooms();
-		hallway2.addContainingRooms();
-		mensRoom.addContainingRooms();
-		womensRoom.addContainingRooms();
+		try {
+			annex.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainA.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainB.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainC.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainD.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study1.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study2.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study3.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study4.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			cove.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			lab1.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway1.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway2.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mensRoom.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			womensRoom.addContainingRooms();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
 	}
 	
 	public void resetAllDirections() {
-		annex.resetAllDirections();
-		mainA.resetAllDirections();
-		mainB.resetAllDirections();
-		mainC.resetAllDirections();
-		mainD.resetAllDirections();
-		study1.resetAllDirections();
-		study2.resetAllDirections();
-		study3.resetAllDirections();
-		study4.resetAllDirections();
-		cove.resetAllDirections();
-		lab1.resetAllDirections();
-		hallway1.resetAllDirections();
-		hallway2.resetAllDirections();
-		mensRoom.resetAllDirections();
-		womensRoom.resetAllDirections();
+		try {
+			annex.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainA.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainB.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainC.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainD.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study1.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study2.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study3.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study4.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			cove.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			lab1.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway1.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway2.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mensRoom.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			womensRoom.resetAllDirections();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
 	}
 	
 	public void loadAllSprites() {
-		annex.loadAllSprites();
-		mainA.loadAllSprites();
-		mainB.loadAllSprites();
-		mainC.loadAllSprites();
-		mainD.loadAllSprites();
-		study1.loadAllSprites();
-		study2.loadAllSprites();
-		study3.loadAllSprites();
-		study4.loadAllSprites();
-		cove.loadAllSprites();
-		lab1.loadAllSprites();
-		hallway1.loadAllSprites();
-		hallway2.loadAllSprites();
-		mensRoom.loadAllSprites();
-		womensRoom.loadAllSprites();
+		try {
+			annex.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainA.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainB.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainC.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainD.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study1.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study2.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study3.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study4.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			cove.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			lab1.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway1.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway2.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mensRoom.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			womensRoom.loadAllSprites();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
 	}
 	
 	public void rebuildAllContentsLists() {
-		annex.rebuildAllContentsLists();
-		mainA.rebuildAllContentsLists();
-		mainB.rebuildAllContentsLists();
-		mainC.rebuildAllContentsLists();
-		mainD.rebuildAllContentsLists();
-		study1.rebuildAllContentsLists();
-		study2.rebuildAllContentsLists();
-		study3.rebuildAllContentsLists();
-		study4.rebuildAllContentsLists();
-		cove.rebuildAllContentsLists();
-		lab1.rebuildAllContentsLists();
-		hallway1.rebuildAllContentsLists();
-		hallway2.rebuildAllContentsLists();
-		mensRoom.rebuildAllContentsLists();
-		womensRoom.rebuildAllContentsLists();
+		try {
+			annex.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainA.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainB.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainC.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainD.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study1.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study2.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study3.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study4.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			cove.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			lab1.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway1.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway2.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mensRoom.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			womensRoom.rebuildAllContentsLists();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
 	}
 }
