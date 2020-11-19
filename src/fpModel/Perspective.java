@@ -37,19 +37,6 @@ public class Perspective {
 	 */
 	private String[] unlitLayerPaths;
 	
-	/*
-	 **
-	 * Filepath to the background image for this perspective
-	 *
-	private String backgroundPath;
-	
-	 **
-	 * Filepath to the background image with the lights out for this perspective
-	 * (Not every perspective has or needs this)
-	 *
-	private String lightsOutBackgroundPath;
-	*/
-	
 	/**
 	 * The maximum number of layers the given perspective has
 	 */
@@ -72,9 +59,46 @@ public class Perspective {
 	private transient Room containingRoom;
 	
 	/**
-	 *  A list of RoomObjects representing the contents of the room viewable from this perspective
+	 *  A list of RoomObjects representing the contents of the room viewable from this perspective. This is transient to guarantee
+	 *  RoomObject subclasses get serialised properly, by having their own dedicated container, but they get re-added to and used by
+	 *  this list upon deserialisation.
 	 */
-	private List<RoomObject> contents;
+	private transient List<RoomObject> contents;
+	
+	/**
+	 * A list of GenericObjects. Serves as a dedicated container for GenericObjects such that they serialise properly, but not 
+	 * used by the game save during deserialisation.
+	 */
+	private List<GenericObject> generics;
+	
+	/**
+	 * A list of DoorObjects. Serves as a dedicated container for DoorObjects such that they serialise properly, but not 
+	 * used by the game save during deserialisation.
+	 */
+	private List<DoorObject> doors;
+	
+	/**
+	 * A list of WrapperObjects. Serves as a dedicated container for WrapperObjects such that they serialise properly, but not 
+	 * used by the game save during deserialisation.
+	 */
+	private List<WrapperObject> wrappers;
+	
+	/**
+	 * A list of ContainerObjects. Serves as a dedicated container for ContainerObjects such that they serialise properly, but not 
+	 * used by the game save during deserialisation.
+	 */
+	private List<ContainerObject> containers;
+	
+	/**
+	 * A list of InfoObjects. Serves as a dedicated container for InfoObjects such that they serialise properly, but not 
+	 * used by the game save during deserialisation.
+	 */
+	private List<InfoObject> infos;
+	
+	/**
+	 * A list of RoomObject names (Strings) in the order they were added to the Perspective. Used for deserialisation.
+	 */
+	private List<String> additionLog;
 	
 	/**
 	 * The direction the perspective is facing.
@@ -102,6 +126,7 @@ public class Perspective {
 		this.name = name;
 		this.direction = direction;
 		contents = new ArrayList<RoomObject>();
+		additionLog = new ArrayList<String>();
 	}
 	
 	/*
@@ -109,12 +134,63 @@ public class Perspective {
 	 */
 	
 	/**
-	 * A setup method, adds a RoomObject to the perspective
+	 * A setup helper method, adds a RoomObject to the contents list and its name to the additionLog.
 	 * 
 	 * @param rObj  The RoomObject to be added
 	 */
-	public void addRoomObject(RoomObject rObj) {
+	private void addRoomObject(RoomObject rObj) {
 		contents.add(rObj);
+		additionLog.add(rObj.name());
+	}
+	
+	/**
+	 * A setup method, adds a GenericObject to the Perspective.
+	 * 
+	 * @param gObj  The GenericObject to be added
+	 */
+	public void addGenericObject(GenericObject gObj) {
+		generics.add(gObj);
+		addRoomObject(gObj);
+	}
+	
+	/**
+	 * A setup method, adds a ContainerObject to the Perspective.
+	 * 
+	 * @param cObj  The ContainerObject to be added
+	 */
+	public void addContainerObject(ContainerObject cObj) {
+		containers.add(cObj);
+		addRoomObject(cObj);
+	}
+	
+	/**
+	 * A setup method, adds a DoorObject to the Perspective.
+	 * 
+	 * @param dObj  The DoorObject to be added
+	 */
+	public void addDoorObject(DoorObject dObj) {
+		doors.add(dObj);
+		addRoomObject(dObj);
+	}
+	
+	/**
+	 * A setup method, adds a WrapperObject to the Perspective.
+	 * 
+	 * @param wObj  The WrapperObject to be added
+	 */
+	public void addWrapperObject(WrapperObject wObj) {
+		wrappers.add(wObj);
+		addRoomObject(wObj);
+	}
+	
+	/**
+	 * A setup method, adds a InfoObject to the Perspective.
+	 * 
+	 * @param iObj  The InfoObject to be added
+	 */
+	public void addInfoObject(InfoObject iObj) {
+		infos.add(iObj);
+		addRoomObject(iObj);
 	}
 	
 	/**
