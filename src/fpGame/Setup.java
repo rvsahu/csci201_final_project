@@ -262,7 +262,7 @@ public class Setup {
 	private static Room setupMainA() { //ERICA
 		Room mainA = new Room("mainA");
 
-		String mainAFolder = "./graphics/game_graphics/rooms/MainA/";
+		String mainAFolder = "./graphics/game_graphics/rooms/mainA/";
 		
 		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
 		String rightPaths[] = {mainAFolder +  "right/layer0/mainA_right_0.png"};
