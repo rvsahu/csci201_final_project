@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
+import java.util.HashMap;
 
 
 import fpGame.GameUtil;
@@ -84,6 +85,9 @@ public class LoginScreen {
         txtf2.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
         //txtf2.setMaxWidth(300);
         
+        HashMap<String,String> usermap = new HashMap<String,String>();
+        usermap.put("Mickey", "password1");
+        usermap.put("Hunter", "123123");
         
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
@@ -98,9 +102,20 @@ public class LoginScreen {
         			error.setText("No Password!");
         			return;
         		}
+        		String actualPassword = usermap.get(userName); 
+        		if(actualPassword == null) {
+        			error.setText("Username not found!");
+        	        return;
+        		}else if(actualPassword.equals(passWord)) {
+        			GameUtil.login();
+        			MainMenu.show(stage, userName, autoSaver);
+            		System.out.println("Logged In!");
+        		}else {
+        			error.setText("Password is incorrect!");
+        	        return;
+        		}
         		
-        		MainMenu.show(stage, userName);
-        		System.out.println("Logged In!");
+        		
         	}
         };
         
@@ -114,7 +129,7 @@ public class LoginScreen {
         
         EventHandler<ActionEvent> b3 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
-        		MainMenu.show(stage, "Guest");
+        		MainMenu.show(stage, "Guest", autoSaver);
         	}
         };
         

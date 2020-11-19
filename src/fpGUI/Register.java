@@ -78,7 +78,7 @@ public class Register {
         		
         		//if registered successfully call GameUtil.login();
         		
-        		MainMenu.show(stage, userName); //pass autoSaver here
+        		MainMenu.show(stage, userName, autoSaver); //pass autoSaver here
         	}
         };
         

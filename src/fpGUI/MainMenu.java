@@ -7,6 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -14,10 +15,11 @@ import fpGame.GameUtil;
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.Setup;
+import fpIO.AutoSaver;
 import fpIO.Loader;
 
 public class MainMenu {
-	public static void show(Stage stage, String name) { //add autosaver parameter
+	public static void show(Stage stage, String name, AutoSaver autoSaver) { //add autosaver parameter
 		
 		/*
 		 * DIMENSIONS 1920x1080
@@ -35,18 +37,27 @@ public class MainMenu {
         StackPane.setAlignment(txt, Pos.TOP_CENTER);
         StackPane.setAlignment(txt1, Pos.TOP_CENTER);
         
+        Text error = new Text();
+		error.setFill(Color.RED);
+        
         Button btn1 = new Button();
         btn1.setText("Resume Gameplay");
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent event) {
-            	MainMenu.show(stage, "This would be Resume Game");
+            	MainMenu.show(stage, "This would be Resume Game", autoSaver);
             	//TODO check if a file can be loaded from user
             	//if so call below and also start AutoSaver thread
-            	Loader.load();
+            	if(true) {
+            		autoSaver.run();
+            		Loader.load();
+            	}else {
+            		error.setText("Username not found!");
+        	        return;
+            	}
             	//if not display error message 
             }
         });
-        //TODO hide btn1 if GameUtil.isLoggedIn() is false
+        if(!GameUtil.isLoggedIn()) btn1.setVisible(false);
         
         Button btn2 = new Button();
         btn2.setText("Start New Game");
@@ -56,6 +67,7 @@ public class MainMenu {
             public void handle(ActionEvent event) {
             	Player player = new Player();
             	GameUtil.setPlayer(player);
+            	if(GameUtil.isLoggedIn()) autoSaver.run();
             	//run autosaver here if GameUtil.isLoggedIn is true
             	Setup.setupAll();
             	//MainMenu.show(stage, "this would be new game");
@@ -65,6 +77,7 @@ public class MainMenu {
         root.getChildren().addAll(txt,txt1, btn1, btn2);
         StackPane.setAlignment(btn1, Pos.CENTER);
         StackPane.setAlignment(btn2, Pos.CENTER);
+        StackPane.setAlignment(error, Pos.TOP_CENTER);
         btn2.setTranslateY(50);
 
         
