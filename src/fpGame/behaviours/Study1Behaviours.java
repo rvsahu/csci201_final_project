@@ -12,7 +12,6 @@ import fpModel.GenericObject;
 import fpModel.ContainerObject;
 import fpModel.WrapperObject;
 import fpModel.InfoObject;
-import fpModel.Table;
 
 public class Study1Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
