@@ -296,7 +296,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The Door is locked. Beside it is a small black keypad.");
+					GameUtil.setMessage("The door to the main room is locked. Beside it is a small black keypad.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
 					GameUtil.player().setCurrentPerspective(3);

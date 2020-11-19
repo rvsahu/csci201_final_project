@@ -32,4 +32,13 @@ public class Logbook {
 		//to be implemented
 		return null;
 	}
+	
+	/**
+	 * Generates and returns a string representation of the logbook.
+	 * 
+	 * @return     A string representation of the list.
+	 */
+	public String stringRep() {
+		return "";
+	}
 }

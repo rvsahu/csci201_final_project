@@ -324,10 +324,10 @@ public class Perspective {
 	}
 	
 	/**
-	 * Searches for a RoomObject of a given name in this Perspective
+	 * Searches for a RoomObject of a given name in this Perspective, and returns it.
 	 * 
-	 * @param objName
-	 * @return
+	 * @param objName  The name of the RoomObject being looked for.
+	 * @return     The RoomObject being looked for, or null if it doesn't exist.
 	 */
 	public RoomObject findObject(String objName) {
 		for (RoomObject r : contents) {
@@ -336,6 +336,16 @@ public class Perspective {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Setup method, primarily for deserialisation. Reloads the sprites for every RoomObject viewable
+	 * from this perspective.
+	 */
+	public void loadAllSprites() {
+		for (RoomObject rObj : contents) {
+			rObj.loadSprites();
+		}
 	}
 	
 	/*
@@ -430,16 +440,6 @@ public class Perspective {
 					pane.getChildren().add(iv);
 				}
 			}
-		}
-	}
-	
-	/**
-	 * Setup method, primarily for deserialisation. Reloads the sprites for every RoomObject viewable
-	 * from this perspective.
-	 */
-	public void loadAllSprites() {
-		for (RoomObject rObj : contents) {
-			rObj.loadSprites();
 		}
 	}
 	

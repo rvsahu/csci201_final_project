@@ -652,4 +652,79 @@ public class Room {
 			return;
 		perspectives[3].setUnlitLayerPaths(unlitLayerPaths);
 	}
+	
+	/**
+	 * Searches for a RoomObject in this Room.
+	 * 
+	 * @param objName  The name of the object being searched for.
+	 * @return     True if the RoomObject exists in this room, false otherwise.
+	 */
+	public boolean searchRoom(String objName) {
+		if ((searchFront(objName))) {
+			return true;
+		}
+		if ((searchRight(objName))) {
+			return true;
+		}
+		if ((searchBack(objName))) {
+			return true;
+		}
+		if ((searchLeft(objName))) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * Searches for a RoomObject in the front perspective.
+	 * 
+	 * @param objName  The name of the object being searched for.
+	 * @return     True if the RoomObject exists in the front Perspective, false otherwise.
+	 */
+	public boolean searchFront(String objName) {
+		if (perspectives[0] == null) {
+			return false;
+		}
+		return perspectives[0].findObject(objName) != null;
+	}
+	
+	/**
+	 * Searches for a RoomObject in the right perspective.
+	 * 
+	 * @param objName  The name of the object being searched for.
+	 * @return     True if the RoomObject exists in the right Perspective, false otherwise.
+	 */
+	public boolean searchRight(String objName) {
+		if (perspectives[1] == null) {
+			return false;
+		}
+		return perspectives[1].findObject(objName) != null;
+	}
+	
+	/**
+	 * Searches for a RoomObject in the back perspective.
+	 * 
+	 * @param objName  The name of the object being searched for.
+	 * @return     True if the RoomObject exists in the back Perspective, false otherwise.
+	 */
+	public boolean searchBack(String objName) {
+		if (perspectives[2] == null) {
+			return false;
+		}
+		return perspectives[2].findObject(objName) != null;
+	}
+	
+	/**
+	 * Searches for a RoomObject in the left perspective.
+	 * 
+	 * @param objName  The name of the object being searched for.
+	 * @return     True if the RoomObject exists in the left Perspective, false otherwise.
+	 */
+	public boolean searchLeft(String objName) {
+		if (perspectives[3] == null) {
+			return false;
+		}
+		return perspectives[3].findObject(objName) != null;
+	}
 }
