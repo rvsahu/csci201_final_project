@@ -279,8 +279,8 @@ public class Setup {
 		//MainA.addToRight(door);
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
-		GenericObject table = new GenericObject(table);
-		mainA.addGenericRight(table);
+		InfoObject table = new InfoObject();
+		mainA.addInfoRight(table);
 		
 		//back
 		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
@@ -492,13 +492,13 @@ public class Setup {
 		s1Couch.setLayerRight(0);
 		
 		//add table
-		GenericObject s1Table = new GenericObject("SR1 Table");
+		InfoObject s1Table = new InfoObject("SR1 Table");
 		s1Table.setLeftSpritePath(study1folder + "left/layer0/table.png");
 		s1Table.setRightSpritePath(study1folder + "right/layer0/table.png");
 		s1Table.loadSprites();
 		s1Table.setBehaviour(Study1Behaviours.tableBehaviour(s1Table));
-		study1.addGenericLeft(s1Table);
-		study1.addGenericRight(s1Table);
+		study1.addInfoLeft(s1Table);
+		study1.addInfoRight(s1Table);
 		s1Table.setLayerLeft(0);
 		s1Table.setLayerRight(0);
 		
