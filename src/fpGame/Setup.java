@@ -689,7 +689,7 @@ public class Setup {
 		GenericObject db = new GenericObject("SR4 Dustbin");
 		db.setFrontSpritePath(study4folder + "Front/layer0/dustbin.png");
 		db.loadSprites();
-		db.setBehaviour(Study4Behaviours.dustbinBehaviour());
+		db.setBehaviour(Study4Behaviours.dustbinBehaviour(db));
 		study4.addGenericFront(db);
 		db.setLayerFront(0);
 		
@@ -709,7 +709,7 @@ public class Setup {
 		s4Table.setFrontSpritePath(study4folder + "front/layer0/table.png");
 		s4Table.setBackSpritePath(study4folder + "back/layer0/table.png");
 		s4Table.loadSprites();
-		s4Table.setBehaviour(Study4Behaviours.tableBehaviour());
+		s4Table.setBehaviour(Study4Behaviours.tableBehaviour(s4Table));
 		study4.addContainerBack(s4Table);
 		study4.addContainerFront(s4Table);
 		s4Table.setLayerBack(0);
@@ -719,7 +719,7 @@ public class Setup {
 		GenericObject p = new GenericObject("SR4 Plant");
 		p.setBackSpritePath(study4folder + "back/layer0/plant.png");
 		p.loadSprites();
-		p.setBehaviour(Study4Behaviours.plantBehaviour());
+		p.setBehaviour(Study4Behaviours.plantBehaviour(p));
 		study4.addGenericBack(p);
 		p.setLayerBack(0);
 		
