@@ -23,14 +23,13 @@ import javafx.beans.property.SimpleBooleanProperty;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpModel.DoorObject;
 import fpModel.Perspective;
 import fpModel.Room;
-
 import fpModel.GenericObject;
 import fpModel.WrapperObject;
 import fpModel.InfoObject;
 import fpModel.ContainerObject;
+import fpModel.DoorObject;
 
 /**
  * Container class for every EventHandler for every RoomObject in Annex
