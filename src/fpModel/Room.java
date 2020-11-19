@@ -89,74 +89,234 @@ public class Room {
 	}
 	
 	/**
-	 * Adds a RoomObject to the currently selected perspective. currentPerspective is guaranteed to exist.
+	 * Adds a GenericObject to the currently selected perspective. currentPerspective is guaranteed to exist.
 	 * 
-	 * @param rObj  The object to be added.
+	 * @param gObj  The GenericObject to be added to the current perspectives.
 	 */
-	public void addToCurrent(RoomObject rObj) {
-		perspectives[currentPerspective].addRoomObject(rObj);
+	public void addGenericCurrent(GenericObject gObj) {
+		perspectives[currentPerspective].addGenericObject(gObj);
 	}
 	
 	/**
-	 * Adds a RoomObject to the front perspective. Does nothing if the front perspective doesn't exist.
+	 * Adds a GenericObject to the front perspective. Does nothing if the front perspective doesn't exist.
 	 * 
-	 * @param rObj  The object to be added.
+	 * @param gObj  The GenericObject to be added to the front.
 	 */
-	public void addToFront(RoomObject rObj) {
+	public void addGenericFront(GenericObject gObj) {
 		if (perspectives[0] == null)
 			return;
-		perspectives[0].addRoomObject(rObj);
+		perspectives[0].addGenericObject(gObj);
 	}	
 	
 	/**
-	 * Adds a RoomObject to the right perspective. Does nothing if the right perspective doesn't exist.
+	 * Adds a GenericObject to the right perspective. Does nothing if the right perspective doesn't exist.
 	 * 
-	 * @param rObj  The object to be added.
+	 * @param gObj  The GenericObject to be added to the right.
 	 */
-	public void addToRight(RoomObject rObj) {
+	public void addGenericRight(GenericObject gObj) {
 		if (perspectives[1] == null)
 			return;
-		perspectives[1].addRoomObject(rObj);
+		perspectives[1].addGenericObject(gObj);
 	}
 	
 	/**
-	 * Adds a RoomObject to the back perspective. Does nothing if the back perspective doesn't exist.
+	 * Adds a GenericObject to the back perspective. Does nothing if the back perspective doesn't exist.
 	 * 
-	 * @param rObj  The object to be added.
+	 * @param gObj  The GenericObject to to be added to the back.
 	 */
-	public void addToBack(RoomObject rObj) {
+	public void addGenericBack(GenericObject gObj) {
 		if (perspectives[2] == null)
 			return;
-		perspectives[2].addRoomObject(rObj);
+		perspectives[2].addGenericObject(gObj);
 	}
 	
 	/**
-	 * Adds a RoomObject to the left perspective. Does nothing if the left perspective doesn't exist.
+	 * Adds a GenericObject to the left perspective. Does nothing if the left perspective doesn't exist.
 	 * 
-	 * @param rObj  The object to be added.
+	 * @param gObj  The GenericObject to be added to the left.
 	 */
-	public void addToLeft(RoomObject rObj) {
+	public void addGenericLeft(GenericObject gObj) {
 		if (perspectives[3] == null)
 			return;
-		perspectives[3].addRoomObject(rObj);
+		perspectives[3].addGenericObject(gObj);
 	}
 	
 	/**
+	 * Adds a InfoObject to the currently selected perspective. currentPerspective is guaranteed to exist.
+	 * 
+	 * @param iObj  The InfoObject to be added to the current perspectives.
+	 */
+	public void addInfoCurrent(InfoObject iObj) {
+		perspectives[currentPerspective].addInfoObject(iObj);
+	}
+	
+	/**
+	 * Adds a InfoObject to the front perspective. Does nothing if the front perspective doesn't exist.
+	 * 
+	 * @param iObj  The InfoObject to be added to the front.
+	 */
+	public void addInfoFront(InfoObject iObj) {
+		if (perspectives[0] == null)
+			return;
+		perspectives[0].addInfoObject(iObj);
+	}	
+	
+	/**
+	 * Adds a InfoObject to the right perspective. Does nothing if the right perspective doesn't exist.
+	 * 
+	 * @param iObj  The InfoObject to be added to the right.
+	 */
+	public void addInfoRight(InfoObject iObj) {
+		if (perspectives[1] == null)
+			return;
+		perspectives[1].addInfoObject(iObj);
+	}
+	
+	/**
+	 * Adds a InfoObject to the back perspective. Does nothing if the back perspective doesn't exist.
+	 * 
+	 * @param iObj  The InfoObject to to be added to the back.
+	 */
+	public void addInfoBack(InfoObject iObj) {
+		if (perspectives[2] == null)
+			return;
+		perspectives[2].addInfoObject(iObj);
+	}
+	
+	/**
+	 * Adds a InfoObject to the left perspective. Does nothing if the left perspective doesn't exist.
+	 * 
+	 * @param iObj  The InfoObject to be added to the left.
+	 */
+	public void addInfoLeft(InfoObject iObj) {
+		if (perspectives[3] == null)
+			return;
+		perspectives[3].addInfoObject(iObj);
+	}
+	
+	/**
+	 * Adds a DoorObject to the currently selected perspective. currentPerspective is guaranteed to exist.
+	 * 
+	 * @param dObj  The DoorObject to be added to the current perspectives.
+	 */
+	public void addDoorCurrent(DoorObject dObj) {
+		perspectives[currentPerspective].addDoorObject(dObj);
+	}
+	
+	/**
+	 * Adds a DoorObject to the front perspective. Does nothing if the front perspective doesn't exist.
+	 * 
+	 * @param dObj  The DoorObject to be added to the front.
+	 */
+	public void addDoorFront(DoorObject dObj) {
+		if (perspectives[0] == null)
+			return;
+		perspectives[0].addDoorObject(dObj);
+	}	
+	
+	/**
+	 * Adds a DoorObject to the right perspective. Does nothing if the right perspective doesn't exist.
+	 * 
+	 * @param dObj  The DoorObject to be added to the right.
+	 */
+	public void addDoorRight(DoorObject dObj) {
+		if (perspectives[1] == null)
+			return;
+		perspectives[1].addDoorObject(dObj);
+	}
+	
+	/**
+	 * Adds a DoorObject to the back perspective. Does nothing if the back perspective doesn't exist.
+	 * 
+	 * @param dObj  The DoorObject to to be added to the back.
+	 */
+	public void addDoorBack(DoorObject dObj) {
+		if (perspectives[2] == null)
+			return;
+		perspectives[2].addDoorObject(dObj);
+	}
+	
+	/**
+	 * Adds a DoorObject to the left perspective. Does nothing if the left perspective doesn't exist.
+	 * 
+	 * @param dObj  The DoorObject to be added to the left.
+	 */
+	public void addDoorLeft(DoorObject dObj) {
+		if (perspectives[3] == null)
+			return;
+		perspectives[3].addDoorObject(dObj);
+	}
+	
+	/**
+	 * Adds a WrapperObject to the currently selected perspective. currentPerspective is guaranteed to exist.
+	 * 
+	 * @param wObj  The WrapperObject to be added to the current perspectives.
+	 */
+	public void addWrapperCurrent(WrapperObject wObj) {
+		perspectives[currentPerspective].addWrapperObject(wObj);
+	}
+	
+	/**
+	 * Adds a WrapperObject to the front perspective. Does nothing if the front perspective doesn't exist.
+	 * 
+	 * @param wObj  The WrapperObject to be added to the front.
+	 */
+	public void addWrapperFront(WrapperObject wObj) {
+		if (perspectives[0] == null)
+			return;
+		perspectives[0].addWrapperObject(wObj);
+	}	
+	
+	/**
+	 * Adds a WrapperObject to the right perspective. Does nothing if the right perspective doesn't exist.
+	 * 
+	 * @param wObj  The WrapperObject to be added to the right.
+	 */
+	public void addWrapperRight(WrapperObject wObj) {
+		if (perspectives[1] == null)
+			return;
+		perspectives[1].addWrapperObject(wObj);
+	}
+	
+	/**
+	 * Adds a WrapperObject to the back perspective. Does nothing if the back perspective doesn't exist.
+	 * 
+	 * @param wObj  The WrapperObject to to be added to the back.
+	 */
+	public void addWrapperBack(WrapperObject wObj) {
+		if (perspectives[2] == null)
+			return;
+		perspectives[2].addWrapperObject(wObj);
+	}
+	
+	/**
+	 * Adds a WrapperObject to the left perspective. Does nothing if the left perspective doesn't exist.
+	 * 
+	 * @param wObj  The WrapperObject to be added to the left.
+	 */
+	public void addWrapperLeft(WrapperObject wObj) {
+		if (perspectives[3] == null)
+			return;
+		perspectives[3].addWrapperObject(wObj);
+	}
+	
+	/*
+	 **
 	 * Adds a list of RoomObjects to the currently selected perspective. currentPerspective is guaranteed to exist.
 	 * 
 	 * @param rObjs  The list of objects to be added.
-	 */
+	 *
 	public void addToCurrent(List<RoomObject> rObjs) {
 		for (RoomObject rObj : rObjs) {
 			addToCurrent(rObj);
 		}
 	}
 	
-	/**
+	 **
 	 * Adds a list of RoomObjects to the front perspective. Does nothing if the front perspective doesn't exist.
 	 * 
 	 * @param rObjs  The list of objects to be added.
-	 */
+	 *
 	public void addToFront(List<RoomObject> rObjs) {
 		if (perspectives[0] == null)
 			return;
@@ -165,11 +325,11 @@ public class Room {
 		}
 	}	
 	
-	/**
+	 **
 	 * Adds a list of RoomObjects to the right perspective. Does nothing if the right perspective doesn't exist.
 	 * 
 	 * @param rObjs  The list of objects to be added.
-	 */
+	 * 
 	public void addToRight(List<RoomObject> rObjs) {
 		if (perspectives[1] == null)
 			return;
@@ -178,11 +338,11 @@ public class Room {
 		}
 	}
 	
-	/**
+	 **
 	 * Adds a list of RoomObjects to the back perspective. Does nothing if the back perspective doesn't exist.
 	 * 
 	 * @param rObjs  The list of objects to be added.
-	 */
+	 * 
 	public void addToBack(List<RoomObject> rObjs) {
 		if (perspectives[2] == null)
 			return;
@@ -191,11 +351,11 @@ public class Room {
 		} 
 	}
 	
-	/**
+	 **
 	 * Adds a list of RoomObjects to the left perspective. Does nothing if the left perspective doesn't exist.
 	 * 
 	 * @param rObjs  The list of objects to be added.
-	 */
+	 * 
 	public void addToLeft(List<RoomObject> rObjs) {
 		if (perspectives[3] == null)
 			return;
@@ -203,7 +363,11 @@ public class Room {
 			addToLeft(rObj);
 		}
 	}
+	*/
 	
+	/**
+	 * Changes the current perspective one to the left.
+	 */
 	public void changePerspectiveLeft() {
 		while (true) {
 			decrementCPIndex();
@@ -223,6 +387,9 @@ public class Room {
 		}	
 	}
 	
+	/**
+	 * Changes the current perspective one to the right.
+	 */
 	public void changePerspectiveRight() {
 		while (true) {
 			incrementCPIndex();
