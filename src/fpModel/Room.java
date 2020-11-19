@@ -300,6 +300,59 @@ public class Room {
 		perspectives[3].addWrapperObject(wObj);
 	}
 	
+	/**
+	 * Adds a ContainerObject to the currently selected perspective. currentPerspective is guaranteed to exist.
+	 * 
+	 * @param cObj  The ContainerObject to be added to the current perspectives.
+	 */
+	public void addContainerCurrent(ContainerObject cObj) {
+		perspectives[currentPerspective].addContainerObject(cObj);
+	}
+	
+	/**
+	 * Adds a ContainerObject to the front perspective. Does nothing if the front perspective doesn't exist.
+	 * 
+	 * @param cObj  The ContainerObject to be added to the front.
+	 */
+	public void addContainerFront(ContainerObject cObj) {
+		if (perspectives[0] == null)
+			return;
+		perspectives[0].addContainerObject(cObj);
+	}	
+	
+	/**
+	 * Adds a ContainerObject to the right perspective. Does nothing if the right perspective doesn't exist.
+	 * 
+	 * @param cObj  The ContainerObject to be added to the right.
+	 */
+	public void addContainerRight(ContainerObject cObj) {
+		if (perspectives[1] == null)
+			return;
+		perspectives[1].addContainerObject(cObj);
+	}
+	
+	/**
+	 * Adds a ContainerObject to the back perspective. Does nothing if the back perspective doesn't exist.
+	 * 
+	 * @param cObj  The ContainerObject to to be added to the back.
+	 */
+	public void addContainerBack(ContainerObject cObj) {
+		if (perspectives[2] == null)
+			return;
+		perspectives[2].addContainerObject(cObj);
+	}
+	
+	/**
+	 * Adds a ContainerObject to the left perspective. Does nothing if the left perspective doesn't exist.
+	 * 
+	 * @param cObj  The ContainerObject to be added to the left.
+	 */
+	public void addContainerLeft(ContainerObject cObj) {
+		if (perspectives[3] == null)
+			return;
+		perspectives[3].addContainerObject(cObj);
+	}
+	
 	/*
 	 **
 	 * Adds a list of RoomObjects to the currently selected perspective. currentPerspective is guaranteed to exist.

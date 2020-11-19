@@ -194,6 +194,13 @@ public class Perspective {
 	}
 	
 	/**
+	 * A deserialisation method, takes the five specific RoomObject child containers and 
+	 */
+	public void rebuildContentsList() {
+		
+	}
+	
+	/**
 	 * Returns the room containing this perspective
 	 * 
 	 * @return     The room containing this perspective
