@@ -38,6 +38,7 @@ public class Loader {
 		
 		GameUtil.setPlayer(player);
 		GameUtil.setMap(map);
+		GameUtil.displayPlayerView();
 	}
 	
 	private static List<EventHandler<MouseEvent> > thing() {

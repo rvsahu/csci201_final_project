@@ -50,7 +50,7 @@ public class MainMenu {
             	if(true) {
             		autoSaver.run();
             		Loader.load();
-            	}else {
+            	} else {
             		error.setText("Username not found!");
         	        return;
             	}
