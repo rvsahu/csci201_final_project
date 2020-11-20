@@ -144,14 +144,34 @@ public class Setup {
 		annex.setLayerBackgroundsBack(backPaths);
 		annex.setLayerBackgroundsLeft(leftPaths);
 		
+		InfoObject c1 = new InfoObject("Annex Computer 1");
+		c1.setFrontSpritePath(annexFolder + "front/layer1/mon0.png");
+		c1.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c1);
+		c1.setLayerFront(1);
+		
 		InfoObject c2 = new InfoObject("Annex Computer 2");
-		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
-		c2.setFrontSpritePath(compFrontSpritePath);
+		c2.setFrontSpritePath(annexFolder + "front/layer1/mon1.png");
 		//add remaining sprite paths
 		c2.loadSprites();		
 		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour(c2));
 		annex.addInfoFront(c2);
 		c2.setLayerFront(1);
+		
+		InfoObject c3 = new InfoObject("Annex Computer 3");
+		c3.setFrontSpritePath(annexFolder + "front/layer1/mon2.png");
+		c3.loadSprites();
+		//add behaviour here
+		annex.addInfoFront(c3);
+		c3.setLayerFront(1);
+		
+		InfoObject c4 = new InfoObject("Annex Computer 4");
+		c4.setFrontSpritePath(annexFolder + "front/layer1/mon3.png");
+		c4.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c4);
+		c4.setLayerFront(1);
 		
 		//computer 5 loads up an image of a cat 
 		InfoObject c5 = new InfoObject("Annex Computer 5");
@@ -161,22 +181,27 @@ public class Setup {
 		annex.addInfoFront(c5);
 		c5.setLayerFront(2);
 		
+		InfoObject c6 = new InfoObject("Annex Computer 6");
+		c6.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
+		c6.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c6);
+		c6.setLayerFront(2);
+		
 		//computer 7 -- write down the correct word then type enter
-		InfoObject c7 = new InfoObject("Annex Computer 8", "The passcode to the annex-main door is 5147.");
+		InfoObject c7 = new InfoObject("Annex Computer 7", "The passcode to the annex-main door is 5147.");
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
 		annex.addInfoFront(c7);
 		c7.setLayerFront(2);
 		
-		/*
-		//computer 8 -- write down the correct word then type enter
-		Computer c8 = new Computer();
+		InfoObject c8 = new InfoObject("Annex Computer 8");
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c8.loadSprites();
-		annex.addToFront(c8);
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c8);
 		c8.setLayerFront(2);
-		*/
 		
 		//projector
 		GenericObject proj = new GenericObject("Annex Projector");
@@ -216,10 +241,12 @@ public class Setup {
 		
 		//Door to study room 1
 		DoorObject annexToStudy1 = new DoorObject("Annex To Study Room 1");
+		annexToStudy1.setFrontSpritePath(annexFolder + "front/layer0/door.png");
 		annexToStudy1.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
 		annexToStudy1.loadSprites();
 		annexToStudy1.setBehaviour(AnnexBehaviours.doorStudy1Behaviour(annexToStudy1));
 		annex.addDoorRight(annexToStudy1);
+		annex.addDoorFront(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		
 		//Door to study room 2
