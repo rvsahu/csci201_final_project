@@ -154,6 +154,7 @@ public class AnnexBehaviours {
 				text.setOnAction(e -> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
+				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
 				pane.setCenter(text);
 				
 				Button button = new Button("Submit");
