@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -41,16 +42,21 @@ public class Register {
                 
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/6);
         txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
+        txt1.setFont(new Font(20));
         
         txt2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/3);
         txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
+        txt2.setFont(new Font(20));
         
         txt3.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/2);
         txt3.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -70);
+        txt3.setFont(new Font(20));
         
         btn1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/4);
+        btn1.setFont(new Font(15));
                 
         btn2.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
+        btn2.setFont(new Font(15));
         
         txtf1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/6);
         txtf1.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/8);
@@ -68,9 +74,13 @@ public class Register {
         txtf3.setPrefWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
         txtf3.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
         
+        
+        
         HashMap<String,String> usermap = new HashMap<String,String>();
         usermap.put("Mickey", "password1");
         usermap.put("Hunter", "123123");
+        
+        
         
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
@@ -131,6 +141,8 @@ public class Register {
         StackPane.setAlignment(txtf2, Pos.TOP_CENTER);
         StackPane.setAlignment(txtf3, Pos.TOP_CENTER);
         StackPane.setAlignment(error, Pos.TOP_CENTER);
+        
+        root.setStyle("-fx-background-color: #990000");
         
         stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
  		       GameUtil.WINDOW_Y * GameUtil.scalingFactor()));

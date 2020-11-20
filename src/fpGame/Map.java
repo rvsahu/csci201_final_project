@@ -1,5 +1,6 @@
 package fpGame;
 
+import fpGame.behaviours.AnnexBehaviours;
 import fpModel.*;
 
 public class Map {
@@ -384,5 +385,15 @@ public class Map {
 		} catch (NullPointerException npe) {
 			//do nothing
 		}
+	}
+
+	public void reassignAllBehaviours() {
+		try {
+			AnnexBehaviours.addBehaviours(annex.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to annex objects!");
+			e.printStackTrace();
+		}
+		
 	}
 }

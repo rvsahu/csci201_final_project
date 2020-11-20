@@ -467,19 +467,81 @@ public class AnnexBehaviours {
 	
 	public static void addBehaviours(List<RoomObject> objects) {
 		DoorObject annexToMain = null;
+		GenericObject annexToMainKeypad = null;
 		
 		for (RoomObject r : objects) {
 			if (r.name().equals("Annex Computer 1")) {
 				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
 				continue;
 			}
+			if (r.name().equals("Annex Computer 2")) {
+				r.setBehaviour(annexComputer2Behaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 3")) {
+				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 4")) {
+				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 5")) {
+				r.setBehaviour(annexComputer5Behaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 6")) {
+				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 7")) {
+				r.setBehaviour(annexComputer7Behaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Computer 8")) {
+				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
+				continue;
+			}
 			if (r.name().equals("Annex To Main")) {
-				annexToMain = (DoorObject)r;
+				if (annexToMainKeypad != null) {
+					annexToMainKeypad.setBehaviour(keypadBehaviour((DoorObject)r));
+				} else {
+					annexToMain = (DoorObject)r;
+				}
 				r.setBehaviour(doorMainBehaviour((DoorObject)r));
 				continue;
 			}
+			if (r.name().equals("Annex To Study Room 1")) {
+				r.setBehaviour(doorStudy1Behaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Study Room 2")) {
+				r.setBehaviour(doorStudy2Behaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Study Room 3")) {
+				r.setBehaviour(doorStudy3Behaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Study Room 4")) {
+				r.setBehaviour(doorStudy4Behaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Cove")) {
+				r.setBehaviour(doorCoveBehaviour((DoorObject)r));
+				continue;
+			}
 			if (r.name().equals("Annex to Main Keypad")) {
-				
+				if (annexToMain == null) {
+					annexToMainKeypad = (GenericObject)r;
+					continue; 
+				}
+				r.setBehaviour(keypadBehaviour(annexToMain));
+				continue;
+			}
+			if (r.name().equals("Annex Projector")) {
+				r.setBehaviour(projectorBehaviour((GenericObject)r));
+				continue;
 			}
 		}
 	}

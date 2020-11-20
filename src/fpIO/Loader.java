@@ -31,6 +31,9 @@ public class Loader {
 		Map map = state.getMapSave();
 		map.addContainingRooms();
 		map.resetAllDirections();
+		map.rebuildAllContentsLists();
+		map.loadAllSprites();
+		map.reassignAllBehaviours();
 		
 		Player player = state.getPlayerSave();
 		player.setCurrentRoom(map.getRoom(player.getCRName()));
