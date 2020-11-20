@@ -302,10 +302,14 @@ public class Setup {
 		mainA.setLayerBackgroundsBack(backPaths);
 		mainA.setLayerBackgroundsLeft(leftPaths);
 		
-		
-		//right
-		//Door door = new Door();
-		//MainA.addToRight(door);
+		DoorObject mainAToAnnex = new DoorObject("Main A To Annex");
+		GenericObject dustbin1 = new GenericObject("Main A Dustbin1");
+		GenericObject dustbin2 = new GenericObject("Main A Dustbin2");
+		GenericObject keypad = new GenericObject("Main A Keypad");
+		GenericObject lightswitch = new GenericObject("Main A Lightswitch");
+		DoorObject Lab1Door = new DoorObject("Main A To Lab1");
+		GenericObject Lab1Keypad = new GenericObject("Lab1 Keypad");
+		ContainerObject VendingMachine = new ContainerObject("Vending Machine");
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
 		InfoObject table = new InfoObject();
@@ -330,6 +334,23 @@ public class Setup {
 		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
 		
 		Room mainB = new Room("mainB");
+		
+		String frontPaths[] = {mainBFolder  + "front/layer0/mainB_front_0.png"};
+		String rightPaths[] = {mainBFolder +  "right/layer0/mainB_right_0.png"};
+		String backPaths[] = {mainBFolder+  "back/layer0/mainB_back_0.png"};
+		String leftPaths[] = {mainBFolder +  "left/layer0/mainB_left_0.png"};
+
+		mainB.setLayerBackgroundsFront(frontPaths);
+		mainB.setLayerBackgroundsRight(rightPaths);
+		mainB.setLayerBackgroundsBack(backPaths);
+		mainB.setLayerBackgroundsLeft(leftPaths);
+		
+		GenericObject chair = new GenericObject("Main B Chair");
+		GenericObject couch = new GenericObject("Main B Couch");
+		GenericObject dustbin = new GenericObject("Main B Dustbin");
+		GenericObject table = new GenericObject("Main B Table");
+		
+		
 		
 		return mainB;
 	}
@@ -458,6 +479,8 @@ public class Setup {
 		study1.setUnlitLayerBackgroundsRight(unlitRightLayerPaths);
 		study1.setUnlitLayerBackgroundsLeft(unlitLeftLayerPaths);
 		
+		
+		//
 		DoorObject doorOut = new DoorObject("Study1_To_Annex");
 		doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
 		doorOut.loadSprites();
