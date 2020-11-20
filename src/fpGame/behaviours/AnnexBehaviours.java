@@ -6,6 +6,7 @@ import java.io.IOException;
 
 //javafx imports
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -147,13 +149,14 @@ public class AnnexBehaviours {
 				output.setFill(Color.WHITE);
 				pane.setTop(output);
 				
+				
 				TextField text = new TextField();
 				text.setText("Assemble the computer clues and provide the answer here to open the way");
 				text.setOnAction(e -> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
 				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
-				pane.setCenter(text);
+				//pane.setCenter(text);
 				
 				Button button = new Button("Submit");
 				button.setPrefSize(100, 50);
@@ -161,8 +164,23 @@ public class AnnexBehaviours {
 				button.setOnAction(e-> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
-				pane.setBottom(button);
-
+				//button.setTranslateY(100);
+				//pane.setCenter(button);
+				
+				VBox box = new VBox(10);
+				box.getChildren().addAll(text, button);
+				box.setAlignment(Pos.CENTER);
+				pane.setCenter(box);
+				
+				/*
+				if (GameUtil.needsScaling()) { 
+					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
+							            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
+				} else {
+					backIMG = new Image(new FileInputStream(layerPaths[layer]));
+				}
+				*/
+				
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
 				{
 					@Override public void handle(MouseEvent event) {
@@ -395,16 +413,42 @@ public class AnnexBehaviours {
 	
 	private static void addPCBackground(Pane pane) {
 		ImageView background = null;
+		
 		try {
-			background = new ImageView(new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_background.jpg")));
+			
+			Image backIMG;
+			
+			if (GameUtil.needsScaling()) { 
+				backIMG = new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_background.jpg"), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
+						            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
+			} else {
+				backIMG = new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_background.jpg"));
+			}
+			
+			background = new ImageView(backIMG);
 			pane.getChildren().add(background);
+			
+			
+			
+			
 		} catch (Exception e) {
-			System.err.println("Error loading PC border!");
+			System.err.println("Error loading PC background!");
 		}
+		
 		ImageView border = null;
 		try {
-			border = new ImageView(new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_border.png")));
+			Image borderIMG;
+			
+			if (GameUtil.needsScaling()) { 
+				borderIMG = new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_border.png"), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
+						            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
+			} else {
+				borderIMG = new Image(new FileInputStream("./graphics/game_graphics/subscreens/pc_border.png"));
+			}
+			
+			border = new ImageView(borderIMG);
 			pane.getChildren().add(border);
+			
 		} catch (Exception e) {
 			System.err.println("Error loading PC border!");
 		}
