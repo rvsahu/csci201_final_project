@@ -67,10 +67,11 @@ public class MainMenu {
             public void handle(ActionEvent event) {
             	Player player = new Player();
             	GameUtil.setPlayer(player);
-            	if(GameUtil.isLoggedIn()) autoSaver.run();
-            	//run autosaver here if GameUtil.isLoggedIn is true
+            	if(GameUtil.isLoggedIn()) {
+            		autoSaver.run();
+            	}
+            	GameUtil.showLoadingScreen();
             	Setup.setupAll();
-            	//MainMenu.show(stage, "this would be new game");
             }
         });
         

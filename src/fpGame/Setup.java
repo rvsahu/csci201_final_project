@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 //javafx imports
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 //intraproject imports
 import fpModel.*;
@@ -73,7 +74,7 @@ public class Setup {
 	};
 	*/
 	
-	public static void setupAll() { /* would return GameMap */
+	public static void setupAll() { 
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
 		Room mainB = setupMainB();
@@ -125,7 +126,6 @@ public class Setup {
 	}
 	
 	private static Room setupAnnex() { //RAHUL
-		
 		String annexFolder = "./graphics/game_graphics/rooms/annex/";
 		Room annex = new Room("annex");
 		
@@ -144,39 +144,64 @@ public class Setup {
 		annex.setLayerBackgroundsBack(backPaths);
 		annex.setLayerBackgroundsLeft(leftPaths);
 		
+		InfoObject c1 = new InfoObject("Annex Computer 1");
+		c1.setFrontSpritePath(annexFolder + "front/layer1/mon0.png");
+		c1.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c1);
+		c1.setLayerFront(1);
+		
 		InfoObject c2 = new InfoObject("Annex Computer 2");
-		String compFrontSpritePath = annexFolder + "front/layer1/mon1.png";
-		c2.setFrontSpritePath(compFrontSpritePath);
+		c2.setFrontSpritePath(annexFolder + "front/layer1/mon1.png");
 		//add remaining sprite paths
 		c2.loadSprites();		
 		c2.setBehaviour(AnnexBehaviours.annexComputer2Behaviour(c2));
 		annex.addInfoFront(c2);
 		c2.setLayerFront(1);
 		
+		InfoObject c3 = new InfoObject("Annex Computer 3");
+		c3.setFrontSpritePath(annexFolder + "front/layer1/mon2.png");
+		c3.loadSprites();
+		//add behaviour here
+		annex.addInfoFront(c3);
+		c3.setLayerFront(1);
+		
+		InfoObject c4 = new InfoObject("Annex Computer 4");
+		c4.setFrontSpritePath(annexFolder + "front/layer1/mon3.png");
+		c4.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c4);
+		c4.setLayerFront(1);
+		
 		//computer 5 loads up an image of a cat 
 		InfoObject c5 = new InfoObject("Annex Computer 5");
-		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
+		c5.setFrontSpritePath(annexFolder + "front/layer2/mon4.png");
 		c5.loadSprites();
 		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour(c5));
 		annex.addInfoFront(c5);
 		c5.setLayerFront(2);
 		
+		InfoObject c6 = new InfoObject("Annex Computer 6");
+		c6.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
+		c6.loadSprites();
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c6);
+		c6.setLayerFront(2);
+		
 		//computer 7 -- write down the correct word then type enter
-		InfoObject c7 = new InfoObject("Annex Computer 8", "The passcode to the annex-main door is 5147.");
+		InfoObject c7 = new InfoObject("Annex Computer 7", "The passcode to the annex-main door is 5147.");
 		c7.setFrontSpritePath(annexFolder + "front/layer2/mon6.png");
 		c7.loadSprites();
 		c7.setBehaviour(AnnexBehaviours.annexComputer7Behaviour(c7));
 		annex.addInfoFront(c7);
 		c7.setLayerFront(2);
 		
-		/*
-		//computer 8 -- write down the correct word then type enter
-		Computer c8 = new Computer();
+		InfoObject c8 = new InfoObject("Annex Computer 8");
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c8.loadSprites();
-		annex.addToFront(c8);
+		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		annex.addInfoFront(c8);
 		c8.setLayerFront(2);
-		*/
 		
 		//projector
 		GenericObject proj = new GenericObject("Annex Projector");
@@ -216,10 +241,12 @@ public class Setup {
 		
 		//Door to study room 1
 		DoorObject annexToStudy1 = new DoorObject("Annex To Study Room 1");
+		annexToStudy1.setFrontSpritePath(annexFolder + "front/layer0/door.png");
 		annexToStudy1.setRightSpritePath(annexFolder + "right/layer0/leftDoor.png");
 		annexToStudy1.loadSprites();
 		annexToStudy1.setBehaviour(AnnexBehaviours.doorStudy1Behaviour(annexToStudy1));
 		annex.addDoorRight(annexToStudy1);
+		annex.addDoorFront(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		
 		//Door to study room 2
@@ -299,56 +326,16 @@ public class Setup {
 	}
 	
 	private static Room setupMainB() { //ERICA
+		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
 		
-		Room MainB = new Room("mainB");
+		Room mainB = new Room("mainB");
 		
-		//F
-		GenericObject whiteboard = new GenericObject("Main B Whiteboard"); //TODO finish setting up whiteboard
-		MainB.addGenericFront(whiteboard);
-		
-		/*Table table1 = new Table();
-		MainB.addToFront(table1);
-		Computer computer1 = new Computer();
-		MainB.addToFront(computer1);
-		Computer computer2 = new Computer();
-		MainB.addToFront(computer2);
-		Computer computer3 = new Computer();
-		MainB.addToFront(computer3);
-		Couch couch1 = new Couch();
-		MainB.addToFront(couch1);
-		Couch couch2 = new Couch();
-		MainB.addToFront(couch2);
-		Couch couch3 = new Couch();
-		MainB.addToFront(couch3);
-
-		
-		Chair chair1 = new Chair();
-		MainB.addToFront(chair1);
-		Chair chair2 = new Chair();
-		MainB.addToFront(chair2);
-		Chair chair3 = new Chair();
-		MainB.addToFront(chair3);
-		
-		Scanner scanner = new Scanner();
-		MainB.addToFront(scanner);*/
-		//Chair chair1 = new chair();
-		//MainB.addToFront(chair1);
-		//R
-		
-		
-		//B
-		//facing Main A
-		
-		
-		//L
-		//Facing Main C
-		
-		return MainB;
+		return mainB;
 	}
 	private static Room setupMainC() {  //ERICA
 		Room mainC = new Room("mainC");
 		
-		String mainCFolder = "./graphics/game_graphics/rooms/MainC/";
+		String mainCFolder = "./graphics/game_graphics/rooms/mainC/";
 		
 		String frontPaths[] = {mainCFolder  + "front/layer0/mainC_front_0.png"};
 		String rightPaths[] = {mainCFolder +  "right/layer0/mainC_right_0.png"};
@@ -374,7 +361,7 @@ public class Setup {
 	private static Room setupMainD() {  //ERICA
 		Room mainD = new Room("mainD");
 		
-		String mainDFolder = "./graphics/game_graphics/rooms/MainD/";
+		String mainDFolder = "./graphics/game_graphics/rooms/mainD/";
 		
 		String frontPaths[] = {mainDFolder  + "front/layer0/mainD_front_0.png"};
 		
