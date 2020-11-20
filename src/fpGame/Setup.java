@@ -557,7 +557,7 @@ public class Setup {
 		study2.setLayerBackgroundsLeft(leftLayerPaths);
 		
 		//add door
-		DoorObject doorOut = new DoorObject("Study2 To Annex");
+		DoorObject doorOut = new DoorObject("SR2 To Annex");
 		doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));

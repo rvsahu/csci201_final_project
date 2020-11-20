@@ -93,7 +93,26 @@ public class Study2Behaviours {
 	
 	public static void addBehaviours(List<RoomObject> objects) {
 		for (RoomObject r : objects) {
-			
+			if (r.name().equals("SR2 To Annex")) {
+				r.setBehaviour(doorOutBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("SR2 Couch")) {
+				r.setBehaviour(couchBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("SR2 Table")) {
+				r.setBehaviour(tableBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("SR2 Light Switch")) {
+				r.setBehaviour(lightSwitchBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("SR2 Plant")) {
+				r.setBehaviour(plantBehaviour((GenericObject)r));
+				continue;
+			}
 		}
 	}
 }
