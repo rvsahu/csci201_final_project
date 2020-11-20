@@ -1,7 +1,7 @@
 package fpGame;
 
-import fpGame.behaviours.AnnexBehaviours;
-import fpModel.*;
+import fpGame.behaviours.*;
+import fpModel.Room;
 
 public class Map {
 	
@@ -392,6 +392,18 @@ public class Map {
 			AnnexBehaviours.addBehaviours(annex.getAllContents());
 		} catch (Exception e) {
 			System.err.println("Error reassigning behaviours to annex objects!");
+			e.printStackTrace();
+		}
+		try {
+			Study1Behaviours.addBehaviours(study1.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to study1 objects!");
+			e.printStackTrace();
+		}
+		try {
+			Study2Behaviours.addBehaviours(study2.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to study2 objects!");
 			e.printStackTrace();
 		}
 		
