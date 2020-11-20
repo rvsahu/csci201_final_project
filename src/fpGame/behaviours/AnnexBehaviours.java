@@ -255,8 +255,10 @@ public class AnnexBehaviours {
 			{
 				BorderPane pane = new BorderPane();
 				
+				
 				TextField text = new TextField("Enter the passcode to escape this room.");
-				pane.setCenter(text);
+				//pane.setCenter(text);
+				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
 				
 				Text output = new Text();
 				output.setFill(Color.WHITE);
@@ -264,7 +266,13 @@ public class AnnexBehaviours {
 				Button button = new Button("Submit");
 				button.setPrefSize(100, 50);
 				button.setFont(new Font(20));
-				pane.setBottom(button);
+				
+				VBox box = new VBox(10);
+				box.getChildren().addAll(text, button);
+				box.setAlignment(Pos.CENTER);
+				pane.setCenter(box);
+				
+				//pane.setBottom(button);
 				
 				button.setOnAction(new EventHandler<ActionEvent>() { 
 					@Override public void handle(ActionEvent event) {
@@ -292,7 +300,7 @@ public class AnnexBehaviours {
 		        //exit when we click again
 				pane.setOnMouseClicked(exitBehaviour);
 				
-				pane.setStyle("-fx-background-color: #000000;");
+				pane.setStyle("-fx-background-color: #990000;");
 				
 				Scene scene;
 				if (GameUtil.needsScaling()) {
