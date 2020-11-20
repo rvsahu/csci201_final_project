@@ -99,8 +99,16 @@ public class Inventory {
 		}
 	}
 	
-	/*
-	 * Graphical methods
+	/**
+	 * Generates and returns a string representation of the inventory.
+	 * 
+	 * @return     A string representation of the item list.
 	 */
-	//INSERT HERE
+	public String stringRep() {
+		String rep = "";
+		for (Item item : inventory) {
+			rep += item.name() + "\n";
+		}
+		return rep;
+	}
 }

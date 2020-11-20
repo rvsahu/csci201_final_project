@@ -36,9 +36,13 @@ public class Logbook {
 	/**
 	 * Generates and returns a string representation of the logbook.
 	 * 
-	 * @return     A string representation of the list.
+	 * @return     A string representation of the information list.
 	 */
 	public String stringRep() {
-		return "";
+		String rep = "";
+		for (String info : allInfo) {
+			rep += info + '\n';
+		}
+		return rep;
 	}
 }
