@@ -299,56 +299,16 @@ public class Setup {
 	}
 	
 	private static Room setupMainB() { //ERICA
+		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
 		
-		Room MainB = new Room("mainB");
+		Room mainB = new Room("mainB");
 		
-		//F
-		GenericObject whiteboard = new GenericObject("Main B Whiteboard"); //TODO finish setting up whiteboard
-		MainB.addGenericFront(whiteboard);
-		
-		/*Table table1 = new Table();
-		MainB.addToFront(table1);
-		Computer computer1 = new Computer();
-		MainB.addToFront(computer1);
-		Computer computer2 = new Computer();
-		MainB.addToFront(computer2);
-		Computer computer3 = new Computer();
-		MainB.addToFront(computer3);
-		Couch couch1 = new Couch();
-		MainB.addToFront(couch1);
-		Couch couch2 = new Couch();
-		MainB.addToFront(couch2);
-		Couch couch3 = new Couch();
-		MainB.addToFront(couch3);
-
-		
-		Chair chair1 = new Chair();
-		MainB.addToFront(chair1);
-		Chair chair2 = new Chair();
-		MainB.addToFront(chair2);
-		Chair chair3 = new Chair();
-		MainB.addToFront(chair3);
-		
-		Scanner scanner = new Scanner();
-		MainB.addToFront(scanner);*/
-		//Chair chair1 = new chair();
-		//MainB.addToFront(chair1);
-		//R
-		
-		
-		//B
-		//facing Main A
-		
-		
-		//L
-		//Facing Main C
-		
-		return MainB;
+		return mainB;
 	}
 	private static Room setupMainC() {  //ERICA
 		Room mainC = new Room("mainC");
 		
-		String mainCFolder = "./graphics/game_graphics/rooms/MainC/";
+		String mainCFolder = "./graphics/game_graphics/rooms/mainC/";
 		
 		String frontPaths[] = {mainCFolder  + "front/layer0/mainC_front_0.png"};
 		String rightPaths[] = {mainCFolder +  "right/layer0/mainC_right_0.png"};
@@ -374,7 +334,7 @@ public class Setup {
 	private static Room setupMainD() {  //ERICA
 		Room mainD = new Room("mainD");
 		
-		String mainDFolder = "./graphics/game_graphics/rooms/MainD/";
+		String mainDFolder = "./graphics/game_graphics/rooms/mainD/";
 		
 		String frontPaths[] = {mainDFolder  + "front/layer0/mainD_front_0.png"};
 		
