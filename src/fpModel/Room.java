@@ -504,8 +504,6 @@ public class Room {
 		}
 	}
 	
-	
-	
 	/**
 	 * Deserialisation method, resets the direction of every perspective.
 	 */
