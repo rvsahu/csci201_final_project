@@ -1,16 +1,18 @@
 package fpGame.behaviours;
 
+//java imports
+import java.util.List;
+
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 //intraproject imports
 import fpGame.GameUtil;
+import fpModel.RoomObject;
 import fpModel.DoorObject;
 import fpModel.GenericObject;
 import fpModel.ContainerObject;
-import fpModel.InfoObject;
-import fpModel.WrapperObject;
 
 public class Study2Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -70,12 +72,28 @@ public class Study2Behaviours {
 	}
 	
 	public static EventHandler<MouseEvent> lightSwitchBehaviour(GenericObject ls) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You toggle the switch but nothing seems to happen.");
+			}
+		};
+		
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> plantBehaviour(GenericObject p) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You search the plant but find nothing.");
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) {
+		for (RoomObject r : objects) {
+			
+		}
 	}
 }

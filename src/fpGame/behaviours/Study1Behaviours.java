@@ -4,14 +4,16 @@ package fpGame.behaviours;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.util.List;
+
 //intraproject imports
 import fpGame.GameUtil;
 
 import fpModel.DoorObject;
 import fpModel.GenericObject;
 import fpModel.ContainerObject;
-import fpModel.WrapperObject;
 import fpModel.InfoObject;
+import fpModel.RoomObject;
 
 public class Study1Behaviours {
 	public static EventHandler<MouseEvent> doorOutBehaviour(DoorObject d) {
@@ -97,5 +99,45 @@ public class Study1Behaviours {
 		};
 		
 		return behaviour;
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) { 
+		InfoObject hiddenMessage = null;
+		GenericObject lightSwitch = null;
+		
+		for (RoomObject r : objects) {
+			if (r.name().equals("SR1 To Annex")) {
+				r.setBehaviour(doorOutBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("SR1 Beanbag")) {
+				r.setBehaviour(beanbagBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("SR1 Couch")) {
+				r.setBehaviour(couchBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("SR1 Table")) {
+				r.setBehaviour(tableBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("SR1 Light Switch")) {
+				if (hiddenMessage != null) {
+					lightSwitch.setBehaviour(lightSwitchBehaviour(hiddenMessage));
+				} else {
+					lightSwitch = (GenericObject)r;
+				}
+				continue;
+			}
+			if (r.name().equals("SR1 Hidden Message")) {
+				if (lightSwitch != null) {
+					lightSwitch.setBehaviour(lightSwitchBehaviour((InfoObject)r));
+				} 
+				hiddenMessage = (InfoObject)r;
+				hiddenMessage.setBehaviour(messageBehaviour(hiddenMessage));
+				continue;
+			}
+		}
 	}
 }

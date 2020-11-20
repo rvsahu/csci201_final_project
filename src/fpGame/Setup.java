@@ -471,7 +471,7 @@ public class Setup {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating study1!");
 			e.printStackTrace();
-			study1 = new Room("study1");
+			study1 = new Room("Study Room 1");
 		}
 		
 		study1.setLayerBackgroundsRight(rightLayerPaths);
@@ -481,7 +481,7 @@ public class Setup {
 		
 		
 		//
-		DoorObject doorOut = new DoorObject("Study1_To_Annex");
+		DoorObject doorOut = new DoorObject("SR1 To Annex");
 		doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study1Behaviours.doorOutBehaviour(doorOut));
@@ -557,7 +557,7 @@ public class Setup {
 		study2.setLayerBackgroundsLeft(leftLayerPaths);
 		
 		//add door
-		DoorObject doorOut = new DoorObject("Study2_To_Annex");
+		DoorObject doorOut = new DoorObject("Study2 To Annex");
 		doorOut.setLeftSpritePath(study2folder + "left/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study2Behaviours.doorOutBehaviour(doorOut));

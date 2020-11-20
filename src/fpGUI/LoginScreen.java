@@ -159,35 +159,6 @@ public class LoginScreen {
         
         root.setStyle("-fx-background-color: #990000");
         
-        /*
-		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 
-					               1024 * GameUtil.scalingFactor(), 963 * GameUtil.scalingFactor(), true, true);
-			ImageView testview = new ImageView(test);
-			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				@Override public void handle(MouseEvent mouseEvent) {
-					System.out.println("you just got bonked!");
-				}
-			});
-			root.add(testview, 0, 4);
-		} catch (IOException ie) {
-			System.err.println("riperino1");
-		}
-		
-		try {
-			Image test = new Image(new FileInputStream("./graphics/test_graphics/test2.png"), 
-					               800 * GameUtil.scalingFactor(), 923 * GameUtil.scalingFactor(), true, true);
-			ImageView testview = new ImageView(test);
-			testview.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				@Override public void handle(MouseEvent mouseEvent) {
-					System.out.println("you just got beaned!");
-				}
-			});
-			root.add(testview, 0, 4);
-		} catch (IOException ie) {
-			System.err.println("riperino2");
-		}
-		*/
         stage.setScene(new Scene(root, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
         		       GameUtil.WINDOW_Y * GameUtil.scalingFactor()));
     	stage.setTitle("Login!");
