@@ -603,6 +603,18 @@ public class Room {
 	}
 	
 	/**
+	 * Turns the lights off or on in the room, and all perspectives within.
+	 */
+	public void flipLights() {
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue; 
+			}
+			perspectives[i].flipLights();
+		}
+	}
+	
+	/**
 	 * Searches for a RoomObject in this Room.
 	 * 
 	 * @param objName  The name of the object being searched for.

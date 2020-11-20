@@ -248,6 +248,7 @@ public class Setup {
 		annex.addDoorRight(annexToStudy1);
 		annex.addDoorFront(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
+		annexToStudy1.setLayerFront(0);
 		
 		//Door to study room 2
 		DoorObject annexToStudy2 = new DoorObject("Annex To Study Room 2");
@@ -438,6 +439,8 @@ public class Setup {
 		String study1folder = "./graphics/game_graphics/rooms/study1/";
 		String[] rightLayerPaths = {study1folder + "right/layer0/study1_right_0.png"};
 		String[] leftLayerPaths = {study1folder + "left/layer0/study1_left_0.png"};
+		String[] unlitRightLayerPaths = {study1folder + "right/layer0/study1_right_0_lightsout.png"};
+		String[] unlitLeftLayerPaths = {study1folder + "left/layer0/study1_left_0_lightsout.png"};
 		
 		Room study1;
 		try {
@@ -452,6 +455,8 @@ public class Setup {
 		
 		study1.setLayerBackgroundsRight(rightLayerPaths);
 		study1.setLayerBackgroundsLeft(leftLayerPaths);
+		study1.setUnlitLayerBackgroundsRight(unlitRightLayerPaths);
+		study1.setUnlitLayerBackgroundsLeft(unlitLeftLayerPaths);
 		
 		DoorObject doorOut = new DoorObject("Study1_To_Annex");
 		doorOut.setLeftSpritePath(study1folder + "left/layer0/door.png");
@@ -490,11 +495,19 @@ public class Setup {
 		s1Table.setLayerLeft(0);
 		s1Table.setLayerRight(0);
 		
+		InfoObject hiddenMessage = new InfoObject("SR1 Hidden Message", "The passcode to study room 4 is 0582");
+		hiddenMessage.setRightSpritePath(study1folder + "right/layer0/message.png");
+		hiddenMessage.loadSprites();
+		hiddenMessage.setBehaviour(Study1Behaviours.messageBehaviour(hiddenMessage));
+		study1.addInfoRight(hiddenMessage);
+		hiddenMessage.setLayerRight(0);
+		hiddenMessage.hide();
+		
 		//add lightswitch
 		GenericObject s1LightSwitch = new GenericObject("SR1 Light Switch");
 		s1LightSwitch.setLeftSpritePath(study1folder + "left/layer0/switch.png");
 		s1LightSwitch.loadSprites();
-		s1LightSwitch.setBehaviour(Study1Behaviours.LightSwitchBehaviour());
+		s1LightSwitch.setBehaviour(Study1Behaviours.lightSwitchBehaviour(hiddenMessage));
 		study1.addGenericLeft(s1LightSwitch);
 		s1LightSwitch.setLayerLeft(0);
 		
