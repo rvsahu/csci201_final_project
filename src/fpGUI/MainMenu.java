@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -33,15 +34,19 @@ public class MainMenu {
         txt1.setText("Welcome Back!");
         txt.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/5);
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/4);
+        txt1.setFont(new Font(20));
+        txt.setFont(new Font(20));
         
         StackPane.setAlignment(txt, Pos.TOP_CENTER);
         StackPane.setAlignment(txt1, Pos.TOP_CENTER);
+        root.setStyle("-fx-background-color: #990000");
         
         Text error = new Text();
 		error.setFill(Color.RED);
         
         Button btn1 = new Button();
         btn1.setText("Resume Gameplay");
+        btn1.setFont(new Font(15));
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent event) {
             	MainMenu.show(stage, "This would be Resume Game", autoSaver);
@@ -61,6 +66,7 @@ public class MainMenu {
         
         Button btn2 = new Button();
         btn2.setText("Start New Game");
+        txt1.setFont(new Font(15));
         btn2.setOnAction(new EventHandler<ActionEvent>() {
         	 
             @Override

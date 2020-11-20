@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
 import java.util.HashMap;
+import javafx.scene.text.Font;
 
 
 import fpGame.GameUtil;
@@ -54,24 +55,30 @@ public class LoginScreen {
         
         
         txt1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
-        txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
+        txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -60);
+        txt1.setFont(new Font(20));
         
         txt2.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/10);
-        txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
+        txt2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -60);
+        txt2.setFont(new Font(20));
+
         
         btn1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/4);
+        btn1.setFont(new Font(15));
         
         //btn2.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
         //btn2.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())/10);
         
         btn2.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
         btn2.setTranslateX(-100);
+        btn2.setFont(new Font(15));
         
         //btn3.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
         //btn3.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/10);
         
         btn3.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/8);
         btn3.setTranslateX(100);
+        btn3.setFont(new Font(15));
         
         txtf1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
         txtf1.setTranslateX((GameUtil.WINDOW_X* GameUtil.scalingFactor())/8);
@@ -87,6 +94,7 @@ public class LoginScreen {
         HashMap<String,String> usermap = new HashMap<String,String>();
         usermap.put("Mickey", "password1");
         usermap.put("Hunter", "123123");
+        
         
         
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
@@ -148,6 +156,9 @@ public class LoginScreen {
         StackPane.setAlignment(txtf1, Pos.CENTER);
         StackPane.setAlignment(txtf2, Pos.CENTER);
         StackPane.setAlignment(error, Pos.TOP_CENTER);
+        
+        root.setStyle("-fx-background-color: #990000");
+        
         /*
 		try {
 			Image test = new Image(new FileInputStream("./graphics/test_graphics/test1.jpg"), 
