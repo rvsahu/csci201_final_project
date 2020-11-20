@@ -39,18 +39,16 @@ public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> annexComputer2Behaviour(InfoObject c) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				Pane pane = new Pane();
+				BorderPane pane = new BorderPane();
 				addPCBackground(pane);
 				//get a image border for the screen that looks like a display frame, needs to be 1920 x 1080
 				//create text object
 				Text text = new Text();
 				text.setText("The animal says: ");
-				text.setX((GameUtil.WINDOW_X * GameUtil.scalingFactor()) / 2);
-				text.setY((GameUtil.WINDOW_Y * GameUtil.scalingFactor()) / 2);
 				text.setFill(Color.WHITE);
 				text.setFont(new Font(30));
 				text.setTextAlignment(TextAlignment.CENTER);
-				pane.getChildren().add(text);
+				pane.setCenter(text);
 				
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
 					@Override public void handle(MouseEvent event) {
