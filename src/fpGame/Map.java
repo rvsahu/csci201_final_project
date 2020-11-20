@@ -406,6 +406,11 @@ public class Map {
 			System.err.println("Error reassigning behaviours to study2 objects!");
 			e.printStackTrace();
 		}
-		
+		try {
+			Study3Behaviours.addBehaviours(study3.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to study3 objects!");
+			e.printStackTrace();
+		}
 	}
 }

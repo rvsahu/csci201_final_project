@@ -630,7 +630,7 @@ public class Setup {
 		}
 		
 		//add door
-		DoorObject doorOut = new DoorObject("Stud3_To_Annex");
+		DoorObject doorOut = new DoorObject("SR3 To Annex");
 		doorOut.setFrontSpritePath(study3folder + "front/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study3Behaviours.doorOutBehaviour(doorOut));
@@ -641,7 +641,7 @@ public class Setup {
 		GenericObject p = new GenericObject("SR3 Plant");
 		p.setFrontSpritePath(study3folder + "front/layer0/plant.png");
 		p.loadSprites();
-		p.setBehaviour(Study3Behaviours.plantBehaviour());
+		p.setBehaviour(Study3Behaviours.plantBehaviour(p));
 		study3.addGenericFront(p);
 		p.setLayerFront(0);
 		
@@ -649,22 +649,22 @@ public class Setup {
 		GenericObject db = new GenericObject("SR3 Dustbin");
 		db.setBackSpritePath(study3folder + "back/layer0/dustbin.png");
 		db.loadSprites();
-		db.setBehaviour(Study3Behaviours.dustbinBehaviour());
+		db.setBehaviour(Study3Behaviours.dustbinBehaviour(db));
 		study3.addGenericBack(db);
 		db.setLayerBack(0);
 		
 		
 		
 		//add couch
-		GenericObject s4Couch = new GenericObject("SR3 Couch");
-		s4Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
-		s4Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
-		s4Couch.loadSprites();
-		s4Couch.setBehaviour(Study3Behaviours.couchBehaviour(s4Couch));
-		study3.addGenericBack(s4Couch);
-		study3.addGenericFront(s4Couch);
-		s4Couch.setLayerBack(0);
-		s4Couch.setLayerFront(0);
+		GenericObject s3Couch = new GenericObject("SR3 Couch");
+		s3Couch.setBackSpritePath(study3folder + "back/layer0/couch.png");
+		s3Couch.setFrontSpritePath(study3folder + "front/layer0/couch.png");
+		s3Couch.loadSprites();
+		s3Couch.setBehaviour(Study3Behaviours.couchBehaviour(s3Couch));
+		study3.addGenericBack(s3Couch);
+		study3.addGenericFront(s3Couch);
+		s3Couch.setLayerBack(0);
+		s3Couch.setLayerFront(0);
 		
 		//add table
 		List<Item> coins = new ArrayList<Item>();
