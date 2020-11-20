@@ -25,14 +25,6 @@ public class Logbook {
 		allInfo.remove(index);
 	}
 	
-	/*
-	 * Graphical methods
-	 */
-	public Scene display() {
-		//to be implemented
-		return null;
-	}
-	
 	/**
 	 * Generates and returns a string representation of the logbook.
 	 * 

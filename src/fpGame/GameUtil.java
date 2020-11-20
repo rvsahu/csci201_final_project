@@ -2,16 +2,21 @@ package fpGame;
 
 import javafx.stage.Stage;
 import javafx.stage.Screen;
+
+import java.io.FileInputStream;
+
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 public class GameUtil {
 	public static final int WINDOW_X = 1920;
@@ -243,6 +248,47 @@ public class GameUtil {
 		BorderPane pane = player.currentRoom().generatePane(stage);
 		//TODO add UI elements (inven, save, change perspective arrows, etc)
 		pane.setTop(message);
+		
+		//inventory button
+		ImageView inventoryButton = null;
+		try {
+			Image ibImg; 
+			if (needsScaling) {
+				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"), WINDOW_X * scalingFactor, 
+						          WINDOW_Y * scalingFactor, true, true);
+			} else {
+				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"));
+			}
+			inventoryButton = new ImageView(ibImg);
+			inventoryButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+				@Override public void handle(MouseEvent event) {
+					GameUtil.setMessage(player.getInventory().stringRep());
+				}
+			});
+			pane.getChildren().add(inventoryButton);
+		} catch (Exception e) {
+			System.err.println("Error loading inventory button!");
+		}
+		//logbook button
+		ImageView logbookButton = null;
+		try {
+			Image lobImg; 
+			if (needsScaling) {
+				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"), WINDOW_X * scalingFactor, 
+					  	           WINDOW_Y * scalingFactor, true, true);
+			} else {
+				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"));
+			}
+			logbookButton = new ImageView(lobImg);
+			logbookButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+				@Override public void handle(MouseEvent event) {
+					GameUtil.setMessage(player.getLogbook().stringRep());
+				}
+			});
+			pane.getChildren().add(logbookButton);
+		} catch (Exception e) {
+			System.err.println("Error loading logbook button!");
+		}
 		//create scene and scale the window if need be
 		Scene scene;
 		if (needsScaling) {

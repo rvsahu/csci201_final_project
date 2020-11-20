@@ -58,6 +58,10 @@ public class Player {
 		logbook.addInfo(info);
 	}
 	
+	public Logbook getLogbook() {
+		return logbook;
+	}
+	
 	public int getLevel() {
 		return currentLevel;
 	}
