@@ -88,6 +88,7 @@ public class LoginScreen {
         usermap.put("Mickey", "password1");
         usermap.put("Hunter", "123123");
         
+        
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
         		String userName = txtf1.getText();
