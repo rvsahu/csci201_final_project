@@ -254,15 +254,15 @@ public class GameUtil {
 		try {
 			Image ibImg; 
 			if (needsScaling) {
-				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"), WINDOW_X * scalingFactor, 
+				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/inventory.png"), WINDOW_X * scalingFactor, 
 						          WINDOW_Y * scalingFactor, true, true);
 			} else {
-				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"));
+				ibImg = new Image(new FileInputStream("./graphics/game_graphics/gui/inventory.png"));
 			}
 			inventoryButton = new ImageView(ibImg);
 			inventoryButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent event) {
-					GameUtil.setMessage(player.getInventory().stringRep());
+					GameUtil.setMessage("Your inventory:\n" + player.getInventory().stringRep());
 				}
 			});
 			pane.getChildren().add(inventoryButton);
@@ -274,20 +274,62 @@ public class GameUtil {
 		try {
 			Image lobImg; 
 			if (needsScaling) {
-				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"), WINDOW_X * scalingFactor, 
+				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/log.png"), WINDOW_X * scalingFactor, 
 					  	           WINDOW_Y * scalingFactor, true, true);
 			} else {
-				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/INSERTFILEHERE"));
+				lobImg = new Image(new FileInputStream("./graphics/game_graphics/gui/log.png"));
 			}
 			logbookButton = new ImageView(lobImg);
 			logbookButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
 				@Override public void handle(MouseEvent event) {
-					GameUtil.setMessage(player.getLogbook().stringRep());
+					GameUtil.setMessage("Your logbook:\n" + player.getLogbook().stringRep());
 				}
 			});
 			pane.getChildren().add(logbookButton);
 		} catch (Exception e) {
 			System.err.println("Error loading logbook button!");
+		}
+		//rotate left button
+		ImageView leftButton = null;
+		try {
+			Image lebImg; 
+			if (needsScaling) {
+				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/leftArrow.png"), WINDOW_X * scalingFactor, 
+					  	           WINDOW_Y * scalingFactor, true, true);
+			} else {
+				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/leftArrow.png"));
+			}
+			leftButton = new ImageView(lebImg);
+			leftButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+				@Override public void handle(MouseEvent event) {
+					player.turnLeft();
+					displayPlayerView();
+				}
+			});
+			pane.getChildren().add(leftButton);
+		} catch (Exception e) {
+			System.err.println("Error loading left arrow button!");
+		}
+		//rotate right button
+		ImageView rightButton = null;
+		try {
+			Image rbImg; 
+			if (needsScaling) {
+				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/rightArrow.png"), WINDOW_X * scalingFactor, 
+					  	           WINDOW_Y * scalingFactor, true, true);
+			} else {
+				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/rightArrow.png"));
+			}
+			rightButton = new ImageView(rbImg);
+			rightButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
+				@Override public void handle(MouseEvent event) {
+					player.turnRight();
+					displayPlayerView();
+				}
+			});
+			pane.getChildren().add(rightButton);
+		} catch (Exception e) {
+			System.err.println("Error loading right arrow button!");
 		}
 		//create scene and scale the window if need be
 		Scene scene;
