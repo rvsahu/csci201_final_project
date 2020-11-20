@@ -147,7 +147,7 @@ public class Setup {
 		InfoObject c1 = new InfoObject("Annex Computer 1");
 		c1.setFrontSpritePath(annexFolder + "front/layer1/mon0.png");
 		c1.loadSprites();
-		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		c1.setBehaviour(AnnexBehaviours.annexWrongComputerBehaviour(c1));
 		annex.addInfoFront(c1);
 		c1.setLayerFront(1);
 		
@@ -162,14 +162,14 @@ public class Setup {
 		InfoObject c3 = new InfoObject("Annex Computer 3");
 		c3.setFrontSpritePath(annexFolder + "front/layer1/mon2.png");
 		c3.loadSprites();
-		//add behaviour here
+		c3.setBehaviour(AnnexBehaviours.annexWrongComputerBehaviour(c3));
 		annex.addInfoFront(c3);
 		c3.setLayerFront(1);
 		
 		InfoObject c4 = new InfoObject("Annex Computer 4");
 		c4.setFrontSpritePath(annexFolder + "front/layer1/mon3.png");
 		c4.loadSprites();
-		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		c4.setBehaviour(AnnexBehaviours.annexWrongComputerBehaviour(c4));
 		annex.addInfoFront(c4);
 		c4.setLayerFront(1);
 		
@@ -184,7 +184,7 @@ public class Setup {
 		InfoObject c6 = new InfoObject("Annex Computer 6");
 		c6.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
 		c6.loadSprites();
-		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		c6.setBehaviour(AnnexBehaviours.annexWrongComputerBehaviour(c6));
 		annex.addInfoFront(c6);
 		c6.setLayerFront(2);
 		
@@ -199,7 +199,7 @@ public class Setup {
 		InfoObject c8 = new InfoObject("Annex Computer 8");
 		c8.setFrontSpritePath(annexFolder + "front/layer2/mon7.png");
 		c8.loadSprites();
-		//TODO add behaviour here, should be generic "You use the computer but find nothing of value on it" message.
+		c8.setBehaviour(AnnexBehaviours.annexWrongComputerBehaviour(c8));
 		annex.addInfoFront(c8);
 		c8.setLayerFront(2);
 		

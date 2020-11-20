@@ -411,6 +411,15 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
+	public static EventHandler<MouseEvent> annexWrongComputerBehaviour(InfoObject c) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent> () {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You used " + c.name() + " but couldn't find any useful information on it.");
+			}
+		};
+		return behaviour;
+	}
+	
 	private static void addPCBackground(Pane pane) {
 		ImageView background = null;
 		
