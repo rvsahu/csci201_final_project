@@ -2,6 +2,7 @@ package fpModel;
 
 //java imports
 import java.util.List;
+import java.util.ArrayList;
 
 //javafx imports
 import javafx.scene.layout.BorderPane;
@@ -353,70 +354,20 @@ public class Room {
 		perspectives[3].addContainerObject(cObj);
 	}
 	
-	/*
-	 **
-	 * Adds a list of RoomObjects to the currently selected perspective. currentPerspective is guaranteed to exist.
+	/**
+	 * Returns the contents of all the perspectives in one list.
 	 * 
-	 * @param rObjs  The list of objects to be added.
-	 *
-	public void addToCurrent(List<RoomObject> rObjs) {
-		for (RoomObject rObj : rObjs) {
-			addToCurrent(rObj);
+	 * @return     The contents of all extant perspectives in this Room.
+	 */
+	public List<RoomObject> getAllContents() {
+		List<RoomObject> allObjs = new ArrayList<RoomObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] != null) {
+				allObjs.addAll(perspectives[i].contents());
+			}
 		}
+		return allObjs;
 	}
-	
-	 **
-	 * Adds a list of RoomObjects to the front perspective. Does nothing if the front perspective doesn't exist.
-	 * 
-	 * @param rObjs  The list of objects to be added.
-	 *
-	public void addToFront(List<RoomObject> rObjs) {
-		if (perspectives[0] == null)
-			return;
-		for (RoomObject rObj : rObjs) {
-			addToFront(rObj);
-		}
-	}	
-	
-	 **
-	 * Adds a list of RoomObjects to the right perspective. Does nothing if the right perspective doesn't exist.
-	 * 
-	 * @param rObjs  The list of objects to be added.
-	 * 
-	public void addToRight(List<RoomObject> rObjs) {
-		if (perspectives[1] == null)
-			return;
-		for (RoomObject rObj : rObjs) {
-			addToRight(rObj);
-		}
-	}
-	
-	 **
-	 * Adds a list of RoomObjects to the back perspective. Does nothing if the back perspective doesn't exist.
-	 * 
-	 * @param rObjs  The list of objects to be added.
-	 * 
-	public void addToBack(List<RoomObject> rObjs) {
-		if (perspectives[2] == null)
-			return;
-		for (RoomObject rObj : rObjs) {
-			addToBack(rObj);
-		} 
-	}
-	
-	 **
-	 * Adds a list of RoomObjects to the left perspective. Does nothing if the left perspective doesn't exist.
-	 * 
-	 * @param rObjs  The list of objects to be added.
-	 * 
-	public void addToLeft(List<RoomObject> rObjs) {
-		if (perspectives[3] == null)
-			return;
-		for (RoomObject rObj : rObjs) {
-			addToLeft(rObj);
-		}
-	}
-	*/
 	
 	/**
 	 * Changes the current perspective one to the left.

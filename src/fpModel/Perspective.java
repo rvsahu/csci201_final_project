@@ -232,6 +232,13 @@ public class Perspective {
 		}
 	}
 	
+	/**
+	 * Helper method for rebuildContentsList(), finds an object given it's name within a list of subclasses of RoomObject
+	 * 
+	 * @param objList  The list in which we are looking for the object
+	 * @param objectName  The name of the object we are looking for
+	 * @return     True if the list contains the object in question and false otherwise.
+	 */
 	private boolean isInList(List<? extends RoomObject> objList, String objectName) {
 		for (RoomObject rObj : objList) {
 			if (rObj.name().equals(objectName)) {
@@ -240,6 +247,15 @@ public class Perspective {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Getter method for the contents list.
+	 * 
+	 * @return     The contents list (list of all RoomObjects in the Perspective).
+	 */
+	public List<RoomObject> contents() {
+		return contents;
 	}
 	
 	/**
