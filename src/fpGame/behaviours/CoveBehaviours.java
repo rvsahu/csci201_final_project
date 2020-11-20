@@ -33,4 +33,9 @@ import fpModel.DoorObject;
 
 public class CoveBehaviours {
 
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject c1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
