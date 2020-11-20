@@ -3,6 +3,7 @@ package fpGame.behaviours;
 //java imports
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 //javafx imports
 import javafx.event.EventHandler;
@@ -28,6 +29,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import fpGame.GameUtil;
 import fpModel.Perspective;
 import fpModel.Room;
+import fpModel.RoomObject;
 import fpModel.GenericObject;
 import fpModel.WrapperObject;
 import fpModel.InfoObject;
@@ -460,6 +462,25 @@ public class AnnexBehaviours {
 			
 		} catch (Exception e) {
 			System.err.println("Error loading PC border!");
+		}
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) {
+		DoorObject annexToMain = null;
+		
+		for (RoomObject r : objects) {
+			if (r.name().equals("Annex Computer 1")) {
+				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Main")) {
+				annexToMain = (DoorObject)r;
+				r.setBehaviour(doorMainBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex to Main Keypad")) {
+				
+			}
 		}
 	}
 }
