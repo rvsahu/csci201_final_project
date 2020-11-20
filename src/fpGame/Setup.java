@@ -723,7 +723,7 @@ public class Setup {
 	}
 	
 	
-	private static Room setupCove() { //RAHUL
+	private static Room setupCove() {
 		Room cove;
 		try {
 			cove = new Room("Cove", true, true, false, false);
