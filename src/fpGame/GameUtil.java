@@ -7,6 +7,8 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -244,9 +246,9 @@ public class GameUtil {
 		//create scene and scale the window if need be
 		Scene scene;
 		if (needsScaling) {
-			scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor, GameUtil.WINDOW_Y * GameUtil.scalingFactor);
+			scene = new Scene(pane, WINDOW_X * scalingFactor, WINDOW_Y * scalingFactor);
 		} else {
-			scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+			scene = new Scene(pane, WINDOW_X, WINDOW_Y);
 		}
 		//setup key response
 		EventHandler<KeyEvent> keyReleasedBehaviour = new EventHandler<KeyEvent>() {
@@ -266,6 +268,25 @@ public class GameUtil {
 		//set the scene
 		stage.setScene(scene);
 		//show stage
+		stage.show();
+	}
+	
+	public static void showLoadingScreen() {
+		//display loading screen
+		BorderPane pane = new BorderPane();
+		
+		Text text = new Text("Loading...");
+		text.setFill(Color.WHITE);
+		text.setFont(new Font(30));
+		pane.setStyle("-fx-background-color: #000000;");
+		
+		Scene loadScene;
+		if (needsScaling) {
+			loadScene = new Scene(pane, WINDOW_X * scalingFactor, WINDOW_Y * scalingFactor);
+		} else {
+			loadScene = new Scene(pane, WINDOW_X, WINDOW_Y);
+		}
+		stage.setScene(loadScene);
 		stage.show();
 	}
 }

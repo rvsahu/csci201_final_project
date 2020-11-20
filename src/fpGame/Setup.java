@@ -74,23 +74,7 @@ public class Setup {
 	};
 	*/
 	
-	public static void setupAll() { /* would return GameMap */
-		//display loading screen
-		BorderPane pane = new BorderPane();
-		Text text = new Text("Loading...");
-		text.setFill(Color.WHITE);
-		text.setFont(new Font(30));
-		pane.setStyle("-fx-background-color: #000000;");
-		Scene loadScene;
-		if (GameUtil.needsScaling()) {
-			loadScene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-					GameUtil.WINDOW_Y * GameUtil.scalingFactor());
-		} else {
-			loadScene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
-		}
-		GameUtil.stage().setScene(loadScene);
-		
-		//start actually loading
+	public static void setupAll() { 
 		Room annex = setupAnnex();
 		Room mainA = setupMainA();
 		Room mainB = setupMainB();
@@ -191,7 +175,7 @@ public class Setup {
 		
 		//computer 5 loads up an image of a cat 
 		InfoObject c5 = new InfoObject("Annex Computer 5");
-		c5.setFrontSpritePath(annexFolder + "front/layer2/mon5.png");
+		c5.setFrontSpritePath(annexFolder + "front/layer2/mon4.png");
 		c5.loadSprites();
 		c5.setBehaviour(AnnexBehaviours.annexComputer5Behaviour(c5));
 		annex.addInfoFront(c5);
