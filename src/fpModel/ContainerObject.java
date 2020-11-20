@@ -35,7 +35,7 @@ public class ContainerObject extends RoomObject {
 	}
 	
 	@Override public boolean hasItems() {
-		return (items == null || items.isEmpty());
+		return !(items == null || items.isEmpty());
 	}
 	
 	@Override public boolean hasInfo() {

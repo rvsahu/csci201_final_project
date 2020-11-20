@@ -39,14 +39,28 @@ public class Study3Behaviours {
 		return behaviour;
 	}
 
-	public static EventHandler<MouseEvent> tableBehaviour() {
+	public static EventHandler<MouseEvent> tableBehaviour(ContainerObject table) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
-				GameUtil.setMessage("It is an ordinary table. In the corner, you see a scribble that reads: ");
-				GameUtil.setMessage("I..... want...to go to sleep");
+				if (table.hasItems())
+				{
+					
+					int size = table.getItems().size();
+					GameUtil.setMessage("You searched the table and found 2 coins sitting on the corner!");
+					for (int i = 0; i < size; i++)
+					{
+						GameUtil.player().addToInventory(table.getItem(0));
+						table.removeItem(0);
+					}
+				}
+				else
+				{
+					GameUtil.setMessage("You searched the table but found nothing");
+				}
 			}
 		};
-			return behaviour;
+		
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> dustbinBehaviour() {
