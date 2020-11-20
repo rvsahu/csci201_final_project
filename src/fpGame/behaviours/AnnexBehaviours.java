@@ -31,9 +31,7 @@ import fpModel.Perspective;
 import fpModel.Room;
 import fpModel.RoomObject;
 import fpModel.GenericObject;
-import fpModel.WrapperObject;
 import fpModel.InfoObject;
-import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
 /**
@@ -216,7 +214,7 @@ public class AnnexBehaviours {
 			
 			public void handleSubmission(BooleanProperty gotPasscode, TextField text, Text output, BorderPane pane) {
 				if (text.getText().equals("Meow") || text.getText().equals("meow")) {
-					output.setText("The passcode to the door is 5417.");
+					output.setText("The passcode to the main door is 5417.");
 					gotPasscode.set(true);
 					if (c7.hasInfo()) {
 						GameUtil.player().addToLogbook(c7.getInfo());
@@ -248,14 +246,10 @@ public class AnnexBehaviours {
 	}
 	
 	
-	public static EventHandler<MouseEvent> keypadBehaviour(DoorObject d) {
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>()  
-		{
-			@Override public void handle(MouseEvent event) 
-			{
+	public static EventHandler<MouseEvent> keypadMainBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
-				
-				
 				TextField text = new TextField("Enter the passcode to escape this room.");
 				//pane.setCenter(text);
 				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
@@ -272,12 +266,10 @@ public class AnnexBehaviours {
 				box.setAlignment(Pos.CENTER);
 				pane.setCenter(box);
 				
-				//pane.setBottom(button);
-				
 				button.setOnAction(new EventHandler<ActionEvent>() { 
 					@Override public void handle(ActionEvent event) {
 						if (text.getText().compareTo("5417") == 0) {
-							output.setText("Correct Passcode -- Door unlocked!");
+							output.setText("Correct Passcode! Main door unlocked.");
 							d.unlock();
 						} else {
 							output.setText("Incorrect Passcode!");
@@ -286,8 +278,7 @@ public class AnnexBehaviours {
 					}
 				});
 
-				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
-				{
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
 					@Override public void handle(MouseEvent event) {
 						//return to gameplay
 						Room cR = GameUtil.player().currentRoom();
@@ -317,6 +308,69 @@ public class AnnexBehaviours {
 		
 		return behaviour;
 	}	
+	
+	public static EventHandler<MouseEvent> keypadStudyBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				TextField text = new TextField("Enter the passcode to escape this room.");
+				//pane.setCenter(text);
+				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
+				
+				Text output = new Text();
+				output.setFill(Color.WHITE);
+				output.setFont(new Font(20));
+				Button button = new Button("Submit");
+				button.setPrefSize(100, 50);
+				button.setFont(new Font(20));
+				
+				VBox box = new VBox(10);
+				box.getChildren().addAll(text, button);
+				box.setAlignment(Pos.CENTER);
+				pane.setCenter(box);
+				
+				button.setOnAction(new EventHandler<ActionEvent>() { 
+					@Override public void handle(ActionEvent event) {
+						if (text.getText().compareTo("0582") == 0) {
+							output.setText("Correct Passcode! SR4 Door unlocked.");
+							d.unlock();
+						} else {
+							output.setText("Incorrect Passcode!");
+						}
+						pane.setTop(output);
+					}
+				});
+
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+		        //exit when we click again
+				pane.setOnMouseClicked(exitBehaviour);
+				
+				pane.setStyle("-fx-background-color: #990000;");
+				
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+				}
+				
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		
+		return behaviour;
+	}
 	
 	public static EventHandler<MouseEvent> doorMainBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
@@ -391,7 +445,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The door to Study 4 is locked.");
+					GameUtil.setMessage("The door to Study 4 is locked. There is a keypad to the right.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().study4);
 					GameUtil.player().setCurrentPerspective(2);
@@ -474,8 +528,12 @@ public class AnnexBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//door - keypad pairs
 		DoorObject annexToMain = null;
 		GenericObject annexToMainKeypad = null;
+		
+		DoorObject annexToSR4 = null;
+		GenericObject annexToSR4Keypad = null;
 		
 		for (RoomObject r : objects) {
 			if (r.name().equals("Annex Computer 1")) {
@@ -512,11 +570,20 @@ public class AnnexBehaviours {
 			}
 			if (r.name().equals("Annex To Main")) {
 				if (annexToMainKeypad != null) {
-					annexToMainKeypad.setBehaviour(keypadBehaviour((DoorObject)r));
+					annexToMainKeypad.setBehaviour(keypadMainBehaviour((DoorObject)r));
 				} else {
 					annexToMain = (DoorObject)r;
 				}
 				r.setBehaviour(doorMainBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex To Study Room 4")) {
+				if (annexToSR4Keypad != null) {
+					annexToSR4Keypad.setBehaviour(keypadStudyBehaviour((DoorObject)r));
+				} else {
+					annexToSR4 = (DoorObject)r;
+				}
+				r.setBehaviour(doorStudy4Behaviour((DoorObject)r));
 				continue;
 			}
 			if (r.name().equals("Annex To Study Room 1")) {
@@ -544,7 +611,15 @@ public class AnnexBehaviours {
 					annexToMainKeypad = (GenericObject)r;
 					continue; 
 				}
-				r.setBehaviour(keypadBehaviour(annexToMain));
+				r.setBehaviour(keypadMainBehaviour(annexToMain));
+				continue;
+			}
+			if (r.name().equals("Annex to Study Room 4 Keypad")) {
+				if (annexToSR4 == null) {
+					annexToSR4Keypad = (GenericObject)r;
+					continue; 
+				}
+				r.setBehaviour(keypadStudyBehaviour(annexToSR4));
 				continue;
 			}
 			if (r.name().equals("Annex Projector")) {

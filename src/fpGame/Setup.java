@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 //javafx imports
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 
 //intraproject imports
 import fpModel.*;
@@ -235,7 +232,7 @@ public class Setup {
 		annexToMainKeypad.setLeftSpritePath(annexFolder + "left/layer1/keypad.png");
 		annexToMainKeypad.loadSprites();
 		//AnnexBehaviours.keypadBehavour IS supposed to take the door and not the keypad, it isn't a mistake.
-		annexToMainKeypad.setBehaviour(AnnexBehaviours.keypadBehaviour(annexToMain));
+		annexToMainKeypad.setBehaviour(AnnexBehaviours.keypadMainBehaviour(annexToMain));
 		annex.addGenericLeft(annexToMainKeypad);
 		annexToMainKeypad.setLayerLeft(1);
 		
@@ -272,6 +269,14 @@ public class Setup {
 		annexToStudy4.setBehaviour(AnnexBehaviours.doorStudy4Behaviour(annexToStudy4));
 		annex.addDoorBack(annexToStudy4);
 		annexToStudy4.setLayerBack(0);
+		annexToStudy4.lock();
+		
+		GenericObject annexToStudy4Keypad = new GenericObject("Annex to Study Room 4 Keypad");
+		annexToStudy4Keypad.setBackSpritePath(annexFolder + "back/layer0/keypad.png");
+		annexToStudy4Keypad.loadSprites();
+		annexToStudy4Keypad.setBehaviour(AnnexBehaviours.keypadStudyBehaviour(annexToStudy4));
+		annex.addGenericBack(annexToStudy4Keypad);
+		annexToStudy4Keypad.setLayerBack(0);
 		
 		DoorObject annexToCove = new DoorObject("Annex To Cove");
 		annexToCove.setBackSpritePath(annexFolder + "back/layer0/coveArrow.png");
@@ -518,7 +523,7 @@ public class Setup {
 		s1Table.setLayerLeft(0);
 		s1Table.setLayerRight(0);
 		
-		InfoObject hiddenMessage = new InfoObject("SR1 Hidden Message", "The passcode to study room 4 is 0582");
+		InfoObject hiddenMessage = new InfoObject("SR1 Hidden Message", "The passcode to Study Room 4 is 0582");
 		hiddenMessage.setRightSpritePath(study1folder + "right/layer0/message.png");
 		hiddenMessage.loadSprites();
 		hiddenMessage.setBehaviour(Study1Behaviours.messageBehaviour(hiddenMessage));
