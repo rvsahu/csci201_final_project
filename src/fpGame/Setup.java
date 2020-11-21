@@ -246,6 +246,7 @@ public class Setup {
 		annex.addDoorFront(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		annexToStudy1.setLayerFront(0);
+		annexToStudy1.lock("SR1 Key");
 		
 		//Door to study room 2
 		DoorObject annexToStudy2 = new DoorObject("Annex To Study Room 2");
@@ -378,9 +379,6 @@ public class Setup {
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
 		
-		InfoObject table = new InfoObject("Main A Table");
-		mainA.addInfoRight(table);
-		
 		//back
 		
 		
@@ -440,7 +438,7 @@ public class Setup {
 		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
 				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
 				+ " Hope I can pass this class!");
-		mainA.addInfoBack(notebook); //TODO finish notebook creation
+		mainC.addInfoBack(notebook); //TODO finish notebook creation
 		
 		return mainC;
 	}
