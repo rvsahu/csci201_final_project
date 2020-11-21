@@ -389,7 +389,7 @@ public class Setup {
 	}
 	
 	private static Room setupMainB() { //ERICA
-		String mainBFolder = "./graphics/game_graphics/rooms/mainB/";
+		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
 		
 		Room mainB = new Room("mainB");
 		
@@ -402,6 +402,22 @@ public class Setup {
 		mainB.setLayerBackgroundsRight(rightPaths);
 		mainB.setLayerBackgroundsBack(backPaths);
 		mainB.setLayerBackgroundsLeft(leftPaths);
+		
+		DoorObject mainAArrow = new DoorObject("Main B to Main A");
+		mainAArrow.setFrontSpritePath(mainBFolder + "front/layer0/MainB_arrow.png");
+		mainAArrow.setRightSpritePath(mainBFolder + "right/layer0/MainB_arrow.png");
+		mainAArrow.setBackSpritePath(mainBFolder + "back/layer0/MainB_arrow.png");
+		mainAArrow.setLeftSpritePath(mainBFolder + "left/layer0/MainB_arrow.png");
+		mainAArrow.loadSprites();
+		mainAArrow.setBehaviour(MainABehaviours.arrowBBehaviour(mainAArrow));
+		mainB.addDoorFront(mainAArrow);
+		mainB.addDoorRight(mainAArrow);
+		mainB.addDoorBack(mainAArrow);
+		mainB.addDoorLeft(mainAArrow);
+		mainAArrow.setLayerFront(0);
+		mainAArrow.setLayerRight(0);
+		mainAArrow.setLayerBack(0);
+		mainAArrow.setLayerLeft(0);
 		
 		GenericObject chair = new GenericObject("Main B Chair");
 		GenericObject couch = new GenericObject("Main B Couch");
