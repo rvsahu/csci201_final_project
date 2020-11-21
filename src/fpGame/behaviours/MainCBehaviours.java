@@ -100,7 +100,7 @@ public class MainCBehaviours {
 					GameUtil.setMessage("The door to Main D is locked. This shouldn't be possible.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainD);
-					GameUtil.player().setCurrentPerspective(3);
+					GameUtil.player().setCurrentPerspective(2);
 					GameUtil.displayPlayerView();
 				}
 			}

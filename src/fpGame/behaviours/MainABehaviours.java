@@ -16,22 +16,21 @@ public class MainABehaviours {
 	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {	
-				boolean keygiven = false;
-				boolean foodgiven = false;
 				Inventory inv = GameUtil.player().getInventory();
 				
 				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
 					GameUtil.setMessage("You already have bought the key from the vending machine.");
 					return;
-				} else {
+				} 
+				else {
 					GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
 					          + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).");
 				}
 				
-				if (inv.checkNumberOfItem("Quarter") >= 4 && keygiven == false) {
+				if (inv.checkNumberOfItem("Quarter") >= 4)
+				{
 					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
 							          + "The machine dispenses the key. You pick it up and add it to your inventory.");
-					keygiven = true;
 					int remover = 4;
 					for (int j = 0; j < inv.size(); j++) {
 						if (inv.getItem(j).name() == "Quarter") {
@@ -45,9 +44,8 @@ public class MainABehaviours {
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
 				}
 				
-				if (keygiven == true && foodgiven == false)
+				if (inv.checkNumberOfItem("Coffee") > 1 && inv.checkNumberOfItem("Lab 1 Key") > 1)
 				{
-					foodgiven = true;
 					GameUtil.setMessage("Out of frustration, you kicked the vending machine as hard as you can. \n"
 					          + "The machine dispenses chocolate and coffee");
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Coffee")));
@@ -149,7 +147,7 @@ public class MainABehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
-					GameUtil.setMessage("The door to Main B is locked. This shouldn't be possible.");
+					GameUtil.setMessage("The door to Main D is locked. This shouldn't be possible.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().mainD);
 					GameUtil.player().setCurrentPerspective(3);
