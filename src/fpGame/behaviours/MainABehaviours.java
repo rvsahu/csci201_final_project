@@ -6,6 +6,7 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 import fpModel.GenericObject;
 import fpModel.InfoObject;
+import fpModel.WrapperObject;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -107,7 +108,7 @@ public class MainABehaviours {
 					d.unlock();
 					GameUtil.setMessage("The door unlocked!");
 					GameUtil.player().setCurrentRoom(GameUtil.map().lab1);
-					GameUtil.player().setCurrentPerspective(1);
+					GameUtil.player().setCurrentPerspective((3));
 					GameUtil.displayPlayerView();
 				}
 				
@@ -126,11 +127,48 @@ public class MainABehaviours {
 		{
 			@Override public void handle(MouseEvent event) {
 				GameUtil.player().setCurrentRoom(GameUtil.map().annex);
-				GameUtil.player().setCurrentPerspective(3);
+				GameUtil.player().setCurrentPerspective(1);
 				GameUtil.displayPlayerView();
 			}
 		};
 		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> arrowBBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Main A is locked. This shouldn't be possible.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainB);
+					GameUtil.player().setCurrentPerspective(0);
+					GameUtil.displayPlayerView();
+				}
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> arrowDBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Main B is locked. This shouldn't be possible.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainD);
+					GameUtil.player().setCurrentPerspective(3);
+					GameUtil.displayPlayerView();
+				}
+			}
+		};
+		
+		return behaviour;
+	}
+
+	public static EventHandler<MouseEvent> keyBehaviour(WrapperObject keyWrapper) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

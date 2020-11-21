@@ -937,7 +937,7 @@ public class Setup {
 		
 		//CP cp = new CP();
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
-		labCP.
+		//labCP.
 		//Lab1.addToLeft(cp);
 		InfoObject computer1 = new InfoObject("Lab 1 Computer");
 		lab1.addInfoLeft(computer1); //new 
