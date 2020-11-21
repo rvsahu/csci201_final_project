@@ -459,6 +459,38 @@ public class Setup {
 		mainC.setLayerBackgroundsBack(backPaths);
 		mainC.setLayerBackgroundsLeft(leftPaths);
 		
+		DoorObject mainBArrow = new DoorObject("Main C to Main B");
+		mainBArrow.setFrontSpritePath(mainCFolder + "front/layer0/MainB_arrow.png");
+		mainBArrow.setRightSpritePath(mainCFolder + "right/layer0/MainB_arrow.png");
+		mainBArrow.setBackSpritePath(mainCFolder + "back/layer0/MainB_arrow.png");
+		mainBArrow.setLeftSpritePath(mainCFolder + "left/layer0/MainB_arrow.png");
+		mainBArrow.loadSprites();
+		mainBArrow.setBehaviour(MainCBehaviours.arrowBBehaviour(mainBArrow));
+		mainC.addDoorFront(mainBArrow);
+		mainC.addDoorRight(mainBArrow);
+		mainC.addDoorBack(mainBArrow);
+		mainC.addDoorLeft(mainBArrow);
+		mainBArrow.setLayerFront(0);
+		mainBArrow.setLayerRight(0);
+		mainBArrow.setLayerBack(0);
+		mainBArrow.setLayerLeft(0);
+		
+		DoorObject mainDArrow = new DoorObject("Main C to Main D");
+		mainDArrow.setFrontSpritePath(mainCFolder + "front/layer0/mainD_arrow.png");
+		mainDArrow.setRightSpritePath(mainCFolder + "right/layer0/mainD_arrow.png");
+		mainDArrow.setBackSpritePath(mainCFolder + "back/layer0/mainD_arrow.png");
+		mainDArrow.setLeftSpritePath(mainCFolder + "left/layer0/mainD_arrow.png");
+		mainDArrow.loadSprites();
+		mainDArrow.setBehaviour(MainCBehaviours.arrowDBehaviour(mainDArrow));
+		mainC.addDoorFront(mainDArrow);
+		mainC.addDoorRight(mainDArrow);
+		mainC.addDoorBack(mainDArrow);
+		mainC.addDoorLeft(mainDArrow);
+		mainDArrow.setLayerFront(0);
+		mainDArrow.setLayerRight(0);
+		mainDArrow.setLayerBack(0);
+		mainDArrow.setLayerLeft(0);
+		
 		DoorObject d1 = new DoorObject("MainC to Front Door");
 		d1.setLeftSpritePath(mainCFolder + "left/layer0/frontDoor.png");
 		d1.setFrontSpritePath(mainCFolder + "front/layer0/FrontDoor.png");
@@ -492,6 +524,38 @@ public class Setup {
 		mainD.setLayerBackgroundsRight(rightPaths);
 		mainD.setLayerBackgroundsBack(backPaths);
 		mainD.setLayerBackgroundsLeft(leftPaths);
+		
+		DoorObject mainAArrow = new DoorObject("Main D to Main A");
+		mainAArrow.setFrontSpritePath(mainDFolder + "front/layer0/MainA_arrow.png");
+		mainAArrow.setRightSpritePath(mainDFolder + "right/layer0/MainA_arrow.png");
+		mainAArrow.setBackSpritePath(mainDFolder + "back/layer0/MainA_arrow.png");
+		mainAArrow.setLeftSpritePath(mainDFolder + "left/layer0/MainA_arrow.png");
+		mainAArrow.loadSprites();
+		mainAArrow.setBehaviour(MainDBehaviours.arrowABehaviour(mainAArrow));
+		mainD.addDoorFront(mainAArrow);
+		mainD.addDoorRight(mainAArrow);
+		mainD.addDoorBack(mainAArrow);
+		mainD.addDoorLeft(mainAArrow);
+		mainAArrow.setLayerFront(0);
+		mainAArrow.setLayerRight(0);
+		mainAArrow.setLayerBack(0);
+		mainAArrow.setLayerLeft(0);
+		
+		DoorObject mainCArrow = new DoorObject("Main D to Main C");
+		mainCArrow.setFrontSpritePath(mainDFolder + "front/layer0/MainA_arrow.png");
+		mainCArrow.setRightSpritePath(mainDFolder + "right/layer0/MainA_arrow.png");
+		mainCArrow.setBackSpritePath(mainDFolder + "back/layer0/MainA_arrow.png");
+		mainCArrow.setLeftSpritePath(mainDFolder + "left/layer0/MainA_arrow.png");
+		mainCArrow.loadSprites();
+		mainCArrow.setBehaviour(MainDBehaviours.arrowABehaviour(mainCArrow));
+		mainD.addDoorFront(mainCArrow);
+		mainD.addDoorRight(mainCArrow);
+		mainD.addDoorBack(mainCArrow);
+		mainD.addDoorLeft(mainCArrow);
+		mainCArrow.setLayerFront(0);
+		mainCArrow.setLayerRight(0);
+		mainCArrow.setLayerBack(0);
+		mainCArrow.setLayerLeft(0);
 		
 		//Vending Machine
 		ContainerObject vm1 = new ContainerObject("MainD Vending Machine"); //TODO implement vending machine behaviour
