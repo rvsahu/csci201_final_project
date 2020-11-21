@@ -404,12 +404,12 @@ public class Setup {
 		mainB.setLayerBackgroundsLeft(leftPaths);
 		
 		DoorObject mainAArrow = new DoorObject("Main B to Main A");
-		mainAArrow.setFrontSpritePath(mainBFolder + "front/layer0/MainB_arrow.png");
-		mainAArrow.setRightSpritePath(mainBFolder + "right/layer0/MainB_arrow.png");
-		mainAArrow.setBackSpritePath(mainBFolder + "back/layer0/MainB_arrow.png");
-		mainAArrow.setLeftSpritePath(mainBFolder + "left/layer0/MainB_arrow.png");
+		mainAArrow.setFrontSpritePath(mainBFolder + "front/layer0/MainA_arrow.png");
+		mainAArrow.setRightSpritePath(mainBFolder + "right/layer0/MainA_arrow.png");
+		mainAArrow.setBackSpritePath(mainBFolder + "back/layer0/MainA_arrow.png");
+		mainAArrow.setLeftSpritePath(mainBFolder + "left/layer0/MainA_arrow.png");
 		mainAArrow.loadSprites();
-		mainAArrow.setBehaviour(MainABehaviours.arrowBBehaviour(mainAArrow));
+		mainAArrow.setBehaviour(MainBBehaviours.arrowABehaviour(mainAArrow));
 		mainB.addDoorFront(mainAArrow);
 		mainB.addDoorRight(mainAArrow);
 		mainB.addDoorBack(mainAArrow);
@@ -418,6 +418,22 @@ public class Setup {
 		mainAArrow.setLayerRight(0);
 		mainAArrow.setLayerBack(0);
 		mainAArrow.setLayerLeft(0);
+		
+		DoorObject mainCArrow = new DoorObject("Main B to Main C");
+		mainCArrow.setFrontSpritePath(mainBFolder + "front/layer0/MainC_arrow.png");
+		mainCArrow.setRightSpritePath(mainBFolder + "right/layer0/MainC_arrow.png");
+		mainCArrow.setBackSpritePath(mainBFolder + "back/layer0/MainC_arrow.png");
+		mainCArrow.setLeftSpritePath(mainBFolder + "left/layer0/MainC_arrow.png");
+		mainCArrow.loadSprites();
+		mainCArrow.setBehaviour(MainBBehaviours.arrowABehaviour(mainAArrow));
+		mainB.addDoorFront(mainCArrow);
+		mainB.addDoorRight(mainCArrow);
+		mainB.addDoorBack(mainCArrow);
+		mainB.addDoorLeft(mainCArrow);
+		mainCArrow.setLayerFront(0);
+		mainCArrow.setLayerRight(0);
+		mainCArrow.setLayerBack(0);
+		mainCArrow.setLayerLeft(0);
 		
 		GenericObject chair = new GenericObject("Main B Chair");
 		GenericObject couch = new GenericObject("Main B Couch");
