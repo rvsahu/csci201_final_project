@@ -465,7 +465,7 @@ public class AnnexBehaviours {
 					GameUtil.setMessage("The door to the cove is locked. This shouldn't be possible.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().cove);
-					GameUtil.player().setCurrentPerspective(1);
+					GameUtil.player().setCurrentPerspective(0);
 					GameUtil.displayPlayerView();
 				}
 				
