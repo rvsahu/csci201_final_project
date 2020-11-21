@@ -393,8 +393,11 @@ public class AnnexBehaviours {
 	public static EventHandler<MouseEvent> doorStudy1Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				if(d.isLocked()) {
-					GameUtil.setMessage("The door to Study 1 is locked.");
+				if (d.isLocked() && GameUtil.player().getInventory().checkNumberOfItem("SR1 Key") > 0) {
+					d.unlock(GameUtil.player().getInventory().getItem("SR1 Key"));
+					GameUtil.setMessage("You use the key you found to unlock the study door.");
+				} else if (d.isLocked()) {
+					GameUtil.setMessage("The door to Study 1 is locked. You need the key to open the room.");
 				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().study1);
 					GameUtil.player().setCurrentPerspective(1);

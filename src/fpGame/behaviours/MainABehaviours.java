@@ -15,25 +15,20 @@ public class MainABehaviours {
 	
 	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) 
-			{	
-				Boolean keygiven = false;
-				Boolean foodgiven = false;
+			@Override public void handle(MouseEvent event) {	
+				boolean keygiven = false;
+				boolean foodgiven = false;
 				Inventory inv = GameUtil.player().getInventory();
 				
-				if (inv.checkNumberOfItem("Lab 1 Key") > 0)
-				{
+				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
 					GameUtil.setMessage("You already have bought the key from the vending machine.");
 					return;
-				}
-				else 
-				{
+				} else {
 					GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
 					          + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).");
 				}
 				
-				if (inv.checkNumberOfItem("Quarter") >= 4 && keygiven == false)
-				{
+				if (inv.checkNumberOfItem("Quarter") >= 4 && keygiven == false) {
 					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
 							          + "The machine dispenses the key. You pick it up and add it to your inventory.");
 					keygiven = true;
@@ -167,8 +162,20 @@ public class MainABehaviours {
 	}
 
 	public static EventHandler<MouseEvent> keyBehaviour(WrapperObject keyWrapper) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if (keyWrapper.isHidden()) {
+					//do nothing
+				} else {
+					String itemName = keyWrapper.peekItem().name();
+					GameUtil.player().getInventory().addItem(keyWrapper.removeItem()); //wrapper automatically hides itself
+					GameUtil.displayPlayerView();
+					GameUtil.setMessage("You picked up the " + itemName + "!");
+				}
+			}
+		};
+		
+		return behaviour;
 	}
 	
 }
