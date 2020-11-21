@@ -350,7 +350,6 @@ public class Setup {
 		mainDArrow.setLayerBack(0);
 		mainDArrow.setLayerLeft(0);
 		
-		
 		Item study1Key = new Item("SR1 Key");
 		WrapperObject keyWrapper = new WrapperObject("Study 1 Key", study1Key);
 		keyWrapper.setFrontSpritePath(mainAFolder + "front/layer0/key.png");
@@ -375,16 +374,17 @@ public class Setup {
 		ContainerObject vendingMachine = new ContainerObject("Vending Machine", vendingItems);
 		vendingMachine.setBackSpritePath(mainAFolder + "back/layer0/vending.png");
 		vendingMachine.setLeftSpritePath(mainAFolder + "left/layer0/vending.png");
+		vendingMachine.loadSprites();
+		mainA.addContainerBack(vendingMachine);
+		mainA.addContainerLeft(vendingMachine);
+		vendingMachine.setLayerBack(0);
+		vendingMachine.setLayerLeft(0);
 		
+		/*
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
+		*/
 		
-		//back
-		
-		
-		
-		//left
-		//add a doorway
 		return mainA;
 	}
 	
@@ -629,8 +629,8 @@ public class Setup {
 		
 		//add couch
 		List<Item> coins = new ArrayList<Item>();
-		coins.add(new Item("Coin"));
-		coins.add(new Item("Coin"));
+		coins.add(new Item("Quarter"));
+		coins.add(new Item("Quarter"));
 		ContainerObject s2Couch = new ContainerObject("SR2 Couch", coins);
 		s2Couch.setLeftSpritePath(study2folder + "left/layer0/couch.png");
 		s2Couch.setRightSpritePath(study2folder + "right/layer0/couch.png");
@@ -731,8 +731,8 @@ public class Setup {
 		
 		//add table
 		List<Item> coins = new ArrayList<Item>();
-		coins.add(new Item("Coin"));
-		coins.add(new Item("Coin"));
+		coins.add(new Item("Quarter"));
+		coins.add(new Item("Quarter"));
 		ContainerObject s3Table = new ContainerObject("SR3 Table", coins);
 		s3Table.setFrontSpritePath(study3folder + "front/layer0/table.png");
 		s3Table.setBackSpritePath(study3folder + "back/layer0/table.png");
