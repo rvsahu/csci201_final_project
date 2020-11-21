@@ -389,7 +389,7 @@ public class Setup {
 	}
 	
 	private static Room setupMainB() { //ERICA
-		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
+		String mainBFolder = "./graphics/game_graphics/rooms/mainB/";
 		
 		Room mainB = new Room("mainB");
 		

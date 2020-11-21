@@ -57,6 +57,7 @@ public class DoorObject extends RoomObject {
 		if (isLocked)
 			return;
 		mKey = keyName;
+		isLocked = true;
 	}
 	
 	/**
