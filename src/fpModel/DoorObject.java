@@ -49,13 +49,23 @@ public class DoorObject extends RoomObject {
 	}
 	
 	/**
+	 * Locks a door with the name of an item (meant to be a key), but does nothing if the door is already locked.
+	 * 
+	 * @param keyName  The name of the key being used to lock the door.
+	 */
+	public void lock(String keyName) {
+		if (isLocked)
+			return;
+		mKey = keyName;
+	}
+	
+	/**
 	 * Returns if the door is locked or not.
 	 * @return     True if the door is locked and false otherwise.
 	 */
 	public boolean isLocked() {
 		return this.isLocked;
 	}
-	
 	
 
 	@Override public boolean wrapsItem() {

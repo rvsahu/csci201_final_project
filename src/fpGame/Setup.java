@@ -132,7 +132,7 @@ public class Setup {
 		String rightPaths[] = {annexFolder +  "right/layer0/annex_right_0.png", annexFolder +  "right/layer1/annex_right_1.png", 
 				annexFolder + "right/layer2/annex_right_2.png"};
 		
-		String backPaths[] = {annexFolder +  "back/layer0/Annex_back_0.png"};
+		String backPaths[] = {annexFolder +  "back/layer0/annex_back_0.png"};
 		
 		String leftPaths[] = {annexFolder +  "left/layer0/annex_left_0.png", annexFolder + "left/layer1/annex_left_1.png"};
 
@@ -300,24 +300,52 @@ public class Setup {
 		String frontPaths[] = {mainAFolder  + "front/layer0/mainA_front_0.png"};
 		String rightPaths[] = {mainAFolder +  "right/layer0/mainA_right_0.png"};
 		String backPaths[] = {mainAFolder+  "back/layer0/mainA_back_0.png"};
-		String leftPaths[] = {mainAFolder +  "left/layer0/mainA_left_0.png"};
+		String leftPaths[] = {mainAFolder +  "left/layer0/mainA_left_0.png", mainAFolder + "left/layer1/mainA_left_1.png"};
 
 		mainA.setLayerBackgroundsFront(frontPaths);
 		mainA.setLayerBackgroundsRight(rightPaths);
 		mainA.setLayerBackgroundsBack(backPaths);
 		mainA.setLayerBackgroundsLeft(leftPaths);
 		
-		DoorObject mainAToAnnex = new DoorObject("Main A To Annex");
-		GenericObject dustbin1 = new GenericObject("Main A Dustbin1");
-		GenericObject dustbin2 = new GenericObject("Main A Dustbin2");
-		GenericObject keypad = new GenericObject("Main A Keypad");
-		GenericObject lightswitch = new GenericObject("Main A Lightswitch");
-		//DoorObject Lab1Door = new DoorObject("Main A To Lab1");
-		//GenericObject Lab1Keypad = new GenericObject("Lab1 Keypad");
-		ContainerObject VendingMachine = new ContainerObject("Vending Machine");
+		DoorObject mainToAnnex = new DoorObject("Main To Annex");
+		mainToAnnex.setRightSpritePath(mainAFolder + "right/layer0/annexDoor.png");
+		mainToAnnex.setBackSpritePath(mainAFolder + "back/layer0/annexDoor.png");
+		mainToAnnex.loadSprites();
+		mainToAnnex.setBehaviour(MainABehaviours.doorAnnexBehaviour(mainToAnnex));
+		mainA.addDoorRight(mainToAnnex);
+		mainA.addDoorBack(mainToAnnex);
+		mainToAnnex.setLayerBack(0);
+		mainToAnnex.setLayerRight(0);
+		
+		Item study1Key = new Item("SR1 Key");
+		WrapperObject keyWrapper = new WrapperObject("Study 1 Key", study1Key);
+		keyWrapper.setFrontSpritePath(mainAFolder + "front/layer0/key.png");
+		keyWrapper.setRightSpritePath(mainAFolder + "right/layer0/key.png");
+		keyWrapper.setBackSpritePath(mainAFolder + "back/layer0/key.png");
+		keyWrapper.setLeftSpritePath(mainAFolder + "left/layer0/key.png");
+		keyWrapper.loadSprites();
+		keyWrapper.setBehaviour(MainABehaviours.keyBehaviour(keyWrapper));
+		mainA.addWrapperFront(keyWrapper);
+		mainA.addWrapperRight(keyWrapper);
+		mainA.addWrapperBack(keyWrapper);
+		mainA.addWrapperLeft(keyWrapper);
+		keyWrapper.setLayerFront(0);
+		keyWrapper.setLayerRight(0);
+		keyWrapper.setLayerBack(0);
+		keyWrapper.setLayerLeft(0);
+		
+		List<Item> vendingItems = new ArrayList<Item>();
+		vendingItems.add(new Item("Lab 1 Key"));
+		vendingItems.add(new Item("Chocolate"));
+		vendingItems.add(new Item("Coffee"));
+		ContainerObject vendingMachine = new ContainerObject("Vending Machine", vendingItems);
+		vendingMachine.setBackSpritePath(mainAFolder + "back/layer0/vending.png");
+		vendingMachine.setLeftSpritePath(mainAFolder + "left/layer0/vending.png");
+		
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
-		InfoObject table = new InfoObject();
+		
+		InfoObject table = new InfoObject("Main A Table");
 		mainA.addInfoRight(table);
 		
 		//back
@@ -895,7 +923,10 @@ public class Setup {
 	}
 	
 	private static Room setupLab1() { //ERICA
-		Room Lab1 = new Room("lab1");
+		String labPath = "./graphics/game_graphics/rooms/lab1/";
+		
+		Room lab1 = new Room("lab1");
+		
 		
 		//F
 		//R
@@ -905,31 +936,37 @@ public class Setup {
 		//L
 		
 		//CP cp = new CP();
+		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
+		labCP.
 		//Lab1.addToLeft(cp);
 		InfoObject computer1 = new InfoObject("Lab 1 Computer");
-		Lab1.addInfoLeft(computer1); //new 
+		lab1.addInfoLeft(computer1); //new 
 		
 		
-		return Lab1;
+		return lab1;
 	}
 	
-	private static Room setupHallway1() { //PATRICK
+	/*
+	 * Below are unfortunately unimplemented
+	 */
+	
+	private static Room setupHallway1() {
 		Room ret = new Room("hallway1");
 		return ret;
 	}
 	
-	private static Room setupHallway2() { //RAHUL
+	private static Room setupHallway2() {
 		Room room = new Room("hallway2");
 		return room;
 	}
 	
-	private static Room setupMensRoom() { //ERICA
+	private static Room setupMensRoom() { 
 		Room ret = new Room("mensRoom");
 		
 		return ret;
 	}
 	
-	private static Room setupWomensRoom() { //PATRICK
+	private static Room setupWomensRoom() { 
 		Room ret = new Room("womensRoom");
 		return ret;
 	}
