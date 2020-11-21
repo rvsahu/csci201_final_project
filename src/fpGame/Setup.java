@@ -317,6 +317,39 @@ public class Setup {
 		mainToAnnex.setLayerBack(0);
 		mainToAnnex.setLayerRight(0);
 		
+		DoorObject mainBArrow = new DoorObject("Main A to Main B");
+		mainBArrow.setFrontSpritePath(mainAFolder + "front/layer0/MainB_arrow.png");
+		mainBArrow.setRightSpritePath(mainAFolder + "right/layer0/MainB_arrow.png");
+		mainBArrow.setBackSpritePath(mainAFolder + "back/layer0/MainB_arrow.png");
+		mainBArrow.setLeftSpritePath(mainAFolder + "left/layer0/MainB_arrow.png");
+		mainBArrow.loadSprites();
+		mainBArrow.setBehaviour(MainABehaviours.arrowBBehaviour(mainBArrow));
+		mainA.addDoorFront(mainBArrow);
+		mainA.addDoorRight(mainBArrow);
+		mainA.addDoorBack(mainBArrow);
+		mainA.addDoorLeft(mainBArrow);
+		mainBArrow.setLayerFront(0);
+		mainBArrow.setLayerRight(0);
+		mainBArrow.setLayerBack(0);
+		mainBArrow.setLayerLeft(0);
+		
+		DoorObject mainDArrow = new DoorObject("Main A to Main D");
+		mainDArrow.setFrontSpritePath(mainAFolder + "front/layer0/MainD_arrow.png");
+		mainDArrow.setRightSpritePath(mainAFolder + "right/layer0/MainD_arrow.png");
+		mainDArrow.setBackSpritePath(mainAFolder + "back/layer0/MainD_arrow.png");
+		mainDArrow.setLeftSpritePath(mainAFolder + "left/layer0/MainD_arrow.png");
+		mainDArrow.loadSprites();
+		mainDArrow.setBehaviour(MainABehaviours.arrowDBehaviour(mainDArrow));
+		mainA.addDoorFront(mainDArrow);
+		mainA.addDoorRight(mainDArrow);
+		mainA.addDoorBack(mainDArrow);
+		mainA.addDoorLeft(mainDArrow);
+		mainDArrow.setLayerFront(0);
+		mainDArrow.setLayerRight(0);
+		mainDArrow.setLayerBack(0);
+		mainDArrow.setLayerLeft(0);
+		
+		
 		Item study1Key = new Item("SR1 Key");
 		WrapperObject keyWrapper = new WrapperObject("Study 1 Key", study1Key);
 		keyWrapper.setFrontSpritePath(mainAFolder + "front/layer0/key.png");
@@ -349,13 +382,7 @@ public class Setup {
 		mainA.addInfoRight(table);
 		
 		//back
-		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
-				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
-				+ " Hope I can pass this class!");
-		mainA.addInfoBack(notebook); //TODO finish notebook creation
 		
-		WrapperObject lab1key = new WrapperObject("Study 1 Key Object", new Item("Study 1 Key"));
-		mainA.addWrapperBack(lab1key); //TODO finish key creation
 		
 		
 		//left
@@ -409,6 +436,11 @@ public class Setup {
 		//d1.setBehaviour(behaviour);
 		mainC.addDoorLeft(d1);
 		mainC.addDoorFront(d1);
+		
+		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
+				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
+				+ " Hope I can pass this class!");
+		mainA.addInfoBack(notebook); //TODO finish notebook creation
 		
 		return mainC;
 	}
