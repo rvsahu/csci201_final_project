@@ -318,7 +318,7 @@ public class Setup {
 		mainToAnnex.setLayerBack(0);
 		mainToAnnex.setLayerRight(0);
 		
-		DoorObject mainBArrow = new DoorObject("Main A to Main B");
+		DoorObject mainBArrow = new DoorObject("Main A To Main B");
 		mainBArrow.setFrontSpritePath(mainAFolder + "front/layer0/MainB_arrow.png");
 		mainBArrow.setRightSpritePath(mainAFolder + "right/layer0/MainB_arrow.png");
 		mainBArrow.setBackSpritePath(mainAFolder + "back/layer0/MainB_arrow.png");
@@ -334,7 +334,7 @@ public class Setup {
 		mainBArrow.setLayerBack(0);
 		mainBArrow.setLayerLeft(0);
 		
-		DoorObject mainDArrow = new DoorObject("Main A to Main D");
+		DoorObject mainDArrow = new DoorObject("Main A To Main D");
 		mainDArrow.setFrontSpritePath(mainAFolder + "front/layer0/MainD_arrow.png");
 		mainDArrow.setRightSpritePath(mainAFolder + "right/layer0/MainD_arrow.png");
 		mainDArrow.setBackSpritePath(mainAFolder + "back/layer0/MainD_arrow.png");
@@ -499,10 +499,15 @@ public class Setup {
 		mainC.addDoorLeft(d1);
 		mainC.addDoorFront(d1);
 		
-		InfoObject notebook = new InfoObject("I am so over this programming assignment. I'm getting a bit hungry!"
-				+ "I will grab some of the coins I hid in the study room  and grab some snacks."
-				+ " Hope I can pass this class!");
-		mainC.addInfoBack(notebook); //TODO finish notebook creation
+		InfoObject notebook = new InfoObject("Main C Notebook", "There is change hidden in the study rooms.");
+		notebook.setRightSpritePath(mainCFolder + "right/layer0/notebook.png");
+		notebook.setBackSpritePath(mainCFolder + "back/layer0/notebook.png");
+		notebook.loadSprites();
+		notebook.setBehaviour(MainCBehaviours.notebookBehaviour(notebook));
+		mainC.addInfoRight(notebook);
+		mainC.addInfoBack(notebook);
+		notebook.setLayerRight(0);
+		notebook.setLayerBack(0);
 		
 		return mainC;
 	}

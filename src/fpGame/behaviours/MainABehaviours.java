@@ -1,18 +1,21 @@
 package fpGame.behaviours;
 
+//java imports
+import java.util.List;
+
+//intraproject imports
 import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.ContainerObject;
 import fpModel.DoorObject;
-import fpModel.GenericObject;
-import fpModel.InfoObject;
 import fpModel.WrapperObject;
+import fpModel.RoomObject;
+
+//javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class MainABehaviours {
-
-	
 	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {	
@@ -176,4 +179,21 @@ public class MainABehaviours {
 		return behaviour;
 	}
 	
+	public static void addBehaviours(List<RoomObject> objects) {
+		
+		for (RoomObject r : objects) {
+			if (r.name().equals("Main To Annex")) {
+				r.setBehaviour(doorAnnexBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main To Annex")) {
+				r.setBehaviour(doorAnnexBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main To Annex")) {
+				r.setBehaviour(doorAnnexBehaviour((DoorObject)r));
+				continue;
+			}
+		}
+	}
 }
