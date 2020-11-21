@@ -13,7 +13,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class MainDBehaviours {
-	/*
+
 	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
@@ -44,7 +44,7 @@ public class MainDBehaviours {
 		};
 		return behaviour;
 	}
-	*/
+	
 
 
 	public static EventHandler<MouseEvent> Lab1DoorBehaviour(DoorObject d) 
@@ -107,6 +107,38 @@ public class MainDBehaviours {
 			{
 				GameUtil.setMessage("The dustbin is empty");
 			};
+		};
+		return behaviour;
+	}
+	
+	
+	public static EventHandler<MouseEvent> arrowABehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Main A is locked. This shouldn't be possible.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainA);
+					GameUtil.player().setCurrentPerspective(1);
+					GameUtil.displayPlayerView();
+				}
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> arrowDBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door to Main C is locked. This shouldn't be possible.");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainC);
+					GameUtil.player().setCurrentPerspective(0);
+					GameUtil.displayPlayerView();
+				}
+			}
 		};
 		return behaviour;
 	}
