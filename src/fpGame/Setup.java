@@ -389,7 +389,7 @@ public class Setup {
 	}
 	
 	private static Room setupMainB() { //ERICA
-		String mainBFolder = "./graphics/game_graphics/rooms/mainB";
+		String mainBFolder = "./graphics/game_graphics/rooms/mainB/";
 		
 		Room mainB = new Room("mainB");
 		
@@ -425,7 +425,7 @@ public class Setup {
 		mainCArrow.setBackSpritePath(mainBFolder + "back/layer0/MainC_arrow.png");
 		mainCArrow.setLeftSpritePath(mainBFolder + "left/layer0/MainC_arrow.png");
 		mainCArrow.loadSprites();
-		mainCArrow.setBehaviour(MainBBehaviours.arrowABehaviour(mainAArrow));
+		mainCArrow.setBehaviour(MainBBehaviours.arrowCBehaviour(mainCArrow));
 		mainB.addDoorFront(mainCArrow);
 		mainB.addDoorRight(mainCArrow);
 		mainB.addDoorBack(mainCArrow);
@@ -542,10 +542,10 @@ public class Setup {
 		mainAArrow.setLayerLeft(0);
 		
 		DoorObject mainCArrow = new DoorObject("Main D to Main C");
-		mainCArrow.setFrontSpritePath(mainDFolder + "front/layer0/MainA_arrow.png");
-		mainCArrow.setRightSpritePath(mainDFolder + "right/layer0/MainA_arrow.png");
-		mainCArrow.setBackSpritePath(mainDFolder + "back/layer0/MainA_arrow.png");
-		mainCArrow.setLeftSpritePath(mainDFolder + "left/layer0/MainA_arrow.png");
+		mainCArrow.setFrontSpritePath(mainDFolder + "front/layer0/MainC_arrow.png");
+		mainCArrow.setRightSpritePath(mainDFolder + "right/layer0/MainC_arrow.png");
+		mainCArrow.setBackSpritePath(mainDFolder + "back/layer0/MainC_arrow.png");
+		mainCArrow.setLeftSpritePath(mainDFolder + "left/layer0/MainC_arrow.png");
 		mainCArrow.loadSprites();
 		mainCArrow.setBehaviour(MainDBehaviours.arrowABehaviour(mainCArrow));
 		mainD.addDoorFront(mainCArrow);

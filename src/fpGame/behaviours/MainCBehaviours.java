@@ -108,5 +108,15 @@ public class MainCBehaviours {
 		return behaviour;
 	}
 	
-	
+	public static EventHandler<MouseEvent> notebookBehaviour() {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+					GameUtil.setMessage(" “I am so over this programming assignment. \n "
+							+ "I’m getting a bit hungry! \n "
+							+ "I will grab some of the coins I hid in the study room and grab some snacks. \n"
+							+ "Hope I can pass this class!”");
+			}
+		};
+		return behaviour;
+	}
 }

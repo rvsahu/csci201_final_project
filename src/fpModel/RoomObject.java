@@ -378,6 +378,7 @@ public abstract class RoomObject {
 			} catch (Exception e) {
 				backSprite = null;
 				System.err.println("Error loading back sprite for " + name);
+				e.printStackTrace();
 			}
 		}
 		if (leftSpritePath != null) {
