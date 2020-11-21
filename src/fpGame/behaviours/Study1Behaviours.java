@@ -8,7 +8,6 @@ import java.util.List;
 
 //intraproject imports
 import fpGame.GameUtil;
-
 import fpModel.DoorObject;
 import fpModel.GenericObject;
 import fpModel.ContainerObject;
@@ -47,10 +46,17 @@ public class Study1Behaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if (s1Table.hasItems()) {
-					// Add as many items to inventory as possible
-					GameUtil.player().getInventory().addItems(s1Table.getItems());
+					GameUtil.setMessage("You picked up some items from the table.");
+					for (int i = s1Table.getItems().size() - 1; i >= 0; i -= 1) {
+						boolean added = GameUtil.player().getInventory().addItem(s1Table.getItem(i));
+						if (!added) {
+							break;
+						}
+						s1Table.removeItem(i);
+					}
+				} else {
+					GameUtil.setMessage("You searched the table but found nothing.");
 				}
-				GameUtil.setMessage("You searched the table but found nothing.");
 			}
 		};
 		

@@ -789,27 +789,33 @@ public class Setup {
 		String coveFolder = "./graphics/game_graphics/rooms/cove/";
 		
 		String[] frontPaths = {coveFolder + "front/layer0/cove_front_0.png"};
-		String[] rightPaths = {coveFolder + "right/layer0/cove_right_0.png"};
 		
 		cove.setLayerBackgroundsFront(frontPaths);
-		cove.setLayerBackgroundsRight(rightPaths);
 		
 		
 		//cove graphics
 		
+		//door out
+		DoorObject coveToAnnex = new DoorObject("Cove To Annex");
+		coveToAnnex.setFrontSpritePath(coveFolder + "front/layer0/arrowAnnex.png");
+		coveToAnnex.loadSprites();
+		coveToAnnex.setBehaviour(CoveBehaviours.doorOutBehaviour(coveToAnnex));
+		cove.addDoorFront(coveToAnnex);
+		coveToAnnex.setLayerFront(0);
+		
 		//couch1
-		GenericObject c1 = new GenericObject("Cove Couch 1");
+		GenericObject c1 = new GenericObject("Cove Blue Coach");
 		c1.setFrontSpritePath(coveFolder + "front/layer0/blueCouch.png");
 		c1.loadSprites();
-		c1.setBehaviour(CoveBehaviours.couchBehaviour(c1));
+		c1.setBehaviour(CoveBehaviours.couchGenericBehaviour(c1));
 		cove.addGenericFront(c1);
 		c1.setLayerFront(0);
 		
 		//couch2
-		GenericObject c2 = new GenericObject("Cove Couch 2");
+		GenericObject c2 = new GenericObject("Cove Couch 1");
 		c2.setFrontSpritePath(coveFolder + "front/layer0/greenCouchCenter.png");
 		c2.loadSprites();
-		c2.setBehaviour(CoveBehaviours.couchBehaviour(c2));
+		c2.setBehaviour(CoveBehaviours.couchGenericBehaviour(c2));
 		cove.addGenericFront(c2);
 		c2.setLayerFront(0);
 		
@@ -817,63 +823,63 @@ public class Setup {
 		GenericObject b = new GenericObject("Cove Beanbag");
 		b.setFrontSpritePath(coveFolder + "front/layer0/beanBag.png");
 		b.loadSprites();
-		b.setBehaviour(CoveBehaviours.couchBehaviour(b));
+		b.setBehaviour(CoveBehaviours.beanbagBehaviour(b));
 		cove.addGenericFront(b);
 		b.setLayerFront(0);
 		
 		//dustbin
-		GenericObject d = new GenericObject("Cove Dustbin");
+		ContainerObject d = new ContainerObject("Cove Dustbin");
 		d.setFrontSpritePath(coveFolder + "front/layer0/dustbin.png");
 		d.loadSprites();
-		d.setBehaviour(CoveBehaviours.couchBehaviour(b));
-		cove.addGenericFront(d);
+		d.setBehaviour(CoveBehaviours.dustbinBehaviour(d));
+		cove.addContainerFront(d);
 		d.setLayerFront(0);
 		
 		//chair3
-		GenericObject c3 = new GenericObject("Cove Couch 3");
+		GenericObject c3 = new GenericObject("Cove Couch 2");
 		c3.setFrontSpritePath(coveFolder + "front/layer0/greenchairLeft.png");
 		c3.loadSprites();
-		c3.setBehaviour(CoveBehaviours.couchBehaviour(c3));
+		c3.setBehaviour(CoveBehaviours.couchGenericBehaviour(c3));
 		cove.addGenericFront(c3);
 		c3.setLayerFront(0);
 		
 		//chair4
-		GenericObject c4 = new GenericObject("Cove Couch 4");
+		GenericObject c4 = new GenericObject("Cove Couch 3");
 		c4.setFrontSpritePath(coveFolder + "front/layer0/greenchairRight.png");
 		c4.loadSprites();
-		c4.setBehaviour(CoveBehaviours.couchBehaviour(c4));
+		c4.setBehaviour(CoveBehaviours.couchGenericBehaviour(c4));
 		cove.addGenericFront(c4);
 		c4.setLayerFront(0);
 		
 		//chair5
-		GenericObject c5 = new GenericObject("Cove Couch 5");
+		GenericObject c5 = new GenericObject("Cove Couch 4");
 		c5.setFrontSpritePath(coveFolder + "front/layer0/greenCouchLowerLeft.png");
 		c5.loadSprites();
-		c5.setBehaviour(CoveBehaviours.couchBehaviour(c5));
+		c5.setBehaviour(CoveBehaviours.couchGenericBehaviour(c5));
 		cove.addGenericFront(c5);
 		c5.setLayerFront(0);
 		
 		//chair6
-		GenericObject c6 = new GenericObject("Cove Couch 6");
+		GenericObject c6 = new GenericObject("Cove Couch 5");
 		c6.setFrontSpritePath(coveFolder + "front/layer0/greenCouchLowerRight.png");
 		c6.loadSprites();
-		c6.setBehaviour(CoveBehaviours.couchBehaviour(c6));
+		c6.setBehaviour(CoveBehaviours.couchGenericBehaviour(c6));
 		cove.addGenericFront(c6);
 		c6.setLayerFront(0);
 		
 		//plant
 		GenericObject p1 = new GenericObject("Cove Plant 1");
-		p1.setFrontSpritePath(coveFolder + "front/layer0/plantLeft.png");
+		p1.setFrontSpritePath(coveFolder + "front/layer0/plantLefter.png");
 		p1.loadSprites();
-		p1.setBehaviour(CoveBehaviours.couchBehaviour(p1));
+		p1.setBehaviour(CoveBehaviours.plantBehaviour(p1));
 		cove.addGenericFront(p1);
 		p1.setLayerFront(0);
 		
 		//plant
 		GenericObject p2 = new GenericObject("Cove Plant 2");
-		p2.setFrontSpritePath(coveFolder + "front/layer0/plantLefter.png");
+		p2.setFrontSpritePath(coveFolder + "front/layer0/plantLeft.png");
 		p2.loadSprites();
-		p2.setBehaviour(CoveBehaviours.couchBehaviour(p2));
+		p2.setBehaviour(CoveBehaviours.plantBehaviour(p2));
 		cove.addGenericFront(p2);
 		p2.setLayerFront(0);
 		
@@ -881,12 +887,9 @@ public class Setup {
 		GenericObject t1 = new GenericObject("Cove Table");
 		t1.setFrontSpritePath(coveFolder + "front/layer0/rightTable.png");
 		t1.loadSprites();
-		t1.setBehaviour(CoveBehaviours.couchBehaviour(t1));
+		t1.setBehaviour(CoveBehaviours.tableBehaviour(t1));
 		cove.addGenericFront(t1);
 		t1.setLayerFront(0);
-		
-		
-		
 		
 		return cove;
 	}

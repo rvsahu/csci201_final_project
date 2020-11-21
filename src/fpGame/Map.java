@@ -418,5 +418,11 @@ public class Map {
 			System.err.println("Error reassigning behaviours to study4 objects!");
 			e.printStackTrace();
 		}
+		try {
+			CoveBehaviours.addBehaviours(cove.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to cove objects!");
+			e.printStackTrace();
+		}
 	}
 }
