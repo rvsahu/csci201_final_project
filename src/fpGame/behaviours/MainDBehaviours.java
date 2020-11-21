@@ -13,6 +13,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class MainDBehaviours {
+	/*
 	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
@@ -43,6 +44,7 @@ public class MainDBehaviours {
 		};
 		return behaviour;
 	}
+	*/
 
 
 	public static EventHandler<MouseEvent> Lab1DoorBehaviour(DoorObject d) 
@@ -65,11 +67,18 @@ public class MainDBehaviours {
 					
 					d.unlock();
 					GameUtil.setMessage("The door unlocked!");
+					GameUtil.player().setCurrentRoom(GameUtil.map().lab1);
+					GameUtil.player().setCurrentPerspective(3);
+					GameUtil.displayPlayerView();
 				}
 				
 				if(d.isLocked()) 
 				{
 					GameUtil.setMessage("The door is locked. Inside this lab, there is a CP waiting for your rescue");
+				}else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().lab1);
+					GameUtil.player().setCurrentPerspective(3);
+					GameUtil.displayPlayerView();
 				}
 			}
 		};

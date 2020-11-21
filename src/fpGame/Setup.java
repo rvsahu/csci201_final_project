@@ -312,8 +312,8 @@ public class Setup {
 		GenericObject dustbin2 = new GenericObject("Main A Dustbin2");
 		GenericObject keypad = new GenericObject("Main A Keypad");
 		GenericObject lightswitch = new GenericObject("Main A Lightswitch");
-		DoorObject Lab1Door = new DoorObject("Main A To Lab1");
-		GenericObject Lab1Keypad = new GenericObject("Lab1 Keypad");
+		//DoorObject Lab1Door = new DoorObject("Main A To Lab1");
+		//GenericObject Lab1Keypad = new GenericObject("Lab1 Keypad");
 		ContainerObject VendingMachine = new ContainerObject("Vending Machine");
 		GenericObject couch2 = new GenericObject("Main A Couch");
 		mainA.addGenericRight(couch2);
@@ -408,7 +408,7 @@ public class Setup {
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
-		vm1.setBehaviour(MainDBehaviours.vendingMachineBehavior(vm1));
+		//vm1.setBehaviour(MainDBehaviours.vendingMachineBehavior(vm1));
 		mainD.addContainerBack(vm1);
 		vm1.setLayerFront(0);
 		
@@ -778,7 +778,7 @@ public class Setup {
 	private static Room setupCove() {
 		Room cove;
 		try {
-			cove = new Room("Cove", true, true, false, false);
+			cove = new Room("Cove", true, false, false, false);
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating cove!");

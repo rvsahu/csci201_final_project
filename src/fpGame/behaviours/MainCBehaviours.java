@@ -1,6 +1,8 @@
 package fpGame.behaviours;
 
 import fpGame.GameUtil;
+import fpGame.Inventory;
+import fpModel.DoorObject;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -17,15 +19,19 @@ public class MainCBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> FrontDoorBehaviour() 
+	public static EventHandler<MouseEvent> FrontDoorBehaviour(DoorObject d) 
 	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The dustbin is empty");
-			};
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				if(d.isLocked()) {
+					GameUtil.setMessage("The front door is locked.");
+				} else {
+					
+				}
+				
+			}
 		};
+		
 		return behaviour;
 	}
 }
