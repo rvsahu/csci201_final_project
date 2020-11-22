@@ -45,6 +45,5 @@ public class InfoObject extends RoomObject {
 			return temp;
 		}
 		return null;
-		
 	}
 }
