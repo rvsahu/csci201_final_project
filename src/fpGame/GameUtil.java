@@ -290,16 +290,16 @@ public class GameUtil {
 			System.err.println("Error loading logbook button!");
 		}
 		
-		/*
+		
 		//rotate left button
 		ImageView leftButton = null;
 		try {
 			Image lebImg; 
 			if (needsScaling) {
-				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/leftArrow.png"), WINDOW_X * scalingFactor, 
+				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/arrowL.png"), WINDOW_X * scalingFactor, 
 					  	           WINDOW_Y * scalingFactor, true, true);
 			} else {
-				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/leftArrow.png"));
+				lebImg = new Image(new FileInputStream("./graphics/game_graphics/gui/arrowL.png"));
 			}
 			leftButton = new ImageView(lebImg);
 			leftButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
@@ -317,10 +317,10 @@ public class GameUtil {
 		try {
 			Image rbImg; 
 			if (needsScaling) {
-				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/rightArrow.png"), WINDOW_X * scalingFactor, 
+				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/arrowR.png"), WINDOW_X * scalingFactor, 
 					  	           WINDOW_Y * scalingFactor, true, true);
 			} else {
-				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/rightArrow.png"));
+				rbImg = new Image(new FileInputStream("./graphics/game_graphics/gui/arrowR.png"));
 			}
 			rightButton = new ImageView(rbImg);
 			rightButton.setOnMouseReleased(new EventHandler<MouseEvent>() {
@@ -333,8 +333,8 @@ public class GameUtil {
 		} catch (Exception e) {
 			System.err.println("Error loading right arrow button!");
 		}
-		*/
 		
+		/*
 		ImageView arrows = null;
 		try {
 			Image arrws; 
@@ -355,7 +355,7 @@ public class GameUtil {
 		} catch (Exception e) {
 			System.err.println("Error loading right arrow button!");
 		}
-		
+		*/
 		
 		//create scene and scale the window if need be
 		Scene scene;
