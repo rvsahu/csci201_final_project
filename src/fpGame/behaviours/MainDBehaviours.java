@@ -3,6 +3,7 @@ package fpGame.behaviours;
 //intraproject imports
 import fpGame.GameUtil;
 import fpGame.Inventory;
+import fpModel.RoomObject;
 import fpModel.DoorObject;
 import fpModel.ContainerObject;
 import fpModel.GenericObject;
@@ -10,6 +11,9 @@ import fpModel.GenericObject;
 //javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+
+//java imports
+import java.util.List;
 
 public class MainDBehaviours {
 
@@ -20,12 +24,10 @@ public class MainDBehaviours {
 		                
 				Inventory inv = GameUtil.player().getInventory();
 				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
-					if (inv.checkNumberOfItem("Chocoate") > 0)
-					{
+					if (inv.checkNumberOfItem("Chocolate") > 0) {
 						GameUtil.setMessage("The vending machine is now empty.");
 					}
-					else
-					{
+					else {
 						GameUtil.setMessage("You give the machine a swift righteous kick, and the coffee and chocolate dispense.");
 						inv.addItem(vm1.removeItem(vm1.getItemIndex("Coffee")));
 						inv.addItem(vm1.removeItem(vm1.getItemIndex("Chocolate")));
@@ -37,8 +39,7 @@ public class MainDBehaviours {
 				
 				if (inv.checkNumberOfItem("Quarter") >= 4) {
 					int size = inv.size();
-					for (int j = 0; j < size; j++)
-					{
+					for (int j = 0; j < size; j++) {
 						if (inv.getItem(j).name() == "Quarter")
 						inv.removeItem(j);
 						size--;
@@ -148,6 +149,39 @@ public class MainDBehaviours {
 		};
 		
 		return behaviour;
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) {
+		for (RoomObject r : objects) {
+			if (r.name().equals("Main D to Main A")) {
+				r.setBehaviour(arrowABehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main D to Main C")) {
+				r.setBehaviour(arrowCBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("MainD Vending Machine")) {
+				r.setBehaviour(vendingMachineBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("MainD to Lab")) {
+				r.setBehaviour(doorLab1Behaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("MainD Dustbin1")) {
+				r.setBehaviour(dustbinBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("MainD Dustbin2")) {
+				r.setBehaviour(dustbinBehaviour((ContainerObject)r));
+				continue;
+			}
+			if (r.name().equals("MainD Keypad to Lab1")) {
+				r.setBehaviour(keypadLab1Behaviour((GenericObject)r));
+				continue;
+			}
+		}
 	}
 }
 	
