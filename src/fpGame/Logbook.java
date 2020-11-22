@@ -3,8 +3,6 @@ package fpGame;
 import java.util.List;
 import java.util.ArrayList;
 
-import javafx.scene.Scene;
-
 /**
  * Instead of being a container for Items, like the inventory, the logbook is
  * a container of information
