@@ -32,6 +32,7 @@ public class Loader {
 		map.addContainingRooms();
 		map.resetAllDirections();
 		map.rebuildAllContentsLists();
+		map.tossAllDuplicates();
 		map.loadAllSprites();
 		map.reassignAllBehaviours();
 		

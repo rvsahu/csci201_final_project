@@ -3,10 +3,10 @@ package fpModel;
 //java imports
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 //javafx imports
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Room {
@@ -514,6 +514,38 @@ public class Room {
 			perspectives[i].resetDirection();
 		}
 	}
+	
+	/**
+	 * Deserialisation method, goes through the RoomObjects in each Perspective and gets rid of duplicates from contents list
+	 * in favour of references to one single instance of that object.
+	 */
+	public void tossDuplicates() {
+		HashMap<String, RoomObject> seenBefore = new HashMap<String, RoomObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<RoomObject> pContents = perspectives[i].contents();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					RoomObject potentialDuplicate = pContents.get(j);
+					RoomObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.remove(tbrIndex);
+						pContents.add(tbrIndex, preferredVersion);
+					}
+				} else {
+					RoomObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
+			
+			perspectives[i].rebuildSubclassLists();
+		}
+	}
+	
 	/**
 	 * Sets the layer backgrounds of the front perspective. Does nothing if the front perspective doesn't exist.
 	 * 
@@ -688,4 +720,7 @@ public class Room {
 		}
 		return perspectives[3].findObject(objName) != null;
 	}
+	
+	
+	
 }
