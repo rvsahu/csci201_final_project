@@ -463,13 +463,21 @@ public class Setup {
 		table.setBehaviour(MainBBehaviours.tableBehaviour(table));
 		mainB.addGenericRight(greenCouch);
 		mainB.addGenericBack(greenCouch);
-		greenCouch.setLayerRight(0);
-		greenCouch.setLayerBack(0);
+		table.setLayerRight(0);
+		table.setLayerBack(0);
 		
-		GenericObject chair = new GenericObject("Main B Table");
+		GenericObject chair = new GenericObject("Main B Chair");
 		chair.setFrontSpritePath(mainBFolder + "front/layer0/chair.png");
 		chair.setRightSpritePath(mainBFolder + "right/layer0/chair.png");
 		chair.setBackSpritePath(mainBFolder + "back/layer0/chair.png");
+		chair.loadSprites();
+		mainB.addGenericBack(chair);
+		mainB.addGenericFront(chair);
+		mainB.addGenericRight(chair);
+		chair.setLayerRight(0);
+		chair.setLayerBack(0);
+		chair.setLayerFront(0);
+
 		
 		
 		return mainB;
@@ -549,7 +557,7 @@ public class Setup {
 		GenericObject phone = new GenericObject("Main C Phone");
 		phone.setBackSpritePath(mainCFolder + "back/layer0/phone.png");
 		phone.loadSprites();
-		phone.setBehaviour(MainCBehaviours.phoneBehaviour(phone));
+		phone.setBehaviour(MainCBehaviours.phoneBehaviour(d1));
 		mainC.addGenericBack(phone);
 		phone.setLayerBack(0);
 		
@@ -1160,25 +1168,21 @@ public class Setup {
 		
 		//L
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
-		InfoObject wokenCP = new InfoObject("Lab 1 CP Awake");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
-		wokenCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
 		labCP.loadSprites();
-		wokenCP.loadSprites();
-		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP, wokenCP));
+		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
 		lab.addInfoBack(labCP);
-		lab.addInfoBack(wokenCP);
 		labCP.setLayerBack(0);
-		wokenCP.setLayerBack(0);
-		wokenCP.hide();
 		
-		//
+		
 		GenericObject shelf102 = new GenericObject("102 Shelf");
 		shelf102.setBackSpritePath(labFolder + "back/layer0/102shelf.png");
 		shelf102.setFrontSpritePath(labFolder + "front/layer0/102shelf.png");
 		shelf102.setRightSpritePath(labFolder + "right/layer0/102shelf.png");
 		shelf102.loadSprites();
 		lab.addGenericRight(shelf102);
+		lab.addGenericFront(shelf102);
+		lab.addGenericBack(shelf102);
 		shelf102.setLayerRight(0);
 		shelf102.setLayerBack(0);
 		shelf102.setLayerFront(0);
@@ -1189,6 +1193,8 @@ public class Setup {
 		shelf103.setRightSpritePath(labFolder + "right/layer0/103shelf.png");
 		shelf103.loadSprites();
 		lab.addGenericRight(shelf103);
+		lab.addGenericFront(shelf103);
+		lab.addGenericBack(shelf103);
 		shelf103.setLayerRight(0);
 		shelf102.setLayerBack(0);
 		shelf102.setLayerFront(0);
@@ -1198,6 +1204,7 @@ public class Setup {
 		shelf170.setRightSpritePath(labFolder + "right/layer0/170shelf.png");
 		shelf170.loadSprites();
 		lab.addGenericRight(shelf170);
+		lab.addGenericBack(shelf170);
 		shelf170.setLayerRight(0);
 		shelf102.setLayerBack(0);
 		shelf102.setLayerFront(0);
@@ -1207,6 +1214,7 @@ public class Setup {
 		shelf201.setRightSpritePath(labFolder + "right/layer0/201shelf.png");
 		shelf201.loadSprites();
 		lab.addGenericRight(shelf201);
+		lab.addGenericBack(shelf201);
 		shelf201.setLayerRight(0);
 		shelf102.setLayerBack(0);
 		shelf102.setLayerFront(0);
