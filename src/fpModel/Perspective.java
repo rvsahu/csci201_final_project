@@ -233,6 +233,55 @@ public class Perspective {
 	}
 	
 	/**
+	 * The inverse of rebuildContentsList(), called after all duplicate RoomObjects across
+	 * perspectives are tossed and replaced with references to a single object.
+	 */
+	public void rebuildSubclassLists() {
+		//reinitialise lists
+		generics = new ArrayList<GenericObject>();
+		doors = new ArrayList<DoorObject>();
+		infos = new ArrayList<InfoObject>();
+		wrappers = new ArrayList<WrapperObject>();
+		containers = new ArrayList<ContainerObject>();
+		//use additionLog to chronologically add things back in their original order
+		for (RoomObject rObj : contents) {
+			String objectName = rObj.name();
+			try {
+				GenericObject castedGeneric = (GenericObject)rObj;
+				generics.add(castedGeneric);
+			} catch (ClassCastException ce) {
+				//do nothing, just try casting it as the next subclass type
+			}
+			try {
+				DoorObject castedDoor = (DoorObject)rObj;
+				doors.add(castedDoor);
+			} catch (ClassCastException ce) {
+				//do nothing, just try casting it as the next subclass type
+			}
+			try {
+				InfoObject castedInfo = (InfoObject)rObj;
+				infos.add(castedInfo);
+			} catch (ClassCastException ce) {
+				//do nothing, just try casting it as the next subclass type
+			}
+			try {
+				WrapperObject castedWrapper = (WrapperObject)rObj;
+				wrappers.add(castedWrapper);
+			} catch (ClassCastException ce) {
+				//do nothing, just try casting it as the next subclass type
+			}
+			try {
+				ContainerObject castedContainer = (ContainerObject)rObj;
+				containers.add(castedContainer);
+			} catch (ClassCastException ce) {
+				//do nothing, but if we got here then something is wrong
+			}
+			
+			System.err.println("Error adding " + objectName + " back to its subclass list! Couldn't determine which subclass it was.");
+		}
+	}
+	
+	/**
 	 * Helper method for rebuildContentsList(), finds an object given it's name within a list of subclasses of RoomObject
 	 * 
 	 * @param objList  The list in which we are looking for the object

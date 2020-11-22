@@ -386,6 +386,84 @@ public class Map {
 			//do nothing
 		}
 	}
+	
+	public void tossAllDuplicates() {
+		try {
+			annex.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainA.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainB.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainC.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mainD.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study1.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study2.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study3.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			study4.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			cove.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			lab1.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway1.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			hallway2.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			mensRoom.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+		try {
+			womensRoom.tossDuplicates();
+		} catch (NullPointerException npe) {
+			//do nothing
+		}
+	}
 
 	public void reassignAllBehaviours() {
 		try {
