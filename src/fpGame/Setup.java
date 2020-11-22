@@ -557,7 +557,7 @@ public class Setup {
 		GenericObject phone = new GenericObject("Main C Phone");
 		phone.setBackSpritePath(mainCFolder + "back/layer0/phone.png");
 		phone.loadSprites();
-		phone.setBehaviour(MainCBehaviours.phoneBehaviour(phone));
+		phone.setBehaviour(MainCBehaviours.phoneBehaviour(d1));
 		mainC.addGenericBack(phone);
 		phone.setLayerBack(0);
 		
