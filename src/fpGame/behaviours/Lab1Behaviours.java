@@ -221,7 +221,8 @@ public class Lab1Behaviours {
 				pane.setStyle("-fx-background-color: #000000;");
 				//do stuff, fill in pane
 				Scene scene;
-				if (GameUtil.needsScaling()) {
+				if (GameUtil.needsScaling()) 
+				{
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
 							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
 					//scene.setFill(Color.BLACK);

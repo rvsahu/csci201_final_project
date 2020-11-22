@@ -40,8 +40,33 @@ public class MainCBehaviours {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
 					GameUtil.setMessage("The front door is locked.");
-				} else {
+				} else 
+				{
+					BorderPane pane = new BorderPane();
 					
+					Text output = new Text();
+					output.setFill(Color.WHITE);
+					output.setFont(new Font(20));
+
+					VBox box = new VBox(10);
+					box.setAlignment(Pos.CENTER);
+					pane.setCenter(box);
+					
+					output.setText("You escaped.");
+					pane.setTop(output);
+					
+					pane.setStyle("-fx-background-color: #990000;");
+					
+					Scene scene;
+					if (GameUtil.needsScaling()) {
+						scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+								GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+					} else {
+						scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					}
+					
+					GameUtil.stage().setScene(scene);
+					GameUtil.stage().show();
 				}
 				
 			}
@@ -56,6 +81,7 @@ public class MainCBehaviours {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
 					GameUtil.setMessage("The front door is locked.");
+					GameUtil.setMessage("Seems that the keypad is broken . . . You need a key.");
 				} else {
 					
 				}
@@ -79,16 +105,16 @@ public class MainCBehaviours {
 	
 	public static EventHandler<MouseEvent> phoneBehaviour(DoorObject d) { {
 				EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-					@Override public void handle(MouseEvent event) {
+					@Override public void handle(MouseEvent event) 
+					{
 						BorderPane pane = new BorderPane();
-						TextField text = new TextField("Enter the passcode to escape this room.");
-						//pane.setCenter(text);
+						TextField text = new TextField("Enter a phone number to call somebody: ");
 						text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
 						
 						Text output = new Text();
 						output.setFill(Color.WHITE);
 						output.setFont(new Font(20));
-						Button button = new Button("Submit");
+						Button button = new Button("Dial");
 						button.setPrefSize(100, 50);
 						button.setFont(new Font(20));
 						
@@ -99,11 +125,17 @@ public class MainCBehaviours {
 						
 						button.setOnAction(new EventHandler<ActionEvent>() { 
 							@Override public void handle(ActionEvent event) {
-								if (text.getText().compareTo("5417") == 0) {
-									output.setText("Correct Passcode! Main door unlocked.");
+								if (text.getText().compareTo("3412") == 0) {
+									output.setText("Dialing . . . "
+											+ "Who is calling me at 3 AM? \n"
+											+ "Oh. You guys are locked in SAL right now? \n"
+											+ "That's not good . . . give me one second. \n"
+											+ "Ok. I unlocked the door. You guys are good to go! \n"
+											+ "Code hard!"
+											);
 									d.unlock();
 								} else {
-									output.setText("Incorrect Passcode!");
+									output.setText("You dialed the number . . . but nobody answered");
 								}
 								pane.setTop(output);
 							}
