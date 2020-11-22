@@ -211,6 +211,13 @@ public class Setup {
 		proj.setLayerFront(0);
 		proj.setLayerLeft(0);
 		
+		GenericObject projection = new GenericObject("Annex Projection");
+		projection.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
+		projection.loadSprites();
+		projection.setBehaviour(AnnexBehaviours.projectionBehaviour(projection));
+		annex.addGenericFront(projection);
+		projection.setLayerFront(0);
+		
 		/*Table table = new Table("Annex Pink Table");
 		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
 		table.loadSprites();
@@ -621,29 +628,30 @@ public class Setup {
 		//keypad
 		GenericObject keypad = new GenericObject("MainD Keypad to Lab1");
 		keypad.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Keypad.png");
-		keypad.setBackSpritePath(mainDFolder + "back/layer0/labPad.png");
+		keypad.setBackSpritePath(mainDFolder + "back/layer0/Lab1Keypad.png");
 		keypad.loadSprites();
 		keypad.setBehaviour(MainDBehaviours.keypadLab1Behaviour(keypad));
-		mainD.addGenericBack(keypad);
 		mainD.addGenericLeft(keypad);
+		mainD.addGenericBack(keypad);
 		keypad.setLayerLeft(0);
 		keypad.setLayerBack(0);
 		
 		//keypad
 		GenericObject keypad1 = new GenericObject("MainD Keypad to Hallway");
 		keypad1.setLeftSpritePath(mainDFolder + "left/layer0/HallwayKeypad.png");
-		keypad1.setBackSpritePath(mainDFolder + "back/layer0/hallwayKeypad.png");
+		keypad1.setBackSpritePath(mainDFolder + "back/layer0/HallwayKeypad.png");
 		keypad1.loadSprites();
 		keypad1.setBehaviour(MainDBehaviours.keypadHallwayBehaviour(keypad));
-		mainD.addGenericBack(keypad1);
 		mainD.addGenericLeft(keypad1);
+		mainD.addGenericBack(keypad1);
 		keypad.setLayerLeft(0);
 		keypad.setLayerBack(0);
+
 		
 		//Lightswitch
 		GenericObject l = new GenericObject("MainD Lightswitch");
 		l.setLeftSpritePath(mainDFolder + "left/layer0/switch.png");
-		l.setBackSpritePath(mainDFolder + "back/layer0/lightSwitch.png");
+		l.setBackSpritePath(mainDFolder + "back/layer0/switch.png");
 		l.loadSprites();
 		l.setBehaviour(MainDBehaviours.lightswitchBehaviour(l));
 		mainD.addGenericBack(l);
