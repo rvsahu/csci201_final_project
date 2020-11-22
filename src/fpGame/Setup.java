@@ -119,6 +119,7 @@ public class Setup {
 		//start the game facing forwards in the annex
 		GameUtil.player().setCurrentRoom(GameUtil.map().annex);
 		GameUtil.player().setCurrentPerspective(0); 
+		GameUtil.stage().setTitle("USCape!");
 		GameUtil.displayPlayerView(); //use this as a template for all other room displays
 	}
 	
@@ -200,17 +201,6 @@ public class Setup {
 		annex.addInfoFront(c8);
 		c8.setLayerFront(2);
 		
-		//projector
-		GenericObject proj = new GenericObject("Annex Projector");
-		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
-		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
-		proj.loadSprites();
-		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
-		annex.addGenericFront(proj);
-		annex.addGenericLeft(proj);
-		proj.setLayerFront(0);
-		proj.setLayerLeft(0);
-		
 		GenericObject projection = new GenericObject("Annex Projection");
 		projection.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
 		projection.loadSprites();
@@ -218,6 +208,17 @@ public class Setup {
 		annex.addGenericFront(projection);
 		projection.setLayerFront(0);
 		projection.hide();
+		
+		//projector
+		GenericObject proj = new GenericObject("Annex Projector");
+		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
+		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
+		proj.loadSprites();
+		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(projection));
+		annex.addGenericFront(proj);
+		annex.addGenericLeft(proj);
+		proj.setLayerFront(0);
+		proj.setLayerLeft(0);
 		
 		/*Table table = new Table("Annex Pink Table");
 		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
@@ -383,6 +384,7 @@ public class Setup {
 		vendingMachine.setBackSpritePath(mainAFolder + "back/layer0/vending.png");
 		vendingMachine.setLeftSpritePath(mainAFolder + "left/layer0/vending.png");
 		vendingMachine.loadSprites();
+		vendingMachine.setBehaviour(MainABehaviours.vendingMachineBehaviour(vendingMachine));
 		mainA.addContainerBack(vendingMachine);
 		mainA.addContainerLeft(vendingMachine);
 		vendingMachine.setLayerBack(0);
@@ -581,6 +583,7 @@ public class Setup {
 		vm1.setLayerBack(0);
 		vm1.setLayerRight(0);
 		
+		
 		//LabDoor
 		DoorObject d1 = new DoorObject("MainD to Lab");
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
@@ -595,7 +598,7 @@ public class Setup {
 		//HallwayDoor
 		DoorObject d2 = new DoorObject("MainD to Hallway");
 		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
-		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
+		d2.setBackSpritePath(mainDFolder + "back/layer0/halldoor.png");
 		
 		d2.loadSprites();
 		d2.setBehaviour(MainDBehaviours.hallwayBehaviour(d2));
@@ -603,15 +606,7 @@ public class Setup {
 		mainD.addDoorLeft(d2);
 		d2.setLayerBack(0);
 		d2.setLayerLeft(0);
-		
-		//AnnexDoor
-		DoorObject d3 = new DoorObject("MainD to Annex");
-		d3.setRightSpritePath(mainDFolder + "right/layer0/AnnexDoor.png");
-		d3.loadSprites();
-		d3.setBehaviour(MainDBehaviours.annexDoorBehaviour(d3));
-		mainD.addDoorRight(d3);
-		d3.setLayerBack(0);
-		
+
 		//dustbins
 		ContainerObject db1 = new ContainerObject("MainD Dustbin1");
 		db1.setRightSpritePath(mainDFolder + "right/layer0/dustbin.png");
@@ -629,7 +624,7 @@ public class Setup {
 
 		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
-		db1.loadSprites();
+		db2.loadSprites();
 		db2.setBehaviour(MainDBehaviours.dustbinBehaviour(db2));
 		mainD.addContainerRight(db2);
 		db2.setLayerRight(0);
@@ -643,23 +638,7 @@ public class Setup {
 		mainD.addGenericLeft(keypad);
 		mainD.addGenericBack(keypad);
 		keypad.setLayerLeft(0);
-		keypad.setLayerBack(0);
-		
-
-		
-		//Lightswitch
-		GenericObject l = new GenericObject("MainD Lightswitch");
-		l.setLeftSpritePath(mainDFolder + "left/layer0/switch.png");
-		l.setBackSpritePath(mainDFolder + "back/layer0/switch.png");
-		l.loadSprites();
-		l.setBehaviour(MainDBehaviours.lightswitchBehaviour(l));
-		mainD.addGenericBack(l);
-		mainD.addGenericLeft(l);
-		l.setLayerLeft(0);
-		l.setLayerBack(0);
-		
-		
-		
+		keypad.setLayerBack(0);		
 		
 		
 		return mainD;
@@ -876,10 +855,7 @@ public class Setup {
 		s3Couch.setLayerFront(0);
 		
 		//add table
-		List<Item> coins = new ArrayList<Item>();
-		coins.add(new Item("Quarter"));
-		coins.add(new Item("Quarter"));
-		ContainerObject s3Table = new ContainerObject("SR3 Table", coins);
+		ContainerObject s3Table = new ContainerObject("SR3 Table");
 		s3Table.setFrontSpritePath(study3folder + "front/layer0/table.png");
 		s3Table.setBackSpritePath(study3folder + "back/layer0/table.png");
 		s3Table.loadSprites();
@@ -948,8 +924,12 @@ public class Setup {
 		s4Couch.setLayerBack(0);
 		s4Couch.setLayerFront(0);
 		
+		
 		//add table
-		ContainerObject s4Table = new ContainerObject("SR4 Table");
+		List<Item> coins = new ArrayList<Item>();
+		coins.add(new Item("Quarter"));
+		coins.add(new Item("Quarter"));
+		ContainerObject s4Table = new ContainerObject("SR4 Table", coins);
 		s4Table.setFrontSpritePath(study4folder + "front/layer0/table.png");
 		s4Table.setBackSpritePath(study4folder + "back/layer0/table.png");
 		s4Table.loadSprites();
