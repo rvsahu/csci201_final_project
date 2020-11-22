@@ -217,6 +217,7 @@ public class Setup {
 		projection.setBehaviour(AnnexBehaviours.projectionBehaviour(projection));
 		annex.addGenericFront(projection);
 		projection.setLayerFront(0);
+		projection.hide();
 		
 		/*Table table = new Table("Annex Pink Table");
 		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
