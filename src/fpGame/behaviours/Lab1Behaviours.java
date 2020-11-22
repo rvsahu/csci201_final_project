@@ -33,16 +33,37 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
 public class Lab1Behaviours {
-	public static EventHandler<MouseEvent> CPBehavior(InfoObject cp) {
+	public static EventHandler<MouseEvent> CPBehaviour(ContainerObject cp) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				
+		                
+				Inventory inv = GameUtil.player().getInventory();
+				if (inv.checkNumberOfItem("Chocolate") > 0) {
+					if (inv.checkNumberOfItem("Chocoate") > 0)
+					{
+						GameUtil.setMessage("You put the chocolate and the coffee in the CP's pocket");
+						int size = inv.size();
+						for (int j = 0; j < size; j++)
+						{
+							if (inv.getItem(j).name() == "Chocolate " ||inv.getItem(j).name() == "Coffee" )
+							inv.removeItem(j);
+							size--;
+							j--;
+						}
+						GameUtil.setMessage("The CP has woken up!");
+					}
+					else
+					{
+						GameUtil.setMessage("The CP has fallen asleep after helping 60 students. . . \n"
+								+ " The CP needs some energy to wake up. . .");
+
+					}
+				}
 			}
 		};
-		
-		return behaviour;
+			return behaviour;		
 	}
-
 	
 
 
