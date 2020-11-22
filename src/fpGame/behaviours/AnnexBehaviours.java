@@ -229,22 +229,33 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(GenericObject p) {
-		
+	public static EventHandler<MouseEvent> projectorBehaviour(GenericObject projection) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {				
-				GenericObject ps = new GenericObject("Annex Projection");
-				ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
-				ps.loadSprites();
-				GameUtil.map().annex.addGenericFront(ps);
-				ps.setLayerFront(0);
-				
-				GameUtil.displayPlayerView(); 
+			@Override public void handle(MouseEvent event) {
+				if (projection.isHidden()) {
+					projection.display();
+					GameUtil.displayPlayerView();
+					GameUtil.setMessage("You flip the projector switch, and it whirrs on.");
+				} else {
+					projection.hide();
+					GameUtil.displayPlayerView();
+					GameUtil.setMessage("You turn the projector off.");
+				}
 			}
 		};
+		
 		return behaviour;
 	}
 	
+	public static EventHandler<MouseEvent> projectionBehaviour(GenericObject projection) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("A cryptic message displays itself on the whiteboard.");
+			}
+		};
+		
+		return behaviour;
+	}
 	
 	public static EventHandler<MouseEvent> keypadMainBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
@@ -531,13 +542,16 @@ public class AnnexBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
-		//door - keypad pairs
+		//paired objects
 		DoorObject annexToMain = null;
 		GenericObject annexToMainKeypad = null;
 		
 		DoorObject annexToSR4 = null;
 		GenericObject annexToSR4Keypad = null;
 		
+		GenericObject projector = null;
+		GenericObject projection = null;
+	
 		for (RoomObject r : objects) {
 			if (r.name().equals("Annex Computer 1")) {
 				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
@@ -626,7 +640,20 @@ public class AnnexBehaviours {
 				continue;
 			}
 			if (r.name().equals("Annex Projector")) {
+				if (projection == null) {
+					projector = (GenericObject)r;
+					continue;
+				}
 				r.setBehaviour(projectorBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Projection")) {
+				if (projector == null) {
+					projection = (GenericObject)r;
+				} else {
+					projector.setBehaviour(projectorBehaviour((GenericObject)r));
+				}
+				r.setBehaviour(projectionBehaviour((GenericObject)r));
 				continue;
 			}
 		}

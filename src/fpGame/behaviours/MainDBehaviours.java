@@ -37,7 +37,8 @@ public class MainDBehaviours {
 						}	
 					}
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
-				} else {
+				} 
+				else if (inv.checkNumberOfItem("Lab 1 Key") < 0){
 					GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
 					          + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).");
 				}
@@ -53,7 +54,6 @@ public class MainDBehaviours {
 			@Override public void handle(MouseEvent event) {
 				
 				Inventory inv = GameUtil.player().getInventory();
-				
 				
 				if (GameUtil.player().getInventory().checkNumberOfItem("Lab1 Key") > 0)
 				{
@@ -86,7 +86,8 @@ public class MainDBehaviours {
 	}
 
 	
-	public static EventHandler<MouseEvent> hallwayBehaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> hallwayBehaviour(DoorObject d) 
+	{
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) 
@@ -143,5 +144,35 @@ public class MainDBehaviours {
 		};
 		return behaviour;
 	}
+
+
+
+
+	public static EventHandler<MouseEvent> keypadLab1Behaviour(GenericObject keypad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public static EventHandler<MouseEvent> keypadHallwayBehaviour(GenericObject keypad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public static EventHandler<MouseEvent> lightswitchBehaviour(GenericObject l) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	public static EventHandler<MouseEvent> annexDoorBehaviour(DoorObject d2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
 	

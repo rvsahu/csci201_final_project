@@ -211,6 +211,14 @@ public class Setup {
 		proj.setLayerFront(0);
 		proj.setLayerLeft(0);
 		
+		GenericObject projection = new GenericObject("Annex Projection");
+		projection.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
+		projection.loadSprites();
+		projection.setBehaviour(AnnexBehaviours.projectionBehaviour(projection));
+		annex.addGenericFront(projection);
+		projection.setLayerFront(0);
+		projection.hide();
+		
 		/*Table table = new Table("Annex Pink Table");
 		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
 		table.loadSprites();
@@ -567,22 +575,28 @@ public class Setup {
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
-		//vm1.setBehaviour(MainDBehaviours.vendingMachineBehavior(vm1));
+		vm1.setBehaviour(MainDBehaviours.vendingMachineBehaviour(vm1));
 		mainD.addContainerBack(vm1);
-		vm1.setLayerFront(0);
+		mainD.addContainerRight(vm1);
+		vm1.setLayerBack(0);
+		vm1.setLayerRight(0);
 		
 		//LabDoor
 		DoorObject d1 = new DoorObject("MainD to Lab");
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
+		d1.setBackSpritePath(mainDFolder + "back/layer0/Lab1Door.png");
 		d1.loadSprites();
 		d1.setBehaviour(MainDBehaviours.lab1DoorBehaviour(d1));
 		mainD.addDoorLeft(d1);
+		mainD.addDoorBack(d1);
 		d1.setLayerLeft(0);
+		d1.setLayerBack(0);
 		
 		//HallwayDoor
 		DoorObject d2 = new DoorObject("MainD to Hallway");
 		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
 		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
+		
 		d2.loadSprites();
 		d2.setBehaviour(MainDBehaviours.hallwayBehaviour(d2));
 		mainD.addDoorBack(d2);
@@ -594,6 +608,7 @@ public class Setup {
 		DoorObject d3 = new DoorObject("MainD to Annex");
 		d3.setRightSpritePath(mainDFolder + "right/layer0/AnnexDoor.png");
 		d3.loadSprites();
+		d3.setBehaviour(MainDBehaviours.annexDoorBehaviour(d3));
 		mainD.addDoorRight(d3);
 		d3.setLayerBack(0);
 		
@@ -610,12 +625,42 @@ public class Setup {
 		db1.setLayerBack(0);
 		db1.setLayerRight(0);
 		db1.setLayerLeft(0);
+		
 
 		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
+		db1.loadSprites();
 		db2.setBehaviour(MainDBehaviours.dustbinBehaviour(db2));
 		mainD.addContainerRight(db2);
 		db2.setLayerRight(0);
+		
+		//keypad
+		GenericObject keypad = new GenericObject("MainD Keypad to Lab1");
+		keypad.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Keypad.png");
+		keypad.setBackSpritePath(mainDFolder + "back/layer0/Lab1Keypad.png");
+		keypad.loadSprites();
+		keypad.setBehaviour(MainDBehaviours.keypadLab1Behaviour(keypad));
+		mainD.addGenericLeft(keypad);
+		mainD.addGenericBack(keypad);
+		keypad.setLayerLeft(0);
+		keypad.setLayerBack(0);
+		
+
+		
+		//Lightswitch
+		GenericObject l = new GenericObject("MainD Lightswitch");
+		l.setLeftSpritePath(mainDFolder + "left/layer0/switch.png");
+		l.setBackSpritePath(mainDFolder + "back/layer0/switch.png");
+		l.loadSprites();
+		l.setBehaviour(MainDBehaviours.lightswitchBehaviour(l));
+		mainD.addGenericBack(l);
+		mainD.addGenericLeft(l);
+		l.setLayerLeft(0);
+		l.setLayerBack(0);
+		
+		
+		
+		
 		
 		return mainD;
 	}
