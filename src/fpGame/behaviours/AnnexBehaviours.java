@@ -542,13 +542,16 @@ public class AnnexBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
-		//door - keypad pairs
+		//paired objects
 		DoorObject annexToMain = null;
 		GenericObject annexToMainKeypad = null;
 		
 		DoorObject annexToSR4 = null;
 		GenericObject annexToSR4Keypad = null;
 		
+		GenericObject projector = null;
+		GenericObject projection = null;
+	
 		for (RoomObject r : objects) {
 			if (r.name().equals("Annex Computer 1")) {
 				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
@@ -637,7 +640,20 @@ public class AnnexBehaviours {
 				continue;
 			}
 			if (r.name().equals("Annex Projector")) {
+				if (projection == null) {
+					projector = (GenericObject)r;
+					continue;
+				}
 				r.setBehaviour(projectorBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Annex Projection")) {
+				if (projector == null) {
+					projection = (GenericObject)r;
+				} else {
+					projector.setBehaviour(projectorBehaviour((GenericObject)r));
+				}
+				r.setBehaviour(projectionBehaviour((GenericObject)r));
 				continue;
 			}
 		}
