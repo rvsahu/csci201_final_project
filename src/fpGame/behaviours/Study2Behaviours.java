@@ -37,14 +37,18 @@ public class Study2Behaviours {
 	public static EventHandler<MouseEvent> couchBehaviour(ContainerObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
-				if (couch.hasItems()) {
+				if (couch.hasItems())
+				{
 					int size = couch.getItems().size();
 					GameUtil.setMessage("You searched the couch and found 2 coins!");
-					for (int i = 0; i<size; i++) {
+					for (int i = 0; i<size; i++)
+					{
 						GameUtil.player().addToInventory(couch.getItem(0));
 						couch.removeItem(0);
 					}
-				} else {
+				}
+				else
+				{
 					GameUtil.setMessage("You searched the couch but found nothing");
 				}
 			}

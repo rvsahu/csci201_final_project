@@ -46,15 +46,6 @@ public class MainBBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> tableBehaviour(GenericObject table) {
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {
-				GameUtil.setMessage("You searched the table but found nothing.");
-			}
-		};
-		return behaviour;
-	}
-	
 	
 	public static EventHandler<MouseEvent> chairBehavior(GenericObject chair) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {

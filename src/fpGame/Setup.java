@@ -434,42 +434,11 @@ public class Setup {
 		mainCArrow.setLayerBack(0);
 		mainCArrow.setLayerLeft(0);
 		
-		//GenericObject chair = new GenericObject("Main B Chair");
-		
-		GenericObject blueCouch = new GenericObject("Main B Blue Couch");
-		blueCouch.setFrontSpritePath(mainBFolder + "front/layer0/couch.png");
-		blueCouch.setRightSpritePath(mainBFolder + "right/layer0/couch.png");
-		blueCouch.loadSprites();
-		blueCouch.setBehaviour(MainBBehaviours.couchBehaviour(blueCouch));
-		mainB.addGenericFront(blueCouch);
-		mainB.addGenericRight(blueCouch);
-		blueCouch.setLayerFront(0);
-		blueCouch.setLayerRight(0);
-		
-		GenericObject greenCouch = new GenericObject("Main B Green Couch");
-		greenCouch.setRightSpritePath(mainBFolder + "right/layer0/greenCouch.png");
-		greenCouch.setBackSpritePath(mainBFolder + "back/layer0/greenCouch.png"); //TODO add graphics file
-		greenCouch.loadSprites();
-		greenCouch.setBehaviour(MainBBehaviours.couchBehaviour(greenCouch));
-		mainB.addGenericRight(greenCouch);
-		mainB.addGenericBack(greenCouch);
-		greenCouch.setLayerRight(0);
-		greenCouch.setLayerBack(0);
-		
+		GenericObject chair = new GenericObject("Main B Chair");
+		GenericObject couch = new GenericObject("Main B Couch");
+		GenericObject dustbin = new GenericObject("Main B Dustbin");
 		GenericObject table = new GenericObject("Main B Table");
-		table.setRightSpritePath(mainBFolder + "right/layer0/table.png");
-		table.setBackSpritePath(mainBFolder + "back/layer0/table.png"); //TODO add graphics file
-		table.loadSprites();
-		table.setBehaviour(MainBBehaviours.tableBehaviour(table));
-		mainB.addGenericRight(greenCouch);
-		mainB.addGenericBack(greenCouch);
-		greenCouch.setLayerRight(0);
-		greenCouch.setLayerBack(0);
 		
-		GenericObject chair = new GenericObject("Main B Table");
-		chair.setFrontSpritePath(mainBFolder + "front/layer0/chair.png");
-		chair.setRightSpritePath(mainBFolder + "right/layer0/chair.png");
-		chair.setBackSpritePath(mainBFolder + "back/layer0/chair.png");
 		
 		
 		return mainB;
@@ -531,7 +500,7 @@ public class Setup {
 		
 		GenericObject couch = new GenericObject("Main C Couch");
 		couch.setRightSpritePath(mainCFolder + "right/layer0/blueCouch.png");
-		couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png"); 
+		couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png");
 		couch.setLeftSpritePath(mainCFolder + "left/layer0/blueCouch.png");
 		couch.loadSprites();
 		couch.setBehaviour(MainCBehaviours.couchBehavior(couch));
