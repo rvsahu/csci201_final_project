@@ -24,7 +24,6 @@ public class MainABehaviours {
 				
 		                
 				Inventory inv = GameUtil.player().getInventory();
-				GameUtil.setMessage("Debugger-- + You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).\n)");
 				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
 					if (inv.checkNumberOfItem("Chocoate") > 0)
 					{
@@ -40,17 +39,13 @@ public class MainABehaviours {
 					return;
 				}
 				
+				
 				if (inv.checkNumberOfItem("Quarter") >= 4) {
 					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
 							          + "The machine dispenses the key. You pick it up and add it to your inventory.");
-					int remover = 4;
 					for (int j = 0; j < inv.size(); j++) {
 						if (inv.getItem(j).name() == "Quarter") {
 							inv.removeItem(j);
-							remover -= 1;
-							if (remover == 0) {
-								break;
-							}
 						}	
 					}
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));

@@ -924,6 +924,7 @@ public class Setup {
 		s4Couch.setLayerBack(0);
 		s4Couch.setLayerFront(0);
 		
+		
 		//add table
 		List<Item> coins = new ArrayList<Item>();
 		coins.add(new Item("Quarter"));
