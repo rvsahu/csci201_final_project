@@ -32,11 +32,11 @@ public class MainDBehaviours {
 				
 				Inventory inv = GameUtil.player().getInventory();
 				
-				if (GameUtil.player().getInventory().checkNumberOfItem("Lab1 Key") > 0)
+				if (GameUtil.player().getInventory().checkNumberOfItem("Lab 1 Key") > 0)
 				{
 					for (int j = 0; j < inv.size(); j++)
 					{
-						if (inv.getItem(j).name() == "Lab1 Key")
+						if (inv.getItem(j).name() == "Lab 1 Key")
 						{
 							inv.removeItem(j);
 						}	

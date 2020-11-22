@@ -590,6 +590,7 @@ public class Setup {
 		d1.setBackSpritePath(mainDFolder + "back/layer0/Lab1Door.png");
 		d1.loadSprites();
 		d1.setBehaviour(MainDBehaviours.lab1DoorBehaviour(d1));
+		d1.lock();
 		mainD.addDoorLeft(d1);
 		mainD.addDoorBack(d1);
 		d1.setLayerLeft(0);
@@ -1053,19 +1054,21 @@ public class Setup {
 		
 		//plant
 		GenericObject p1 = new GenericObject("Cove Plant 1");
-		p1.setFrontSpritePath(coveFolder + "front/layer0/plant1.png");
+		p1.setFrontSpritePath(coveFolder + "front/layer0/plantleft.png");
 		p1.loadSprites();
 		p1.setBehaviour(CoveBehaviours.plantBehaviour(p1));
 		cove.addGenericFront(p1);
 		p1.setLayerFront(0);
 		
 		//plant
+		/*
 		GenericObject p2 = new GenericObject("Cove Plant 2");
 		p2.setFrontSpritePath(coveFolder + "front/layer0/plant2.png");
 		p2.loadSprites();
 		p2.setBehaviour(CoveBehaviours.plantBehaviour(p2));
 		cove.addGenericFront(p2);
 		p2.setLayerFront(0);
+		*/
 		
 		//table
 		GenericObject t1 = new GenericObject("Cove Table");
@@ -1082,7 +1085,7 @@ public class Setup {
 		String labFolder = "./graphics/game_graphics/rooms/lab1/";
 		Room lab;
 		try {
-			lab = new Room("Lab 1", true, false, false, false);
+			lab = new Room("Lab 1", true, true, true, true);
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating cove!");
@@ -1090,18 +1093,27 @@ public class Setup {
 			lab = new Room("Lab");
 		}
 		
-		String frontPaths[] = {labFolder + "front/layer0/lab1_front_0.png"};	
-		String rightPaths[] = {labFolder +  "right/layer0/lab1_right_0.png"};
-		String backPaths[] = {labFolder +  "back/layer0/lab1_back_0.png"};
-		String leftPaths[] = {labFolder +  "left/layer0/lab1_left_0.png"};
+		String frontPaths[] = {labFolder + "front/layer0/Lab_front_base.png"};	
+		String rightPaths[] = {labFolder +  "right/layer0/Lab_right_base.png"};
+		String backPaths[] = {labFolder +  "back/layer0/Lab_back_base.png"};
+		String leftPaths[] = {labFolder +  "left/layer0/Lab_left_base.png"};
 
 		lab.setLayerBackgroundsFront(frontPaths);
 		lab.setLayerBackgroundsRight(rightPaths);
 		lab.setLayerBackgroundsBack(backPaths);
 		lab.setLayerBackgroundsLeft(leftPaths);
 
-		//F
+		
+		/*
+		GenericObject t1 = new GenericObject("Cove Table");
+		t1.setFrontSpritePath(coveFolder + "front/layer0/rightTable.png");
+		t1.loadSprites();
+		t1.setBehaviour(CoveBehaviours.tableBehaviour(t1));
+		cove.addGenericFront(t1);
+		t1.setLayerFront(0);
 		//R
+		 * */
+		 
 
 		//B
 		
@@ -1109,6 +1121,78 @@ public class Setup {
 		
 		//CP cp = new CP();
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
+		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
+		labCP.loadSprites();
+		labCP.setBehaviour(Lab1Behaviours.CPBehavior(labCP));
+		lab.addInfoBack(labCP);
+		labCP.setLayerBack(0);
+		
+		//
+		GenericObject shelf102 = new GenericObject("102 Shelf");
+		shelf102.setBackSpritePath(labFolder + "back/layer0/102shelf.png");
+		shelf102.setFrontSpritePath(labFolder + "front/layer0/102shelf.png");
+		shelf102.setRightSpritePath(labFolder + "right/layer0/102shelf.png");
+		shelf102.loadSprites();
+		lab.addGenericRight(shelf102);
+		shelf102.setLayerRight(0);
+		shelf102.setLayerBack(0);
+		shelf102.setLayerFront(0);
+		
+		GenericObject shelf103 = new GenericObject("103 Shelf");
+		shelf103.setBackSpritePath(labFolder + "back/layer0/103shelf.png");
+		shelf103.setFrontSpritePath(labFolder + "front/layer0/103shelf.png");
+		shelf103.setRightSpritePath(labFolder + "right/layer0/103shelf.png");
+		shelf103.loadSprites();
+		lab.addGenericRight(shelf103);
+		shelf103.setLayerRight(0);
+		shelf102.setLayerBack(0);
+		shelf102.setLayerFront(0);
+		
+		GenericObject shelf170 = new GenericObject("170 Shelf");
+		shelf170.setBackSpritePath(labFolder + "back/layer0/170shelf.png");
+		shelf170.setRightSpritePath(labFolder + "right/layer0/170shelf.png");
+		shelf170.loadSprites();
+		lab.addGenericRight(shelf170);
+		shelf170.setLayerRight(0);
+		shelf102.setLayerBack(0);
+		shelf102.setLayerFront(0);
+		
+		GenericObject shelf201 = new GenericObject("201 Shelf");
+		shelf201.setBackSpritePath(labFolder + "back/layer0/201shelf.png");
+		shelf201.setRightSpritePath(labFolder + "right/layer0/201shelf.png");
+		shelf201.loadSprites();
+		lab.addGenericRight(shelf201);
+		shelf201.setLayerRight(0);
+		shelf102.setLayerBack(0);
+		shelf102.setLayerFront(0);
+		
+		
+		
+		GenericObject book102 = new GenericObject("102 Book");
+		book102.setRightSpritePath(labFolder + "right/layer0/102book.png");
+		book102.loadSprites();
+		lab.addGenericRight(book102);
+		book102.setLayerRight(0);
+		
+		GenericObject book103 = new GenericObject("103 Book");
+		book103.setRightSpritePath(labFolder + "right/layer0/103book.png");
+		book103.loadSprites();
+		lab.addGenericRight(book103);
+		book103.setLayerRight(0);
+		
+		GenericObject book170 = new GenericObject("170 Book");
+		book170.setRightSpritePath(labFolder + "right/layer0/170book.png");
+		book170.loadSprites();
+		lab.addGenericRight(book170);
+		book170.setLayerRight(0);
+		
+		GenericObject book201 = new GenericObject("201 Book");
+		book201.setRightSpritePath(labFolder + "right/layer0/201book.png");
+		book201.loadSprites();
+		lab.addGenericRight(book201);
+		book201.setLayerRight(0);
+		
+		
 		//labCP.
 		//Lab1.addToLeft(cp);
 		InfoObject computer1 = new InfoObject("Lab 1 Computer");
