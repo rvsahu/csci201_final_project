@@ -27,6 +27,8 @@ import fpModel.RoomObject;
 import fpModel.GenericObject;
 import fpModel.WrapperObject;
 import fpModel.InfoObject;
+import fpModel.Perspective;
+import fpModel.Room;
 import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
@@ -40,6 +42,185 @@ public class Lab1Behaviours {
 		
 		return behaviour;
 	}
+
+	
+
+
+	public static EventHandler<MouseEvent> CSCI103Behavior1(GenericObject book) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				Text text = new Text();
+				text.setText("This is my first year at USC and this is my first computer science course ever! \n"
+						+ "Seems like all of my classmates have a lot of experience from CSCI 102 or from high school, \n"
+						+ "so I’m a little worried. But it will be just fine! I will become the bestest programmer ever!");
+				
+				text.setFill(Color.WHITE);
+				text.setFont(new Font(30));
+				text.setTextAlignment(TextAlignment.CENTER);
+				pane.setCenter(text);
+				
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
+				//do stuff, fill in pane
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+					//scene.setFill(Color.BLACK);
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					//scene.setFill(Color.BLACK);
+				}
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> CSCI104Behavior(GenericObject book) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				Text text = new Text();
+				text.setText("This class sure is the weeder class for this major. \n"
+						+ "It’s so hard and there are so many data structures to learn… linked list, amortized array, and hash tables! \n"
+						+ "I will sure be prepped for the technical interviews, I guess \n");
+				text.setFill(Color.WHITE);
+				text.setFont(new Font(30));
+				text.setTextAlignment(TextAlignment.CENTER);
+				pane.setCenter(text);
+				
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
+				//do stuff, fill in pane
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+					//scene.setFill(Color.BLACK);
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					//scene.setFill(Color.BLACK);
+				}
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> CSCI170Behavior(GenericObject book) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				Text text = new Text();
+				text.setText("I suck at math and puzzles, so this class is super hard for me. \n"
+						+ "I wonder why I have to learn all these algorithms and graphs. \n"
+						+ " But it is kind of cool to learn how to count properly! 1, 2, 3, 4, 5! \n"
+						+ "Time to start studying advanced counting! \n");
+				text.setFill(Color.BLACK);
+				text.setFont(new Font(30));
+				text.setTextAlignment(TextAlignment.CENTER);
+				pane.setCenter(text);
+				
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
+				//do stuff, fill in pane
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+					//scene.setFill(Color.BLACK);
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					//scene.setFill(Color.BLACK);
+				}
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		
+		return behaviour;
+	}
+	
+	public static EventHandler<MouseEvent> CSCI201Behavior(GenericObject book) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				Text text = new Text();
+				text.setText("I started learning Java, which is super cool! \n"
+						+ "It’s not much different from C++, but there are cool features like the garbage collector. \n"
+						+ "Java can be used for web development, and I’m so excited to do that stuff. \n"
+						+ "Hopefully this class helps me become the best programmer ever!");
+				text.setFill(Color.WHITE);
+				text.setFont(new Font(30));
+				text.setTextAlignment(TextAlignment.CENTER);
+				pane.setCenter(text);
+				
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
+					}
+				};
+				
+				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #000000;");
+				//do stuff, fill in pane
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+					//scene.setFill(Color.BLACK);
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+					//scene.setFill(Color.BLACK);
+				}
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
+		return behaviour;
+	}
+	
+	
+	
 	
 	public static void addBehaviours(List<RoomObject> objects) {
 		for (RoomObject r : objects) {
