@@ -1129,15 +1129,15 @@ public class Setup {
 			lab = new Room("Lab 1", true, true, true, true);
 		} catch (Exception e) {
 			//this will never happen, but added some code here to get compiler to stop complaining
-			System.err.println("Error creating cove!");
+			System.err.println("Error creating lab1!");
 			e.printStackTrace();
-			lab = new Room("Lab");
+			lab = new Room("Lab1");
 		}
 		
-		String frontPaths[] = {labFolder + "front/layer0/Lab_front_base.png"};	
-		String rightPaths[] = {labFolder +  "right/layer0/Lab_right_base.png"};
-		String backPaths[] = {labFolder +  "back/layer0/Lab_back_base.png"};
-		String leftPaths[] = {labFolder +  "left/layer0/Lab_left_base.png"};
+		String frontPaths[] = {labFolder + "front/layer0/lab1_front_0.png"};	
+		String rightPaths[] = {labFolder +  "right/layer0/lab1_right_0.png"};
+		String backPaths[] = {labFolder +  "back/layer0/lab1_back_0.png"};
+		String leftPaths[] = {labFolder +  "left/layer0/lab1_left_0.png"};
 
 		lab.setLayerBackgroundsFront(frontPaths);
 		lab.setLayerBackgroundsRight(rightPaths);
@@ -1164,7 +1164,7 @@ public class Setup {
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
 		labCP.loadSprites();
-		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
+		//labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
 		lab.addInfoBack(labCP);
 		labCP.setLayerBack(0);
 		
