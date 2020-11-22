@@ -502,6 +502,13 @@ public class Setup {
 		mainC.addDoorLeft(d1);
 		mainC.addDoorFront(d1);
 		
+		GenericObject couch = new GenericObject("Main C Couch");
+		couch.setRightSpritePath(mainCFolder + "right/layer0/blueCouch.png");
+		couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png");
+		couch.setLeftSpritePath(mainCFolder + "left/layer0/blueCouch.png");
+		couch.loadSprites();
+		couch.setBehaviour(MainCBehaviours.couchBehavior(couch));
+		
 		InfoObject notebook = new InfoObject("Main C Notebook", "There is change hidden in the study rooms.");
 		notebook.setRightSpritePath(mainCFolder + "right/layer0/notebook.png");
 		notebook.setBackSpritePath(mainCFolder + "back/layer0/notebook.png");
@@ -511,6 +518,13 @@ public class Setup {
 		mainC.addInfoBack(notebook);
 		notebook.setLayerRight(0);
 		notebook.setLayerBack(0);
+		
+		GenericObject phone = new GenericObject("Main C Phone");
+		phone.setBackSpritePath(mainCFolder + "back/layer0/phone.png");
+		phone.loadSprites();
+		phone.setBehaviour(MainCBehaviours.phoneBehaviour(phone));
+		mainC.addGenericBack(phone);
+		phone.setLayerBack(0);
 		
 		return mainC;
 	}
@@ -1116,7 +1130,7 @@ public class Setup {
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
 		labCP.loadSprites();
-		labCP.setBehaviour(Lab1Behaviours.CPBehavior(labCP));
+		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
 		lab.addInfoBack(labCP);
 		labCP.setLayerBack(0);
 		

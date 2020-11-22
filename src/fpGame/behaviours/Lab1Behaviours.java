@@ -33,7 +33,7 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
 public class Lab1Behaviours {
-	public static EventHandler<MouseEvent> CPBehaviour(ContainerObject cp) {
+	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cp) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				

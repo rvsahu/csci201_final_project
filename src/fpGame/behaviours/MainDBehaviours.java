@@ -2,7 +2,6 @@ package fpGame.behaviours;
 
 //intraproject imports
 import fpGame.GameUtil;
-import fpGame.Inventory;
 import fpModel.DoorObject;
 import fpModel.ContainerObject;
 import fpModel.GenericObject;

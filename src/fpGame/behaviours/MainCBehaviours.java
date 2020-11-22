@@ -1,12 +1,18 @@
 package fpGame.behaviours;
 
+//intraproject imports
 import fpGame.GameUtil;
+import fpModel.RoomObject;
 import fpModel.DoorObject;
 import fpModel.InfoObject;
 import fpModel.GenericObject;
 
+//javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+
+//java imports
+import java.util.List;
 
 public class MainCBehaviours {
 	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin)  {
@@ -51,10 +57,9 @@ public class MainCBehaviours {
 	
 	public static EventHandler<MouseEvent> couchBehavior(GenericObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) 
-			{
+			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("You searched the couch but found nothing.");
-			};
+			}
 		};
 		return behaviour;
 	}
@@ -64,7 +69,7 @@ public class MainCBehaviours {
 	public static EventHandler<MouseEvent> phoneBehaviour(GenericObject phone) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
-				GameUtil.setMessage("It is a phone");
+				GameUtil.setMessage("It is a phone. The line is dead.");
 			}
 		};
 		
@@ -105,15 +110,28 @@ public class MainCBehaviours {
 	public static EventHandler<MouseEvent> notebookBehaviour(InfoObject notebook) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-					
-				GameUtil.setMessage("You read a message in the notebook:"
-							+ "\"I am so over this programming assignment.\n "
-							+ "I'm getting a bit hungry!\n "
-							+ "I will grab some of the coins I hid in the study rooms and grab some snacks.\n"
-							+ "Hope I can pass this class!\"");
+				String message = "\"I am so over this programming assignment.\n";
+				message += "I'm getting a bit hungry!\n";
+				message += "I will grab some of the coins I hid in the study rooms and grab some snacks.\n";
+				message += "Hope I can pass this class!\"";
+				if (notebook.hasInfo()) {
+					message = "You read a message in the notebook:\n" + message;
+					message += "You make a note that there is some money in the study rooms.";
+					GameUtil.player().addToLogbook(notebook.getInfo());
+				} else {
+					message = "You reread the notebook message:\n" + message;
+				}
+				GameUtil.setMessage(message);
 			}
 		};
 		
 		return behaviour;
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) {
+		
+		for (RoomObject r : objects) {
+			
+		}
 	}
 }
