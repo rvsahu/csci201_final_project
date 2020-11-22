@@ -34,8 +34,25 @@ public class Study4Behaviours {
 	}
 
 	public static EventHandler<MouseEvent> tableBehaviour(ContainerObject table) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				if (table.hasItems())
+				{
+					int size = table.getItems().size();
+					GameUtil.setMessage("You searched the table and found 2 coins sitting on the corner!");
+					for (int i = 0; i < size; i++)
+					{
+						GameUtil.player().addToInventory(table.getItem(0));
+						table.removeItem(0);
+					}
+				}
+				else
+				{
+					GameUtil.setMessage("You searched the table but found nothing");
+				}
+			}
+		};
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {

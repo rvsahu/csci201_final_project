@@ -17,22 +17,30 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class MainABehaviours {
-	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
+	
+	public static EventHandler<MouseEvent> vendingMachineBehaviour(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {	
-				Inventory inv = GameUtil.player().getInventory();
+			@Override public void handle(MouseEvent event) {
 				
+		                
+				Inventory inv = GameUtil.player().getInventory();
+				GameUtil.setMessage("Debugger-- + You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).\n)");
 				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
-					GameUtil.setMessage("You already have bought the key from the vending machine.");
+					if (inv.checkNumberOfItem("Chocoate") > 0)
+					{
+						GameUtil.setMessage("The vending machine is now empty.");
+					}
+					else
+					{
+						GameUtil.setMessage("You give the machine a swift righteous kick, and the coffee and chocolate dispense.");
+						inv.addItem(vm1.removeItem(vm1.getItemIndex("Coffee")));
+						inv.addItem(vm1.removeItem(vm1.getItemIndex("Chocolate")));
+					}
+					
 					return;
-				} 
-				else {
-					GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
-					          + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).");
 				}
 				
-				if (inv.checkNumberOfItem("Quarter") >= 4)
-				{
+				if (inv.checkNumberOfItem("Quarter") >= 4) {
 					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
 							          + "The machine dispenses the key. You pick it up and add it to your inventory.");
 					int remover = 4;
@@ -46,16 +54,14 @@ public class MainABehaviours {
 						}	
 					}
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
-				}
+				} 
 				
-				if (inv.checkNumberOfItem("Coffee") > 1 && inv.checkNumberOfItem("Lab 1 Key") > 1)
-				{
-					GameUtil.setMessage("Out of frustration, you kicked the vending machine as hard as you can. \n"
-					          + "The machine dispenses chocolate and coffee");
-					inv.addItem(vm1.removeItem(vm1.getItemIndex("Coffee")));
-					inv.addItem(vm1.removeItem(vm1.getItemIndex("Chocolate")));
-				}
+				GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
+					                + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).\n"
+					                + "The vending machine also has coffee and chocolate within.");
+					  
 			}
+			
 		};
 		return behaviour;
 	}
