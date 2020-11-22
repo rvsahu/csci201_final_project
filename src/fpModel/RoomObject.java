@@ -471,4 +471,13 @@ public abstract class RoomObject {
 			return null;
 		}
 	}
+	
+	/**
+	 * Returns a hash code for the RoomObject based on the name. When added to a hash set,
+	 * RoomObjects with the same name should hash to the same place, and therefore the program
+	 * can check if an object or version if it is already in a set.
+	 */
+	@Override public int hashCode() {
+		return name.hashCode();
+	}
 }
