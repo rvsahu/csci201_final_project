@@ -34,7 +34,7 @@ public class Study3Behaviours {
 	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
-				GameUtil.setMessage("It is a couch. Seeems like a good couch to fall asleep after an all nighter at SAL. You searched the couch but found nothing.");
+				GameUtil.setMessage("You searched the couch but found nothing.");
 			}
 		};
 		
@@ -43,8 +43,7 @@ public class Study3Behaviours {
 
 	public static EventHandler<MouseEvent> tableBehaviour(ContainerObject table) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
-			@Override public void handle(MouseEvent event) 
-			{
+			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("You search the table but find nothing.");
 			}
 		};

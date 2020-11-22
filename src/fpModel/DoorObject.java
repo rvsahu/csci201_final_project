@@ -43,7 +43,7 @@ public class DoorObject extends RoomObject {
 	 * @param key  The key being tried on the door.
 	 */
 	public void unlock(Item key) {
-		if (mKey == key.name()) {
+		if (mKey.equals(key.name())) {
 			isLocked = false;
 		}
 	}
