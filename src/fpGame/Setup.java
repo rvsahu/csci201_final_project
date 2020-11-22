@@ -369,11 +369,7 @@ public class Setup {
 		keyWrapper.setLayerBack(0);
 		keyWrapper.setLayerLeft(0);
 		
-		List<Item> vendingItems = new ArrayList<Item>();
-		vendingItems.add(new Item("Lab 1 Key"));
-		vendingItems.add(new Item("Chocolate"));
-		vendingItems.add(new Item("Coffee"));
-		ContainerObject vendingMachine = new ContainerObject("Vending Machine", vendingItems);
+		ContainerObject vendingMachine = new ContainerObject("Vending Machine");
 		vendingMachine.setBackSpritePath(mainAFolder + "back/layer0/vending.png");
 		vendingMachine.setLeftSpritePath(mainAFolder + "left/layer0/vending.png");
 		vendingMachine.loadSprites();
@@ -579,8 +575,14 @@ public class Setup {
 		mainCArrow.setLayerBack(0);
 		mainCArrow.setLayerLeft(0);
 		
+		
+		
 		//Vending Machine
-		ContainerObject vm1 = new ContainerObject("MainD Vending Machine"); //TODO implement vending machine behaviour
+		List<Item> vendingItems = new ArrayList<Item>();
+		vendingItems.add(new Item("Lab 1 Key"));
+		vendingItems.add(new Item("Chocolate"));
+		vendingItems.add(new Item("Coffee"));
+		ContainerObject vm1 = new ContainerObject("MainD Vending Machine", vendingItems);
 		vm1.setRightSpritePath(mainDFolder + "right/layer0/vend.png");
 		vm1.setBackSpritePath(mainDFolder + "back/layer0/vending.png");
 		vm1.loadSprites();
