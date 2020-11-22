@@ -201,17 +201,6 @@ public class Setup {
 		annex.addInfoFront(c8);
 		c8.setLayerFront(2);
 		
-		//projector
-		GenericObject proj = new GenericObject("Annex Projector");
-		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
-		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
-		proj.loadSprites();
-		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(proj));
-		annex.addGenericFront(proj);
-		annex.addGenericLeft(proj);
-		proj.setLayerFront(0);
-		proj.setLayerLeft(0);
-		
 		GenericObject projection = new GenericObject("Annex Projection");
 		projection.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
 		projection.loadSprites();
@@ -219,6 +208,17 @@ public class Setup {
 		annex.addGenericFront(projection);
 		projection.setLayerFront(0);
 		projection.hide();
+		
+		//projector
+		GenericObject proj = new GenericObject("Annex Projector");
+		proj.setFrontSpritePath(annexFolder + "front/layer0/projSwitch.png");
+		proj.setLeftSpritePath(annexFolder + "left/layer0/projSwitch.png");
+		proj.loadSprites();
+		proj.setBehaviour(AnnexBehaviours.projectorBehaviour(projection));
+		annex.addGenericFront(proj);
+		annex.addGenericLeft(proj);
+		proj.setLayerFront(0);
+		proj.setLayerLeft(0);
 		
 		/*Table table = new Table("Annex Pink Table");
 		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
