@@ -36,7 +36,7 @@ public class Lab1Behaviours {
 			@Override public void handle(MouseEvent event) {
 				//if the cp is sleeping, check if can wake the cp up
 				String cpState = cp.getInfo();
-				if (cpState.equals("sleeping")) {
+				if (cpState.equals("asleep")) {
 					Inventory inv = GameUtil.player().getInventory();
 					//wake if there is chocolate and coffee
 					if (inv.checkNumberOfItem("Chocolate") > 0) {
@@ -58,9 +58,7 @@ public class Lab1Behaviours {
 						GameUtil.setMessage("The CP has fallen asleep after helping 60 students.\n"
 									        + "They'll need some energy to wake up.");
 					}
-				}
-				//if the cp is awake, just give the puzzle over and over again
-				else {
+				} else {
 					BorderPane pane = new BorderPane();
 					Text text = new Text();
 					text.setText(" What is this? Chocolate and coffee? Wow! Oh wait . . . \n "
