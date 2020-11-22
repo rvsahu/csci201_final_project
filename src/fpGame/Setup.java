@@ -1160,19 +1160,13 @@ public class Setup {
 		
 		//L
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
-		InfoObject wokenCP = new InfoObject("Lab 1 CP Awake");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
-		wokenCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
 		labCP.loadSprites();
-		wokenCP.loadSprites();
-		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP, wokenCP));
+		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
 		lab.addInfoBack(labCP);
-		lab.addInfoBack(wokenCP);
 		labCP.setLayerBack(0);
-		wokenCP.setLayerBack(0);
-		wokenCP.hide();
 		
-		//
+		
 		GenericObject shelf102 = new GenericObject("102 Shelf");
 		shelf102.setBackSpritePath(labFolder + "back/layer0/102shelf.png");
 		shelf102.setFrontSpritePath(labFolder + "front/layer0/102shelf.png");
