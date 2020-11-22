@@ -1073,7 +1073,7 @@ public class Setup {
 		
 		//plant
 		GenericObject p1 = new GenericObject("Cove Plant 1");
-		p1.setFrontSpritePath(coveFolder + "front/layer0/plantLefter.png");
+		p1.setFrontSpritePath(coveFolder + "front/layer0/plant1.png");
 		p1.loadSprites();
 		p1.setBehaviour(CoveBehaviours.plantBehaviour(p1));
 		cove.addGenericFront(p1);
@@ -1081,7 +1081,7 @@ public class Setup {
 		
 		//plant
 		GenericObject p2 = new GenericObject("Cove Plant 2");
-		p2.setFrontSpritePath(coveFolder + "front/layer0/plantLeft.png");
+		p2.setFrontSpritePath(coveFolder + "front/layer0/plant2.png");
 		p2.loadSprites();
 		p2.setBehaviour(CoveBehaviours.plantBehaviour(p2));
 		cove.addGenericFront(p2);
