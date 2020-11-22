@@ -579,7 +579,8 @@ public class Setup {
 		
 		//Vending Machine
 		List<Item> vendingItems = new ArrayList<Item>();
-		vendingItems.add(new Item("Lab 1 Key"));
+		Item lab1Key = new Item("Lab 1 Key");  
+		vendingItems.add(lab1Key);
 		vendingItems.add(new Item("Chocolate"));
 		vendingItems.add(new Item("Coffee"));
 		ContainerObject vm1 = new ContainerObject("MainD Vending Machine", vendingItems);
@@ -603,7 +604,7 @@ public class Setup {
 		mainD.addDoorBack(d1);
 		d1.setLayerLeft(0);
 		d1.setLayerBack(0);
-		d1.lock();
+		d1.lock(lab1Key);
 		
 		//HallwayDoor
 		DoorObject d2 = new DoorObject("MainD to Hallway");
