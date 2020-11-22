@@ -2,6 +2,7 @@ package fpGame.behaviours;
 
 //intraproject imports
 import fpGame.GameUtil;
+import fpGame.Inventory;
 import fpModel.DoorObject;
 import fpModel.ContainerObject;
 import fpModel.GenericObject;
@@ -15,8 +16,48 @@ public class MainDBehaviours {
 	public static EventHandler<MouseEvent> vendingMachineBehaviour(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				GameUtil.setMessage("Seems like you need to get closer to the machine to use it.");
+				
+		                
+				Inventory inv = GameUtil.player().getInventory();
+				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
+					if (inv.checkNumberOfItem("Chocoate") > 0)
+					{
+						GameUtil.setMessage("The vending machine is now empty.");
+					}
+					else
+					{
+						GameUtil.setMessage("You give the machine a swift righteous kick, and the coffee and chocolate dispense.");
+						inv.addItem(vm1.removeItem(vm1.getItemIndex("Coffee")));
+						inv.addItem(vm1.removeItem(vm1.getItemIndex("Chocolate")));
+					}
+					
+					return;
+				}
+				
+				
+				if (inv.checkNumberOfItem("Quarter") >= 4) {
+					int size = inv.size();
+					for (int j = 0; j < size; j++)
+					{
+						if (inv.getItem(j).name() == "Quarter")
+						inv.removeItem(j);
+						size--;
+						j--;
+					}
+					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
+					
+					GameUtil.setMessage("You put four coins into the vending machine and pay for the key to Lab 1.\n"
+					          + "The machine dispenses the key. You pick it up and add it to your inventory.");
+			
+					return;
+				} 
+				
+				GameUtil.setMessage("You look at the vending machine and see the key to Lab 1. It costs $1.00\n"
+					                + "You have " + inv.checkNumberOfItem("Quarter") + " quarter(s).\n"
+					                + "The vending machine also has coffee and chocolate within.");
+					  
 			}
+			
 		};
 		return behaviour;
 	}
