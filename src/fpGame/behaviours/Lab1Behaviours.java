@@ -74,7 +74,7 @@ public class Lab1Behaviours {
 				Text text = new Text();
 				text.setText("This is my first year at USC and this is my first computer science course ever! \n"
 						+ "Seems like all of my classmates have a lot of experience from CSCI 102 or from high school, \n"
-						+ "so I’m a little worried. But it will be just fine! I will become the bestest programmer ever!");
+						+ "so I'm a little worried. But it will be just fine! I will become the bestest programmer ever!");
 				
 				text.setFill(Color.WHITE);
 				text.setFont(new Font(30));
