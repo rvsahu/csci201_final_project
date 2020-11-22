@@ -33,33 +33,44 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
 public class Lab1Behaviours {
-	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cp) {
+	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cpsleeping, InfoObject cpwoken) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				
-		                
-				Inventory inv = GameUtil.player().getInventory();
-				if (inv.checkNumberOfItem("Chocolate") > 0) {
-					if (inv.checkNumberOfItem("Chocoate") > 0)
-					{
-						GameUtil.setMessage("You put the chocolate and the coffee in the CP's pocket");
-						int size = inv.size();
-						for (int j = 0; j < size; j++)
+				//if the cp is sleeping, check if can wake the cp up
+				if (cpsleeping.getInfo().compareTo("sleeping") != 0 )
+				{
+						Inventory inv = GameUtil.player().getInventory();
+						
+						//wake if there is chocolate and coffee
+						if (inv.checkNumberOfItem("Chocoate") > 0)
 						{
-							if (inv.getItem(j).name() == "Chocolate " ||inv.getItem(j).name() == "Coffee" )
-							inv.removeItem(j);
-							size--;
-							j--;
+							GameUtil.setMessage("You put the chocolate and the coffee in the CP's pocket");
+							int size = inv.size();
+							for (int j = 0; j < size; j++)
+							{
+								if (inv.getItem(j).name() == "Chocolate " ||inv.getItem(j).name() == "Coffee" )
+								inv.removeItem(j);
+								size--;
+								j--;
+							}
+							cpsleeping.hide();
+							cpwoken.display();
+							GameUtil.setMessage("The CP has woken up!");
 						}
-						GameUtil.setMessage("The CP has woken up!");
-					}
-					else
-					{
-						GameUtil.setMessage("The CP has fallen asleep after helping 60 students. . . \n"
-								+ " The CP needs some energy to wake up. . .");
+						//dont wake if there is no chocolate and coffee
+						else
+						{
+							GameUtil.setMessage("The CP has fallen asleep after helping 60 students. . . \n"
+									+ " The CP needs some energy to wake up. . .");
 
-					}
+						}
 				}
+				//if the cp is awake, just give the puzzle over and over again
+				else
+				{
+					
+				}
+				
 			}
 		};
 			return behaviour;		
