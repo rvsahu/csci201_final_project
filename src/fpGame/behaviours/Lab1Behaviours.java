@@ -25,50 +25,42 @@ import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.RoomObject;
 import fpModel.GenericObject;
-import fpModel.WrapperObject;
 import fpModel.InfoObject;
 import fpModel.Perspective;
 import fpModel.Room;
-import fpModel.ContainerObject;
-import fpModel.DoorObject;
+
 
 public class Lab1Behaviours {
-	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cpsleeping) {
+	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cp) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				//if the cp is sleeping, check if can wake the cp up
-				if (cpsleeping.getInfo().compareTo("sleeping") != 0 )
-				{
-						Inventory inv = GameUtil.player().getInventory();
+				String cpState = cp.getInfo();
+				if (cpState.equals("sleeping")) {
+					Inventory inv = GameUtil.player().getInventory();
+					//wake if there is chocolate and coffee
+					if (inv.checkNumberOfItem("Chocolate") > 0) {
+						GameUtil.setMessage("You put the chocolate and the coffee in the CP's pocket");
 						
-						//wake if there is chocolate and coffee
-						if (inv.checkNumberOfItem("Chocoate") > 0)
-						{
-							GameUtil.setMessage("You put the chocolate and the coffee in the CP's pocket");
-							int size = inv.size();
-							for (int j = 0; j < size; j++)
-							{
-								if (inv.getItem(j).name() == "Chocolate " ||inv.getItem(j).name() == "Coffee" )
+						for (int j = 0; j < inv.size(); j += 1) {
+							if (inv.getItem(j).name().equals("Chocolate") || inv.getItem(j).name().equals("Coffee")) {
 								inv.removeItem(j);
-								size--;
-								j--;
+								j -= 1;
 							}
-							cpsleeping.setBackSpritePath("./graphics/game_graphics/rooms/lab1/back/layer0/CP_sleeping.png");
-							cpsleeping.loadSprites();
-							GameUtil.displayPlayerView();
-							GameUtil.setMessage("The CP has woken up!");
 						}
-						//dont wake if there is no chocolate and coffee
-						else
-						{
-							GameUtil.setMessage("The CP has fallen asleep after helping 60 students. . . \n"
-									+ " The CP needs some energy to wake up. . .");
 
-						}
+						cp.setBackSpritePath("./graphics/game_graphics/rooms/lab1/back/layer0/CP_stand.png");
+						cp.loadSprites();
+						cpState = "awoken";
+						GameUtil.displayPlayerView();
+						GameUtil.setMessage("The CP has woken up!");
+					} else {
+						GameUtil.setMessage("The CP has fallen asleep after helping 60 students.\n"
+									        + "They'll need some energy to wake up.");
+					}
 				}
 				//if the cp is awake, just give the puzzle over and over again
-				else
-				{
+				else {
 					BorderPane pane = new BorderPane();
 					Text text = new Text();
 					text.setText(" What is this? Chocolate and coffee? Wow! Oh wait . . . \n "
@@ -108,6 +100,8 @@ public class Lab1Behaviours {
 					
 				}
 				
+				cp.setInfo(cpState);
+				
 			}
 		};
 			return behaviour;		
@@ -115,7 +109,7 @@ public class Lab1Behaviours {
 	
 
 
-	public static EventHandler<MouseEvent> CSCI103Behavior1(GenericObject book) {
+	public static EventHandler<MouseEvent> CSCI103Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
@@ -159,7 +153,7 @@ public class Lab1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> CSCI104Behavior(GenericObject book) {
+	public static EventHandler<MouseEvent> CSCI104Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
@@ -201,7 +195,7 @@ public class Lab1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> CSCI170Behavior(GenericObject book) {
+	public static EventHandler<MouseEvent> CSCI170Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
@@ -245,7 +239,7 @@ public class Lab1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> CSCI201Behavior(GenericObject book) {
+	public static EventHandler<MouseEvent> CSCI201Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
