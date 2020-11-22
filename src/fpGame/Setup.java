@@ -610,12 +610,50 @@ public class Setup {
 		db1.setLayerBack(0);
 		db1.setLayerRight(0);
 		db1.setLayerLeft(0);
+		
 
 		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
 		db2.setBehaviour(MainDBehaviours.dustbinBehaviour(db2));
 		mainD.addContainerRight(db2);
 		db2.setLayerRight(0);
+		
+		//keypad
+		GenericObject keypad = new GenericObject("MainD Keypad to Lab1");
+		keypad.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Keypad.png");
+		keypad.setBackSpritePath(mainDFolder + "back/layer0/labPad.png");
+		keypad.loadSprites();
+		keypad.setBehaviour(MainDBehaviours.keypadLab1Behaviour(keypad));
+		mainD.addGenericBack(keypad);
+		mainD.addGenericLeft(keypad);
+		keypad.setLayerLeft(0);
+		keypad.setLayerBack(0);
+		
+		//keypad
+		GenericObject keypad1 = new GenericObject("MainD Keypad to Hallway");
+		keypad1.setLeftSpritePath(mainDFolder + "left/layer0/HallwayKeypad.png");
+		keypad1.setBackSpritePath(mainDFolder + "back/layer0/hallwayKeypad.png");
+		keypad1.loadSprites();
+		keypad1.setBehaviour(MainDBehaviours.keypadHallwayBehaviour(keypad));
+		mainD.addGenericBack(keypad1);
+		mainD.addGenericLeft(keypad1);
+		keypad.setLayerLeft(0);
+		keypad.setLayerBack(0);
+		
+		//Lightswitch
+		GenericObject l = new GenericObject("MainD Lightswitch");
+		l.setLeftSpritePath(mainDFolder + "left/layer0/switch.png");
+		l.setBackSpritePath(mainDFolder + "back/layer0/lightSwitch.png");
+		l.loadSprites();
+		l.setBehaviour(MainDBehaviours.lightswitchBehaviour(l));
+		mainD.addGenericBack(l);
+		mainD.addGenericLeft(l);
+		l.setLayerLeft(0);
+		l.setLayerBack(0);
+		
+		
+		
+		
 		
 		return mainD;
 	}
