@@ -1079,11 +1079,27 @@ public class Setup {
 	}
 	
 	private static Room setupLab1() { //ERICA
-		String labPath = "./graphics/game_graphics/rooms/lab1/";
+		String labFolder = "./graphics/game_graphics/rooms/lab1/";
+		Room lab;
+		try {
+			lab = new Room("Lab 1", true, false, false, false);
+		} catch (Exception e) {
+			//this will never happen, but added some code here to get compiler to stop complaining
+			System.err.println("Error creating cove!");
+			e.printStackTrace();
+			lab = new Room("Lab");
+		}
 		
-		Room lab1 = new Room("lab1");
-		
-		
+		String frontPaths[] = {labFolder + "front/layer0/lab1_front_0.png"};	
+		String rightPaths[] = {labFolder +  "right/layer0/lab1_right_0.png"};
+		String backPaths[] = {labFolder +  "back/layer0/lab1_back_0.png"};
+		String leftPaths[] = {labFolder +  "left/layer0/lab1_left_0.png"};
+
+		lab.setLayerBackgroundsFront(frontPaths);
+		lab.setLayerBackgroundsRight(rightPaths);
+		lab.setLayerBackgroundsBack(backPaths);
+		lab.setLayerBackgroundsLeft(leftPaths);
+
 		//F
 		//R
 
@@ -1096,10 +1112,10 @@ public class Setup {
 		//labCP.
 		//Lab1.addToLeft(cp);
 		InfoObject computer1 = new InfoObject("Lab 1 Computer");
-		lab1.addInfoLeft(computer1); //new 
+		lab.addInfoLeft(computer1); //new 
 		
 		
-		return lab1;
+		return lab;
 	}
 	
 	/*
