@@ -110,6 +110,7 @@ public class Lab1Behaviours {
 	public static EventHandler<MouseEvent> CSCI103Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
+				
 				BorderPane pane = new BorderPane();
 				Text text = new Text();
 				text.setText("This is my first year at USC and this is my first computer science course ever! \n"
