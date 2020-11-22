@@ -1,17 +1,9 @@
 package fpIO;
 
-//java imports
-import java.util.List;
-
-//javafx imports
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-
 //intraproject imports
 import fpGame.Player;
 import fpGame.Map;
 import fpGame.GameUtil;
-import fpGame.behaviours.*;
 
 public class Loader {
 	public static void load() {
@@ -42,6 +34,7 @@ public class Loader {
 		
 		GameUtil.setPlayer(player);
 		GameUtil.setMap(map);
+		GameUtil.stage().setTitle("USCape!");
 		GameUtil.displayPlayerView();
 	}
 }
