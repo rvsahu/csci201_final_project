@@ -533,7 +533,7 @@ public class Setup {
 		d1.setLeftSpritePath(mainCFolder + "left/layer0/frontDoor.png");
 		d1.setFrontSpritePath(mainCFolder + "front/layer0/FrontDoor.png");
 		d1.loadSprites();
-		//d1.setBehaviour(behaviour);
+		d1.setBehaviour(MainCBehaviours.frontDoorBehaviour(d1));
 		mainC.addDoorLeft(d1);
 		mainC.addDoorFront(d1);
 		
@@ -1166,6 +1166,14 @@ public class Setup {
 
 		//B
 		
+		DoorObject d1 = new DoorObject("Lab 1 to MainD");
+		d1.setRightSpritePath(labFolder + "right/layer0/door.png");
+		d1.setFrontSpritePath(labFolder + "front/layer0/door.png");
+		d1.loadSprites();
+		//d1.setBehaviour(behaviour);
+		lab.addDoorRight(d1);
+		lab.addDoorFront(d1);
+		
 		//L
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
@@ -1184,7 +1192,6 @@ public class Setup {
 		lab.addGenericFront(shelf102);
 		lab.addGenericBack(shelf102);
 		shelf102.setLayerRight(0);
-		shelf102.setLayerBack(0);
 		shelf102.setLayerFront(0);
 		
 		GenericObject shelf103 = new GenericObject("103 Shelf");
@@ -1196,7 +1203,6 @@ public class Setup {
 		lab.addGenericFront(shelf103);
 		lab.addGenericBack(shelf103);
 		shelf103.setLayerRight(0);
-		shelf103.setLayerBack(0);
 		shelf103.setLayerFront(0);
 		
 		GenericObject shelf170 = new GenericObject("170 Shelf");
@@ -1206,8 +1212,6 @@ public class Setup {
 		lab.addGenericRight(shelf170);
 		lab.addGenericBack(shelf170);
 		shelf170.setLayerRight(0);
-		shelf170.setLayerBack(0);
-		shelf170.setLayerFront(0);
 		
 		GenericObject shelf201 = new GenericObject("201 Shelf");
 		shelf201.setBackSpritePath(labFolder + "back/layer0/201shelf.png");
@@ -1216,9 +1220,13 @@ public class Setup {
 		lab.addGenericRight(shelf201);
 		lab.addGenericBack(shelf201);
 		shelf201.setLayerRight(0);
-		shelf201.setLayerBack(0);
-		shelf201.setLayerFront(0);
 		
+		
+		//back
+		shelf201.setLayerBack(0);
+		shelf170.setLayerBack(0);
+		shelf103.setLayerBack(0);
+		shelf102.setLayerBack(0);
 		
 		
 		GenericObject book102 = new GenericObject("102 Book");
