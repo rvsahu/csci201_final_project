@@ -220,13 +220,6 @@ public class Setup {
 		proj.setLayerFront(0);
 		proj.setLayerLeft(0);
 		
-		/*Table table = new Table("Annex Pink Table");
-		table.setFrontSpritePath(annexFolder + "front/layer0/pinkTable.png");
-		table.loadSprites();
-		table.setBehaviour(Behaviours.projectorBehaviour(table));
-		annex.addToFront(table);
-		table.setLayerFront(0);*/
-		
 		//Door
 		DoorObject annexToMain = new DoorObject("Annex To Main");
 		annexToMain.setLeftSpritePath(annexFolder + "left/layer0/doorMainA.png");
@@ -302,7 +295,7 @@ public class Setup {
 		return annex;
 	}
 	
-	private static Room setupMainA() { //ERICA
+	private static Room setupMainA() {
 		Room mainA = new Room("mainA");
 
 		String mainAFolder = "./graphics/game_graphics/rooms/mainA/";
@@ -398,7 +391,7 @@ public class Setup {
 		return mainA;
 	}
 	
-	private static Room setupMainB() { //ERICA
+	private static Room setupMainB() { 
 		String mainBFolder = "./graphics/game_graphics/rooms/mainB/";
 		
 		Room mainB = new Room("mainB");
@@ -454,7 +447,7 @@ public class Setup {
 		
 		return mainB;
 	}
-	private static Room setupMainC() {  //ERICA
+	private static Room setupMainC() { 
 		Room mainC = new Room("mainC");
 		
 		String mainCFolder = "./graphics/game_graphics/rooms/mainC/";
@@ -562,7 +555,7 @@ public class Setup {
 		mainCArrow.setBackSpritePath(mainDFolder + "back/layer0/MainC_arrow.png");
 		mainCArrow.setLeftSpritePath(mainDFolder + "left/layer0/MainC_arrow.png");
 		mainCArrow.loadSprites();
-		mainCArrow.setBehaviour(MainDBehaviours.arrowABehaviour(mainCArrow));
+		mainCArrow.setBehaviour(MainDBehaviours.arrowCBehaviour(mainCArrow));
 		mainD.addDoorFront(mainCArrow);
 		mainD.addDoorRight(mainCArrow);
 		mainD.addDoorBack(mainCArrow);
@@ -589,11 +582,12 @@ public class Setup {
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
 		d1.setBackSpritePath(mainDFolder + "back/layer0/Lab1Door.png");
 		d1.loadSprites();
-		d1.setBehaviour(MainDBehaviours.lab1DoorBehaviour(d1));
+		d1.setBehaviour(MainDBehaviours.doorLab1Behaviour(d1));
 		mainD.addDoorLeft(d1);
 		mainD.addDoorBack(d1);
 		d1.setLayerLeft(0);
 		d1.setLayerBack(0);
+		d1.lock();
 		
 		//HallwayDoor
 		DoorObject d2 = new DoorObject("MainD to Hallway");

@@ -5,9 +5,7 @@ import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.DoorObject;
 import fpModel.ContainerObject;
-import fpModel.InfoObject;
 import fpModel.GenericObject;
-import fpModel.WrapperObject;
 
 //javafx imports
 import javafx.event.EventHandler;
@@ -24,41 +22,23 @@ public class MainDBehaviours {
 		return behaviour;
 	}
 	
-
-
-	public static EventHandler<MouseEvent> lab1DoorBehaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> doorLab1Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				
-				Inventory inv = GameUtil.player().getInventory();
-				
-				if (GameUtil.player().getInventory().checkNumberOfItem("Lab1 Key") > 0)
-				{
-					for (int j = 0; j < inv.size(); j++)
-					{
-						if (inv.getItem(j).name() == "Lab1 Key")
-						{
-							inv.removeItem(j);
-						}	
-					}
-					
-					d.unlock();
-					GameUtil.setMessage("The door unlocked!");
+				if (d.isLocked() && GameUtil.player().getInventory().checkNumberOfItem("Lab 1 Key") > 0) {
+					d.unlock(GameUtil.player().getInventory().getItem("Lab 1 Key"));
+					GameUtil.setMessage("You use the key you found to unlock the lab door door.");
+				} else if (d.isLocked()) {
+					GameUtil.setMessage("The door to Lab 1 is locked. You need the key to open the room.");
+				} else {
 					GameUtil.player().setCurrentRoom(GameUtil.map().lab1);
 					GameUtil.player().setCurrentPerspective(3);
 					GameUtil.displayPlayerView();
 				}
 				
-				if(d.isLocked()) 
-				{
-					GameUtil.setMessage("The door is locked. Inside this lab, there is a CP waiting for your rescue");
-				}else {
-					GameUtil.player().setCurrentRoom(GameUtil.map().lab1);
-					GameUtil.player().setCurrentPerspective(3);
-					GameUtil.displayPlayerView();
-				}
 			}
 		};
+		
 		return behaviour;
 	}
 
@@ -107,7 +87,7 @@ public class MainDBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> arrowDBehaviour(DoorObject d) {
+	public static EventHandler<MouseEvent> arrowCBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
