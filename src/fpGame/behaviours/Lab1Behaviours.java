@@ -33,7 +33,7 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 
 public class Lab1Behaviours {
-	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cpsleeping, InfoObject cpwoken) {
+	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cpsleeping) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				//if the cp is sleeping, check if can wake the cp up
@@ -53,8 +53,9 @@ public class Lab1Behaviours {
 								size--;
 								j--;
 							}
-							cpsleeping.hide();
-							cpwoken.display();
+							cpsleeping.setBackSpritePath("./graphics/game_graphics/rooms/lab1/back/layer0/CP_sleeping.png");
+							cpsleeping.loadSprites();
+							GameUtil.displayPlayerView();
 							GameUtil.setMessage("The CP has woken up!");
 						}
 						//dont wake if there is no chocolate and coffee
@@ -68,6 +69,42 @@ public class Lab1Behaviours {
 				//if the cp is awake, just give the puzzle over and over again
 				else
 				{
+					BorderPane pane = new BorderPane();
+					Text text = new Text();
+					text.setText(" What is this? Chocolate and coffee? Wow! Oh wait . . . \n "
+							+ "Am I still in SAL? Did I fall asleep? Man, fixing all those bugs were hard. . . \n"
+							+ "Oh hey there, thanks for the treats. What? We've been locked here? Oh god. . . \n"
+							+ "I'm sure Professor Adamchik can come rescue, but I don't have his phone number with me. \n"
+							+ "The phone number can be retrieved by solving the passcode using the objects in this room. Please help!");
+					text.setFill(Color.WHITE);
+					text.setFont(new Font(30));
+					text.setTextAlignment(TextAlignment.CENTER);
+					pane.setCenter(text);
+					
+					EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+						@Override public void handle(MouseEvent event) {
+							//return to gameplay
+							Room cR = GameUtil.player().currentRoom();
+							Perspective cP = GameUtil.player().currentView();
+							cR.setPerspective(cP);
+							GameUtil.displayPlayerView();
+						}
+					};
+					
+					pane.setOnMouseClicked(exitBehaviour);
+					pane.setStyle("-fx-background-color: #000000;");
+					//do stuff, fill in pane
+					Scene scene;
+					if (GameUtil.needsScaling()) {
+						scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
+								          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+						//scene.setFill(Color.BLACK);
+					} else {
+						scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+						//scene.setFill(Color.BLACK);
+					}
+					GameUtil.stage().setScene(scene);
+					GameUtil.stage().show();
 					
 				}
 				
