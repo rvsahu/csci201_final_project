@@ -117,7 +117,7 @@ public class Lab1Behaviours {
 				BorderPane pane = new BorderPane();
 				Text text = new Text();
 				text.setText("This class sure is the weeder class for this major. \n"
-						+ "It’s so hard and there are so many data structures to learn… linked list, amortized array, and hash tables! \n"
+						+ "It's so hard and there are so many data structures to learn: linked list, amortized array, and hash tables! \n"
 						+ "I will sure be prepped for the technical interviews, I guess \n");
 				text.setFill(Color.WHITE);
 				text.setFont(new Font(30));
@@ -203,8 +203,8 @@ public class Lab1Behaviours {
 				BorderPane pane = new BorderPane();
 				Text text = new Text();
 				text.setText("I started learning Java, which is super cool! \n"
-						+ "It’s not much different from C++, but there are cool features like the garbage collector. \n"
-						+ "Java can be used for web development, and I’m so excited to do that stuff. \n"
+						+ "It's not much different from C++, but there are cool features like the garbage collector. \n"
+						+ "Java can be used for web development, and I'm so excited to do that stuff. \n"
 						+ "Hopefully this class helps me become the best programmer ever!");
 				text.setFill(Color.WHITE);
 				text.setFont(new Font(30));
