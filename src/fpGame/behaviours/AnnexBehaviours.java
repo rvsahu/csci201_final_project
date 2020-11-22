@@ -229,22 +229,33 @@ public class AnnexBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> projectorBehaviour(GenericObject p) {
-		
+	public static EventHandler<MouseEvent> projectorBehaviour(GenericObject projection) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-			@Override public void handle(MouseEvent event) {				
-				GenericObject ps = new GenericObject("Annex Projection");
-				ps.setFrontSpritePath("./graphics/game_graphics/rooms/annex/front/layer0/projMess.png");
-				ps.loadSprites();
-				GameUtil.map().annex.addGenericFront(ps);
-				ps.setLayerFront(0);
-				
-				GameUtil.displayPlayerView(); 
+			@Override public void handle(MouseEvent event) {
+				if (projection.isHidden()) {
+					projection.display();
+					GameUtil.displayPlayerView();
+					GameUtil.setMessage("You flip the projector switch, and it whirrs on.");
+				} else {
+					projection.hide();
+					GameUtil.displayPlayerView();
+					GameUtil.setMessage("You turn the projector off.");
+				}
 			}
 		};
+		
 		return behaviour;
 	}
 	
+	public static EventHandler<MouseEvent> projectionBehaviour(GenericObject projection) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("A cryptic message displays itself on the whiteboard.");
+			}
+		};
+		
+		return behaviour;
+	}
 	
 	public static EventHandler<MouseEvent> keypadMainBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
