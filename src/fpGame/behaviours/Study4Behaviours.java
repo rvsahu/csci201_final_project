@@ -57,23 +57,40 @@ public class Study4Behaviours {
 	}
 
 	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the couch but found nothing.");
+			}
+		};
+		
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> plantBehaviour(GenericObject plant) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the plant but found nothing.");
+			}
+		};
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the dustbin but found nothing.");
+			}
+		};
+		return behaviour;
 	}
 
 	public static EventHandler<MouseEvent> lightSwitchBehaviour(GenericObject lightSwitch) {
-		// TODO Auto-generated method stub
-		return null;
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You toggle the light switch but nothing occurs.");
+			}
+		};
+		return behaviour;
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {

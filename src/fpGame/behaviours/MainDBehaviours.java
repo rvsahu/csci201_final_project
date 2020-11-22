@@ -83,13 +83,11 @@ public class MainDBehaviours {
 	}
 
 	
-	public static EventHandler<MouseEvent> hallwayBehaviour(DoorObject d) 
-	{
+	public static EventHandler<MouseEvent> hallwayBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				if(d.isLocked()) 
-				{
-					GameUtil.setMessage("The door is locked. On the other side is the hallway leading out.");
+				if(d.isLocked()) {
+					GameUtil.setMessage("The door is locked.");
 				}
 			}
 		};
@@ -141,35 +139,15 @@ public class MainDBehaviours {
 		};
 		return behaviour;
 	}
-
-
-
-
-	public static EventHandler<MouseEvent> keypadLab1Behaviour(GenericObject keypad) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-
-	public static EventHandler<MouseEvent> keypadHallwayBehaviour(GenericObject keypad) {
-		// TODO Auto-generated method stub
-		return null;
+	public static EventHandler<MouseEvent> keypadLab1Behaviour(GenericObject keypad) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("The keypad is unresponsive.");
+			}
+		};
+		
+		return behaviour;
 	}
-
-
-
-	public static EventHandler<MouseEvent> lightswitchBehaviour(GenericObject l) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	public static EventHandler<MouseEvent> annexDoorBehaviour(DoorObject d2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 }
 	
