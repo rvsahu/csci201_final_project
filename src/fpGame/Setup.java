@@ -1196,8 +1196,8 @@ public class Setup {
 		lab.addGenericFront(shelf103);
 		lab.addGenericBack(shelf103);
 		shelf103.setLayerRight(0);
-		shelf102.setLayerBack(0);
-		shelf102.setLayerFront(0);
+		shelf103.setLayerBack(0);
+		shelf103.setLayerFront(0);
 		
 		GenericObject shelf170 = new GenericObject("170 Shelf");
 		shelf170.setBackSpritePath(labFolder + "back/layer0/170shelf.png");
@@ -1206,8 +1206,8 @@ public class Setup {
 		lab.addGenericRight(shelf170);
 		lab.addGenericBack(shelf170);
 		shelf170.setLayerRight(0);
-		shelf102.setLayerBack(0);
-		shelf102.setLayerFront(0);
+		shelf170.setLayerBack(0);
+		shelf170.setLayerFront(0);
 		
 		GenericObject shelf201 = new GenericObject("201 Shelf");
 		shelf201.setBackSpritePath(labFolder + "back/layer0/201shelf.png");
@@ -1216,8 +1216,8 @@ public class Setup {
 		lab.addGenericRight(shelf201);
 		lab.addGenericBack(shelf201);
 		shelf201.setLayerRight(0);
-		shelf102.setLayerBack(0);
-		shelf102.setLayerFront(0);
+		shelf201.setLayerBack(0);
+		shelf201.setLayerFront(0);
 		
 		
 		
