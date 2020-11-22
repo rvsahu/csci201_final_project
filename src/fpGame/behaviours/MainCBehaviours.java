@@ -1,26 +1,24 @@
 package fpGame.behaviours;
 
 import fpGame.GameUtil;
-import fpGame.Inventory;
 import fpModel.DoorObject;
+import fpModel.InfoObject;
+import fpModel.GenericObject;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
 public class MainCBehaviours {
-	public static EventHandler<MouseEvent> DustbinBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The dustbin is empty");
+	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin)  {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the dustbin but found nothing.");
 			};
 		};
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> FrontDoorBehaviour(DoorObject d) 
-	{
+	public static EventHandler<MouseEvent> frontDoorBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -36,8 +34,7 @@ public class MainCBehaviours {
 	}
 	
 	
-	public static EventHandler<MouseEvent> FrontDoorKeypad(DoorObject d) 
-	{
+	public static EventHandler<MouseEvent> frontDoorKeypad(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
@@ -52,13 +49,11 @@ public class MainCBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> CouchBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
+	public static EventHandler<MouseEvent> couchBehavior(GenericObject couch) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) 
 			{
-				GameUtil.setMessage("The couch is empty");
+				GameUtil.setMessage("You searched the couch but found nothing.");
 			};
 		};
 		return behaviour;
@@ -66,8 +61,7 @@ public class MainCBehaviours {
 	
 	
 	
-	public static EventHandler<MouseEvent> PhoneBehaviour()
-	{
+	public static EventHandler<MouseEvent> phoneBehaviour(GenericObject phone) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
 			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("It is a phone");
@@ -108,15 +102,18 @@ public class MainCBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> notebookBehaviour() {
+	public static EventHandler<MouseEvent> notebookBehaviour(InfoObject notebook) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-					GameUtil.setMessage(" “I am so over this programming assignment. \n "
-							+ "I’m getting a bit hungry! \n "
-							+ "I will grab some of the coins I hid in the study room and grab some snacks. \n"
-							+ "Hope I can pass this class!”");
+					
+				GameUtil.setMessage("You read a message in the notebook:"
+							+ "\"I am so over this programming assignment.\n "
+							+ "I'm getting a bit hungry!\n "
+							+ "I will grab some of the coins I hid in the study rooms and grab some snacks.\n"
+							+ "Hope I can pass this class!\"");
 			}
 		};
+		
 		return behaviour;
 	}
 }

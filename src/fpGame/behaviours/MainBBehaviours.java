@@ -2,17 +2,17 @@ package fpGame.behaviours;
 
 import fpGame.GameUtil;
 import fpModel.DoorObject;
+import fpModel.GenericObject;
+
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+
 public class MainBBehaviours {
-	public static EventHandler<MouseEvent> DustbinBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The dustbin is empty");
+	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the dustbin but found nothing.");
 			};
 		};
 		return behaviour;
@@ -37,38 +37,19 @@ public class MainBBehaviours {
 	
 	
 	
-	public static EventHandler<MouseEvent> CouchBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The Couch is empty");
-			};
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the couch but found nothing.");
+			}
 		};
 		return behaviour;
 	}
 	
 	
-	/*public static EventHandler<MouseEvent> DustbinBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The Dustbin is empty");
-			};
-		};
-		return behaviour;
-	}
-	*/
-	
-	public static EventHandler<MouseEvent> ChairBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
+	public static EventHandler<MouseEvent> chairBehavior(GenericObject chair) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("The chair is empty");
 			};
 		};

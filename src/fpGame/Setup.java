@@ -575,7 +575,7 @@ public class Setup {
 		DoorObject d1 = new DoorObject("MainD to Lab");
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
 		d1.loadSprites();
-		d1.setBehaviour(MainDBehaviours.Lab1DoorBehaviour(d1));
+		d1.setBehaviour(MainDBehaviours.lab1DoorBehaviour(d1));
 		mainD.addDoorLeft(d1);
 		d1.setLayerLeft(0);
 		
@@ -584,7 +584,7 @@ public class Setup {
 		d2.setLeftSpritePath(mainDFolder + "left/layer0/HallwayDoor.png");
 		d2.setBackSpritePath(mainDFolder + "back/layer0/hallwayDoor.png");
 		d2.loadSprites();
-		d2.setBehaviour(MainDBehaviours.HallwayBehaviour(d2));
+		d2.setBehaviour(MainDBehaviours.hallwayBehaviour(d2));
 		mainD.addDoorBack(d2);
 		mainD.addDoorLeft(d2);
 		d2.setLayerBack(0);
@@ -603,7 +603,7 @@ public class Setup {
 		db1.setBackSpritePath(mainDFolder + "back/layer0/dustbin.png");
 		db1.setLeftSpritePath(mainDFolder + "left/layer0/dustbin.png");
 		db1.loadSprites();
-		db1.setBehaviour(MainDBehaviours.DustbinBehavior());
+		db1.setBehaviour(MainDBehaviours.dustbinBehaviour(db1));
 		mainD.addContainerBack(db1);
 		mainD.addContainerRight(db1);
 		mainD.addContainerLeft(db1);
@@ -613,7 +613,7 @@ public class Setup {
 
 		ContainerObject db2 = new ContainerObject("MainD Dustbin2");
 		db2.setRightSpritePath(mainDFolder + "right/layer0/dustbin2.png");
-		db2.setBehaviour(MainDBehaviours.DustbinBehavior());
+		db2.setBehaviour(MainDBehaviours.dustbinBehaviour(db2));
 		mainD.addContainerRight(db2);
 		db2.setLayerRight(0);
 		

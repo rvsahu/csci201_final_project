@@ -6,6 +6,7 @@ import fpGame.Inventory;
 import fpModel.DoorObject;
 import fpModel.ContainerObject;
 import fpModel.InfoObject;
+import fpModel.GenericObject;
 import fpModel.WrapperObject;
 
 //javafx imports
@@ -14,7 +15,7 @@ import javafx.scene.input.MouseEvent;
 
 public class MainDBehaviours {
 
-	public static EventHandler<MouseEvent> vendingMachineBehavior(ContainerObject vm1) {
+	public static EventHandler<MouseEvent> vendingMachineBehaviour(ContainerObject vm1) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				Inventory inv = GameUtil.player().getInventory();
@@ -47,8 +48,7 @@ public class MainDBehaviours {
 	
 
 
-	public static EventHandler<MouseEvent> Lab1DoorBehaviour(DoorObject d) 
-	{
+	public static EventHandler<MouseEvent> lab1DoorBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				
@@ -86,8 +86,7 @@ public class MainDBehaviours {
 	}
 
 	
-	public static EventHandler<MouseEvent> HallwayBehaviour(DoorObject d)
-	{
+	public static EventHandler<MouseEvent> hallwayBehaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) 
@@ -99,15 +98,17 @@ public class MainDBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> DustbinBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The dustbin is empty");
-			};
+	public static EventHandler<MouseEvent> dustbinBehaviour(ContainerObject dustbin) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() { 
+			@Override public void handle(MouseEvent event) {
+				if (dustbin.hasItems()) {
+					// Add as many items to inventory as possible
+					GameUtil.player().getInventory().addItems(dustbin.getItems());
+				}
+				GameUtil.setMessage("You searched the dustbin but found nothing.");
+			}
 		};
+		
 		return behaviour;
 	}
 	

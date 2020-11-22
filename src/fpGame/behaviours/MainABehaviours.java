@@ -10,6 +10,7 @@ import fpModel.ContainerObject;
 import fpModel.DoorObject;
 import fpModel.WrapperObject;
 import fpModel.RoomObject;
+import fpModel.GenericObject;
 
 //javafx imports
 import javafx.event.EventHandler;
@@ -59,14 +60,11 @@ public class MainABehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> DustbinBehavior() 
-	{
-		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() 
-		{
-			@Override public void handle(MouseEvent event) 
-			{
-				GameUtil.setMessage("The dustbin is empty");
-			};
+	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				GameUtil.setMessage("You searched the dustbin but found nothing.");
+			}
 		};
 		return behaviour;
 	}
