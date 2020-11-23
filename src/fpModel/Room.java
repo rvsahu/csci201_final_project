@@ -540,8 +540,7 @@ public class Room {
 					//same name but different references
 					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
 						int tbrIndex = pContents.indexOf(potentialDuplicate);
-						pContents.remove(tbrIndex);
-						pContents.add(tbrIndex, preferredVersion);
+						pContents.set(tbrIndex, preferredVersion);
 					}
 				} else {
 					RoomObject rObj = pContents.get(j);
@@ -726,8 +725,5 @@ public class Room {
 			return false;
 		}
 		return perspectives[3].findObject(objName) != null;
-	}
-	
-	
-	
+	}	
 }
