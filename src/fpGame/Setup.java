@@ -456,11 +456,11 @@ public class Setup {
 		
 		GenericObject table = new GenericObject("Main B Table");
 		table.setRightSpritePath(mainBFolder + "right/layer0/table.png");
-		table.setBackSpritePath(mainBFolder + "back/layer0/table.png"); //TODO add graphics file
+		//table.setBackSpritePath(mainBFolder + "back/layer0/table.png"); //TODO add graphics file
 		table.loadSprites();
 		table.setBehaviour(MainBBehaviours.tableBehaviour(table));
-		mainB.addGenericRight(greenCouch);
-		mainB.addGenericBack(greenCouch);
+		mainB.addGenericRight(table);
+		mainB.addGenericBack(table);
 		table.setLayerRight(0);
 		table.setLayerBack(0);
 		
