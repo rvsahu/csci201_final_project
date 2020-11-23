@@ -521,6 +521,12 @@ public class Room {
 	 * in favour of references to one single instance of that object.
 	 */
 	public void tossDuplicates() {
+		//up to 4 lists, in those four lists you have objects that can be exact duplicates
+		//you want to preserve the structure of the lists but consolidate the object duplicates
+		//such that all the references in the list that referenced distinct duplicates before
+		//now reference one single object, from different lists.
+		
+		
 		HashMap<String, RoomObject> seenBefore = new HashMap<String, RoomObject>();
 		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) {

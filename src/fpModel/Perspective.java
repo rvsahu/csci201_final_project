@@ -233,6 +233,23 @@ public class Perspective {
 	}
 	
 	/**
+	 * Helper method for rebuildContentsList(), finds an object given it's name within a list of subclasses of RoomObject
+	 * 
+	 * @param objList  The list in which we are looking for the object
+	 * @param objectName  The name of the object we are looking for
+	 * @return     True if the list contains the object in question and false otherwise.
+	 */
+	private boolean isInList(List<? extends RoomObject> objList, String objectName) {
+		for (RoomObject rObj : objList) {
+			if (rObj.name().equals(objectName)) {
+				contents.add(rObj);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
 	 * The inverse of rebuildContentsList(), called after all duplicate RoomObjects across
 	 * perspectives are tossed and replaced with references to a single object.
 	 */
@@ -279,23 +296,6 @@ public class Perspective {
 			
 			System.err.println("Error adding " + objectName + " back to its subclass list! Couldn't determine which subclass it was.");
 		}
-	}
-	
-	/**
-	 * Helper method for rebuildContentsList(), finds an object given it's name within a list of subclasses of RoomObject
-	 * 
-	 * @param objList  The list in which we are looking for the object
-	 * @param objectName  The name of the object we are looking for
-	 * @return     True if the list contains the object in question and false otherwise.
-	 */
-	private boolean isInList(List<? extends RoomObject> objList, String objectName) {
-		for (RoomObject rObj : objList) {
-			if (rObj.name().equals(objectName)) {
-				contents.add(rObj);
-				return true;
-			}
-		}
-		return false;
 	}
 	
 	/**
