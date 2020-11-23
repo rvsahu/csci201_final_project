@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.util.HashSet;
 //java imports
 import java.util.List;
 
@@ -217,11 +218,19 @@ public class MainCBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		//object pairs
 		DoorObject frontDoor = null;
 		GenericObject phone = null;
 		
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
 			if (r.name().equals("Main C to Main B")) {
 				r.setBehaviour(arrowBBehaviour((DoorObject)r));
 				continue;

@@ -4,6 +4,7 @@ package fpGame.behaviours;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.util.HashSet;
 import java.util.List;
 
 //intraproject imports
@@ -108,10 +109,19 @@ public class Study1Behaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) { 
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		InfoObject hiddenMessage = null;
 		GenericObject lightSwitch = null;
 		
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
+			
 			if (r.name().equals("SR1 To Annex")) {
 				r.setBehaviour(doorOutBehaviour((DoorObject)r));
 				continue;

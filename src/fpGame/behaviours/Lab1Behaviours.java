@@ -1,5 +1,6 @@
 package fpGame.behaviours;
 
+import java.util.HashSet;
 //java imports
 import java.util.List;
 
@@ -296,7 +297,16 @@ public class Lab1Behaviours {
 	
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
+			
 			if (r.name().equals("Lab 1 to Main D")) {
 				r.setBehaviour(doorMainDBehaviour((DoorObject)r));
 				continue;

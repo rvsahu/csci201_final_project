@@ -9,6 +9,7 @@ import fpModel.GenericObject;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+import java.util.HashSet;
 //java imports
 import java.util.List;
 
@@ -101,7 +102,15 @@ public class MainBBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
 			if (r.name().equals("Main B to Main A")) {
 				r.setBehaviour(arrowABehaviour((DoorObject)r));
 				continue;

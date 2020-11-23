@@ -4,6 +4,7 @@ package fpGame.behaviours;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.HashSet;
 
 //javafx imports
 import javafx.event.EventHandler;
@@ -531,6 +532,9 @@ public class AnnexBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		//paired objects
 		DoorObject annexToMain = null;
 		GenericObject annexToMainKeypad = null;
@@ -542,6 +546,11 @@ public class AnnexBehaviours {
 		GenericObject projection = null;
 	
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
 			if (r.name().equals("Annex Computer 1")) {
 				r.setBehaviour(annexWrongComputerBehaviour((InfoObject)r));
 				continue;

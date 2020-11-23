@@ -1,5 +1,6 @@
 package fpGame.behaviours;
 
+import java.util.HashSet;
 //java imports
 import java.util.List;
 
@@ -81,7 +82,16 @@ public class Study3Behaviours {
 	};
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//seen before set, for making sure objects don't have their behaviours assigned multiple times
+		HashSet<RoomObject> assigned = new HashSet<RoomObject>();
+		
 		for (RoomObject r : objects) {
+			if (assigned.contains(r)) {
+				continue;
+			} else {
+				assigned.add(r);
+			}
+			
 			if (r.name().equals("SR3 To Annex")) {
 				r.setBehaviour(doorOutBehaviour((DoorObject)r));
 				continue;
