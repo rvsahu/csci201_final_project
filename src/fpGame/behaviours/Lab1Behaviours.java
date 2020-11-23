@@ -222,7 +222,7 @@ public class Lab1Behaviours {
 						+ "I wonder why I have to learn all these algorithms and graphs.\n"
 						+ "But it is kind of cool to learn how to count properly! 1, 2, 3, 4, 5!\n"
 						+ "Time to start studying advanced counting!\n");
-				text.setFill(Color.BLACK);
+				text.setFill(Color.WHITE);
 				text.setFont(new Font(30));
 				text.setTextAlignment(TextAlignment.CENTER);
 				pane.setCenter(text);
@@ -241,8 +241,7 @@ public class Lab1Behaviours {
 				pane.setStyle("-fx-background-color: #000000;");
 				//do stuff, fill in pane
 				Scene scene;
-				if (GameUtil.needsScaling()) 
-				{
+				if (GameUtil.needsScaling()) {
 					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
 							          GameUtil.WINDOW_Y * GameUtil.scalingFactor());
 					//scene.setFill(Color.BLACK);
@@ -254,7 +253,6 @@ public class Lab1Behaviours {
 				GameUtil.stage().show();
 			}
 		};
-		
 		return behaviour;
 	}
 	
