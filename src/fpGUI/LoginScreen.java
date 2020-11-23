@@ -11,6 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.text.Font;
 
 
@@ -37,7 +38,7 @@ public class LoginScreen {
         txt2.setText("Password:");
         
         TextField txtf1 = new TextField();
-        TextField txtf2 = new TextField();
+        TextField txtf2 = new PasswordField();
         
         
         txt1.setTranslateY((GameUtil.WINDOW_Y* -GameUtil.scalingFactor())/10);
@@ -88,15 +89,15 @@ public class LoginScreen {
 
         		
         		if(userName.equals("")) {
-        			error.setText("Please enter your password.");
+        			error.setText("Please enter your username");
         	        return;
         		}
         		if(passWord.equals("")) {
-        			error.setText("Please enter your username.");
+        			error.setText("Please enter your password.");
         			return;
         		}
         		if (passWord.length() < 8 || passWord.length() > 32) {
-                    error.setText("Please enter your username.");
+                    error.setText("Please enter your password (greater than 8 characters and less than 32.");
 
         		}
         		else {

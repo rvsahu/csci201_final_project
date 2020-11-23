@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 public class USCGameClient {
     final private Client client;
-    final private String SERVICE_URL = "http://localhost:8080/Server2_war_exploded/Server2";
+    final private String SERVICE_URL = "http://uscgames.heletz.net:8080/USCapeServer_war_exploded/Server2";
     /*private static final String SUCCESS_RESULT = "<result>success</result>";
     private static final String PASS = "pass";
     private static final String FAIL = "fail";*/

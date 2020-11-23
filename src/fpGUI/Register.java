@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -35,8 +36,8 @@ public class Register {
         txt3.setText("Confirm Password:");
         
         TextField txtf1 = new TextField();
-        TextField txtf2 = new TextField();
-        TextField txtf3 = new TextField();
+        TextField txtf2 = new PasswordField();
+        TextField txtf3 = new PasswordField();
                         
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/6);
         txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
