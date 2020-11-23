@@ -175,6 +175,19 @@ public abstract class RoomObject {
 		return name;
 	}
 	
+	/**
+	 * Returns whether this and another object are equal. If the other Object is a RoomObject, it's enough to check the names 
+	 * because in theory no two RoomObjects have the same name.
+	 * 
+	 * @return     True if the two objects are equal false otherwise.
+	 */
+	@Override public boolean equals(Object other) {
+		if (!(other instanceof RoomObject)) {
+			return false;
+		}
+		return name.equals(((RoomObject)other).name());
+	}
+	
 	/*
 	 * Graphical methods
 	 */
