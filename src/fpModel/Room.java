@@ -521,12 +521,13 @@ public class Room {
 	 * in favour of references to one single instance of that object.
 	 */
 	public void tossDuplicates() {
-		//up to 4 lists, in those four lists you have objects that can be exact duplicates
-		//you want to preserve the structure of the lists but consolidate the object duplicates
-		//such that all the references in the list that referenced distinct duplicates before
-		//now reference one single object, from different lists.
+		tossDuplicateGenerics();
+		tossDuplicateDoors();
+		tossDuplicateWrappers();
+		tossDuplicateContainers();
+		tossDuplicateInfos();
 		
-		
+		/*
 		HashMap<String, RoomObject> seenBefore = new HashMap<String, RoomObject>();
 		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) {
@@ -549,6 +550,127 @@ public class Room {
 			}
 			
 			perspectives[i].rebuildSubclassLists();
+		}
+		*/
+	}
+	
+	private void tossDuplicateGenerics() {
+		HashMap<String, GenericObject> seenBefore = new HashMap<String, GenericObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<GenericObject> pContents = perspectives[i].generics();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					GenericObject potentialDuplicate = pContents.get(j);
+					GenericObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.set(tbrIndex, preferredVersion);
+					}
+				} else {
+					GenericObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
+		}
+	}
+	
+	private void tossDuplicateDoors() {
+		HashMap<String, DoorObject> seenBefore = new HashMap<String, DoorObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<DoorObject> pContents = perspectives[i].doors();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					DoorObject potentialDuplicate = pContents.get(j);
+					DoorObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.set(tbrIndex, preferredVersion);
+					}
+				} else {
+					DoorObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
+		}
+	}
+	
+	private void tossDuplicateWrappers() {
+		HashMap<String, WrapperObject> seenBefore = new HashMap<String, WrapperObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<WrapperObject> pContents = perspectives[i].wrappers();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					WrapperObject potentialDuplicate = pContents.get(j);
+					WrapperObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.set(tbrIndex, preferredVersion);
+					}
+				} else {
+					WrapperObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
+		}
+	}
+	
+	private void tossDuplicateContainers() {
+		HashMap<String, ContainerObject> seenBefore = new HashMap<String, ContainerObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<ContainerObject> pContents = perspectives[i].containers();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					ContainerObject potentialDuplicate = pContents.get(j);
+					ContainerObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.set(tbrIndex, preferredVersion);
+					}
+				} else {
+					ContainerObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
+		}
+	}
+	
+	private void tossDuplicateInfos() {
+		HashMap<String, InfoObject> seenBefore = new HashMap<String, InfoObject>();
+		for (int i = 0; i < perspectives.length; i += 1) {
+			if (perspectives[i] == null) {
+				continue;
+			}
+			List<InfoObject> pContents = perspectives[i].infos();
+			for (int j = 0; j < pContents.size(); j += 1) {
+				if (seenBefore.containsKey(pContents.get(j).name())) {
+					InfoObject potentialDuplicate = pContents.get(j);
+					InfoObject preferredVersion = seenBefore.get(potentialDuplicate.name());
+					//same name but different references
+					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
+						int tbrIndex = pContents.indexOf(potentialDuplicate);
+						pContents.set(tbrIndex, preferredVersion);
+					}
+				} else {
+					InfoObject rObj = pContents.get(j);
+					seenBefore.put(rObj.name(), rObj);
+				}
+			}
 		}
 	}
 	

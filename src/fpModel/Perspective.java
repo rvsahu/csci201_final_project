@@ -250,61 +250,57 @@ public class Perspective {
 	}
 	
 	/**
-	 * The inverse of rebuildContentsList(), called after all duplicate RoomObjects across
-	 * perspectives are tossed and replaced with references to a single object.
-	 */
-	public void rebuildSubclassLists() {
-		//reinitialise lists
-		generics = new ArrayList<GenericObject>();
-		doors = new ArrayList<DoorObject>();
-		infos = new ArrayList<InfoObject>();
-		wrappers = new ArrayList<WrapperObject>();
-		containers = new ArrayList<ContainerObject>();
-		//use additionLog to chronologically add things back in their original order
-		for (RoomObject rObj : contents) {
-			String objectName = rObj.name();
-			try {
-				GenericObject castedGeneric = (GenericObject)rObj;
-				generics.add(castedGeneric);
-			} catch (ClassCastException ce) {
-				//do nothing, just try casting it as the next subclass type
-			}
-			try {
-				DoorObject castedDoor = (DoorObject)rObj;
-				doors.add(castedDoor);
-			} catch (ClassCastException ce) {
-				//do nothing, just try casting it as the next subclass type
-			}
-			try {
-				InfoObject castedInfo = (InfoObject)rObj;
-				infos.add(castedInfo);
-			} catch (ClassCastException ce) {
-				//do nothing, just try casting it as the next subclass type
-			}
-			try {
-				WrapperObject castedWrapper = (WrapperObject)rObj;
-				wrappers.add(castedWrapper);
-			} catch (ClassCastException ce) {
-				//do nothing, just try casting it as the next subclass type
-			}
-			try {
-				ContainerObject castedContainer = (ContainerObject)rObj;
-				containers.add(castedContainer);
-			} catch (ClassCastException ce) {
-				//do nothing, but if we got here then something is wrong
-			}
-			
-			System.err.println("Error adding " + objectName + " back to its subclass list! Couldn't determine which subclass it was.");
-		}
-	}
-	
-	/**
 	 * Getter method for the contents list.
 	 * 
 	 * @return     The contents list (list of all RoomObjects in the Perspective).
 	 */
 	public List<RoomObject> contents() {
 		return contents;
+	}
+	
+	/**
+	 * Getter method for the generics list.
+	 * 
+	 * @return     The generics list (list of all GenericObjects in the Perspective).
+	 */
+	public List<GenericObject> generics() {
+		return generics;
+	}
+	
+	/**
+	 * Getter method for the containers list.
+	 * 
+	 * @return     The containers list (list of all ContainerObjects in the Perspective).
+	 */
+	public List<ContainerObject> containers() {
+		return containers;
+	}
+	
+	/**
+	 * Getter method for the infos list.
+	 * 
+	 * @return     The infos list (list of all InfoObjects in the Perspective).
+	 */
+	public List<InfoObject> infos() {
+		return infos;
+	}
+	
+	/**
+	 * Getter method for the wrappers list.
+	 * 
+	 * @return     The wrappers list (list of all WrapperObjects in the Perspective).
+	 */
+	public List<WrapperObject> wrappers() {
+		return wrappers;
+	}
+	
+	/**
+	 * Getter method for the doors list.
+	 * 
+	 * @return     The doors list (list of all DoorObjects in the Perspective).
+	 */
+	public List<DoorObject> doors() {
+		return doors;
 	}
 	
 	/**
