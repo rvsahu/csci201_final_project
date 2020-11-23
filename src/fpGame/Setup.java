@@ -541,7 +541,7 @@ public class Setup {
 		
 		GenericObject couch = new GenericObject("Main C Couch");
 		couch.setRightSpritePath(mainCFolder + "right/layer0/blueCouch.png");
-		couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png"); 
+		//couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png"); 
 		couch.setLeftSpritePath(mainCFolder + "left/layer0/blueCouch.png");
 		couch.loadSprites();
 		couch.setBehaviour(MainCBehaviours.couchBehaviour(couch));
@@ -549,7 +549,7 @@ public class Setup {
 		mainC.addGenericBack(couch);
 		mainC.addGenericLeft(couch);
 		couch.setLayerRight(0);
-		couch.setLayerBack(0);
+		//couch.setLayerBack(0);
 		couch.setLayerLeft(0);
 		
 		InfoObject notebook = new InfoObject("Main C Notebook", "There is change hidden in the study rooms.");
@@ -1267,6 +1267,14 @@ public class Setup {
 		lab.addGenericRight(book201);
 		book201.setLayerRight(0);
 		book201.setBehaviour(Lab1Behaviours.CSCI201Behaviour(book201));
+		
+		
+		GenericObject message = new GenericObject("Message");
+		message.setFrontSpritePath(labFolder + "front/layer0/labMess.png");
+		message.loadSprites();
+		lab.addGenericFront(message);
+		message.setLayerFront(0);
+		
 		
 		return lab;
 	}
