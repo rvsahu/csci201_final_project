@@ -1223,7 +1223,7 @@ public class Setup {
 		shelf201.setLayerRight(0);
 		
 		
-		//back
+		//shelves added different from the back to make sure shelves appear in the right order.
 		lab.addGenericBack(shelf201);
 		lab.addGenericBack(shelf170);
 		lab.addGenericBack(shelf103);
