@@ -40,20 +40,15 @@ public class MainCBehaviours {
 			@Override public void handle(MouseEvent event) {
 				if(d.isLocked()) {
 					GameUtil.setMessage("The front door is locked.");
-				} else 
-				{
+				} else {
 					BorderPane pane = new BorderPane();
 					
 					Text output = new Text();
 					output.setFill(Color.WHITE);
 					output.setFont(new Font(20));
-
-					VBox box = new VBox(10);
-					box.setAlignment(Pos.CENTER);
-					pane.setCenter(box);
+					output.setText("You escaped!\n\n\nThanks for playing!");
 					
-					output.setText("You escaped.");
-					pane.setTop(output);
+					pane.setCenter(output);
 					
 					pane.setStyle("-fx-background-color: #990000;");
 					
@@ -103,75 +98,70 @@ public class MainCBehaviours {
 	
 	
 	
-	public static EventHandler<MouseEvent> phoneBehaviour(DoorObject d) { {
-				EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
-					@Override public void handle(MouseEvent event) 
-					{
-						BorderPane pane = new BorderPane();
-						TextField text = new TextField("Enter a phone number to call somebody: ");
-						text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
+	public static EventHandler<MouseEvent> phoneBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				BorderPane pane = new BorderPane();
+				TextField tField = new TextField("Enter a phone number to call somebody: ");
+				tField.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
 						
-						Text output = new Text();
-						output.setFill(Color.WHITE);
-						output.setFont(new Font(20));
-						Button button = new Button("Dial");
-						button.setPrefSize(100, 50);
-						button.setFont(new Font(20));
+				Text output = new Text();
+				output.setFill(Color.WHITE);
+				output.setFont(new Font(20));
+				Button button = new Button("Dial");
+				button.setPrefSize(100, 50);
+				button.setFont(new Font(20));
 						
-						VBox box = new VBox(10);
-						box.getChildren().addAll(text, button);
-						box.setAlignment(Pos.CENTER);
-						pane.setCenter(box);
+				VBox box = new VBox(10);
+				box.getChildren().addAll(tField, button);
+				box.setAlignment(Pos.CENTER);
+				pane.setCenter(box);
 						
-						button.setOnAction(new EventHandler<ActionEvent>() { 
-							@Override public void handle(ActionEvent event) {
-								if (text.getText().compareTo("3412") == 0) {
-									output.setText("Dialing . . . "
-											+ "Who is calling me at 3 AM? \n"
-											+ "Oh. You guys are locked in SAL right now? \n"
-											+ "That's not good . . . give me one second. \n"
-											+ "Ok. I unlocked the door. You guys are good to go! \n"
-											+ "Code hard!"
-											);
-									d.unlock();
-								} else {
-									output.setText("You dialed the number . . . but nobody answered");
-								}
-								pane.setTop(output);
-							}
-						});
-
-						EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
-							@Override public void handle(MouseEvent event) {
-								//return to gameplay
-								Room cR = GameUtil.player().currentRoom();
-								Perspective cP = GameUtil.player().currentView();
-								cR.setPerspective(cP);
-								GameUtil.displayPlayerView();
-							}
-						};
-						
-				        //exit when we click again
-						pane.setOnMouseClicked(exitBehaviour);
-						
-						pane.setStyle("-fx-background-color: #990000;");
-						
-						Scene scene;
-						if (GameUtil.needsScaling()) {
-							scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), 
-									GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+				button.setOnAction(new EventHandler<ActionEvent>() { 
+					@Override public void handle(ActionEvent event) {
+						if (tField.getText().equals("3401")) {
+							output.setText("Dialing . . . "
+										   + "Who is calling me at 3 AM? \n"
+										   + "Oh. You guys are locked in SAL right now? \n"
+										   + "That's not good . . . give me one second. \n"
+										   + "Ok. I unlocked the door. You guys are good to go! \n"
+									       + "Code hard!");
+							d.unlock();
 						} else {
-							scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+							output.setText("You dialed the number . . . but nobody answered");
 						}
-						
-						GameUtil.stage().setScene(scene);
-						GameUtil.stage().show();
+						pane.setTop(output);
+					}
+				});
+
+				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent event) {
+						//return to gameplay
+						Room cR = GameUtil.player().currentRoom();
+						Perspective cP = GameUtil.player().currentView();
+						cR.setPerspective(cP);
+						GameUtil.displayPlayerView();
 					}
 				};
+						
+				//exit when we click again
+				pane.setOnMouseClicked(exitBehaviour);
+				pane.setStyle("-fx-background-color: #990000;");
+						
+				Scene scene;
+				if (GameUtil.needsScaling()) {
+					scene = new Scene(pane, GameUtil.WINDOW_X * GameUtil.scalingFactor(), GameUtil.WINDOW_Y * GameUtil.scalingFactor());
+				} else {
+					scene = new Scene(pane, GameUtil.WINDOW_X, GameUtil.WINDOW_Y);
+				}
+						
+				GameUtil.stage().setScene(scene);
+				GameUtil.stage().show();
+			}
+		};
 				
-				return behaviour;
-			}	
-	};
+		return behaviour;	
+	}
 
 	
 	public static EventHandler<MouseEvent> arrowBBehaviour(DoorObject d) {

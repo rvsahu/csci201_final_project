@@ -471,6 +471,7 @@ public class Setup {
 		chair.setRightSpritePath(mainBFolder + "right/layer0/chair.png");
 		chair.setBackSpritePath(mainBFolder + "back/layer0/chair.png");
 		chair.loadSprites();
+		chair.setBehaviour(MainBBehaviours.chairBehavior(chair));
 		mainB.addGenericBack(chair);
 		mainB.addGenericFront(chair);
 		mainB.addGenericRight(chair);
@@ -538,6 +539,7 @@ public class Setup {
 		mainC.addDoorFront(d1);
 		d1.setLayerLeft(0);
 		d1.setLayerFront(0);
+		d1.lock();
 		
 		GenericObject couch = new GenericObject("Main C Couch");
 		couch.setRightSpritePath(mainCFolder + "right/layer0/blueCouch.png");
@@ -1187,37 +1189,37 @@ public class Setup {
 		labCP.setLayerBack(0);
 		
 		
-		GenericObject shelf102 = new GenericObject("102 Shelf");
-		shelf102.setBackSpritePath(labFolder + "back/layer0/102shelf.png");
-		shelf102.setFrontSpritePath(labFolder + "front/layer0/102shelf.png");
-		shelf102.setRightSpritePath(labFolder + "right/layer0/102shelf.png");
-		shelf102.loadSprites();
-		
-		lab.addGenericRight(shelf102);
-		lab.addGenericFront(shelf102);
-		shelf102.setLayerRight(0);
-		shelf102.setLayerFront(0);
-		
 		GenericObject shelf103 = new GenericObject("103 Shelf");
-		shelf103.setBackSpritePath(labFolder + "back/layer0/103shelf.png");
-		shelf103.setFrontSpritePath(labFolder + "front/layer0/103shelf.png");
-		shelf103.setRightSpritePath(labFolder + "right/layer0/103shelf.png");
+		shelf103.setBackSpritePath(labFolder + "back/layer0/102shelf.png");  //TODO update these graphics
+		shelf103.setFrontSpritePath(labFolder + "front/layer0/102shelf.png"); 
+		shelf103.setRightSpritePath(labFolder + "right/layer0/102shelf.png");
 		shelf103.loadSprites();
+		
 		lab.addGenericRight(shelf103);
 		lab.addGenericFront(shelf103);
 		shelf103.setLayerRight(0);
 		shelf103.setLayerFront(0);
 		
+		GenericObject shelf104= new GenericObject("104 Shelf");
+		shelf104.setBackSpritePath(labFolder + "back/layer0/103shelf.png"); //TODO update these graphics
+		shelf104.setFrontSpritePath(labFolder + "front/layer0/103shelf.png");
+		shelf104.setRightSpritePath(labFolder + "right/layer0/103shelf.png");
+		shelf104.loadSprites();
+		lab.addGenericRight(shelf104);
+		lab.addGenericFront(shelf104);
+		shelf104.setLayerRight(0);
+		shelf104.setLayerFront(0);
+		
 		GenericObject shelf170 = new GenericObject("170 Shelf");
-		shelf170.setBackSpritePath(labFolder + "back/layer0/170shelf.png");
-		shelf170.setRightSpritePath(labFolder + "right/layer0/170shelf.png");
+		shelf170.setBackSpritePath(labFolder + "back/layer0/170shelf.png"); 
+		shelf170.setRightSpritePath(labFolder + "right/layer0/170shelf.png"); //TODO update this graphics
 		shelf170.loadSprites();
 		lab.addGenericRight(shelf170);
 		shelf170.setLayerRight(0);
 		
 		GenericObject shelf201 = new GenericObject("201 Shelf");
-		shelf201.setBackSpritePath(labFolder + "back/layer0/201shelf.png");
-		shelf201.setRightSpritePath(labFolder + "right/layer0/201shelf.png");
+		shelf201.setBackSpritePath(labFolder + "back/layer0/201shelf.png"); 
+		shelf201.setRightSpritePath(labFolder + "right/layer0/201shelf.png"); //TODO update this graphic
 		shelf201.loadSprites();
 		lab.addGenericRight(shelf201);
 		shelf201.setLayerRight(0);
@@ -1226,28 +1228,27 @@ public class Setup {
 		//shelves added different from the back to make sure shelves appear in the right order.
 		lab.addGenericBack(shelf201);
 		lab.addGenericBack(shelf170);
-		lab.addGenericBack(shelf103);
-		lab.addGenericBack(shelf102);
-
+		lab.addGenericBack(shelf104);
+		lab.addGenericBack(shelf103);	
 		shelf201.setLayerBack(0);
 		shelf170.setLayerBack(0);
+		shelf104.setLayerBack(0);
 		shelf103.setLayerBack(0);
-		shelf102.setLayerBack(0);
 		
 		
-		GenericObject book102 = new GenericObject("102 Book");
-		book102.setRightSpritePath(labFolder + "right/layer0/102book.png");
-		book102.loadSprites();
-		lab.addGenericRight(book102);
-		book102.setLayerRight(0);
-		book102.setBehaviour(Lab1Behaviours.CSCI103Behaviour(book102));
-		
-		GenericObject book103 = new GenericObject("103 Book");
+		GenericObject book103 = new GenericObject("104 Book");
 		book103.setRightSpritePath(labFolder + "right/layer0/103book.png");
 		book103.loadSprites();
 		lab.addGenericRight(book103);
 		book103.setLayerRight(0);
-		book103.setBehaviour(Lab1Behaviours.CSCI104Behaviour(book103));
+		book103.setBehaviour(Lab1Behaviours.CSCI103Behaviour(book103));
+		
+		GenericObject book104 = new GenericObject("104 Book");
+		book104.setRightSpritePath(labFolder + "right/layer0/104book.png");
+		book104.loadSprites();
+		lab.addGenericRight(book104);
+		book104.setLayerRight(0);
+		book104.setBehaviour(Lab1Behaviours.CSCI104Behaviour(book104));
 		
 		GenericObject book170 = new GenericObject("170 Book");
 		book170.setRightSpritePath(labFolder + "right/layer0/170book.png");
@@ -1297,80 +1298,3 @@ public class Setup {
 		return ret;
 	}
 }
-
-
-/* old connections code:
-
-//ALL CONNECTIONS
-
-		//Annex
-		
-		Doorway annex_cove = new Doorway();
-		annex.addExitRight(annex_cove);
-		cove.addExitLeft(annex_cove);
-		
-		 *
-		 * Study Room Connections
-		 * Annex-1, Annex-2, Annex-3, Annex-4
-		 *
-		Doorway annex_study1 = new Doorway();
-		annex.addExitRight(annex_study1);
-		study1.addExitLeft(annex_study1);
-		Doorway annex_study2 = new Doorway();
-		annex.addExitRight(annex_study2);
-		study2.addExitLeft(annex_study2);
-		Doorway annex_study3 = new Doorway();
-		annex.addExitBack(annex_study3);
-		study3.addExitFront(annex_study3);
-		Doorway annex_study4 = new Doorway();
-		annex.addExitBack(annex_study4);
-		study4.addExitFront(annex_study4);
-		
-		
-		Doorway annex_mainA = new Doorway();
-		annex.addExitLeft(annex_mainA);
-		mainA.addExitRight(annex_mainA);
-		
-		//Main
-		
-		 *
-		 * main room internal connections
-		 * A-D, A-B, B-C, C-D
-		 *
-		Doorway mainA_mainD = new Doorway();
-		mainA.addExitLeft(mainA_mainD);
-		mainD.addExitRight(mainA_mainD);
-		Doorway mainA_mainB = new Doorway();
-		mainA.addExitFront(mainA_mainB);
-		mainB.addExitBack(mainA_mainB);
-		Doorway mainB_mainC = new Doorway();
-		mainB.addExitLeft(mainB_mainC);
-		mainC.addExitRight(mainB_mainC);
-		Doorway mainC_mainD = new Doorway();
-		mainC.addExitBack(mainC_mainD);
-		mainD.addExitFront(mainC_mainD);
-		
-		Doorway mainD_hallway1 = new Doorway();
-		mainD.addExitBack(mainD_hallway1);
-		hallway1.addExitFront(mainD_hallway1);
-		
-		Doorway mainD_lab1 = new Doorway();
-		mainD.addExitLeft(mainD_lab1);
-		lab1.addExitRight(mainD_lab1);
-		
-		//Hallway 1
-		
-		Doorway hallway1_hallway2 = new Doorway();
-		hallway1.addExitRight(hallway1_hallway2);
-		hallway2.addExitLeft(hallway1_hallway2);
-		
-		//Hallway 2
-		
-		Doorway hallway2_mens = new Doorway();
-		hallway2.addExitBack(hallway2_mens);
-		mensRoom.addExitFront(hallway2_mens);
-		
-		Doorway hallway2_womens = new Doorway();
-		hallway2.addExitBack(hallway2_womens);
-		womensRoom.addExitFront(hallway2_womens);
-*/

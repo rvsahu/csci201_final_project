@@ -38,12 +38,11 @@ public class MainDBehaviours {
 				
 				
 				if (inv.checkNumberOfItem("Quarter") >= 4) {
-					int size = inv.size();
-					for (int j = 0; j < size; j++) {
-						if (inv.getItem(j).name() == "Quarter")
-						inv.removeItem(j);
-						size--;
-						j--;
+					for (int j = 0; j < inv.size(); j++) {
+						if (inv.getItem(j).name() == "Quarter") {
+							inv.removeItem(j);
+							j -= 1;
+						}
 					}
 					inv.addItem(vm1.removeItem(vm1.getItemIndex("Lab 1 Key")));
 					
