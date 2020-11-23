@@ -40,7 +40,7 @@ public class MainDBehaviours {
 				
 				if (inv.checkNumberOfItem("Quarter") >= 4) {
 					for (int j = 0; j < inv.size(); j++) {
-						if (inv.getItem(j).name() == "Quarter") {
+						if (inv.getItem(j).name().equals("Quarter")) {
 							inv.removeItem(j);
 							j -= 1;
 						}
@@ -66,9 +66,9 @@ public class MainDBehaviours {
 	public static EventHandler<MouseEvent> doorLab1Behaviour(DoorObject d) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
-				if (d.isLocked() && GameUtil.player().getInventory().checkNumberOfItem("Lab 1 Key") > 0) {
-					d.unlock(GameUtil.player().getInventory().getItem("Lab 1 Key"));
-					GameUtil.setMessage("You use the key you found to unlock the lab door door.");
+				if (d.isLocked() && GameUtil.player().getInventory().contains("Lab 1 Key")) {
+					d.unlock();
+					GameUtil.setMessage("You use the key you bought from the vending machine to unlock the lab door door.");
 				} else if (d.isLocked()) {
 					GameUtil.setMessage("The door to Lab 1 is locked. You need the key to open the room.");
 				} else {
@@ -173,7 +173,7 @@ public class MainDBehaviours {
 				r.setBehaviour(vendingMachineBehaviour((ContainerObject)r));
 				continue;
 			}
-			if (r.name().equals("MainD to Lab")) {
+			if (r.name().equals("Main D To Lab 1")) {
 				r.setBehaviour(doorLab1Behaviour((DoorObject)r));
 				continue;
 			}

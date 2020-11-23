@@ -642,7 +642,7 @@ public class Setup {
 		
 		
 		//LabDoor
-		DoorObject d1 = new DoorObject("MainD to Lab");
+		DoorObject d1 = new DoorObject("Main D To Lab 1");
 		d1.setLeftSpritePath(mainDFolder + "left/layer0/Lab1Door.png");
 		d1.setBackSpritePath(mainDFolder + "back/layer0/Lab1Door.png");
 		d1.loadSprites();
@@ -651,7 +651,7 @@ public class Setup {
 		mainD.addDoorBack(d1);
 		d1.setLayerLeft(0);
 		d1.setLayerBack(0);
-		d1.lock(lab1Key);
+		d1.lock();
 		
 		//HallwayDoor
 		DoorObject d2 = new DoorObject("MainD to Hallway");
