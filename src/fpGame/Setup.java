@@ -955,7 +955,7 @@ public class Setup {
 			study4 = new Room("Study Room 4");
 		}
 		//add door
-		DoorObject doorOut = new DoorObject("Stud4_To_Annex");
+		DoorObject doorOut = new DoorObject("SR4 To Annex");
 		doorOut.setFrontSpritePath(study4folder + "front/layer0/door.png");
 		doorOut.loadSprites();
 		doorOut.setBehaviour(Study4Behaviours.doorOutBehaviour(doorOut));
@@ -963,7 +963,7 @@ public class Setup {
 		doorOut.setLayerFront(0);
 		
 		
-		//add dustbin-
+		//add dustbin
 		GenericObject db = new GenericObject("SR4 Dustbin");
 		db.setFrontSpritePath(study4folder + "Front/layer0/dustbin.png");
 		db.loadSprites();
