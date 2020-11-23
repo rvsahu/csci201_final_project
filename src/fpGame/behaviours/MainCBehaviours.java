@@ -202,7 +202,7 @@ public class MainCBehaviours {
 				String message = "\"I am so over this programming assignment.\n";
 				message += "I'm getting a bit hungry!\n";
 				message += "I will grab some of the coins I hid in the study rooms and grab some snacks.\n";
-				message += "Hope I can pass this class!\"";
+				message += "Hope I can pass this class!\"\n";
 				if (notebook.hasInfo()) {
 					message = "You read a message in the notebook:\n" + message;
 					message += "You make a note that there is some money in the study rooms.";

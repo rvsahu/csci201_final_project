@@ -24,8 +24,8 @@ public class MainDBehaviours {
 				
 		                
 				Inventory inv = GameUtil.player().getInventory();
-				if (inv.checkNumberOfItem("Lab 1 Key") > 0) {
-					if (inv.checkNumberOfItem("Chocolate") > 0) {
+				if (inv.contains("Lab 1 Key")) {
+					if (inv.contains("Chocolate")) {
 						GameUtil.setMessage("The vending machine is now empty.");
 					}
 					else {

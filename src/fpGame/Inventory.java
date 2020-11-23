@@ -53,12 +53,11 @@ public class Inventory {
 		return inventory.contains(item);
 	}
 	
-	public int checkNumberOfItem(String item) 
-	{
+	public int checkNumberOfItem(String itemName) {
 		int ret = 0;
 		for(int i = 0;i <inventory.size();i++) {
-			if(inventory.get(i).name() == item)
-				ret ++;
+			if(inventory.get(i).name().equals(itemName))
+				ret += 1;
 		}
 		return ret;
 	}
@@ -77,14 +76,6 @@ public class Inventory {
 			return null;
 		}
 		return inventory.get(index);
-	}
-	
-	public void removeNumberOfItem(String item, int r) {
-		int slotIndex = 0;
-		while(r > 0 && slotIndex < inventory.size()) {
-			if(inventory.get(slotIndex).name() == item) inventory.remove(slotIndex);
-			slotIndex++;
-		}
 	}
 	
 	public Item removeItem(int slotIndex) {

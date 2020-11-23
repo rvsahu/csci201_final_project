@@ -314,7 +314,7 @@ public class AnnexBehaviours {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
-				TextField text = new TextField("Enter the passcode to escape this room.");
+				TextField text = new TextField("Enter the passcode to access Study Room 4.");
 				//pane.setCenter(text);
 				text.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
 				
