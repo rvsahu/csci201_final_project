@@ -129,6 +129,7 @@ public class Lab1Behaviours {
 	public static EventHandler<MouseEvent> CSCI103Behaviour(GenericObject book) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
+				
 				BorderPane pane = new BorderPane();
 				Text text = new Text();
 				text.setText("This is my first year at USC and this is my first computer science course ever! \n"
@@ -217,10 +218,10 @@ public class Lab1Behaviours {
 			@Override public void handle(MouseEvent event) {
 				BorderPane pane = new BorderPane();
 				Text text = new Text();
-				text.setText("I suck at math and puzzles, so this class is super hard for me. \n"
-						+ "I wonder why I have to learn all these algorithms and graphs. \n"
-						+ " But it is kind of cool to learn how to count properly! 1, 2, 3, 4, 5! \n"
-						+ "Time to start studying advanced counting! \n");
+				text.setText("I suck at math and puzzles, so this class is super hard for me.\n"
+						+ "I wonder why I have to learn all these algorithms and graphs.\n"
+						+ "But it is kind of cool to learn how to count properly! 1, 2, 3, 4, 5!\n"
+						+ "Time to start studying advanced counting!\n");
 				text.setFill(Color.BLACK);
 				text.setFont(new Font(30));
 				text.setTextAlignment(TextAlignment.CENTER);

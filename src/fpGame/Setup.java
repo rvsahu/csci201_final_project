@@ -536,6 +536,8 @@ public class Setup {
 		d1.setBehaviour(MainCBehaviours.frontDoorBehaviour(d1));
 		mainC.addDoorLeft(d1);
 		mainC.addDoorFront(d1);
+		d1.setLayerLeft(0);
+		d1.setLayerFront(0);
 		
 		GenericObject couch = new GenericObject("Main C Couch");
 		couch.setRightSpritePath(mainCFolder + "right/layer0/blueCouch.png");
