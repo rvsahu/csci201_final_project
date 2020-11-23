@@ -1174,7 +1174,7 @@ public class Setup {
 
 		//B
 		
-		DoorObject d1 = new DoorObject("Lab 1 to MainD");
+		DoorObject d1 = new DoorObject("Lab 1 to Main D");
 		d1.setRightSpritePath(labFolder + "right/layer0/door.png");
 		d1.setFrontSpritePath(labFolder + "front/layer0/door.png");
 		d1.loadSprites();
@@ -1188,7 +1188,7 @@ public class Setup {
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
 		labCP.setBackSpritePath(labFolder + "back/layer0/CP_sleeping.png");
 		labCP.loadSprites();
-		labCP.setBehaviour(Lab1Behaviours.CPBehaviour(labCP));
+		labCP.setBehaviour(Lab1Behaviours.cpBehaviour(labCP));
 		lab.addInfoBack(labCP);
 		labCP.setLayerBack(0);
 		
@@ -1240,7 +1240,7 @@ public class Setup {
 		shelf103.setLayerBack(0);
 		
 		
-		GenericObject book103 = new GenericObject("104 Book");
+		GenericObject book103 = new GenericObject("103 Book");
 		book103.setRightSpritePath(labFolder + "right/layer0/103book.png");
 		book103.loadSprites();
 		lab.addGenericRight(book103);
@@ -1267,12 +1267,6 @@ public class Setup {
 		lab.addGenericRight(book201);
 		book201.setLayerRight(0);
 		book201.setBehaviour(Lab1Behaviours.CSCI201Behaviour(book201));
-		
-		//labCP.
-		//Lab1.addToLeft(cp);
-		InfoObject computer1 = new InfoObject("Lab 1 Computer");
-		lab.addInfoLeft(computer1); //new 
-		
 		
 		return lab;
 	}

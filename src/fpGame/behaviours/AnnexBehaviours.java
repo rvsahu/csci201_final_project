@@ -164,22 +164,11 @@ public class AnnexBehaviours {
 				button.setOnAction(e-> {
 					handleSubmission(gotPasscode, text, output, pane);
 				});
-				//button.setTranslateY(100);
-				//pane.setCenter(button);
 				
 				VBox box = new VBox(10);
 				box.getChildren().addAll(text, button);
 				box.setAlignment(Pos.CENTER);
 				pane.setCenter(box);
-				
-				/*
-				if (GameUtil.needsScaling()) { 
-					backIMG = new Image(new FileInputStream(layerPaths[layer]), GameUtil.WINDOW_X * GameUtil.scalingFactor(),
-							            GameUtil.WINDOW_Y * GameUtil.scalingFactor(), true, true);
-				} else {
-					backIMG = new Image(new FileInputStream(layerPaths[layer]));
-				}
-				*/
 				
 				EventHandler<MouseEvent> exitBehaviour = new EventHandler<MouseEvent>() 
 				{

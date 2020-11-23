@@ -12,8 +12,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 
 //intraproject imports
 import fpGame.GameUtil;
@@ -45,7 +43,7 @@ public class Lab1Behaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cp) {
+	public static EventHandler<MouseEvent> cpBehaviour(InfoObject cp) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				//if the cp is sleeping, check if can wake the cp up
@@ -299,7 +297,30 @@ public class Lab1Behaviours {
 	
 	public static void addBehaviours(List<RoomObject> objects) {
 		for (RoomObject r : objects) {
-			
+			if (r.name().equals("Lab 1 to Main D")) {
+				r.setBehaviour(doorMainDBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Lab 1 CP")) {
+				r.setBehaviour(cpBehaviour((InfoObject)r));
+				continue;
+			}
+			if (r.name().equals("103 Book")) {
+				r.setBehaviour(CSCI103Behaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("104 Book")) {
+				r.setBehaviour(CSCI104Behaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("170 Book")) {
+				r.setBehaviour(CSCI170Behaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("201 Book")) {
+				r.setBehaviour(CSCI201Behaviour((GenericObject)r));
+				continue;
+			}			
 		}
 	}
 }
