@@ -1147,7 +1147,7 @@ public class Setup {
 			//this will never happen, but added some code here to get compiler to stop complaining
 			System.err.println("Error creating lab1!");
 			e.printStackTrace();
-			lab = new Room("Lab1");
+			lab = new Room("Lab 1");
 		}
 		
 		String frontPaths[] = {labFolder + "front/layer0/lab1_front_0.png"};	
