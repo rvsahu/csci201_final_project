@@ -1,12 +1,16 @@
 package fpGame.behaviours;
 
 import fpGame.GameUtil;
+import fpModel.RoomObject;
 import fpModel.DoorObject;
 import fpModel.GenericObject;
 
+//javafx imports
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
+//java imports
+import java.util.List;
 
 public class MainBBehaviours {
 	public static EventHandler<MouseEvent> dustbinBehaviour(GenericObject dustbin) {
@@ -56,7 +60,7 @@ public class MainBBehaviours {
 	}
 	
 	
-	public static EventHandler<MouseEvent> chairBehavior(GenericObject chair) {
+	public static EventHandler<MouseEvent> chairBehaviour(GenericObject chair) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("The chair is empty");
@@ -94,6 +98,35 @@ public class MainBBehaviours {
 			}
 		};
 		return behaviour;
+	}
+	
+	public static void addBehaviours(List<RoomObject> objects) {
+		for (RoomObject r : objects) {
+			if (r.name().equals("Main B to Main A")) {
+				r.setBehaviour(arrowABehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main B to Main C")) {
+				r.setBehaviour(arrowCBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main B Blue Couch")) {
+				r.setBehaviour(couchBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Main B Green Couch")) {
+				r.setBehaviour(couchBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Main B Table")) {
+				r.setBehaviour(tableBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Main B Chair")) {
+				r.setBehaviour(chairBehaviour((GenericObject)r));
+				continue;
+			}
+		}
 	}
 }
 

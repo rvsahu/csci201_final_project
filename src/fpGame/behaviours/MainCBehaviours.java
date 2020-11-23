@@ -87,7 +87,7 @@ public class MainCBehaviours {
 		return behaviour;
 	}
 	
-	public static EventHandler<MouseEvent> couchBehavior(GenericObject couch) {
+	public static EventHandler<MouseEvent> couchBehaviour(GenericObject couch) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {
 				GameUtil.setMessage("You searched the couch but found nothing.");
@@ -217,9 +217,44 @@ public class MainCBehaviours {
 	}
 	
 	public static void addBehaviours(List<RoomObject> objects) {
+		//object pairs
+		DoorObject frontDoor = null;
+		GenericObject phone = null;
 		
 		for (RoomObject r : objects) {
-			
+			if (r.name().equals("Main C to Main B")) {
+				r.setBehaviour(arrowBBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main C to Main D")) {
+				r.setBehaviour(arrowDBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main C Front Door")) {
+				if (phone != null) {
+					phone.setBehaviour(phoneBehaviour((DoorObject)r));
+				} else {
+					frontDoor = (DoorObject)r;
+				}
+				r.setBehaviour(frontDoorBehaviour((DoorObject)r));
+				continue;
+			}
+			if (r.name().equals("Main C Phone")) {
+				if (frontDoor != null) {
+					r.setBehaviour(phoneBehaviour((DoorObject)frontDoor));
+				} else {
+					phone = (GenericObject)r;
+				}
+				continue;
+			}
+			if (r.name().equals("Main C Couch")) {
+				r.setBehaviour(couchBehaviour((GenericObject)r));
+				continue;
+			}
+			if (r.name().equals("Main C Notebook")) {
+				r.setBehaviour(notebookBehaviour((InfoObject)r));
+				continue;
+			}
 		}
 	}
 }

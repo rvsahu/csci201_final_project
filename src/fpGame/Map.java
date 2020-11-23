@@ -473,6 +473,24 @@ public class Map {
 			e.printStackTrace();
 		}
 		try {
+			MainABehaviours.addBehaviours(mainA.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to mainA objects!");
+			e.printStackTrace();
+		}
+		try {
+			MainBBehaviours.addBehaviours(mainB.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to mainB objects!");
+			e.printStackTrace();
+		}
+		try {
+			MainCBehaviours.addBehaviours(mainC.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to mainC objects!");
+			e.printStackTrace();
+		}
+		try {
 			MainDBehaviours.addBehaviours(mainD.getAllContents());
 		} catch (Exception e) {
 			System.err.println("Error reassigning behaviours to mainD objects!");
@@ -506,6 +524,12 @@ public class Map {
 			CoveBehaviours.addBehaviours(cove.getAllContents());
 		} catch (Exception e) {
 			System.err.println("Error reassigning behaviours to cove objects!");
+			e.printStackTrace();
+		}
+		try {
+			Lab1Behaviours.addBehaviours(lab1.getAllContents());
+		} catch (Exception e) {
+			System.err.println("Error reassigning behaviours to lab1 objects!");
 			e.printStackTrace();
 		}
 	}

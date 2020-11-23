@@ -369,7 +369,7 @@ public class Setup {
 		keyWrapper.setLayerBack(0);
 		keyWrapper.setLayerLeft(0);
 		
-		ContainerObject vendingMachine = new ContainerObject("Vending Machine");
+		ContainerObject vendingMachine = new ContainerObject("Main A Vending Machine");
 		vendingMachine.setBackSpritePath(mainAFolder + "back/layer0/vending.png");
 		vendingMachine.setLeftSpritePath(mainAFolder + "left/layer0/vending.png");
 		vendingMachine.loadSprites();
@@ -433,9 +433,7 @@ public class Setup {
 		mainCArrow.setLayerRight(0);
 		mainCArrow.setLayerBack(0);
 		mainCArrow.setLayerLeft(0);
-		
-		//GenericObject chair = new GenericObject("Main B Chair");
-		
+				
 		GenericObject blueCouch = new GenericObject("Main B Blue Couch");
 		blueCouch.setFrontSpritePath(mainBFolder + "front/layer0/couch.png");
 		blueCouch.setRightSpritePath(mainBFolder + "right/layer0/couch.png");
@@ -471,7 +469,7 @@ public class Setup {
 		chair.setRightSpritePath(mainBFolder + "right/layer0/chair.png");
 		chair.setBackSpritePath(mainBFolder + "back/layer0/chair.png");
 		chair.loadSprites();
-		chair.setBehaviour(MainBBehaviours.chairBehavior(chair));
+		chair.setBehaviour(MainBBehaviours.chairBehaviour(chair));
 		mainB.addGenericBack(chair);
 		mainB.addGenericFront(chair);
 		mainB.addGenericRight(chair);
@@ -530,7 +528,7 @@ public class Setup {
 		mainDArrow.setLayerBack(0);
 		mainDArrow.setLayerLeft(0);
 		
-		DoorObject d1 = new DoorObject("MainC to Front Door");
+		DoorObject d1 = new DoorObject("Main C Front Door");
 		d1.setLeftSpritePath(mainCFolder + "left/layer0/frontDoor.png");
 		d1.setFrontSpritePath(mainCFolder + "front/layer0/FrontDoor.png");
 		d1.loadSprites();
@@ -546,7 +544,13 @@ public class Setup {
 		couch.setBackSpritePath(mainCFolder + "back/layer0/blueCouch.png"); 
 		couch.setLeftSpritePath(mainCFolder + "left/layer0/blueCouch.png");
 		couch.loadSprites();
-		couch.setBehaviour(MainCBehaviours.couchBehavior(couch));
+		couch.setBehaviour(MainCBehaviours.couchBehaviour(couch));
+		mainC.addGenericRight(couch);
+		mainC.addGenericBack(couch);
+		mainC.addGenericLeft(couch);
+		couch.setLayerRight(0);
+		couch.setLayerBack(0);
+		couch.setLayerLeft(0);
 		
 		InfoObject notebook = new InfoObject("Main C Notebook", "There is change hidden in the study rooms.");
 		notebook.setRightSpritePath(mainCFolder + "right/layer0/notebook.png");
