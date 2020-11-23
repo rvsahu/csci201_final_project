@@ -248,7 +248,7 @@ public class Setup {
 		annex.addDoorFront(annexToStudy1);
 		annexToStudy1.setLayerRight(0);
 		annexToStudy1.setLayerFront(0);
-		annexToStudy1.lock("SR1 Key");
+		annexToStudy1.lock();
 		
 		//Door to study room 2
 		DoorObject annexToStudy2 = new DoorObject("Annex To Study Room 2");

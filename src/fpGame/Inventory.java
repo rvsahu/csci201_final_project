@@ -40,6 +40,19 @@ public class Inventory {
 		return false;
 	}
 	
+	public boolean contains(String itemName) {
+		for (Item i : inventory) {
+			if (i.name().equals(itemName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean contains(Item item) {
+		return inventory.contains(item);
+	}
+	
 	public int checkNumberOfItem(String item) 
 	{
 		int ret = 0;

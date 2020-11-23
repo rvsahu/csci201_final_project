@@ -24,7 +24,9 @@ public class DoorObject extends RoomObject {
 	 * Unlocks the door if it is locked. Does nothing if it is already open.
 	 */
 	public void unlock() {
-		isLocked = false;
+		if (mKey == null || mKey.equals("")) {
+			isLocked = false;
+		}
 	}
 	
 	/**
@@ -70,17 +72,14 @@ public class DoorObject extends RoomObject {
 	
 
 	@Override public boolean wrapsItem() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override public boolean hasItems() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override public boolean hasInfo() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

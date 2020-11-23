@@ -139,21 +139,23 @@ public class Study1Behaviours {
 				continue;
 			}
 			if (r.name().equals("SR1 Light Switch")) {
-				if (hiddenMessage != null) {
-					lightSwitch.setBehaviour(lightSwitchBehaviour(hiddenMessage));
-				} else {
+				if (hiddenMessage == null) {
 					lightSwitch = (GenericObject)r;
+					continue;
 				}
+				r.setBehaviour(lightSwitchBehaviour(hiddenMessage));
 				continue;
 			}
 			if (r.name().equals("SR1 Hidden Message")) {
-				if (lightSwitch != null) {
+				if (lightSwitch == null) {
+					hiddenMessage = (InfoObject)r;
+				} else {
 					lightSwitch.setBehaviour(lightSwitchBehaviour((InfoObject)r));
-				} 
-				hiddenMessage = (InfoObject)r;
-				hiddenMessage.setBehaviour(messageBehaviour(hiddenMessage));
+				}
+				r.setBehaviour(messageBehaviour((InfoObject)r));
 				continue;
 			}
+			
 		}
 	}
 }
