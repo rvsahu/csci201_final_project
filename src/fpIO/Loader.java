@@ -31,7 +31,11 @@ public class Loader {
 		map.reassignAllBehaviours();
 		
 		Player player = state.getPlayerSave();
-		player.setCurrentRoom(map.getRoom(player.getCRName()));
+		if (player.getCRName() == null) {
+			player.setCurrentRoom(map.annex);
+		} else {
+			player.setCurrentRoom(map.getRoom(player.getCRName()));
+		}
 		player.setCurrentPerspective(player.getCVIndex());
 		
 		GameUtil.setPlayer(player);
