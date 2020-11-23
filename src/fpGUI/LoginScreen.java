@@ -1,9 +1,5 @@
 package fpGUI;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import fpIO.USCGameClient;
 import fpIO.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,13 +8,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
-import java.util.HashMap;
 import javafx.scene.text.Font;
 
 
@@ -29,15 +21,6 @@ import fpIO.AutoSaver;
 public class LoginScreen {
 
 	public static void show(Stage stage, AutoSaver autoSaver) {
-		//TODO finish this
-		
-		/*
-		 * DIMENSIONS 1920x1080
-		 */
-		
-		
-		String username = ""; //stuff
-		
 		Text error = new Text();
 		error.setFill(Color.YELLOW);
        

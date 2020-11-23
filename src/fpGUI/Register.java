@@ -1,10 +1,8 @@
 package fpGUI;
 
-import java.util.HashMap;
 
 import fpGame.GameUtil;
 import fpIO.AutoSaver;
-import fpIO.USCGameClient;
 import fpIO.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -39,9 +37,7 @@ public class Register {
         TextField txtf1 = new TextField();
         TextField txtf2 = new TextField();
         TextField txtf3 = new TextField();
-        
-        //TODO add confirm password field
-                
+                        
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/6);
         txt1.setTranslateX((GameUtil.WINDOW_X* -GameUtil.scalingFactor())*3/40 -50);
         txt1.setFont(new Font(20));

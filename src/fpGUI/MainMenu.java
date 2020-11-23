@@ -12,9 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import fpGame.GameUtil;
 import fpGame.Player;
-import fpGame.Map;
 import fpGame.Setup;
 import fpIO.AutoSaver;
 import fpIO.Loader;

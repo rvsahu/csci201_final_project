@@ -257,9 +257,9 @@ public class GameUtil {
 		clearMessage();
 		//get a pane with room rendered
 		BorderPane pane = player.currentRoom().generatePane(stage);
-		//TODO add UI elements (inven, save, change perspective arrows, etc)
-		pane.setTop(message);
 		
+		//generate gui elements on top of room scene
+		pane.setTop(message);
 		//inventory button
 		ImageView inventoryButton = null;
 		try {
@@ -300,8 +300,6 @@ public class GameUtil {
 		} catch (Exception e) {
 			System.err.println("Error loading logbook button!");
 		}
-		
-		
 		//rotate left button
 		ImageView leftButton = null;
 		try {
@@ -344,29 +342,6 @@ public class GameUtil {
 		} catch (Exception e) {
 			System.err.println("Error loading right arrow button!");
 		}
-		
-		/*
-		ImageView arrows = null;
-		try {
-			Image arrws; 
-			if (needsScaling) {
-				arrws = new Image(new FileInputStream("./graphics/game_graphics/gui/morearrows.png"), WINDOW_X * scalingFactor, 
-					  	           WINDOW_Y * scalingFactor, true, true);
-			} else {
-				arrws = new Image(new FileInputStream("./graphics/game_graphics/gui/morearrows.png"));
-			}
-			arrows = new ImageView(arrws);
-			arrows.setOnMouseReleased(new EventHandler<MouseEvent>() {
-				@Override public void handle(MouseEvent event) {
-					player.turnRight();
-					displayPlayerView();
-				}
-			});
-			pane.getChildren().add(arrows);
-		} catch (Exception e) {
-			System.err.println("Error loading right arrow button!");
-		}
-		*/
 		
 		//create scene and scale the window if need be
 		Scene scene;
