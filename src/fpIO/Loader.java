@@ -2,6 +2,8 @@ package fpIO;
 
 //intraproject imports
 import fpGame.Player;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import fpGame.Map;
 import fpGame.GameUtil;
 
@@ -35,6 +37,8 @@ public class Loader {
 		GameUtil.setPlayer(player);
 		GameUtil.setMap(map);
 		GameUtil.stage().setTitle("USCape!");
+		GameUtil.message().setFill(Color.WHITE);
+		GameUtil.message().setFont(new Font(30));
 		GameUtil.displayPlayerView();
 	}
 }

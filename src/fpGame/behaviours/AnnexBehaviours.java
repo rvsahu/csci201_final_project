@@ -642,7 +642,7 @@ public class AnnexBehaviours {
 					projector = (GenericObject)r;
 					continue;
 				}
-				r.setBehaviour(projectorBehaviour((GenericObject)r));
+				r.setBehaviour(projectorBehaviour(projection));
 				continue;
 			}
 			if (r.name().equals("Annex Projection")) {

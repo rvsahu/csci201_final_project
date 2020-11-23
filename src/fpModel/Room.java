@@ -31,6 +31,7 @@ public class Room {
 		perspectives[2] = new Perspective(this, name + " Back", Perspective.Direction.BACK);
 		perspectives[3] = new Perspective(this, name + " Left", Perspective.Direction.LEFT);
 		currentPerspective = 0;
+		this.name = name;
 	}
 	
 	/**
@@ -73,7 +74,7 @@ public class Room {
 				currentPerspective = 3;
 				cdAssigned = true;
 			}
-		}		
+		}
 	}
 	
 	/*
@@ -437,7 +438,7 @@ public class Room {
 	 * @return     True if the perspective is in the room and false otherwise 
 	 */
 	public boolean setPerspective(Perspective perspective) {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null)
 				continue;
 			boolean isEqual = perspectives[i].equals(perspective);
@@ -467,7 +468,7 @@ public class Room {
 	 * Setup/deserialisation method. Gives each perspective a reference to this Room as their containing room.
 	 */
 	public void addContainingRooms() {
-		for (int i = 0; i < 4; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].setContainingRoom(this);
@@ -486,7 +487,7 @@ public class Room {
 	 * Deserialisation method, reloads all the sprites in every perspective.
 	 */
 	public void loadAllSprites() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].loadAllSprites();
@@ -497,7 +498,7 @@ public class Room {
 	 * Deserialisation method, rebuilds the contents list of every perspective.
 	 */
 	public void rebuildAllContentsLists() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].rebuildContentsList();
@@ -508,7 +509,7 @@ public class Room {
 	 * Deserialisation method, resets the direction of every perspective.
 	 */
 	public void resetAllDirections() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].resetDirection();
@@ -520,6 +521,12 @@ public class Room {
 	 * in favour of references to one single instance of that object.
 	 */
 	public void tossDuplicates() {
+		//up to 4 lists, in those four lists you have objects that can be exact duplicates
+		//you want to preserve the structure of the lists but consolidate the object duplicates
+		//such that all the references in the list that referenced distinct duplicates before
+		//now reference one single object, from different lists.
+		
+		
 		HashMap<String, RoomObject> seenBefore = new HashMap<String, RoomObject>();
 		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) {
@@ -533,8 +540,7 @@ public class Room {
 					//same name but different references
 					if (preferredVersion.equals(potentialDuplicate) && !(preferredVersion == potentialDuplicate)) {
 						int tbrIndex = pContents.indexOf(potentialDuplicate);
-						pContents.remove(tbrIndex);
-						pContents.add(tbrIndex, preferredVersion);
+						pContents.set(tbrIndex, preferredVersion);
 					}
 				} else {
 					RoomObject rObj = pContents.get(j);
@@ -719,8 +725,5 @@ public class Room {
 			return false;
 		}
 		return perspectives[3].findObject(objName) != null;
-	}
-	
-	
-	
+	}	
 }

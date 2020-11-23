@@ -79,77 +79,92 @@ public class Map {
 		try {
 			annex.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			mainA.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			mainB.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			mainC.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			mainD.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			study1.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			study2.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			study3.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			study4.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			cove.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			lab1.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway1.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway2.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			mensRoom.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 		try {
 			womensRoom.addContainingRooms();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with adding containing room reference!");
+			npe.printStackTrace();
 		}
 	}
 	
@@ -157,77 +172,92 @@ public class Map {
 		try {
 			annex.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			mainA.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			mainB.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			mainC.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			mainD.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			study1.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			study2.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			study3.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			study4.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			cove.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			lab1.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway1.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway2.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			mensRoom.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 		try {
 			womensRoom.resetAllDirections();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with resetting directions!");
+			npe.printStackTrace();
 		}
 	}
 	
@@ -235,77 +265,92 @@ public class Map {
 		try {
 			annex.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			mainA.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			mainB.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			mainC.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			mainD.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			study1.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			study2.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			study3.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			study4.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			cove.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			lab1.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway1.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway2.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			mensRoom.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 		try {
 			womensRoom.loadAllSprites();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with loading sprites!");
+			npe.printStackTrace();
 		}
 	}
 	
@@ -313,77 +358,92 @@ public class Map {
 		try {
 			annex.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			mainA.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			mainB.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			mainC.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			mainD.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			study1.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			study2.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			study3.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			study4.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			cove.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			lab1.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway1.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway2.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			mensRoom.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 		try {
 			womensRoom.rebuildAllContentsLists();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with rebuilding contents!");
+			npe.printStackTrace();
 		}
 	}
 	
@@ -391,77 +451,92 @@ public class Map {
 		try {
 			annex.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			mainA.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			mainB.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			mainC.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			mainD.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			study1.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			study2.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			study3.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			study4.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			cove.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			lab1.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway1.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			hallway2.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			mensRoom.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 		try {
 			womensRoom.tossDuplicates();
 		} catch (NullPointerException npe) {
-			//do nothing
+			System.err.println("Error with toss duplicates!");
+			npe.printStackTrace();
 		}
 	}
 

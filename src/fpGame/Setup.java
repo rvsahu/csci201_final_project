@@ -353,7 +353,7 @@ public class Setup {
 		mainDArrow.setLayerLeft(0);
 		
 		Item study1Key = new Item("SR1 Key");
-		WrapperObject keyWrapper = new WrapperObject("Study 1 Key", study1Key);
+		WrapperObject keyWrapper = new WrapperObject("SR1 Key", study1Key);
 		keyWrapper.setFrontSpritePath(mainAFolder + "front/layer0/key.png");
 		keyWrapper.setRightSpritePath(mainAFolder + "right/layer0/key.png");
 		keyWrapper.setBackSpritePath(mainAFolder + "back/layer0/key.png");
