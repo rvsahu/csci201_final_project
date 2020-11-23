@@ -24,6 +24,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import fpGame.GameUtil;
 import fpGame.Inventory;
 import fpModel.RoomObject;
+import fpModel.DoorObject;
 import fpModel.GenericObject;
 import fpModel.InfoObject;
 import fpModel.Perspective;
@@ -31,6 +32,24 @@ import fpModel.Room;
 
 
 public class Lab1Behaviours {
+	
+	public static EventHandler<MouseEvent> doorMainDBehaviour(DoorObject d) {
+		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
+			@Override public void handle(MouseEvent event) {
+				if (d.isLocked()) {
+					GameUtil.setMessage("The door to Main is locked. What?");
+				} else {
+					GameUtil.player().setCurrentRoom(GameUtil.map().mainD);
+					GameUtil.player().setCurrentPerspective(1);
+					GameUtil.displayPlayerView();
+				}
+				
+			}
+		};
+		
+		return behaviour;
+	}
+	
 	public static EventHandler<MouseEvent> CPBehaviour(InfoObject cp) {
 		EventHandler<MouseEvent> behaviour = new EventHandler<MouseEvent>() {
 			@Override public void handle(MouseEvent event) {

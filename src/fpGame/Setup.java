@@ -1170,9 +1170,11 @@ public class Setup {
 		d1.setRightSpritePath(labFolder + "right/layer0/door.png");
 		d1.setFrontSpritePath(labFolder + "front/layer0/door.png");
 		d1.loadSprites();
-		//d1.setBehaviour(behaviour);
+		d1.setBehaviour(Lab1Behaviours.doorMainDBehaviour(d1));
 		lab.addDoorRight(d1);
 		lab.addDoorFront(d1);
+		d1.setLayerFront(0);
+		d1.setLayerRight(0);
 		
 		//L
 		InfoObject labCP = new InfoObject("Lab 1 CP", "asleep");
@@ -1188,9 +1190,9 @@ public class Setup {
 		shelf102.setFrontSpritePath(labFolder + "front/layer0/102shelf.png");
 		shelf102.setRightSpritePath(labFolder + "right/layer0/102shelf.png");
 		shelf102.loadSprites();
+		
 		lab.addGenericRight(shelf102);
 		lab.addGenericFront(shelf102);
-		lab.addGenericBack(shelf102);
 		shelf102.setLayerRight(0);
 		shelf102.setLayerFront(0);
 		
@@ -1201,7 +1203,6 @@ public class Setup {
 		shelf103.loadSprites();
 		lab.addGenericRight(shelf103);
 		lab.addGenericFront(shelf103);
-		lab.addGenericBack(shelf103);
 		shelf103.setLayerRight(0);
 		shelf103.setLayerFront(0);
 		
@@ -1210,7 +1211,6 @@ public class Setup {
 		shelf170.setRightSpritePath(labFolder + "right/layer0/170shelf.png");
 		shelf170.loadSprites();
 		lab.addGenericRight(shelf170);
-		lab.addGenericBack(shelf170);
 		shelf170.setLayerRight(0);
 		
 		GenericObject shelf201 = new GenericObject("201 Shelf");
@@ -1218,11 +1218,15 @@ public class Setup {
 		shelf201.setRightSpritePath(labFolder + "right/layer0/201shelf.png");
 		shelf201.loadSprites();
 		lab.addGenericRight(shelf201);
-		lab.addGenericBack(shelf201);
 		shelf201.setLayerRight(0);
 		
 		
 		//back
+		lab.addGenericBack(shelf201);
+		lab.addGenericBack(shelf170);
+		lab.addGenericBack(shelf103);
+		lab.addGenericBack(shelf102);
+
 		shelf201.setLayerBack(0);
 		shelf170.setLayerBack(0);
 		shelf103.setLayerBack(0);
@@ -1234,25 +1238,28 @@ public class Setup {
 		book102.loadSprites();
 		lab.addGenericRight(book102);
 		book102.setLayerRight(0);
+		book102.setBehaviour(Lab1Behaviours.CSCI103Behaviour(book102));
 		
 		GenericObject book103 = new GenericObject("103 Book");
 		book103.setRightSpritePath(labFolder + "right/layer0/103book.png");
 		book103.loadSprites();
 		lab.addGenericRight(book103);
 		book103.setLayerRight(0);
+		book103.setBehaviour(Lab1Behaviours.CSCI104Behaviour(book103));
 		
 		GenericObject book170 = new GenericObject("170 Book");
 		book170.setRightSpritePath(labFolder + "right/layer0/170book.png");
 		book170.loadSprites();
 		lab.addGenericRight(book170);
 		book170.setLayerRight(0);
+		book170.setBehaviour(Lab1Behaviours.CSCI170Behaviour(book170));
 		
 		GenericObject book201 = new GenericObject("201 Book");
 		book201.setRightSpritePath(labFolder + "right/layer0/201book.png");
 		book201.loadSprites();
 		lab.addGenericRight(book201);
 		book201.setLayerRight(0);
-		
+		book201.setBehaviour(Lab1Behaviours.CSCI201Behaviour(book201));
 		
 		//labCP.
 		//Lab1.addToLeft(cp);
