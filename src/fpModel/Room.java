@@ -31,6 +31,7 @@ public class Room {
 		perspectives[2] = new Perspective(this, name + " Back", Perspective.Direction.BACK);
 		perspectives[3] = new Perspective(this, name + " Left", Perspective.Direction.LEFT);
 		currentPerspective = 0;
+		this.name = name;
 	}
 	
 	/**
