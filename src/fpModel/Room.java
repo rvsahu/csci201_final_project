@@ -74,7 +74,7 @@ public class Room {
 				currentPerspective = 3;
 				cdAssigned = true;
 			}
-		}		
+		}
 	}
 	
 	/*
@@ -438,7 +438,7 @@ public class Room {
 	 * @return     True if the perspective is in the room and false otherwise 
 	 */
 	public boolean setPerspective(Perspective perspective) {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null)
 				continue;
 			boolean isEqual = perspectives[i].equals(perspective);
@@ -468,7 +468,7 @@ public class Room {
 	 * Setup/deserialisation method. Gives each perspective a reference to this Room as their containing room.
 	 */
 	public void addContainingRooms() {
-		for (int i = 0; i < 4; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].setContainingRoom(this);
@@ -487,7 +487,7 @@ public class Room {
 	 * Deserialisation method, reloads all the sprites in every perspective.
 	 */
 	public void loadAllSprites() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].loadAllSprites();
@@ -498,7 +498,7 @@ public class Room {
 	 * Deserialisation method, rebuilds the contents list of every perspective.
 	 */
 	public void rebuildAllContentsLists() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].rebuildContentsList();
@@ -509,7 +509,7 @@ public class Room {
 	 * Deserialisation method, resets the direction of every perspective.
 	 */
 	public void resetAllDirections() {
-		for (int i = 0; i < 3; i += 1) {
+		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] == null) 
 				continue;
 			perspectives[i].resetDirection();
