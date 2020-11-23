@@ -31,7 +31,7 @@ public class MainMenu {
 		Text txt = new Text();
 		Text txt1 = new Text();
         txt.setText("Hello, " + name+"!");
-        txt1.setText("Welcome Back!");
+        txt1.setText("Welcome Back to USCape!");
         txt.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/5);
         txt1.setTranslateY((GameUtil.WINDOW_Y* GameUtil.scalingFactor())/4);
         txt1.setFont(new Font(20));
@@ -42,27 +42,27 @@ public class MainMenu {
         root.setStyle("-fx-background-color: #990000");
         
         Text error = new Text();
-		error.setFill(Color.RED);
+		error.setFill(Color.YELLOW);
         
         Button btn1 = new Button();
         btn1.setText("Resume Gameplay");
         btn1.setFont(new Font(15));
         btn1.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent event) {
-            	MainMenu.show(stage, "This would be Resume Game", autoSaver);
-            	//TODO check if a file can be loaded from user
             	//if so call below and also start AutoSaver thread
-            	if(true) {
             		autoSaver.run();
-            		Loader.load();
-            	} else {
-            		error.setText("Username not found!");
-        	        return;
-            	}
+            		try {
+            		    Loader.load(GUIRunner.token, GUIRunner.client);
+                    }
+            		catch (Exception ignored) {
+                    }
             	//if not display error message 
             }
         });
-        if(!GameUtil.isLoggedIn()) btn1.setVisible(false);
+        if(!GameUtil.isLoggedIn() || GameUtil.isRegistered()) {
+            btn1.setVisible(false);
+            txt1.setText("Welcome to USCape!");
+        }
         
         Button btn2 = new Button();
         btn2.setText("Start New Game");

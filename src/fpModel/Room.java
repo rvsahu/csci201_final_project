@@ -364,6 +364,9 @@ public class Room {
 		List<RoomObject> allObjs = new ArrayList<RoomObject>();
 		for (int i = 0; i < perspectives.length; i += 1) {
 			if (perspectives[i] != null) {
+				List<RoomObject> debug = perspectives[i].contents();
+				if (debug == null)
+					System.out.println(perspectives[i].name() + "whole list is null");
 				allObjs.addAll(perspectives[i].contents());
 			}
 		}

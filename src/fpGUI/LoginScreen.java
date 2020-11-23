@@ -3,6 +3,8 @@ package fpGUI;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import fpIO.USCGameClient;
+import fpIO.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -25,6 +27,7 @@ import fpIO.AutoSaver;
 
 
 public class LoginScreen {
+
 	public static void show(Stage stage, AutoSaver autoSaver) {
 		//TODO finish this
 		
@@ -36,7 +39,7 @@ public class LoginScreen {
 		String username = ""; //stuff
 		
 		Text error = new Text();
-		error.setFill(Color.RED);
+		error.setFill(Color.YELLOW);
        
 		Button btn1 = new Button();
         btn1.setText("Sign In"); 
@@ -91,9 +94,7 @@ public class LoginScreen {
         txtf2.setMaxWidth((GameUtil.WINDOW_X* GameUtil.scalingFactor()*2)/5);
         //txtf2.setMaxWidth(300);
         
-        HashMap<String,String> usermap = new HashMap<String,String>();
-        usermap.put("Mickey", "password1");
-        usermap.put("Hunter", "123123");
+
         
         
         
@@ -101,27 +102,47 @@ public class LoginScreen {
         	@Override public void handle(ActionEvent event) {
         		String userName = txtf1.getText();
         		String passWord = txtf2.getText();
+
         		
         		if(userName.equals("")) {
-        			error.setText("No Username!");
+        			error.setText("Please enter your password.");
         	        return;
         		}
         		if(passWord.equals("")) {
-        			error.setText("No Password!");
+        			error.setText("Please enter your username.");
         			return;
         		}
-        		String actualPassword = usermap.get(userName); 
-        		if(actualPassword == null) {
-        			error.setText("Username not found!");
-        	        return;
-        		}else if(actualPassword.equals(passWord)) {
+        		if (passWord.length() < 8 || passWord.length() > 32) {
+                    error.setText("Please enter your username.");
+
+        		}
+        		else {
+                    User user = new User(userName, passWord);
+        		    GUIRunner.token = GUIRunner.client.logIn(user);
+        		    autoSaver.updateToken(GUIRunner.token);
+        		    if (GUIRunner.token.length() < 5) {
+        		        error.setText("Error: token invalid");
+        		        return;
+                    }
+        		    else if (GUIRunner.token.startsWith("Error")) {
+                        error.setText(GUIRunner.token);
+                        return;
+                    }
+        		    else {
+                        GameUtil.login();
+                        MainMenu.show(stage, userName, autoSaver);
+                        System.out.println("Logged In!");
+                    }
+
+                }
+        		/*else if(actualPassword.equals(passWord)) {
         			GameUtil.login();
         			MainMenu.show(stage, userName, autoSaver);
             		System.out.println("Logged In!");
         		}else {
         			error.setText("Password is incorrect!");
         	        return;
-        		}
+        		}*/
         		
         		
         	}

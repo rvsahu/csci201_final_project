@@ -22,6 +22,7 @@ public class GameUtil {
 	public static final int WINDOW_X = 1920;
 	public static final int WINDOW_Y = 1080;
 
+	private static boolean registered;
 	/**
 	 * The multiplier by which all graphics and window size need to be multiplied by.
 	 */
@@ -102,7 +103,17 @@ public class GameUtil {
 	public static boolean isLoggedIn() {
 		return loggedIn;
 	}
-	
+	/**
+	 *
+	 * */
+	public static void registered() {
+		registered = true;
+	}
+
+	public static boolean isRegistered() {
+		return registered;
+	}
+
 	/**
 	 * Sets the state of the game to running.
 	 */

@@ -1,6 +1,7 @@
 package fpIO;
 
 //intraproject imports
+import com.google.gson.Gson;
 import fpGame.Player;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -8,17 +9,23 @@ import fpGame.Map;
 import fpGame.GameUtil;
 
 public class Loader {
-	public static void load() {
-		//TODO do stuff to get StatePackage from server
-		StatePackage state;
-		
-		//next three code lines are place holders so compiler doesn't complain to me while I'm coding.
-		//replace it later such that player and map are the Player and Map objects loaded from the server
-		Player pN = null; //TODO remove later
-		Map mN = null; //TODO remove later
-		state = new StatePackage(pN, mN); //TODO replace later
-		configureGame(state); //Rahul will write the configureGame method, just make sure StatePackage state is gotten from server from correct user
-		
+	public static void load(String token, USCGameClient client) {
+		User user = client.load(token);
+		if (user.getPlayerJson().equals("") || user.getMapJson().equals("")) {
+			System.out.println("received nothing");
+			return;
+		}
+		try {
+			Gson gson = new Gson();
+			Map map = gson.fromJson(user.getMapJson(), Map.class);
+			Player player = gson.fromJson(user.getPlayerJson(), Player.class);
+			if (user.getUsername().startsWith("Error")) throw new Exception(user.getUsername());
+			StatePackage state = new StatePackage(map, player);
+			configureGame(state);
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	private static void configureGame(StatePackage state) {		

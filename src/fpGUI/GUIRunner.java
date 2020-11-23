@@ -1,5 +1,6 @@
 package fpGUI;
 
+import fpIO.USCGameClient;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,13 +11,16 @@ import fpIO.Saver;
 
 public class GUIRunner extends Application {
 	private AutoSaver autoSaver;
+	public static USCGameClient client = new USCGameClient();
+	public static String token = "";
 	
     public static void GUImain(String[] args) {
         launch(args);
     }
     
     @Override public void start(Stage primaryStage) {
-    	autoSaver = new AutoSaver(180);
+    	autoSaver = new AutoSaver(180, token, client);
+
     	GameUtil.setScalingFactor();
     	GameUtil.setStage(primaryStage);
     	LoginScreen.show(primaryStage, autoSaver);
@@ -27,7 +31,7 @@ public class GUIRunner extends Application {
     	GameUtil.endGame();
     	if (GameUtil.isLoggedIn()) {
     		autoSaver.interrupt();
-    		Saver.save();
+    		Saver.save(token, client);
     	}
     	//call super class stop method
     	try {

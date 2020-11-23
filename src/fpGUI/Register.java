@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 import fpGame.GameUtil;
 import fpIO.AutoSaver;
+import fpIO.USCGameClient;
+import fpIO.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -20,7 +22,7 @@ public class Register {
 	public static void show(Stage stage, AutoSaver autoSaver) {
 		
 		Text error = new Text();
-		error.setFill(Color.RED);
+		error.setFill(Color.YELLOW);
        
 		Button btn1 = new Button();
         btn1.setText("Register"); 
@@ -76,12 +78,6 @@ public class Register {
         
         
         
-        HashMap<String,String> usermap = new HashMap<String,String>();
-        usermap.put("Mickey", "password1");
-        usermap.put("Hunter", "123123");
-        
-        
-        
         EventHandler<ActionEvent> b1 = new EventHandler<ActionEvent>() {
         	@Override public void handle(ActionEvent event) {
         		String userName = txtf1.getText();
@@ -89,19 +85,19 @@ public class Register {
         		String confirmPassword = txtf3.getText();
         		
         		if(userName.equals("")) {
-        			error.setText("No Username!");
+        			error.setText("Please enter your username");
         	        return;
         		}
+
         		if(passWord.equals("")) {
-        			error.setText("No Password!");
+        			error.setText("Please enter your password");
         			return;
         		}
-        		
-        		if(usermap.get(userName) != null) {
-        			error.setText("This Username is already taken.");
-        			return;
-        		}
-        		
+
+        		if (passWord.length() < 8 || passWord.length() > 32) {
+        		    error.setText("Your password must be between 8 and 32 characters in length");
+                }
+
         		if(!confirmPassword.equals(passWord)) {
         			error.setText("The Password does not match the Confirmed Password field.");
         			return;
@@ -110,10 +106,24 @@ public class Register {
         		
         		
         		
-        		usermap.put(userName, passWord);
-        		GameUtil.login();
-        		
-        		MainMenu.show(stage, userName, autoSaver); //pass autoSaver here
+
+                User user = new User(userName, passWord);
+                String token = GUIRunner.client.addUser(user);
+                if (token.length() > 5) {
+                    if (token.startsWith("Error")) {
+                        error.setText(token);
+                    }
+                    else {
+                        GUIRunner.token = token;
+                        autoSaver.updateToken(token);
+                        GameUtil.login();
+                        GameUtil.registered();
+
+                        MainMenu.show(stage, userName, autoSaver); //pass autoSaver here
+                    }
+                }
+
+
         	}
         };
         
